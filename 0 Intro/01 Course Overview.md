@@ -197,7 +197,7 @@ The purpose of lectures is to introduce and explain a topic. Most lectures are f
 
 ### Labs
 
-Labs represent the bulk of the course work. Read the lab description, plan out a solution, and implement your solution in a `.py` file. Please label your solutions very clearly (`lab01.py`, `lab02.py`) and split the different versions into different files (unless the advanced version is a direct extension of the last solution).
+Labs represent the bulk of the course work. Read the lab description, plan out a solution, and implement your solution in a `.py` file. Please label your solutions very clearly (`lab01.py`, `lab02.py`) and split the different versions into different files (unless the advanced version is a direct extension of the last solution). Please organize your lab solutions into folders named after the current unit (`python`, `js`).
 
 Lab solutions must perform the function described in the lab description. All solutions must be formatted, tested, and commented in order to be considered 'complete'.
 
@@ -211,7 +211,7 @@ Don't consider an assignment 'finished' until it's been thoroughly tested. Try m
 
 Once you've finished a lab, or a major portion of a lab, commit and push your work. Unless you have a good reason (building's on fire), only commit working code.
 
-**EDIT Jan 21st:** Labs have a soft due date of Friday the week they are assigned, unless otherwised noted by the instructor. They must be completed and turned in 14 days after they are first assigned.
+Labs have a soft due date of Friday the week they are assigned, unless otherwised noted by the instructor. They must be completed and turned in 14 days after they are first assigned. If labs are not finished by 14 days after they are first assigned, students will need to meet with the instructor to make an ction plan to get caught up. Failure to make up overdue work may result in academic probation.
 
 ### Pair, Group, & Mob Programming
 
@@ -246,24 +246,50 @@ For your capstone presentation, you should plan out what features of your projec
 - Week 9, 10, 11: JavaScript + Vue
 - Week 12, 13, 14: Capstone
 
+A more detailed course timeline with all assignments and due dates can be found in the `README.md`.
+
 ## Code of Conduct
 
 At PDX Code Guild we seek to create an environment conducive to personal and professional growth. Academic and personal integrity are central to creating such an environment.
+As a member of the PDX Code Community, I agree to the following code of conduct:
+- Respect the rights of all others. Foster a safe and comfortable social environment. Show respect for every member of our community, including members of partnering communities without regard to sex, age, race, color, ethnic origins, sexual orientation, economic status, gender expression, size, physical ability, learning styles, nationality, religion, or thought.
+- Any act of physical violence against anyone, the threat of physical violence against anyone, support of physical violence, or act of prejudice against any person or people on the basis of their membership to a particular group, regardless of their affiliation to PDX Code Guild, is grounds for immediate expulsion, regardless of whether the action or threat happened on school grounds, off school grounds, or on social media.
+- Conduct yourself in a professional manner at all times. Be on time to class. Show up to your meetings with Instructors that occur outside of class. Be professional in all your interactions with staff, students and other members of the PDX Code Guild community. Be aware that the instructors and staff are often asked to give references for students that include both behavior and skills.
+- Foster an environment that is conducive to learning. Help keep the school positive. Refrain from gossip and grumbling. If you have a worry, complaint, or concern, schedule a time to discuss it with your instructor. If talking with your instructor doesn’t relieve your concerns, schedule a meeting with the director.
+- Treat one another in a professional manner at all times. Harassment, intimidation, humiliation, gossiping, excluding or acts of bullying will not be tolerated and is grounds for immediate dismissal. If you witness such acts, report them immediately to a school official.
+- Refrain from disruptive behavior in the classroom, on the PDX Code Guild premises, and at any PDX Code Guild hosted event.
+- Engage in conduct appropriate for an educational and professional setting, refraining from behavior that may impede the learning process
+- Use the work of others only when appropriate, only use code that you understand, and give proper credit when other’s work is used. Do not paste code into your work not understanding how the code works or why it was written the way it was written. Do not represent other people’s work as your own.
+- Refrain from use of recreational drugs and alcohol during in person and remote classes. Refrain from use of alcohol except in moderation at events hosted at the PDX Code Guild premises outside of class time that serve alcohol. Written permission must be obtained from PDX Code Guild director before alcohol can be served at PDX Code Guild or any PDX Code Guild sponsored event.
+- No smoking, vaping or use of tobacco products on the PDX Code Guild premises.
+- Refrain from using offensive or abusive language.
+- Be honest and trustworthy.
+- Understand the code you wrote in the labs you turn in. Spend time daily outside of class reviewing what was covered in class the day before and the week before.
+- Demonstrate dignity and integrity in all aspects of involvement with PDX Code Guild, including participation in sponsored events, and situations in which we may be seen to represent PDX Code Guild. These activities and situations include, but are not limited to events hosted by PDX Code Guild, events in the greater technology community, conferences and meetings, and your interactions with our partners and with potential employers.
+- Be academically proactive. Falling behind inhibits the progress of the whole class. Be prudent about starting your labs early so that you have time to do thoughtful work on each of your labs. If you start to fall behind, or if you don’t understand something, let your instructor and your TA know right away. Do not go into “stealth mode” if you are struggling with bootcamp or any lesson, lab, or other parts of bootcamp.
 
-* Respect the rights of all others. Foster a safe and comfortable social environment. Show respect for every member of our community, including members of partnering communities without regard to sex, age, race, color, ethnic origins, sexual orientation, economic status, gender expression, size, physical ability, learning styles, nationality, religion, or thought.
-* Treat one another in a professional manner at all times. Harassment, intimidation, humiliation, excluding or acts of bullying will not be tolerated. If you witness such acts, report them immediately to a school official.
-* Refrain from disruptive behavior in the classroom, on the PDX Code Guild premises, and at any PDX Code Guild hosted event.
-* Engage in conduct appropriate for an educational and professional setting, refraining from behavior that may shock or disturb others.
-* Refrain from recreational drug use. Refrain from use of alcohol except in moderation at events hosted at the PDX Code Guild premises outside of class time that serve alcohol.
-* No smoking, vaping or use of tobacco products on the PDX Code Guild premises except for designated areas outside. Please dispose of cigarette butts and other tobacco products in the dumpster outside.
-* Refrain from using offensive or abusive language.
-* Be honest and trustworthy.
-* Keep the spaces you use nice for the next person. Clean and wipe up your desk area (and the floor around your desk). Remove dishes, food wrappers and crumbs. Clean up after yourself in all common areas. Wash any dishes you use.
-* Refrain from wearing any strong scents (i.e. strong perfumes) in class as some class members may have allergies or sensitivities to smells.
-* Maintain your dress, personal appearance and hygiene in a clean, tidy and work appropriate manner. Be courteous and take steps to minimize body odors.
-* Respect the personal property of others and the property of PDX Code Guild.
-* Use the work of others only when appropriate, and give proper credit when other’s work is used.
-* Demonstrate dignity and integrity in all aspects of involvement with PDX Code Guild, including participation in sponsored events, and situations in which we may be seen to represent PDX Code Guild. These activities and situations include, but are not limited to events hosted by PDX Code Guild, events in the greater technology community, conferences and meetings, and your interactions with our partners and with potential employers.
+#### For in-person students:
+- Follow all health and safety rules of the school. Not adhering to safety rules puts others at risk. Having to remind people to follow the rules would distract the instructors and disrupt the class.
+- If masks are required, wear a mask while inside the school at all times. This includes in the bathrooms. Wear your mask properly. Any Student who has to be reminded more than a time or two to wear a mask or wear a mask properly will be asked to move to an online class or expelled.
+- Refrain from pirating or downloading any unauthorized copyrighted materials or using torrents while on school grounds. Turn off all torrent applications while on Code Guild Premises. Any student caught violating this rule will be immediately expelled and will be responsible for any and all legal and other fees associated with repercussions from the violation.
+- Keep the spaces you use nice for the next person. Clean up after yourself in all common areas. Wash any dishes you use. Take turns unloading the dishwasher.
+- Refrain from wearing any strong scents (i.e. strong perfumes) in class as some class members may have allergies or sensitivities to smells.
+- Maintain your dress, personal appearance, and hygiene in a clean, tidy, and work-appropriate manner. Be courteous and take steps to minimize body odors.
+- Respect the personal property of others and the property of PDX Code Guild.
+
+#### Remote students:
+- While attending remotely, students must be present during class. Being present remotely is defined as:
+- Participating via video with your face showing during class time except for short breaks as you would normally have if you were in an in-person classroom.
+- Participating in class discussions.
+- Sharing your screen and code as directed by the instructor.
+- Participating in one-on-one breakout sessions with instructors and TA's.
+- Seeking help from instructors and TA's often and early.
+- Committing code to GitHub frequently while writing code during class. If a student fails to commit code at least once during a class period, that day will be counted as an unexcused absence.
+
+If at any time, PDX Code Guild becomes aware that a student may have broken the code of
+conduct, the school will conduct an investigation. PDX Code Guild reserves the right to determine if a
+student has broken the code of conduct and to act accordingly. Any decision made by the school in
+regard to a student’s conduct and the consequences are at the discretion of the school and are final
 
 ## Academic Honesty
 
