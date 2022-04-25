@@ -34,7 +34,7 @@ Try `ls` from there if you want to have a look around.
 Now you're ready to make your own branch.  But first, let's run `git status`:
 
 ### `git status`
-`git status` is a freebie, cda read-only command.  It does not edit or alter anything, it just gives you feedback on the current state of your branch.  Use it as many times as you want to have a good understanding of how git works:
+`git status` is a freebie, a read-only command.  It does not edit or alter anything, it just gives you feedback on the current state of your branch.  Use it as many times as you want to have a good understanding of how git works:
 
 ```sh
 > git status
