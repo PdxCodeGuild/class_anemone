@@ -18,7 +18,7 @@
 
 # print(round(x, 4)) # print(".3333")
 import math
-from pydoc import stripid
+
 """arithmetic ops: floor division, modulus, exponentiation""" 
 
 # x %= 25 # divides 30 by 5 and returns remainder (5)
