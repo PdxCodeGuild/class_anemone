@@ -28,7 +28,7 @@ def word_convert(numeric):
     }
     tens = {
         '0': '',
-        '1': teens.get(numeric[2], ''),
+        '1': '',
         '2': 'twenty',
         '3': 'thirty',
         '4': 'forty',
@@ -47,7 +47,7 @@ def word_convert(numeric):
     elif digits == 2 and value < 100:
         phrase = tens.get(numeric[0]) + ' ' + ones.get(numeric[1])
     elif digits == 3 and numeric[1] == '1':
-        phrase = ones.get(numeric[0]) + ' hundred ' + tens.get(numeric[1]) 
+        phrase = ones.get(numeric[0]) + ' hundred ' + teens.get(numeric[2]) 
     else:
         phrase = ones.get(numeric[0]) + ' hundred ' + tens.get(numeric[1]) + ' ' + ones.get(numeric[2])
 
