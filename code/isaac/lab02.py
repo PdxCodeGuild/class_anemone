@@ -1,5 +1,7 @@
 '''Average Numbers'''
 
+# VERSION 1
+
 nums = [5, 0, 8, 3, 4, 1, 6]
 
 # elements
@@ -18,14 +20,9 @@ for i in range(len(nums)):
 
 nums = []
 
-user_input = input("Enter a number or type 'done' to quit: ")
-user_input = int(user_input)
-
-while len(nums) < 10:
-    if user_input == 'done':
-        len(nums) / sum(nums)
+while True:
+    num = input("Enter a number or type 'done' to quit: ")
+    if num == 'done':
         break
-    else:
-        print(user_input)
-        nums.append(user_input)
-        print(nums)
+    nums.append(int(num))
+print("The average is: ", sum(nums) / len(nums))
