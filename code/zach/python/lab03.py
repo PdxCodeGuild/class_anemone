@@ -28,7 +28,7 @@ def word_convert(numeric):
     }
     tens = {
         '0': '',
-        # '1': teens.get(numeric[digits-1]),
+        '1': teens.get(numeric[2], ''),
         '2': 'twenty',
         '3': 'thirty',
         '4': 'forty',
@@ -38,19 +38,22 @@ def word_convert(numeric):
         '8': 'eighty',
         '9': 'ninety'
     }
-
+    # using string manipulation to switch the numeric value with its coresponding word
+    # 1-9: numeric[0] = ones, 10-99: numeric[0] = tens, 100-999: numeric[0] = hundreds
     if digits == 1:
         phrase = ones.get(numeric, 'Invalid Input')
     elif digits == 2 and value < 20:
         phrase = teens.get(numeric[1])
     elif digits == 2 and value < 100:
         phrase = tens.get(numeric[0]) + ' ' + ones.get(numeric[1])
-    else
+    elif digits == 3 and numeric[1] == '1':
+        phrase = ones.get(numeric[0]) + ' hundred ' + tens.get(numeric[1]) 
+    else:
+        phrase = ones.get(numeric[0]) + ' hundred ' + tens.get(numeric[1]) + ' ' + ones.get(numeric[2])
 
+    return print(f'=> { phrase } ')
 
-
-    return print(f'{ digits } { value } { phrase } ')
-
+# ToDo: Add functionality to convert to roman numerals
 def roman_convert(numeric):
     return print('roman_convert success')
 
@@ -61,7 +64,7 @@ def main():
     while run == 'y':
         user_number = input(str('Welcome, enter number to convert to phrase: '))
         word_convert(user_number)
-        run = input('would you like to continue? [y/n] =>')
+        run = input('\nTo continue enter "y" =>')
 
     return 
 
