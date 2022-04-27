@@ -14,7 +14,11 @@ x = int(input('Please enter a number between 1 and 999: '))
 # print(f'{x in range(0, 99)}')
 
 
-if x in range(0, 99):
+if x in range(11, 19):
+    teenref = num_to_text[x]
+    print(teenref)
+
+elif x in range(0, 99):
     tens = x // 10 * 10
     ones = x % 10
     tref = num_to_text[tens]
