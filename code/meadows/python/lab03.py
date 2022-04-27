@@ -9,11 +9,11 @@ roman_teens = {11:'XI', 12:'XII', 13:'XIII', 14:'XIV', 15:'XV',
 16:'XVI', 17:'XVII', 18:'XVIII', 19:'XIX'}
 roman_hundreds = {1:'C', 2:'CC', 3:'CCC', 4:'CD', 5:'D', 6:'DC',
  7:'DCC', 8:'DCCC', 9:'CM', 10:'M'}
-
+#Changed out my ealier 1:one with roman numerals
 
 yes = True
 while yes:
-    player = int(input('Enter a Number: '))
+    player = int(input('Enter a Number: '))             
     if player in range(1, 11):
         ones = player%10
         b_ones = roman_ones.get(ones)
@@ -35,7 +35,13 @@ while yes:
         tens = player%100//10
         a_tens = roman_tens.get(tens)
         print(f'{a_hundo}{b_ones}{a_tens}')
-    
+    # the above project was to take the players input and turn it into a roman numeral 
+    # ( was alphbetical). I created a range statement to find if it was with in roman_one.. 
+    # and so on. then I // the higher number to make them a single digit and the % to get
+    # the remainder so i could then have my variable .get() the key in the dict. after
+    # made a f' statement to remove the spaces the roman ( alphabetical, I didn't add hundreds
+    # hundreds dict, i instead divided by 100 to get a single number and used one dict and added 
+    # 'hundred' in the print statement)
     yeah = ['yes', 'y', 'yeh', 'sure', 'si']
     no = ['no','nah','nope', 'nay']
     again = str(input('check more? ( Yes or No ) : '))
@@ -44,6 +50,7 @@ while yes:
     else:
         print('BYE!')
         break
+    # loop created to check more numbers as romans ( or alphabetical in v3 not optional )
 
 
 
