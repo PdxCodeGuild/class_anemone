@@ -1,16 +1,16 @@
 '''Average Numbers'''
 
-# nums = [5, 0, 8, 3, 4, 1, 6]
+nums = [5, 0, 8, 3, 4, 1, 6]
 
 # elements
-# for num in nums:
-#     sum_nums = sum(nums)
-#     print(sum_nums, end=' ')
+for num in nums:
+    sum_nums = sum(nums)
+    print(sum_nums, end=' ')
 
 # indicies
-# for i in range(len(nums)):
-#     sum_nums = sum(nums) / len(nums)
-#     print(round(sum_nums), end=' ')
+for i in range(len(nums)):
+    sum_nums = sum(nums) / len(nums)
+    print(round(sum_nums), end=' ')
 
 # ------------------------------------------------- #
 
