@@ -35,15 +35,15 @@ elif input_unit == 'in' or input_unit == 'inch':
 if input_unit == output_unit:
     final_output = distance
 elif output_unit == 'ft' or output_unit == 'feet':
-    final_output = distance * 3.28084
+    final_output = output * 3.28084
 elif output_unit == 'mi' or output_unit == 'miles':
-    final_output = distance / mi
+    final_output = output / mi
 elif output_unit == 'km' or output_unit == 'kilometers':
-    final_output = distance / km
+    final_output = output / km
 elif output_unit == 'yd' or output_unit == 'yard':
-    final_output = distance * 1.094
+    final_output = output * 1.094
 elif output_unit == 'in' or output_unit == 'inch':
-    final_output = distance * 39.37
+    final_output = output * 39.37
 
 
 # print the conversion
