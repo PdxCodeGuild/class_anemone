@@ -55,7 +55,7 @@ dig_3rd = {
 # print(dig[1].values())
 import random # imported random to make testing easier
 orig = random.randint(0,999) # use this to text all the numbers I need to be able to convert from digits to phrase
-orig = 70 # would use this line occasionally to target 'difficult' numbers like 204, 70, and 400
+# orig = 70 # would use this line occasionally to target 'difficult' numbers like 204, 70, and 400
 print(orig)
 orig_a = list(str(orig))
 print(orig_a) # used this to split up number to return phrase part based on digit and placement of digit
