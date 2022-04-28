@@ -53,6 +53,12 @@
 #     print(f"Conversion: {measure} {user} = {x} meters\n==================")    
 # else: 
 #     print("error: program terminated")
+valid_ft = ['f', 'ft', 'fet', 'foot', 'feet']
+valid_in = ['i', 'in', 'inch', 'inches', 'inc']
+valid_yd = ['y', 'yd', 'ya', 'yar', 'yard', 'yards']
+valid_m = ['m', 'me', 'met', 'mete', 'meter', 'meters']
+valid_km = ['km', 'ki', 'kil', 'kilo', 'kilom', 'kilome', 'kilomete', 'kilometer', 'kilometers']
+valid_mi = ['mi', 'mil', 'mile', 'miles']
 
 # version 4
 while True:
@@ -68,136 +74,137 @@ List of conversion options:
     orig = input("what unit to convert from? ")
     end = input("What unit to convert to? ")
     dist = float(input("enter the distance to convert: "))
-    if "in" in orig or "inch" in orig or "inches" in orig:
+    if orig in valid_in:
         print(orig, "inch")
-        if "in" in end or "inch" in end or "inches" in end:
+        if end in valid_in:
             conv = (round(dist * 1, 3))
             print(f"{dist} {orig}es = {conv} {end}es")
-        elif "f" in end or "ft" in end or "feet" in end or "fet" in end or "foot" in end:
+        elif end in valid_ft:
             conv = (round(dist / 12, 3))
             print(f"{dist} {orig}es = {conv} {end}")
-        elif "y" in end or "yard" in end or "yd" in end:
+        elif end in valid_yd:
             conv = (round(dist / 36, 3))
             print(f"{dist} {orig}es = {conv} {end}s")
-        elif "me" in end or "meter" in end or "met" in end or "mete" in end:    
+        elif end in valid_m:    
             conv = (round(dist / 39.37, 3))
             print(f"{dist} {orig}es = {conv} {end}s")
-        elif "k" in end or "km" in end in "kilometer" in end or "kilo" in end or "kilom" in end:
+        elif end in valid_km:
             conv = (round(dist / 39370, 3))
             print(f"{dist} {orig}es = {conv} {end}")
-        elif "mi" in end or "mile" in end or "mil" in end:
+        elif end in valid_mi:
             conv = (round(dist / 63360, 3))
             print(f"{dist} {orig}es = {conv} {end}s")  
         else:
             print("error: program terminated")  
-    elif "f" in orig or "ft" in orig or "feet" or "f" in orig or "foot" in orig:
+    elif orig in valid_ft:
         print(orig, "feet")
-        if "in" in end or "inch" in end or "inches" in end:
+        if end in valid_in:
             conv = (round(dist * 12, 3))
             print(f"{dist} {orig} = {conv} {end}es")
             print(orig)
-        elif "f" in end or "ft" in end or "feet" in end or "fet" in end or "foot" in end:
+        elif end in valid_ft:
             conv = (round(dist * 1, 3))
             print(f"{dist} {orig} = {conv} {end}")
-        elif "y" in end or "yard" in end or "yd" in end:
+        elif end in valid_yd:
             conv = (round(dist / 3, 3))
             print(f"{dist} {orig} = {conv} {end}s")    
-        elif "me" in end or "meter" in end or "met" in end or "mete" in end:    
+        elif end in valid_m:    
             conv = (round(dist / 3.281, 3))
             print(f"{dist} {orig} = {conv} {end}s")
-        elif "k" in end or "km" in end in "kilometer" in end or "kilo" in end or "kilom" in end:
+        elif end in valid_km:
             conv = (round(dist / 3281, 3))
             print(f"{dist} {orig} = {conv} {end}")
-        elif "mi" in end or "mile" in end or "mil" in end:
+            print("end is in km")
+        elif end in valid_mi:
             conv = (round(dist / 5280, 3))
             print(f"{dist} {orig}es = {conv} {end}s")   
         else:
             print("error: program terminated")
-    elif "y" in orig or "yard" in orig or "yd" in orig:
+    elif orig in valid_yd:
         print(orig, "yard")
-        if "in" in end or "inch" in end or "inches" in end:
+        if end in valid_in:
             conv = (round(dist * 36, 3))
             print(f"{dist} {orig}s = {conv} {end}es")
             print(orig)
-        elif "f" in end or "ft" in end or "feet" in end or "fet" in end or "foot" in end:
+        elif end in valid_ft:
             conv = (round(dist * 3, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "y" in end or "yard" in end or "yd" in end:
+        elif end in valid_yd:
             conv = (round(dist * 1, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "me" in end or "meter" in end or "met" in end or "mete" in end:    
+        elif end in valid_m:    
             conv = (round(dist / 1.094, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "k" in end or "km" in end in "kilometer" in end or "kilo" in end or "kilom" in end:
+        elif end in valid_km:
             conv = (round(dist / 1094, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "mi" in end or "mile" in end or "mil" in end:
+        elif end in valid_mi:
             conv = (round(dist / 1760, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
         else:
             print("error: program terminated")
-    elif "m" in orig or "me" in orig or "meter" in orig or "met" in orig or "mete" in orig:
+    elif orig in valid_m:
         print(orig, "meter")
-        if "in" in end or "inch" in end or "inches" in end:
+        if end in valid_in:
             conv = (round(dist * 39.37, 3))
             print(f"{dist} {orig}s = {conv} {end}es")
-        elif "f" in end or "ft" in end or "feet" in end or "fet" in end or "foot" in end:
+        elif end in valid_ft:
             conv = (round(dist * 3.281, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "y" in end or "yard" in end or "yd" in end:
+        elif end in valid_yd:
             conv = (round(dist * 1.094, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "me" in end or "meter" in end or "met" in end or "mete" in end:    
+        elif end in valid_m:    
             conv = (round(dist / 1, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "k" in end or "km" in end in "kilometer" in end or "kilo" in end or "kilom" in end:
+        elif end in valid_km:
             conv = (round(dist / 1000, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "mi" in end or "mile" in end or "mil" in end:
+        elif end in valid_mi:
             conv = (round(dist / 1609, 2))
             print(f"{dist} {orig}s = {conv} {end}s") 
         else:
             print("error: program terminated")
-    elif "k" in orig or "km" in orig in "kilometer" in orig or "kilo" in orig or "kilom" in orig:
+    elif orig in valid_km:
         print(orig, "km")
-        if "in" in end or "inch" in end or "inches" in end:
+        if end in valid_in:
             conv = (round(dist * 39370, 3))
             print(f"{dist} {orig}s = {conv} {end}es")
-        elif "f" in end or "ft" in end or "feet" in end or "fet" in end or "foot" in end:
+        elif end in valid_ft:
             conv = (round(dist * 3281, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "y" in end or "yard" in end or "yd" in end:
+        elif end in valid_yd:
             conv = (round(dist * 1094, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "me" in end or "meter" in end or "met" in end or "mete" in end:    
+        elif end in valid_m:    
             conv = (round(dist / 1000, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "k" in end or "km" in end in "kilometer" in end or "kilo" in end or "kilom" in end:
+        elif end in valid_km:
             conv = (round(dist / 1, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "mi" in end or "mile" in end or "mil" in end:
+        elif end in valid_mi:
             conv = (round(dist / 1.609, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
         else:
             print("error: program terminated")
-    elif "mi" in orig or "mile" in orig or "mil" in orig:
+    elif orig in valid_mi:
         print(orig, "mile")
-        if "in" in end or "inch" in end or "inches" in end:
+        if end in valid_:
             conv = (round(dist * 63360, 3))
             print(f"{dist} {orig}s = {conv} {end}es")
-        elif "f" in end or "ft" in end or "feet" in end or "fet" in end or "foot" in end:
+        elif end in valid_in:
             conv = (round(dist * 5280, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "y" in end or "yard" in end or "yd" in end:
+        elif end in valid_yd:
             conv = (round(dist * 1760, 3))
             print(f"{dist} {orig}es = {conv} {end}s")
-        elif "me" in end or "meter" in end or "met" in end or "mete" in end:    
+        elif end in valid_m:    
             conv = (round(dist / 1609, 3))
             print(f"{dist} {orig}s = {conv} {end}s")
-        elif "k" in end or "km" in end in "kilometer" in end or "kilo" in end or "kilom" in end:
+        elif end in valid_km:
             conv = (round(dist / 1.609, 3))
             print(f"{dist} {orig}s = {conv} {end}")
-        elif "mi" in end or "mile" in end or "mil" in end:
+        elif end in valid_mi:
             conv = (round(dist / 1, 3))
             print(f"{dist} {orig}s = {conv} {end}s")  
         else:
