@@ -1,11 +1,16 @@
+import random
 from variables import *
 
-def deck_builder(suits_lis, cards_dic):
-    deck = {}
-    for suit in suits_lis:
-        for card in cards_dic:
-            deck[card+' '+suit] = cards_dic[card] 
+def deck_builder():
+    deck = []
+    deck_shuffled = {} 
+    for suit in suits:
+        for card in cards:
+            deck.append(card+' '+suit )
+    random.shuffle(deck)
 
-    print(deck)
+    for card in deck:
+        deck_shuffled[card] = cards_val[card[0]]
+    return deck
 
-deck_builder(suit_val, card_val)
+
