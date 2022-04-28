@@ -3,15 +3,12 @@ import random
 
 
 
-def card():
-    return
-
 def draw():
     yes = ['yes', 'yea', 'y', 'hit', 'deal']
     no = ['no', 'na', 'n', 'stay']
-    blackj_deck = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-    numblackj_deck = {'A':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'J':10, 'Q':10, 'K':10 } 
-    hand = []
+    blackj_deck = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'] # dict for letters
+    numblackj_deck = {'A':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'J':10, 'Q':10, 'K':10 } #dict for letter numbers
+    hand = [] # players current hand 
     total = []
     card = random.choice(blackj_deck)
     hand.append(card)
@@ -23,17 +20,13 @@ def draw():
     print(f'Your second card is a {card}')
     total.append(numblackj_deck[card]) 
 
-              
-    while sum(total) <= 21:
-        deal = input(f'You are at {sum(total)}. Would you like to hit or stay: ').lower()
-        if sum(total) == 21:
-            status = 'BLACKJACK!'
-            print(status)
-            return status
-        elif deal in no:
-            print(f'Staying at {sum(total)}')
-            status = 'Should have gone for broke'
-            return status
+     
+
+    while sum(total) < 21:
+        deal = input(f'{print(" " .join(hand))} You are at {sum(total)}. Would you like to hit or stay: ').lower()
+                  
+        if deal in no:
+            break
         elif deal in yes:
             card = random.choice(blackj_deck)
             hand.append(card)
@@ -44,7 +37,15 @@ def draw():
     
     if  sum(total) > 21:
         status = 'Busted'
-        print(status)
+        print(sum(total), status)
+        return status
+    elif sum(total) == 21:
+            status = 'BLACKJACK!'
+            print(sum(total), status)
+            return status
+    elif sum(total) < 21:
+        print(f'Staying at {sum(total)}')
+        status = 'Should have gone for broke'
         return status
         
 
@@ -63,6 +64,4 @@ def Lets_Play():
             status = draw()
             return status
 
-game = Lets_Play()
-
-print(game)
+Lets_Play()
