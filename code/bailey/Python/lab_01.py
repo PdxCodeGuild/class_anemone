@@ -33,18 +33,18 @@ elif input_unit == 'in' or input_unit == 'inch':
 # Convert from meters to output unit
 
 if input_unit == output_unit:
-    output = distance
+    final_output = distance
 elif output_unit == 'ft' or output_unit == 'feet':
-    output = distance * 3.28084
+    final_output = distance * 3.28084
 elif output_unit == 'mi' or output_unit == 'miles':
-    output = distance / mi
+    final_output = distance / mi
 elif output_unit == 'km' or output_unit == 'kilometers':
-    output = distance / km
+    final_output = distance / km
 elif output_unit == 'yd' or output_unit == 'yard':
-    output = distance * 1.094
+    final_output = distance * 1.094
 elif output_unit == 'in' or output_unit == 'inch':
-    output = distance * 39.37
+    final_output = distance * 39.37
 
 
 # print the conversion
-print(f"{distance} {input_unit} is {round(output, 5)} {output_unit}")  
+print(f"{distance} {input_unit} is {round(final_output, 5)} {output_unit}")  
