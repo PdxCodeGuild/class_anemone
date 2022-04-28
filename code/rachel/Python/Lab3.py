@@ -60,7 +60,7 @@ english_nums = {
 if len(str(num)) == 1:
     print (english_nums[ones_digit])            #prints english words for numbers 1 through 9
 
-elif num[0] == "1":
+elif num[0] == "1" and len(num) == 2:
     tens_digit = str(tens_digit) + str(ones_digit)  
     tens_digit = int(tens_digit)
     print (english_nums[tens_digit])            #prints english words for number 11 through 19
@@ -77,7 +77,7 @@ elif len(str(num)) == 3 and num[1] == "1":
     hundred_digit = int(str(hundred_digit) + "00")
     tens_digit = str(num[1]) + str(num[2])
     tens_digit = int(tens_digit)
-    print (english_nums[hundred_digit], " and " ,english_nums[tens_digit])
+    print (english_nums[hundred_digit], " and" ,english_nums[tens_digit])
 
 elif len(str(num)) == 3 and num[1] == "0" and num[2] == "0":
     hundred_digit = int(str(hundred_digit) + "00")
@@ -92,4 +92,7 @@ elif len(str(num)) == 3:
     hundred_tens_digit = int(num[1] + "0") #50
     ones_digit = int(num[2])
     print (english_nums[hundred_digit], english_nums[hundred_tens_digit] + "-" + english_nums[ones_digit])
+
+else:
+    print ("Invalid entry. Must enter a number between 1 and 999")
     
