@@ -19,14 +19,14 @@
 # eaten = fruits.pop(1)
 # print(fruits, eaten)
 
-# """copy list to another list"""
+"""copy list to another list"""
 # fruits1 = ['apples', 'bananas', 'pears']
 # fruits2 = ['cherries', 'pineapples']
 
 # fruits1.extend(fruits2) 
 # print(fruits1)
 
-# """copy method to copy list"""
+"""copy method to copy list"""
 # fruits1 = ['apples', 'bananas', 'pears']
 # fruits2 = fruits1.copy()
 
