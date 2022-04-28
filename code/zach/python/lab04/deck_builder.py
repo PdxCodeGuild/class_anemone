@@ -6,7 +6,7 @@ def deck_builder():
     deck_shuffled = {} 
     for suit in suits:
         for card in cards:
-            deck.append(card+suit )
+            deck.append(card+' '+suit )
     random.shuffle(deck)
 
     for card in deck:
