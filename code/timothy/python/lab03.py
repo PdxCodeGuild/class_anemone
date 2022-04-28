@@ -24,6 +24,8 @@ num_pairs1 = {0:' ', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six', 7
 200:'two hundred', 300:'three hundred', 400:'four hundred', 500:'five hundred', 600:'six hundred', 700:'seven hundred',
 800:'eight hundred', 900:'nine hundred'}
 
+pesky_teens = {}
+
 if num >= 0 and num <= 20:
     print(num_pairs1[num])
 elif num > 20 and num < 100:
@@ -34,3 +36,4 @@ elif num >= 100 and num <= 999:
     # print(hundreds_digit)
 
     print(num_pairs1[hundreds_digit * 100] + ' ' + num_pairs1[tens_digit * 10] + ' ' + num_pairs1[ones_digit])
+# 100-teens not yet working, perhaps create specific dictionary for teens (yolo, swag, etc.)
