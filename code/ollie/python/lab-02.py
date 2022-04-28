@@ -10,5 +10,13 @@
 ' Version 2 '
 
 nums = []
-nums.append("Enter a number or 'done': ")
-print(nums)
+sum = 0
+while True:
+    num = input("Enter a number or 'done': ")
+    if num == 'done':
+        break
+    nums.append(int(num))
+for num in nums:
+    sum = sum + num
+average = sum/len(nums)
+print(f"Your average is: {average}")
