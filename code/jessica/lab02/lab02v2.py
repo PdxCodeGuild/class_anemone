@@ -2,16 +2,14 @@
 nums = []
 
 while True: #infinite loop (requiring break to end the loop)
-    numbers = int(input("Enter a number or 0 to quit: "))
-    nums.append(numbers)
-    print(nums) 
-    print(len(nums))
+    numbers = input("Enter a number or done to quit: ")
     
-
-    if numbers == 0:
+    print(nums) 
+    if numbers == 'done':
         for num in nums:
             avg = sum(nums) / len(nums)
         break # end the loop
+    nums.append(int(numbers)) ##put at the end of the if statement because if kept throwing a str not a base ten error
     
     
 
