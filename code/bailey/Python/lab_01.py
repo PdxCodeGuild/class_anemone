@@ -7,8 +7,8 @@ Baiely Baker
 ft = 0.3048
 mi = 1609.34
 m = 1
-km = 1000,
-yd = 0.9144,
+km = 1000
+yd = 0.9144
 inch = 0.0254
 
 # Get inputs from user
