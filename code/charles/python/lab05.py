@@ -30,7 +30,7 @@ def winnings(counter):  # takes the input of the matching number to give winning
 def compare(list1, list2):  # compares two inputted list and modifys counter if list are equal.
     counter = 0
     i = 0
-    while i < 5: 
+    while i < 6:                # small fix 5 to 6 to compare full list
         u = list1[i] - list2[i]
         if u == 0:
             counter += 1
