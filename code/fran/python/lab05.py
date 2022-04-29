@@ -109,13 +109,11 @@ while i < 100000:
     payout_amount = get_payout(matches)
     #print(f"payout_amount: {payout_amount}")   ### TEST
 
-    ### TEST ###
     if payout_amount > 0:
         total_winning_payout += payout_amount
-        total_num_wins += 1
+        #total_num_wins += 1   ### TEST
         
-        print(f"payout_amount: {payout_amount}")
-    ### END TEST ###
+        # print(f"payout_amount: {payout_amount}")  ### TEST
 
     # add winnings payout to balance
     balance += payout_amount
@@ -124,8 +122,21 @@ while i < 100000:
     # increment loop counter
     i += 1
 
+# Calculate ROI (return on investment)
+# Note: total expenses = 100,000 tickets * $2 per ticket = 200,000
+#   Because number of tickets is hard-coded, I'm hard-coding the total expenses
+roi = (total_winning_payout - 200000)/200000
+
+# format final balance and total winning payout
+balance = "${:,}".format(balance)
+total_winning_payout = "${:,}".format(total_winning_payout)
+
 
 # Print the final balance
+print(' ')
 print(f"Final balance: {balance}")
-print(f"total winning payout: {total_winning_payout}")  ### TEST
-print(f"total number of wins: {total_num_wins}")   ### TEST
+print(f"Total earnings: {total_winning_payout}")
+print("Total expenses: $200,000")
+print(f"ROI: {roi}")
+#print(f"total number of wins: {total_num_wins}")   ### TEST
+print(' ')
