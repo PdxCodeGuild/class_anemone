@@ -17,6 +17,7 @@ def pick6():
         i += 1
     return nums
 
+
 # Define num_matches function, which determines the number of matches
 #   between the winning numbers and a lottery ticket
 def num_matches(lottery_ticket, winning_ticket):
@@ -35,26 +36,49 @@ def num_matches(lottery_ticket, winning_ticket):
 
     return matches
 
-# TEST num_matches()
+
+##### BEGIN TEST num_matches() #####
 #lottery_ticket = pick6()
 #winning_ticket = pick6()
 
-lottery_ticket = [1,2,3,4,5,6]
-winning_ticket = [5,99,2,3,5,76]
+# lottery_ticket = [1,2,3,4,5,6]
+# winning_ticket = [5,99,2,3,5,76]
 
-print(f"lottery ticket: {lottery_ticket}")
-print(f"winning_ticket: {winning_ticket}")
+# print(f"lottery ticket: {lottery_ticket}")
+# print(f"winning_ticket: {winning_ticket}")
 
-matches = num_matches(lottery_ticket, winning_ticket)
-print(f"matches: {matches}")
+# matches = num_matches(lottery_ticket, winning_ticket)
+# print(f"matches: {matches}")
 
-# END TEST num_matches()
+##### END TEST num_matches() #####
+
+# Define payout function. This function determines the lottery ticket holder's
+#   payout based on the number of matches to the winning ticket
+def get_payout(matches):
+
+    # Define payout dictionary
+    payout_scale = {
+        0: 0,
+        1: 4,
+        2: 7,
+        3: 100,
+        4: 50000,
+        5: 1000000,
+        6: 25000000
+    }
+
+    payout = payout_scale[matches]
+
+    return payout
+
 
 # Define and initialize balance variable
-#balance = 0
+balance = 0
 
 # Generate the winning ticket. This will be a list of numbers.
-#winning_ticket = pick6()
+winning_ticket = pick6()
+#print(f"winning_ticket: {winning_ticket}")  ### TEST 
+
 
 # Main loop. This loop will run 100,000 times. Each loop will do a number of things:
 #   Generate a lottery ticket and compare the winning numbers to the lottery ticket.
@@ -62,17 +86,46 @@ print(f"matches: {matches}")
 #   Find out how many numbers match
 #   Add to your balance the winnings from your matches
 
+total_winning_payout =  0   # test variable
+total_num_wins = 0   # test variable
+
 i = 0
 
 while i < 100000:
 
-    lottery_ticket = pick6()
+    # pay $2 for a ticket
+    balance -= 2  
+    #print(f"balance at beginning of this loop: {balance}")  ### TEST
+    
+    # get lottery ticket
+    lottery_ticket = pick6()  
+    #print(f"lottery ticket: {lottery_ticket}")  ### TEST
 
+    # find out if any numbers match
     matches = num_matches(lottery_ticket, winning_ticket)
+    #print(f"matches: {matches}")   ### TEST
 
+    # find out winning payout, if any, for this ticket
+    payout_amount = get_payout(matches)
+    #print(f"payout_amount: {payout_amount}")   ### TEST
 
+    ### TEST ###
+    if payout_amount > 0:
+        total_winning_payout += payout_amount
+        total_num_wins += 1
+        
+        print(f"payout_amount: {payout_amount}")
+    ### END TEST ###
 
+    # add winnings payout to balance
+    balance += payout_amount
+    #print(f"balance at end of this loop: {balance}")  ### TEST
+
+    # increment loop counter
+    i += 1
 
 
 # Print the final balance
-#print(f"Final balance: {balance}")
+print(f"Final balance: {balance}")
+print(f"total winning payout: {total_winning_payout}")  ### TEST
+print(f"total number of wins: {total_num_wins}")   ### TEST
