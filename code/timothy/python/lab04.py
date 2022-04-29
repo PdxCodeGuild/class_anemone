@@ -19,7 +19,7 @@
 
 # blackjack(first_card, second_card, third_card)
 
-# ....Lab 04 (self)-Version 2 w/ function within function. (COMPLETE)
+# ....Lab 04 (self) Version 2 w/ function within function. (COMPLETE)
 deck = {"A": 1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "J":10, "Q":10, "K":10}
 
 def blackjack(a, b, c):
