@@ -104,10 +104,4 @@ Frozen 2
 # print(s,(5,4)) # 1
     
 
-"""lab 5"""
-x = 0
-while x < 100000:
-    x += 1
 
-print(x)
-"""lab 5"""
