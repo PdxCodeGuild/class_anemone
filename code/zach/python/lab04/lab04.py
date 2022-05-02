@@ -2,30 +2,55 @@ import dealer
 import variables
 
 def bj_game(play_game):
-    deal_count = 0
+    
     game_deck = dealer.build_deck()
     
 
-    bj_deal(game_deck, deal_count)
+    bj_deal(game_deck)
 
 
 
     return print('done')
 
-def bj_deal(game_deck, deal_count):
+def bj_deal(game_deck):
+    card_deck = list(game_deck.keys())
+    card_value = list(game_deck.values())
+
+    deal_count = 0
     hit = 'H'
-    deck_list = []
+    player = []
+    player_val = 0
+    dealer = []
+    dealer_val = 0
+    
     while hit == 'H' and deal_count < 52:
-        player_hand
-        if deal_count <= 48:
-            print(deal_count)
+        # first deal will be unique in that it is a total of 4 cards alternating between player and dealer for fairness.
+        if deal_count == 0:
+            for i in [card_deck[0],card_deck[2]]:
+                player.append(i)
+            for j in [card_deck[1], card_deck[3]]:
+                dealer.append(j)
+            
+            # dealer_val = dealer_val + card_value[1]) + int(card_value[3])
             deal_count += 4
+            for card in player:
+                player_val += game_deck[card]
+        # elif deal_count == 4:
+        else:
+            player.append(card_deck[deal_count])
+            for card in player:
+                player_val += game_deck[card_deck[deal_count]]
+            deal_count += 1
+        
+
+
+        print(dealer, player, player_val)
         hit = input('h or s').upper()
         
-    print(deal_count)
+
 
 def main():
-        play_game = input('Would you like to learn to play ♠️♥️♣️♦️BlackJack♠️♥️♣️♦️?[Y/n] ').upper().strip()
-        bj_trainer(play_game)
+        play_game = input('Would you like to learn to play ♠️ ♥️ ♣️ ♦️ BlackJack ♠️ ♥️ ♣️ ♦️ [Y/n] ').upper().strip()
+        bj_game(play_game)
 
 main()
