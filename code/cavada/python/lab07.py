@@ -1,0 +1,1 @@
+user = input("enter word: ")
