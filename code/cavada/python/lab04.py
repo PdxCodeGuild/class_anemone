@@ -2,7 +2,9 @@
 print("""welcome to 'blackjack' advisor-bot: 
 random hand generating...
 """)
+
 x = 0 # aesthetic addition to simulate loading process for hand dealing
+
 while x < 10000000:
     x += 1
 
