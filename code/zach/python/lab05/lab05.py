@@ -33,9 +33,13 @@ def play_lotto():
 
 def main():
     print('running...')
-    balance = 0
+    expenses = 0
+    earnings = 0
     for i in range(0,100000):
-        balance = balance -2 + play_lotto()
-    print(f'final balance : $ { balance }') 
+        expenses = expenses - 2 
+        earnings = earnings + play_lotto()
+    
+    ROI = (earnings - expenses)/expenses
+    print(f'expenses : ${ expenses } \nearnings: ${ earnings } \nROI: { ROI * 100 }%') 
 
 main()
