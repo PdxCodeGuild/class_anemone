@@ -5,27 +5,40 @@ import variables
 
 
 def bj_game():
-    game_deck = dealer.build_deck()
-    deal_count = 0
-    hand_count = 0
     p_hand = []
     d_hand = []
     game_deck = []
 
     bj_shuffle(game_deck, d_hand, p_hand)
-    for i in range (0,55):
-        deal(p_hand, game_deck)
-    print( len(game_deck), p_hand, d_hand)
+
+    p_score = 0
+    d_score = 0
+
+    # play = 'y'
+    # while play == 'y':
+    for card in p_hand:
+        p_score += variables.card_val[p_hand[0]]
+    for card in d_hand:
+        d_score += variables.card_val[p_hand[0]]   
+    
+    print(d_hand, d_score, p_hand, p_score)
+    # * Testing:
+    # for i in range (0,55):
+    #     deal(p_hand, game_deck)
+    # print( len(game_deck), p_hand, d_hand)
 
 
 
 def bj_shuffle(deck, dealer, player):
-    # create deck using lists found in variables.py
-    for suit in variables.suits:
-        for card in variables.cards:
-            deck.append(f'{ card } { suit }')
+    if len(deck) == 0:
+        # create deck using lists found in variables.py
+        for suit in variables.suits:
+            for card in variables.cards:
+                deck.append(f'{ card } { suit }')
 
-
+    # ensure current player hands have no cards
+    dealer = []
+    player = []
     for i in range(2):
         # draw random cards from deck
         p_card = random.choice(deck)
