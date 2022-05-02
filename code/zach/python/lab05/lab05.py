@@ -14,14 +14,27 @@ def num_matches(winning, ticket):
             matches += 1
     return matches
 
-
-
-def main():
+def play_loto():
+    prizes = {
+        1 : 4,
+        2 : 7,
+        3 : 100,
+        4 : 50000,
+        5 : 1000000,
+        6 : 25000000,
+        0 : 0
+    }
     winning = pick6()
     ticket = pick6()
 
-    wins = num_matches(winning, ticket)
+    winning_numbers = num_matches(winning, ticket)
+    
+    return prizes[winning_numbers]
 
-    print(winning, ticket, wins)
+def main():
+    total = 0
+    for i in range(0,1000000):
+        total = total + play_loto()
+    print(total)
 
 main()
