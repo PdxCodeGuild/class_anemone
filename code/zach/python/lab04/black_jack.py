@@ -69,5 +69,8 @@ def bj_score(dealer, player):
 
 def bj_hint():
     pass
-b
-j_game()
+
+
+
+
+bj_game()
