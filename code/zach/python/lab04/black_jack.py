@@ -49,4 +49,4 @@ def deal(target_hand, deck):
 
     return target_hand, deck
 
-j_game()
+bj_game()
