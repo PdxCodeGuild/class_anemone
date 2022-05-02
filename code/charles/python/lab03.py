@@ -14,7 +14,7 @@ x = int(input('Please enter a number between 1 and 999: '))
 # print(f'{x in range(0, 99)}')
 
 
-if x in range(11, 19):
+if x in range(11, 20):
     teenref = num_to_text[x]
     print(teenref)
 
@@ -44,8 +44,8 @@ elif x in range(100, 999):
         print(f'{href}-hundred')          
     elif tens == 0:
         print(f'{href}-hundred and {oref}')
-    elif teens in range(11, 19):
-        print(f'{href}-hundred and {tnref}')            #new if statement to pull the teens out
+    elif teens in range(11, 20):
+        print(f'{href}-hundred and {tnref}')            # new if statement to pull the teens out
     elif ones == 0: 
         print(f'{href}-hundred and {tref}')
     else:
