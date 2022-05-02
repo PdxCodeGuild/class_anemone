@@ -1,40 +1,52 @@
 import math
 import string
 
-roman_ones = {1:'I', 2:'II', 3:'III', 4:'IV', 5:'V', 6:'VI',
- 7:'VII', 8:'VIII', 9:'IX', 10:'X'}
-roman_tens = {2:'XX', 3:'XXX', 4:'XL', 5:'L', 6:'LX',
-7:'LXX', 8:'LXXX', 9:'XC'}
-roman_teens = {11:'XI', 12:'XII', 13:'XIII', 14:'XIV', 15:'XV',
-16:'XVI', 17:'XVII', 18:'XVIII', 19:'XIX'}
-roman_hundreds = {1:'C', 2:'CC', 3:'CCC', 4:'CD', 5:'D', 6:'DC',
- 7:'DCC', 8:'DCCC', 9:'CM', 10:'M'}
+ones_dic = {0:'zero', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six',
+ 7:'seven', 8:'eight', 9:'nine'}
+one_ten = {10:'ten'}
+tens_dic = {2:'twenty', 3:'thirty', 4:'fourty', 5:'fifty', 6:'sixty',
+7:'seventy', 8:'eighty', 9:'ninety'}
+teen_dic = {11:'eleven', 12:'twelve', 13:'thriteen', 14:'fourteen', 15:'fifteen',
+16:'sixteen', 17:'seventeen', 18:'eighteen', 19:'nineteen'}
 #Changed out my ealier 1:one with roman numerals
 
 yes = True
 while yes:
     player = int(input('Enter a Number: '))             
-    if player in range(1, 11):
+    if player in range(1, 10):
         ones = player%10
-        b_ones = roman_ones.get(ones)
+        b_ones = ones_dic.get(ones)
         print(b_ones)
+    elif player == 10:
+        ten = one_ten.get(player)
+        print(ten)
     elif player in range(11, 20):
-        teens = roman_teens.get(player)
+        teens = teen_dic.get(player)
         print(teens)
     elif player in range(20, 100):
         tens = player//10
-        a_tens = roman_tens.get(tens)
+        a_tens = tens_dic.get(tens)
         ones = player%10
-        b_ones = roman_ones.get(ones)
+        b_ones = ones_dic.get(ones)
         print(f'{a_tens}{b_ones}')
-    elif player in range(100, 999):
-        hundo = player//100
-        a_hundo = roman_hundreds.get(hundo)
-        ones = player%10
-        b_ones = roman_ones.get(ones)
-        tens = player%100//10
-        a_tens = roman_tens.get(tens)
-        print(f'{a_hundo}{b_ones}{a_tens}')
+    elif player in range(100, 1000):
+        teen = player%100
+        if teen in range(11,20):
+            hundo = player//100
+            a_hundo = ones_dic.get(hundo)
+            teen = player%100
+            teens = teen_dic.get(teen)
+            print(a_hundo,teens)
+        else:
+            hundo = player//100
+            a_hundo = ones_dic.get(hundo)
+            ones = player%10
+            b_ones = ones_dic.get(ones)
+            tens = player%100//10
+            a_tens = tens_dic.get(tens)
+            print(a_hundo,b_ones,a_tens)
+    
+        print(f'{a_hundo} hundred {b_ones} {a_tens}')
     # the above project was to take the players input and turn it into a roman numeral 
     # ( was alphbetical). I created a range statement to find if it was with in roman_one.. 
     # and so on. then I // the higher number to make them a single digit and the % to get
