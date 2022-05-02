@@ -25,6 +25,8 @@ elif x in range(0, 99):
     oref = num_to_text[ones]
     if ones == 0:
         print(tref)
+    elif tens == 0:               # added a tens ref to get rid of the ones returning zero
+        print (oref)
     else:
         print(f'{tref}-{oref}')
  
@@ -33,10 +35,12 @@ elif x in range(100, 999):
     huns = x // 100
     tens = (x - huns * 100) // 10 * 10
     ones = x % 10
-    href = num_to_text[ones]
+    href = num_to_text[huns]          # assigned as ones and not huns
     tref = num_to_text[tens]
     oref = num_to_text[ones]
-    if ones == 0:
+    if ones == 0 and tens == 0:       # add double true statment to get rid of the zero hundred and zero...
+        print(f'{href}-hundred')          
+    elif ones == 0: 
         print(f'{href}-hundred and {tref}')
     else:
         print(f'{href}-hundred and {tref}-{oref}')
