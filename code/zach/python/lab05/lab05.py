@@ -14,7 +14,7 @@ def num_matches(winning, ticket):
             matches += 1
     return matches
 
-def play_loto():
+def play_lotto():
     prizes = {
         1 : 4,
         2 : 7,
@@ -32,9 +32,10 @@ def play_loto():
     return prizes[winning_numbers]
 
 def main():
-    total = 0
-    for i in range(0,1000000):
-        total = total + play_loto()
-    print(total)
+    print('running...')
+    balance = 0
+    for i in range(0,100000):
+        balance = balance -2 + play_lotto()
+    print(f'final balance : $ { balance }') 
 
 main()
