@@ -27,7 +27,7 @@ while user_num != 'done':
     if user_num != 'done':
         nums.append(user_num)
     
-#print(nums)
+#print(nums)12
 
 for x in range(len(nums)):
     nums[x] = int(nums[x])
