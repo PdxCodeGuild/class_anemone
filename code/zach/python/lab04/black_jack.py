@@ -5,16 +5,55 @@ import variables
 
 
 def bj_game():
-    p_hand = []
-    d_hand = []
+    # p_hand = []
+    # d_hand = []
     game_deck = []
+    
+    game_deck, d_hand, p_hand = bj_shuffle(game_deck)
+    
+    # User Input
+    print('♠️ ♥️ ♣️ ♦️ BlackJack ♠️ ♥️ ♣️ ♦️')
+    print(f'\nDEALER: | * |{d_hand[1]}\nPLAYER: ', *p_hand, sep = "")
+    print('\n♠️ ♣️ ♦️ ♠️ ♥️ ♦️ ♠️ ♥️ ♣️ ♠️ ♥️ ♣️ ♦️')
+    user_ip = input('\nEnter [hit,stay,help,exit]: ').lower().strip()
+    
 
-    game_deck, d_hand, p_hand = bj_shuffle()
-    dealer_tot, player_tot = bj_score(d_hand, p_hand)
+    while user_ip != 'exit':
+        print(len(game_deck))    
+        if user_ip == 'hit':
+            player_tot = 0
+            bj_deal(p_hand, game_deck)
+            print(f'\nDEALER: | * |{d_hand[1]}\nPLAYER: ', *p_hand, sep = "",)
 
-    print (len(game_deck), d_hand, p_hand, dealer_tot, player_tot)
-    # play = 'y'
-    # while play == 'y':
+
+            player_tot = bj_score(p_hand)
+            if player_tot > 21:
+                print ('BUSTED YOU LOSE\n♠️ ♣️ ♦️ ♠️ ♥️ ♦️ ♠️ ♥️ ♣️ ♠️ ♥️ ♣️ ♦️')
+                # reset game with current deck
+                game_deck, d_hand, p_hand = bj_shuffle(game_deck)
+                print(f'\nDEALER: | * |{d_hand[1]}\nPLAYER: ', *p_hand, sep = "")
+                print('♠️ ♣️ ♦️ ♠️ ♥️ ♦️ ♠️ ♥️ ♣️ ♠️ ♥️ ♣️ ♦️')
+                user_ip = input('\nEnter [hit,stay,help,exit]: ').lower().strip()
+            #  TODO: Get 21 working
+            elif player_tot == 21:
+                print ('Player got 21\n♠️ ♣️ ♦️ ♠️ ♥️ ♦️ ♠️ ♥️ ♣️ ♠️ ♥️ ♣️ ♦️')
+                game_deck, d_hand, p_hand = bj_shuffle(game_deck)   
+                print(f'\nDEALER: | * |{d_hand[1]}\nPLAYER: ', *p_hand, sep = "")
+                print('♠️ ♣️ ♦️ ♠️ ♥️ ♦️ ♠️ ♥️ ♣️ ♠️ ♥️ ♣️ ♦️')
+                user_ip = input('\nEnter [hit,stay,help,exit]: ').lower().strip()
+            else:
+                user_ip = input('\nEnter [hit,stay,help,exit]: ').lower().strip()
+        # elif user_ip == 'test':
+        #     test_hand = ['A ♠️','K ♠️', '2 ♠️']
+        #     test_score = bj_score(test_hand)
+        #     print(test_score)
+        #     user_ip = input('Bad Input...\nEnter [hit,stay,help,exit]: ').lower().strip()
+        else:
+            user_ip = input('Bad Input...\nEnter [hit,stay,help,exit]: ').lower().strip()
+
+
+
+    # print (len(game_deck), d_hand, p_hand, dealer_tot, player_tot)
 
 
     # * Testing:
@@ -24,13 +63,12 @@ def bj_game():
 
 
 
-def bj_shuffle():
-    # create deck using lists found in variables.py
-    deck = []
-    for suit in variables.suits:
-        for card in variables.cards:
-            deck.append(f'{ card } { suit }')
-
+def bj_shuffle(deck):
+    # create deck using lists found in variables.py if current deck is empty
+    if len(deck) == 0:
+        for suit in variables.suits:
+            for card in variables.cards:
+                deck.append(f'|{ card } { suit }|')
     player = []
     dealer = []
     for i in range(2):
@@ -56,18 +94,15 @@ def bj_deal(target_hand, deck):
 
     return target_hand, deck
 
-def bj_score(dealer, player):
-    p_score = 0
-    d_score = 0
+def bj_score(target_hand):
+    score = 0
     # score calculated by using first char in index item as key for variables.card_val 
-    for card in player:
-        p_score += variables.card_val[card[0]]
-    for card in dealer:
-        d_score += variables.card_val[card[0]]   
-    
-    return d_score, p_score
+    for card in target_hand:
+        score += int(variables.card_val[card[1]])
+        
+    return score
 
-def bj_hint():
+def bj_hint(dealer , player):
     pass
 
 
