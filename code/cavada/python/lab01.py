@@ -18,6 +18,7 @@ valid_master.extend(valid_mi)
 
 orig = "blank"
 end = "blank"
+
 x = 0
 y = 0
 while orig == "blank":

@@ -2,6 +2,7 @@ def word_convert(numeric):
     digits = len(numeric)
     value = int(numeric)
 
+    # dict.get(numeric[#]) to replace the user_numbers with their coresponding phrases
     ones = {
         '0': '',
         '1': 'one',
