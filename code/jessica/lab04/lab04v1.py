@@ -103,7 +103,7 @@ total = first_card_val + second_card_val + third_card_val
 
 if total < 17 and total < 21:
     print(f"{total} Hit")
-elif total >= 17:
+elif total >= 17 and total < 21:
     print(f"{total} Stay")
 elif total == 21:
     print(f"{total} Blackjack!")
