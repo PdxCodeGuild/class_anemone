@@ -44,17 +44,50 @@
 # """"""
 # """"""
 
-jacks = [0,0]
-years = 0
-while len(jacks) <1000:
+# jacks = [0,0]
+# years = 0
+# while len(jacks) <1000:
+#     for jack in jacks:
+#         years += 1
+#         print(jacks)
+#         if jack >= 4 and jack <= 8:
+#             jacks.append(0)
+            
+#         print(jacks[jack],jacks[jack])
+#     counter = len(jacks)
+#     years += 1
+#     # print(jacks)
+#     # print(jacks)
+
+counter = 0
+jacks = [0,0] # this is our list starting with two jacks
+years = 0 # setting year 0 to count upwards
+while len(jacks) < 50:
+    # age jacks
+    for i in range(len(jacks)):
+        jacks[i] += 1
+        # print(f"jacks: {jacks}") # [0,0]
+    # birth jacks
     for jack in jacks:
-        years += 1
-        print(jacks)
         if jack >= 4 and jack <= 8:
             jacks.append(0)
-            
-        print(jacks[jack],jacks[jack])
+    d_list =[]
+    for i in range(len(jacks)):
+        if jacks[i] >= 10:
+            # jacks.pop(i)
+            dead = jacks.pop(i)
+            d_list.append(dead)
+            # d_list.append(dead)
+            print(f"jacks cemetary: {d_list}")
+            # jacks.remove(jacks[i])
+    # for i in range(len(jacks)):
+    #     if jacks[i] >= 10:
+    #         jacks.remove(i)        
+    # dead jacks        
+    # print(jacks[jack],jacks[jack])
+    # print(jacks)
+    years += 1    
     counter = len(jacks)
-    years += 1
+    print(years)
     # print(jacks)
     # print(jacks)
