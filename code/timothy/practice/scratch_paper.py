@@ -1,31 +1,40 @@
-
-
-
-# def go_hiking(weather):
-#     def weather(a, b):
-#         if a == 'spry' and b == 'sunny':
-#             return True
-#         elif a == 'tired'
-#     if weather() == True:
-#         print(True)
-
 # def double_digit(num):
-#     num = int()
-#     tens_digit = num//10
-#     hundreds_digit = num//100
-#     print(tens_digit)
-#     print(hundreds_digit)
+#     tens = abs(num//10)
+#     huns = abs(num//100)
+#     print(tens)
+#     print(huns)
+#     if huns==0 and tens > 0 or tens < 0:
+#         print(True)
+#     else:
+#         print(False)
 
-# double_digit(111)
 
-# def is_even(a):
-#     if a%2 == 0:
-#         print("That number is even.")
+# double_digit(-19)
 
-# is_even(7)
+# def double_digit_solution(num):
+#     x = abs(num//10)
+#     print(x)
+#     if x >=1 and x <10:
+#         print(True)
+#     else:
+#         print(False)
 
-def ones_digit(num):
-    num = num%10
-    print(num)
+# double_digit_solution(6)
+# double_digit_solution(67)
+# double_digit_solution(678)
+# double_digit_solution(-6)
+# double_digit_solution(-67)
+# double_digit_solution(-167)
 
-ones_digit(136)
+def double_digit(num):
+    tens = abs(num//10)
+    if tens >= 1 and tens <10:
+        print(True)
+    else: print(False)
+
+double_digit(6)
+double_digit(67)
+double_digit(678)
+double_digit(-6)
+double_digit(-67)
+double_digit(-678)
