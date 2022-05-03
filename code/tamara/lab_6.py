@@ -1,46 +1,51 @@
+def creditcard_check(input_numbers): # create the function
+
+    creditcard = [int(number) for number in input_numbers] # turn string of numbers into list of integar numbers called creditcard
+
+    check_digit = creditcard.pop() # remove last number and save it for later to check credit card validity
+
+    creditcard.reverse() # reverses the list
+
+    print(f"These are the card numbers reveresed and with last number removed {creditcard}") # print statement to check functionality can be be removed
+
+    creditcard_multiplied = [] # define empty list for multiplied numbers
+
+    for i, number in enumerate(creditcard): # create for loop that multiplies every other number
+        if i % 2 == 0:
+            number = number * 2
+            creditcard_multiplied.append(number)
+        elif i % 2 != 0:
+            number = number
+            creditcard_multiplied.append(number)
+
+    print(f"These are the card numbers with every other number multiplied by 2 {creditcard_multiplied}") # print statement to check functionality can be be removed
+
+    creditcard_subtracted = [] # define empty list for subtracted numbers
+
+    for number in creditcard_multiplied: # create for loop to subtract 9 from numbers over 9
+        if number > 9:
+            number = number - 9
+            creditcard_subtracted.append(number)
+        elif number < 10:
+            number = number
+            creditcard_subtracted.append(number)
+
+    print(f'These are the card numbers with numbers of 9 having 9 subtracted from them {creditcard_subtracted}') # print statement to check functionality can be be removed
+
+    sum = 0 
+
+    for sums in creditcard_subtracted: # add all the numbers together and put them into the sum variable
+        sum = sum + sums
+
+    print(f'this is the sum of the numbers {sum}') # print statement to check functionality can be be removed
+
+    last_sum_digit = sum % 10
+
+    if check_digit == last_sum_digit: # check if the last digit in the sum is the same as last digit of credit card
+        print("The credit card number you entered is valid")
+    else:
+        print("The credit card number you entered is not Valid")
+
 input_numbers = input("Please enter your credit card number: ")
 
-creditcard = [int(number) for number in input_numbers] # turn string of numbers into list of integar numbers called creditcard
-
-check_digit = creditcard.pop() # remove last number and save it for later to check credit card validity
-
-creditcard.reverse() # reverses the list
-
-creditcard_multiplied = [number*2 for i, number in enumerate(creditcard) if i % 2 == 0] # multiply every other number
-
-for i, number in enumerate(creditcard): # add the none multiplied ones back in
-    if i % 2 != 0:
-        creditcard_multiplied.append(number)
-
-creditcard_minus = [number - 9 for number in creditcard_multiplied if number > 9]
-
-for numb in creditcard_multiplied:
-    if numb >= 10:
-        creditcard_multiplied.remove(numb)
-
-for numb in creditcard_multiplied:
-    if numb >= 10:
-        creditcard_multiplied.remove(numb)
-
-for numb in creditcard_multiplied: # I am not sure why but I needed to repeat this loop 3 times to delete all of the numbers over 10 
-    if numb >= 10: # would need even more loops for even larger number inputs
-        creditcard_multiplied.remove(numb)
-
-print(f'list of multiplied ones at front and none multiplied at back with any 10 or over removed {creditcard_multiplied}')
-    
-for numbs in creditcard_minus:
-    creditcard_multiplied.append(numbs)
-
-sum = 0
-
-for sums in creditcard_multiplied:
-    sum = sum + sums
-
-print(f'this is the sum of the numbers {sum}')
-
-check_digit_2 = sum % 10
-
-if check_digit == check_digit_2:
-    print("Valid")
-else:
-    print("Not Valid")
+creditcard_check(input_numbers)
