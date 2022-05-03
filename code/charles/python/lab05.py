@@ -24,7 +24,7 @@ def winnings(counter):  # takes the input of the matching number to give winning
     elif counter == 5:
         winnings = 1000000
     elif counter == 6:
-        winnings == 25000000
+        winnings = 25000000
     return winnings
 
 def compare(list1, list2):  # compares two inputted list and modifys counter if list are equal.
