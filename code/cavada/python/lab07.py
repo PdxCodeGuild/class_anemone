@@ -83,133 +83,42 @@ alpha = {
 # print(f"""
 # original: {user} 
 #      key: {key} """)
-import random
-ticker = 0
-hightower = []
-user = input("enter word to ROT13 encrypt/decrypt: ")
 
-while ticker < 100:
-    x = int(input("enter ROT number"))
-    user_str = list(user)
-    ticker += 1
-    conv =0
-    shell = []
-    # print(x)
-    shell = []
-    shell = [alpha[u] for u in user_str]
-    # print(type(shell),shell)
-    conv = [(a_list2[num+x]) for num in shell]
-    print(''.join(conv),x,ticker)
-    code = ''.join(conv)
-    code += f'{x}'
-    if code not in hightower:
-        hightower.append(code)
-        # print(hightower)
 
-print(hightower)
 
-"""
-kbdl 1 1
-enter ROT number2
-lcem 2 2
-enter ROT number3
-mdfn 3 3
-enter ROT number4
-nego 4 4
-enter ROT number5
-ofhp 5 5
-enter ROT number6
-pgiq 6 6
-enter ROT number7
-qhjr 7 7
-enter ROT number8
-riks 8 8
-enter ROT number9
-sjlt 9 9
-enter ROT number10
-tkmu 10 10
-enter ROT number11
-ulnv 11 11
-enter ROT number12
-vmow 12 12
-enter ROT number13
-wnpx 13 13
-enter ROT number14
-xoqy 14 14
-enter ROT number15
-yprz 15 15
-enter ROT number16
-zqsa 16 16
-enter ROT number17
-artb 17 17
-enter ROT number18
-bsuc 18 18
-enter ROT number19
-ctvd 19 19
-enter ROT number20
-duwe 20 20
-enter ROT number21
-evxf 21 21
-enter ROT number22
-fwyg 22 22
-enter ROT number23
-gxzh 23 23
-enter ROT number24
-hyai 24 24
-enter ROT number25
-izbj 25 25
-enter ROT number26
-jack 26 26
-enter ROT number-1
-izbj -1 27
-enter ROT number-2
-hyai -2 28
-enter ROT number-3
-gxzh -3 29
-enter ROT number-4
-fwyg -4 30
-enter ROT number-5
-evxf -5 31
-enter ROT number-6
-duwe -6 32
-enter ROT number-7
-ctvd -7 33
-enter ROT number-8
-bsuc -8 34
-enter ROT number-9
-artb -9 35
-enter ROT number-10
-zqsa -10 36
-enter ROT number-11
-yprz -11 37
-enter ROT number-12
-xoqy -12 38
-enter ROT number-13
-wnpx -13 39
-enter ROT number-14
-vmow -14 40
-enter ROT number-15
-ulnv -15 41
-enter ROT number-16
-tkmu -16 42
-enter ROT number-17
-sjlt -17 43
-enter ROT number-18
-riks -18 44
-enter ROT number-19
-qhjr -19 45
-enter ROT number-20
-pgiq -20 46
-enter ROT number-21
-ofhp -21 47
-enter ROT number-22
-nego -22 48
-enter ROT number-23
-mdfn -23 49
-enter ROT number-24
-lcem -24 50
-enter ROT number-25
-kbdl -25 51
-enter ROT number-26
-jack -26 52
-"""
+"""so you can see that I wrote a lot of code 
+to realize I could accomplish the same in much 
+less using lis comprehensions at line 112 and 114"""
+
+# i am setting up a while loop to go through a user 
+# input string to convert to a numerical code that 
+# will be converted to a ROT encryption of that original 
+# letter that will be then converted into a new letter 
+# replacing the original essentially creating the actual
+# encryption desired, user has option to choose ROT encryption
+# and the ability to choose a different word. User also has 
+# option to view the key for a given ROT encrpytion
+user = ''
+while user != 'done':
+    ticker = 0
+    hightower = []
+    user = input("\nenter 'word' to ROT encrypt/decrypt, 'done' to quit: ")
+    x = 0
+    while ticker < 100 and not x == 'back' and user != 'done' and -25 < x < 25: # set this because I had him an issue looping through a diminshing list
+        x = (input("enter ROT encryption, 'back' to input other word, or quit: "))
+        if x == 'done':
+            break
+        user_str = list(user) # convert user input into list
+        x = int(x)
+        ticker += 1
+        conv =0
+        shell = []
+        # print(x)
+        shell = []
+        shell = [alpha[u] for u in user_str] # list comprehension used to create a new list that represents the encoded words original code that will eventually be converted to ROT13 or otherwise
+        # print(type(shell),shell)
+        conv = [(a_list2[num+x]) for num in shell] # list comprehension used to create list of letters the step-wise encrpyption based on desired encryption (ROT13, ROT4, etc.)
+        print(f"code: ({''.join(conv)}) encryption:({x}) key: ({26-x})") # this tells the user the code, it's encryption, and the key to decrypt it
+        
+
+
