@@ -52,7 +52,7 @@ while True:
     elif ud in de:
         phrase = list(input('Please enter a phrase to decrypt. '))
         shift = int(input('Please enter the numerical number you would like to shift. '))
-        print(encrypt(phrase, shift))
+        print(decrypt(phrase, shift))
         
     again = input('Would you like to try something else yes or no. ')
     if again not in yes and again not in no:
