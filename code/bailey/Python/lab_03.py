@@ -1,6 +1,6 @@
 '''
 class_anemone
-Lab 2
+Lab 3
 Baiely Baker
 '''
 # Dictionaries to be used as a key to find correct output
@@ -28,7 +28,20 @@ nums_dict2 = {
    18: 'eighteen',
    19: 'nineteen',
 }
+nums_dict_tens2 = {
+   0: 'ten',
+   1: 'eleven',
+   2: 'twelve',
+   3: 'thriteen',
+   4: 'fourteen',
+   5: 'fifteen',
+   6: 'sixteen',
+   7: 'seventeen',
+   8: 'eighteen',
+   9: 'nineteen',
+}
 nums_dict3 = {
+   0: '',
    1: 'ten',
    2: 'twenty',
    3: 'thirty',
@@ -66,9 +79,10 @@ elif num <= 9:
 elif num <= 19:
     print(nums_dict2[num])
 elif num <= 99:
-    print(nums_dict3[tens_digit] + '-' + nums_dict1[ones_digit])
-elif num <= 999:
-    print(nums_dict4[hundreds_digit] + '-' + nums_dict3[tens_digit] + '-' + nums_dict1[ones_digit])
-else:
-    print("Error. Please enter a number between 0-999.")
+    print(nums_dict3[tens_digit] + ' '+  nums_dict1[ones_digit])
+elif num <= 999 and tens_digit == 1:
+    print(nums_dict4[hundreds_digit]  + ' ' + nums_dict_tens2[ones_digit])
+elif num <= 999 and tens_digit != 1:
+    print(nums_dict4[hundreds_digit]  + ' ' + nums_dict3[tens_digit]  + ' ' +  nums_dict1[ones_digit])
+
 

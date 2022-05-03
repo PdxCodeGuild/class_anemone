@@ -37,10 +37,10 @@ if ref[5] in units:
         print(f'\n{units_dist} {units} is {len_miles} miles\n')
     elif ref[4] in unit_con:
         len_yards = a / yards
-        print(f'\n{units_dist} {units} is {len_feet} yards\n')
+        print(f'\n{units_dist} {units} is {len_yards} yards\n')
     elif ref[0] in unit_con:
         len_meters = a / meters
-        print(f'\n{units_dist} {units} is {len_feet} meters\n')
+        print(f'\n{units_dist} {units} is {len_meters} meters\n')
 if ref[4] in units:
     a = dist(units_dist, yards)
     if ref[1] in unit_con:
