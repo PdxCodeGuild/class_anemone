@@ -1,6 +1,6 @@
 # dictonary to track the jackolopes
 jackodict = { 1: 0, 2: 0}
-year = 0
+
 
 def grow(age):                                              # Fucnction for testing age
     i = 1                                                   # Jackodict key 1
@@ -36,10 +36,17 @@ print(repop(jackodict))
 
 
 
-# i = 0
-# while len(jackodict) < 1000:
-#     i += 1
-#     print(i)
+year = 0
+while len(jackodict) < 1000:
+    year += 1
+    i = len(jackodict) 
+    i = i * i 
+    print(i)
+    if i not in jackodict and len(jackodict) < 1000:
+        
+        ospring = repop(jackodict)
+        while i <= ospring:           
+#                       
     
 
 # Function for reproducing
