@@ -1,25 +1,24 @@
 '''Jackalope Simulator'''
 # Authors: Rachel, Isaac, Bailey
 
-population = 2
+jackalope = [0,0]
 
-jackalope_1 = [5]
-jackalope_2 = [9]
-new_born = []
+year = 0
 
-def check_age(jackalope_1, jackalope_2):
-    for age in jackalope_1 and jackalope_2:
-        if age > 4 and age < 8:
-            new_born.append(0)
+while len(jackalope) < 1000:
+    for i in range(len(jackalope)-1, -1, -1):
+        if jackalope[i] == 10:
+            jackalope.pop(i)
+    
+    for i in range(len(jackalope)):
+        if 4 <= jackalope[i] <= 8:
+            jackalope.append(0)
+            #print ("breedable!")
+    for i in range(len(jackalope)):
+        jackalope[i] += 1
+    
+    year += 1
 
-            print("Breedable! YAY!")
-        elif age >= 9:
-            print("Dead")
-        else:
-            print("Wait a while")
-    return jackalope_1, jackalope_2
 
-check_age(jackalope_1, jackalope_2)
-print(new_born)
-
+print (f'Years: {year}')
 
