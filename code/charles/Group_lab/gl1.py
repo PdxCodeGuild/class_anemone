@@ -10,11 +10,11 @@ def grow(age):                                              # Fucnction for test
     return age
 
 def told_test(age):
-    i = 0                                                  # Jackodict key 1
-    while i < len(age):
+    i = len(age) - 1                                                # Jackodict key 1
+    while i > -1:
         if age[i] == 10:
             del age[i]
-        i += 1
+        i -= 1
     return age
 
 def repop(age):
@@ -26,7 +26,7 @@ def repop(age):
 
 
 
-year = 1
+year = 0
 while len(jacklist) < 1000:
     
     grow(jacklist)
