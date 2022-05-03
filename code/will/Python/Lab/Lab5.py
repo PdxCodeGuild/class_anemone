@@ -113,3 +113,7 @@ matches_sum = sum(total_matches)
 print(running_total)
 print(matches_sum)
 print(total_matches)
+
+roi = (earnings - expenses) / expenses
+
+print (roi)
