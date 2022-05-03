@@ -64,12 +64,6 @@ print(year, len(jacklist))
 
 
 
-
-
-
-
-
-
 # jackodict = { 1: 0, 2: 0}                                   # dictonary to track the jackolopes
 
 
