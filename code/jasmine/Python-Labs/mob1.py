@@ -30,8 +30,8 @@ while len(jack) < 1000:
 
 
 
-
     years += 1
+
 
 print(f'Our population is {len(jack)} after {years} years')
 
