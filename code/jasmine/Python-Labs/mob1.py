@@ -32,8 +32,6 @@ while len(jack) < 1000:
 
     years += 1
 
-    # for x in jack:
-    #     if jack
 
 print(f'Our population is {len(jack)} after {years} years')
 

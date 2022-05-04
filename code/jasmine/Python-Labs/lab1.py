@@ -57,6 +57,9 @@ elif input_unit == 'in':
 elif input_unit == 'yd':
     meters_convert = distance_three * 0.9144
 
+elif input_unit == 'km':
+    meters_convert = distance_three * 1000
+
 
 if output_unit == 'ft':
     new_output = meters_convert/ 0.30408
