@@ -14,7 +14,7 @@ x = int(input('Please enter a number between 1 and 999: '))
 # print(f'{x in range(0, 99)}')
 
 
-if x in range(11, 19):
+if x in range(11, 20):
     teenref = num_to_text[x]
     print(teenref)
 
@@ -25,7 +25,11 @@ elif x in range(0, 99):
     oref = num_to_text[ones]
     if ones == 0:
         print(tref)
+<<<<<<< HEAD
     elif tens == 0:               # added a tens ref to get rid of the ones returning zero
+=======
+    elif tens == 0:                                     # added a tens ref to get rid of the ones returning zero
+>>>>>>> main
         print (oref)
     else:
         print(f'{tref}-{oref}')
@@ -34,12 +38,26 @@ elif x in range(0, 99):
 elif x in range(100, 999):
     huns = x // 100
     tens = (x - huns * 100) // 10 * 10
+    teens = (x - huns * 100)                            # add another teens ref 
     ones = x % 10
+<<<<<<< HEAD
     href = num_to_text[huns]          # assigned as ones and not huns
     tref = num_to_text[tens]
     oref = num_to_text[ones]
     if ones == 0 and tens == 0:       # add double true statment to get rid of the zero hundred and zero...
         print(f'{href}-hundred')          
+=======
+    href = num_to_text[huns]                            # assigned as ones and not huns
+    tnref = num_to_text[teens]                          #dictionary ref for teens
+    tref = num_to_text[tens]
+    oref = num_to_text[ones]
+    if ones == 0 and tens == 0:                         # add double true statment to get rid of the zero hundred and zero...
+        print(f'{href}-hundred')          
+    elif tens == 0:
+        print(f'{href}-hundred and {oref}')
+    elif teens in range(11, 20):
+        print(f'{href}-hundred and {tnref}')            # new if statement to pull the teens out
+>>>>>>> main
     elif ones == 0: 
         print(f'{href}-hundred and {tref}')
     else:

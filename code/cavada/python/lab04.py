@@ -1,9 +1,15 @@
 """lab 4"""
 print("""welcome to 'blackjack' advisor-bot: 
-random hand generating...
 """)
 
+<<<<<<< HEAD
 x = 0 # aesthetic addition to simulate loading process for hand dealing
+=======
+user = input("Input any key to see your hand: ")
+
+print("random hand generating...""")
+x = 0 # aesthetic addition to simulate loading process for 
+>>>>>>> main
 
 while x < 10000000:
     x += 1
