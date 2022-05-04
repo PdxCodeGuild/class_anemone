@@ -34,6 +34,7 @@ winnings = {
 }
 
 balance = 0
+expenses = 0
 
 total_winnings = 0
 
@@ -43,7 +44,8 @@ for i in range (100000):
     ticket = pick6()
     #print("ticket",ticket)
 
-    balance = balance - 2
+    balance -= 2
+    expenses += 2
 
     matches = num_matches(winning, ticket)
 
@@ -69,7 +71,7 @@ print (f"\nWinning Ticket Numbers: {winning} \nYour balance is: {balance} \nYour
 #Version 2
 #ROI = (earnings - expenses)/expenses
 
-ROI = (total_winnings - balance) / balance
+ROI = (total_winnings - expenses) / expenses
 
 print (f"\nROI: {ROI} \nEarnings: {total_winnings} \nExpenses: {balance}\n")
 
