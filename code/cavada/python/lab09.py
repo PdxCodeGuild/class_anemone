@@ -1,4 +1,5 @@
-ari_scale = {
+# scale pulled from lab info
+ari_scale = { 
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
      3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},
@@ -14,18 +15,18 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
-
-f = open('gettysburg_address.txt')
-gba = f.read()
+# opening random text file i found on internet that had 235 word ct
+with open('gettysburg_address.txt','r') as f: # ensures that the file is closed 
+    gba = f.read() # assigns text as string i can use as a variable
 # print(gba)
 
-words = [word for word in gba.split(' ')]
-sentances = [word for word in gba.split('.')]
+words = [word for word in gba.split(' ')] # create list to count length of it to determine word ct
+sentances = [word for word in gba.split('.')] # create list to count length of it to determine sentance ct
 pass
 # print(sentances,len(sentances)+1) # 10
 # print(words,len(words)) # 238
 
-char_plus_punct = "".join(words) 
+char_plus_punct = "".join(words) # did this to get rid of punctuation other than period(only included commas, so I only filtered with commas in mind)
 
 # print(char_plus_punct, len(char_plus_punct)) # 1038 characters, including all punctuation
 # for character in char_plus_punct:
@@ -45,19 +46,23 @@ c = len(character)
 w = len(words)
 s = len(sentances)
 # print(c,w,s)
-def read(characters,words,sentances):
+def read(characters,words,sentances): # function to calc readibility index
     ri = 4.71*(characters/words)+.5*(words/sentances)-21.43
-    return round(ri)
+    return round(ri) # return rounded result
 
 read(c,w,s)
-ri = read(c,w,s)
-diff_read = 1 # access dictionary of dict_list 'ari_scale' that corresponds to the ari score, then access the value for the key 'grade_level'
-ri_readout = ari_scale[ri]
-r_level = ri_readout
+ari = read(c,w,s) # assign this to variable to make it easier to use
+# access dictionary of dict_list 'ari_scale' that corresponds to the ari score, then access the value for the key 'grade_level'
+ri_dict_list = ari_scale[ari] # accessing dictionary from dictionary list 'ari_scale'
+grade_level = ri_dict_list['grade_level'] # accessing value using corresponding key
+ages = ri_dict_list['ages'] #  accessing value using corresponding key
+
 print(f"""
+Text: {gba} 
+
 The ARI for gettysburg-address.txt is {ari}
-This corresponds to a 11th Grade level of difficulty
-that is suitable for an average person 16-17 years old.
+This corresponds to a {grade_level} level of difficulty
+that is suitable for an average person {ages} years old.
 """)
 
 
@@ -100,4 +105,3 @@ that is suitable for an average person 16-17 years old.
 #
 #
 
-"""
