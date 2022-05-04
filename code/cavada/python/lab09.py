@@ -20,10 +20,8 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 
-""""""
-#
-#
-#    Score  Ages     Grade Level
+""""""  """
+Score  Ages     Grade Level
      1       5-6    Kindergarten
      2       6-7    First Grade
      3       7-8    Second Grade
@@ -38,6 +36,10 @@ ari_scale = {
     12     16-17    Eleventh grade
     13     17-18    Twelfth grade
     14     18-22    College
+""" """
+#
+#
+#
 #
 
 """"""
