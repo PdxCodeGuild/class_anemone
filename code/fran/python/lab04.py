@@ -7,7 +7,6 @@
 # Create dictionary of card values
 card_values = {
     "A": 1,
-    "1": 1,
     "2": 2,
     "3": 3,
     "4": 4,
@@ -23,9 +22,9 @@ card_values = {
 }
 
 # Collect card info from user
-card_1 = input("What's your first card? (1-9,A,K,Q,J): ")
-card_2 = input("What's your second card? (1-9,A,K,Q,J): ")
-card_3 = input("What's your third card? (1-9,A,K,Q,J): ")
+card_1 = input("What's your first card? (2-9,A,K,Q,J): ")
+card_2 = input("What's your second card? (2-9,A,K,Q,J): ")
+card_3 = input("What's your third card? (2-9,A,K,Q,J): ")
 
 # Add card values and return advice on what to do next
 # For version 1, assuming aces are always worth one point
