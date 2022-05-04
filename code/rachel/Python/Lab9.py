@@ -2,7 +2,6 @@
 #Compute the ARI for a given body of text loaded in from a file.
 
 import re
-import string
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -24,15 +23,24 @@ ari_scale = {
 
 with open ('gettysburg-address.txt', 'r') as f:
     contents = f.read()
-    #print (contents)
 
 def AFI(contents):
-    all_characters = string.hexdigits   #0123456789abc...ABC...
-    characters = len(contents)
-    #results = re.findall(r'')
+    characters = re.findall(r'[a-zA-Z0-9]',contents)
+    num_of_chars = len(characters)
 
-    print (characters)
+    words = contents.split()
+    num_of_words = len(words)
 
-word = "cranberry sauce" #14 letters
-AFI(word)
+    sentences = re.findall('[.?!]',contents)
+    num_of_sentences = len(sentences)
+
+    AFI = 4.71 * (num_of_chars/num_of_words) + 0.5 * (num_of_words/num_of_sentences) - 21.43
+    final_AFI = round(AFI)
+
+    return (final_AFI)
+
+gb_afi = AFI(contents)
+
+
+print (f'The ARI for gettysburg-address.txt is {gb_afi} \nThis corresponds to a(n) {ari_scale[gb_afi]["grade_level"]} level of difficulty \nthat is suitable for an average person {ari_scale[gb_afi]["ages"]} years old.')
 
