@@ -74,13 +74,12 @@ Presentation Day: August 5th, 2022
 | 05    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
 | 06    | Credit Card Validation | May 2nd       | May 9th               | May 16th      |
 | 07    | ROT13                  | May 2nd       | May 9th               | May 16th      |
-| 08    | Peaks And Valleys      | May 3rd       | May 9th               | May 17th      |
+| Group | Jackalope              | May 3rd       | May 3rd               | May 17th      |
 | 09    | ARI                    | May 4th       | May 9th               | May 18th      |
 | 10    | Contact List           | May 5th       | May 9th               | May 19th      |
 | 12    | ATM                    | May 9th       | May 16th              | May 23rd      |
 | 13    | Tic-Tac-Toe            | May 10th      | May 16th              | May 24th      |
-| 14    | Dad Joke API           | May 13th      | May 16th              | May 27th      |
-| Group | Jackalope              | May 16th      | May 16th              | May 30th      |
+| 14    | Dad Joke API           | May 12th      | May 16th              | May 26th      |
 | 15    | Quotes API             | May 16th      | May 23rd              | May 30th      |
 | 16    | Mini-Capstone          | May 18th      | May 23rd              | Jun 1st       |
 
