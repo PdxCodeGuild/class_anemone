@@ -23,7 +23,7 @@ def draw():
      
 
     while sum(total) < 21: # while loop to add cards to hand til bust or stay
-        deal = input(f'{print(" " .join(hand))} You are at {sum(total)}. Would you like to hit or stay: ').lower()
+        deal = input(f'{(" " .join(hand))} You are at {sum(total)}. Would you like to hit or stay: ').lower()
                   
         if deal in no:
             break
