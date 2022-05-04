@@ -14,7 +14,7 @@ list_of_tuples = [
 # for i in fruits:
 #     print(i)
 
-# for x in enumerate(fruits):
+# for x in enumerate(fruits):f
 #     print(x)
 
 # for i, fruit in enumerate(fruits):
