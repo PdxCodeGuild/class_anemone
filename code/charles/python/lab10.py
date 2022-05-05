@@ -1,9 +1,13 @@
 import re
 
 def keys(put):
-    for x in enumerate(put):
-        clist2 = put[0].split(',')
-    return clist2
+    i = 0
+    x = len(put)
+    clist2 = []
+    while i != len(put):
+        clist2.extend(put[i].split(','))
+        i += 1
+    return clist2 
 
 def values(puts):
     i = len(puts) - 1
@@ -28,8 +32,8 @@ def new(put, puts):
 
 with open('contacts.csv', 'r') as file:
     clist = file.read().split('\n')
-    
-    print(new(keys(clist), values(clist)))
+    print(clist)
+    print(keys(clist))
 
     
     
