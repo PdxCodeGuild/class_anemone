@@ -1,46 +1,138 @@
-import re
+from itertools import zip_longest
+import re 
 
-def keys(put):
-    i = 0
-    keys = []
-    while i == 0:
-        keys.extend(put[i].split(','))
-        i += 1
-    return keys 
-
-def values(puts):
-    i = len(puts) - 1
-    vlist = []
-    while i > 0:
-        vlist.extend([puts[i].split(',')])  
-        i -= 1 
-    return vlist
-
-def new(put, puts):
-    cld = {}
-    i = 0
-    y = 1
-    while i != len(put):
-        cld.update({put[i]: puts[i][y]})
-        i += 1
-        y += 1
-    return cld
+def read():
+    with open('contacts.csv') as f:
+        info = f.read().split('\n')
+    contacts = []
+    keys = info[0].split(',')
+    for i in range(1, len(info)):
+        pinfo = info[i].split(',')
+        contacts.append(dict(zip(keys, pinfo)))
 
 
-with open('contacts.csv', 'r') as file:
-    clist = file.read().split('\n')
-    print(clist)
-    print(new(keys(clist), values(clist)))
+def find(contacts, input):
+    for i, contact in enumerate(contacts):
+        if contact['name'] == input:
+            return contacts[i]
+        else:
+           return print('Contact not in list')
+
+def create(contacts):
+    
+    name = input('Enter their name: ').lower()
+    ff = input('Enter their favorite fruit: ').lower()
+    fc = input('Enter their favorite color: ').lower()
+    ninfo = {'name': name, 'favorite fruit': ff, 'favorite color': fc}
+    for ninfo in contacts:
+        contacts.append(ninfo)
+
+print(create(read()))
+
+
+
+
+
+# def keys(put):
+#     i = 0
+#     keys = []
+#     while i == 0:
+#         keys.extend(put[i].split(','))
+#         i += 1
+#     return keys 
+
+# def values(puts):
+#     i = len(puts) - 1
+#     vlist = []
+#     while i > 0:
+#         vlist.extend(puts[i].split(','))  
+#         i -= 1 
+#     return vlist
+
+# def new(put, puts):
+#     cld ={}
+#     # i = puts[-1]
+#     # while i in puts:
+#     x = 0
+#     for key in put:
+#         cld.update({key: None})
+#         if x < len(puts):
+#             cld.update({key : x})
+            
+            # if i in puts:
+            #     cld.update({key : '' + value})
+                
+                
+                
+
+#     return cld
+
+    
+#     # cld = []
+#     # i = 0
+#     # x = 0
+#     # while i != len(puts):
+#     #     while i != len(puts):
+#     #         cld.extend({put[i]: puts[x]})
+#     #         x+=1
+#     #     i += 1
+        
+#     return cld
+
+
+# with open('contacts.csv', 'r') as file:
+#     clist = file.read().split('\n')
+    
+#     print(new(keys(clist), values(clist)))
 
     
     
     
     
-    # print(clsit)    ['name,favorite fruit,favorite color', 'charles,none,red', 'jona,nothing,black']
-    # print(keys(clist))   ['name', 'favorite fruit', 'favorite color'] 
-    # print(values(clist)) [['jona', 'nothing', 'black'], ['charles', 'none', 'red']]
+    # print(clist)    #['name,favorite fruit,favorite color', 'charles,none,red', 'jona,nothing,black']
+    # print(keys(clist))   #['name', 'favorite fruit', 'favorite color'] 
+    # print(values(clist)) #[['jona', 'nothing', 'black'], ['charles', 'none', 'red']]
     # print(new(keys(clist, values(clist))))   {'name': ['jona', 'nothing', 'black'], 'favorite fruit': ['jona', 'nothing', 'black'], 'favorite color': ['jona', 'nothing', 'black']}
     
+# def new(put, puts):
+#     cld = {}
+#     m = 0
+#     while m < len(puts):
+#         for x in enumerate(put):   {(0, 'name'): (5, 'red'), (1, 'favorite fruit'): (5, 'red'), (2, 'favorite color'): (5, 'red')}
+#             n = x
+#             print(x)
+#             for y in enumerate(puts):
+#                 s = y 
+#                 print(y)
+#                 cld.update({x : y})
+#                 m+=1
+    
+#     return cld
+
+
+# def new(put, puts):
+#     cld = []
+#     y = 0
+#     i = len(puts) - 1
+#     for x in enumerate(puts):           #[{'jona': 'red'}, {'jona': 'none'}, {'jona': 'charles'}, {'jona': 'black'}, {'jona': 'nothing'}]                     
+#         clist2 = puts[i].split(',')                               
+#         i -= 1                                               
+#     while y == 0:                                              
+#         cld.append({put[y]:puts[i]})
+#         y-=1
+    
+#     return cld
+
+
+
+    # cld = {}
+    # i = 0
+    # x = 0
+    # while i != len(puts):                         # cld.update({put[i]: puts[x]})
+    #     while i != len(puts):                     # TypeError: unhashable type: 'list'
+    #         cld.update({put[i]: puts[x]})
+    #         x+=1
+    #     i += 1                                           
     
     
     
