@@ -36,10 +36,10 @@ def main():
     expenses = 0
     earnings = 0
     for i in range(0,100000):
-        expenses = expenses - 2 
+        expenses = expenses + 2 
         earnings = earnings + play_lotto()
-    
+    balance = earnings - expenses
     ROI = (earnings - expenses)/expenses
-    print(f'expenses : ${ expenses } \nearnings: ${ earnings } \nROI: { ROI * 100 }%') 
+    print(f'balance : { balance }\nexpenses : ${ -1*expenses } \nearnings: ${ earnings } \nROI: { ROI * 100 }%') 
 
 main()
