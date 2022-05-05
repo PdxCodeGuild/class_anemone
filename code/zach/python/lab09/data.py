@@ -14,3 +14,5 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
+
+test_txt = ''
