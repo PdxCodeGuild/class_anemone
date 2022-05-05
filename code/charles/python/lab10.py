@@ -2,12 +2,11 @@ import re
 
 def keys(put):
     i = 0
-    x = len(put)
-    clist2 = []
-    while i != len(put):
-        clist2.extend(put[i].split(','))
+    keys = []
+    while i == 0:
+        keys.extend(put[i].split(','))
         i += 1
-    return clist2 
+    return keys 
 
 def values(puts):
     i = len(puts) - 1
@@ -19,22 +18,30 @@ def values(puts):
 
 def new(put, puts):
     cld = {}
-    for x in enumerate(puts):
-        p = 0
-        y = 0 
-        while y < len(put):
-            cld.update({put[y]:puts[p]})
-            y += 1
-            p += 1
-            print(cld)
+    i = 0
+    y = 1
+    while i != len(put):
+        cld.update({put[i]: puts[i][y]})
+        i += 1
+        y += 1
     return cld
 
 
 with open('contacts.csv', 'r') as file:
     clist = file.read().split('\n')
     print(clist)
-    print(keys(clist))
+    print(new(keys(clist), values(clist)))
 
+    
+    
+    
+    
+    # print(clsit)    ['name,favorite fruit,favorite color', 'charles,none,red', 'jona,nothing,black']
+    # print(keys(clist))   ['name', 'favorite fruit', 'favorite color'] 
+    # print(values(clist)) [['jona', 'nothing', 'black'], ['charles', 'none', 'red']]
+    # print(new(keys(clist, values(clist))))   {'name': ['jona', 'nothing', 'black'], 'favorite fruit': ['jona', 'nothing', 'black'], 'favorite color': ['jona', 'nothing', 'black']}
+    
+    
     
     
     
@@ -42,7 +49,7 @@ with open('contacts.csv', 'r') as file:
     # y = len(clist) - 1
     # i = len(clist) - 1
     # for x in enumerate(clist):                                # [{'favorite color': 'jona,nothing,black'}, {'favorite color': 'charles,none,red'}]
-    # clist2 = clist[i].split(',')                              # ['name,favorite fruit,favorite color', 'charles,none,red', 'jona,nothing,black']
+    # clist2 = clist[i].split(',')                              # 
     #      i -= 1                                               # ['name', 'favorite fruit', 'favorite color'] 
     # while y > 0:                                              # 'name', 'favorite fruit', 'favorite color'
     #    cld.append({clist2[i] : clist[y]})
