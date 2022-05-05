@@ -29,7 +29,7 @@ if cards_total in player_deck:
 # Compare cards drawn and display hit, stay, blackjack or bust.
 if cards_total <= lowestDraw:
     print(f"{cards_total} Hit")
-elif cards_total >= lowestDraw and cards_total < winningNumber:
+elif cards_total >= lowestDraw and cards_total <= winningNumber:
     print(f"{cards_total} Stay")
 elif cards_total > winningNumber:
     print(f"{cards_total} Busted!")
