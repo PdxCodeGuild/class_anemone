@@ -1,35 +1,69 @@
+# ....Lab 10 Version 1 ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+
 import re
 
-with open('C:/users/johns/desktop/contact_list.csv', 'r') as file:
-    lines = file.read().split('\n')
-    print(lines)
+# with open('C:/users/johns/desktop/contact_list.csv', 'r') as file:
+#     lines = file.read().split('\n')
+#     # print(lines)
 
-contacts = dict()
+# contacts = []
 
-header = lines[0]
-header = re.split(',', header)
+# header =  True
+# for line in lines:
+#     if header:
+#         keys = ''.join(line).split(',')
+#         header = False
+#     else:
+#         values = ''.join(line).split(',')
+#         contacts.append({keys[i]:values[i] for i in range(len(keys))})
 
 
-print(header)
-
-# SUPERCALICOMPLICATED way to do it:
-# dict_one = dict()
-# dict_two = dict()
-
-# header = lines[0]
-# header = re.split(',', header)
-# key1 = header.pop(0)
-# key2 = header.pop(0)
-# key3 = header.pop(0)
-# contact_one = lines[1]
-# contact_one = re.split(',', contact_one)
-# value1 = contact_one.pop(0)
-# value2 = contact_one.pop(0)
-# value3 = contact_one.pop(0)
-
-# dict_one[key1] = value1
-# dict_one[key2] = value2
-# dict_one[key3] = value3
-# print(dict_one)
-# contacts[1] = dict_one
 # print(contacts)
+
+# ....Lab 10 Version 2 ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+
+# CRUD REPL
+
+def csv_crud_repl(file_path, mode):
+    with open (file_path, mode) as file:
+        lines = file.read().split('\n')
+
+    contacts = []
+
+    header =  True
+    for line in lines:
+        if header:
+            keys = ''.join(line).split(',')
+            header = False
+        else:
+            values = ''.join(line).split(',')
+            contacts.append({keys[i]:values[i] for i in range(len(keys))})
+    create = input("Do you want to create a new contact? y/n ")
+    if create == 'y':
+        def create():
+            new_values = input('Please state: Name,Favorite Color,Favorite Fruit ')
+            new_values = list(new_values.split(','))
+            values.append(new_values)
+            contacts.append({keys[i]:new_values[i] for i in range(len(keys))})
+    elif create == 'n':
+        pass
+        # print(contacts)
+    create() 
+
+    def retrieve():
+        display = input("Do you want to retrieve a contact? y/n ")
+        if display == 'y':
+            contact_name = input('State the name of the contact you want to retrieve: ')
+            for elements in contacts:
+                if contact_name == elements['name']:
+                    print(elements)    
+        if display == 'n':
+            pass        
+    retrieve()
+
+    # def update():
+    #     update = input("Do you want to update a contact? y/n ")
+    #     if update == 'y':
+            
+
+csv_crud_repl('C:/users/johns/desktop/contact_list.csv', 'r')

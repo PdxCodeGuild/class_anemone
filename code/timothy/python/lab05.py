@@ -5,7 +5,7 @@ import random
 # generate a list of 6 random numbers (COMPLETE)
 def pick6():
     x = []
-    for i in range(6):
+    for _ in range(6):
         r = random.randint(1, 99)
         x.append(r)
     return x
@@ -45,7 +45,7 @@ def lottery():
     wallet = 0
     winner = 0
     winning = pick6()
-    for i in range(100000):
+    for _ in range(100000):
         ticket = pick6()
         wallet = wallet - 2
         winner += num_matches(winning, ticket)   
