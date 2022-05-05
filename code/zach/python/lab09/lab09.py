@@ -1,4 +1,3 @@
-from fileinput import filename
 from data import *
 import re
 import math
