@@ -1,7 +1,6 @@
-ccn = []
-numbers = input('Please enter valid credit card number:  ')
-for number in ccn:
-    print(number)
-    number += ''
-    print(number)
-    print(ccn)
+def stringnum(cardnum):
+    cardnum = cardnum.split()
+    for x in range(len(cardnum)):
+        cardnum[x] = int(cardnum[x])
+    return cardnum
+

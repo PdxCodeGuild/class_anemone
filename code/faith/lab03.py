@@ -1,8 +1,3 @@
-user = input('Please enter a number:  ')
-
-
-
-
 numbersunder10 = {
     0:'zero',
     1: 'one',
@@ -24,7 +19,7 @@ numbersunder10 = {
     18: 'eighteen',
     19: 'nineteen'
 }
-numbersover10 = {
+numbersover20 = {
     2: 'twenty',
     3:'thirty',
     4:'forty',
@@ -36,15 +31,15 @@ numbersover10 = {
 }
 
 def num_to_phrase(number):
-    if user < 20:
+    if number < 20:
      result = numbersunder10[number]
      return result
-    elif user<100:
+    elif number <100:
         ones = number % 10
         tens = number // 10
         if ones == 0:
-            result = numbersover10[tens]
+            result = numbersover20[tens]
         else:
-            result = numbersover10[tens]+ '-' + numbersunder10[ones]
+            result = numbersover20[tens]+ '-' + numbersunder10[ones]
         return result
 

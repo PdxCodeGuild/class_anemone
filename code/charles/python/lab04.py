@@ -23,17 +23,36 @@ def draw():
      
 
     while sum(total) < 21: # while loop to add cards to hand til bust or stay
-        deal = input(f'{(" " .join(hand))} You are at {sum(total)}. Would you like to hit or stay: ').lower()
-                  
-        if deal in no:
-            break
-        elif deal in yes:
-            card = random.choice(blackj_deck)
-            hand.append(card)
-            print(f'Your next card is a {card}')
-            total.append(numblackj_deck[card])
-        else:
-            break
+        
+        stay = f'{(" " .join(hand))} You are at {sum(total)}. You should Stay but would you like to hit.'
+        less = f'{(" " .join(hand))} You are at {sum(total)}. You should Hit.'
+
+        if sum(total) < 17:
+            print({less})
+            deal = input('Hit or Stay: ').lower()
+            if deal in no:
+                break
+            elif deal in yes:
+                card = random.choice(blackj_deck)
+                hand.append(card)
+                print(f'Your next card is a {card}')
+                total.append(numblackj_deck[card])
+            else:
+                break
+        
+        elif sum(total) >= 17 and sum(total) < 21:          # add if/elif for advising hit and stay at the appropriate card values
+            print({stay})
+            deal = input('Hit or Stay: ').lower()
+
+            if deal in no:
+                break
+            elif deal in yes:
+                card = random.choice(blackj_deck)
+                hand.append(card)
+                print(f'Your next card is a {card}')
+                total.append(numblackj_deck[card])
+            else:
+                break
     
     if  sum(total) > 21:               # if/elif for based of sum of total
         status = 'Busted'
