@@ -1,6 +1,3 @@
-
-
-
 number = input('Please enter credit card number: ')
 
 
@@ -38,6 +35,3 @@ def credit_card_validator(number):
         return 'Invalid'
     
 print(credit_card_validator(number))
-
-
-
