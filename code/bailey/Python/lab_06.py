@@ -4,7 +4,7 @@ lab 6
 Bailey Baker
 '''
 
-card = '4556737586899855'
+card = str(input("Please input credit card number: "))
 
 
 def credit_card_validator(card):
@@ -16,10 +16,10 @@ def credit_card_validator(card):
     # Reverse the digits.
     number.reverse()
     # Double every other element in the reversed list (starting with the first number in the list).
-    for i in range(0, 15, 2):
+    for i in range(0, len(number), 2):
         number[i]= number[i] * 2
     # Subtract nine from numbers over nine.
-    for i in range(15):
+    for i in range(len(number)):
         if number[i] > 9:
             number[i] = number[i] - 9
     # Sum all values and take the second digit of that sum.
