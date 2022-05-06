@@ -19,35 +19,34 @@ winning_numbers = []
 def pick6():
     draw_numbers = []
     for i in range(6):
-        n = random.randint(1,99)
-        draw_numbers.append(n)
+        draw_numbers.append(random.randint(1,99))
     return draw_numbers
 
 def num_matches(winning_numbers, draw_numbers):
-    money_value = {0:0, 1:4, 2:7, 3:100, 4:50000, 5:1000000, 6:25000000}
-    matches = 0
-    for i in range(6):
-        if draw_numbers[i] == winning_numbers[i]:
+    matches = 0 #starting matches at zero
+    for win, tix in zip(winning_numbers, draw_numbers):
+        if win == tix:
             matches += 1
-        earnings = money_value[matches]
-    return earnings
+    return matches
 
-def winning_value():
-    winner = 0
-    loser = 0
-    winning_ticket = pick6()
-    for i in range(100000):
-        personal_ticket = pick6()
-        loser = loser - 2
-        winner += num_matches(winning_ticket, personal_ticket)
-    earnings = winner + loser
-    return earnings
+winning_numbers = pick6()
 
+winnings = {6: 25000000, 5: 1000000, 4: 50000, 3: 100, 2: 7, 1: 4, 0: 0}
 
-print(f"Earnings = {winning_value()}")
+balance = 0
+earnings = 0
+expenses = 0
 
-#___________version 2_____________#
+for _ in range(10000000000000):
+    current_ticket = pick6()
+    balance -= 2
+    expenses += 2
+    matches = num_matches(winning_numbers, current_ticket)
+    balance += winnings[matches]
+    earnings += winnings[matches]
 
-roi = (winning_value() - 200000) / 200000
-
-print(f"Earnings = {winning_value()} ROI = {roi}")
+print('balance', balance)
+print('earnings', earnings)
+print('expenses', expenses)
+print('ROI', (earnings - expenses) / expenses)
+    
