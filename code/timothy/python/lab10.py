@@ -29,7 +29,7 @@ def csv_crud_repl(file_path, mode):
         lines = file.read().split('\n')
 
     contacts = []
-
+    # print(lines) - ['name,favorite color,favorite fruit', 'tim,black,watermelon', 'liz,yellow,mango', 'james,blue,strawberry']
     header =  True
     for line in lines:
         if header:
@@ -38,7 +38,10 @@ def csv_crud_repl(file_path, mode):
         else:
             values = ''.join(line).split(',')
             contacts.append({keys[i]:values[i] for i in range(len(keys))})
-    
+    # print(contacts) - [{'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'}, {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'james', 'favorite 
+                        # color': 'blue', 'favorite fruit': 'strawberry'}]
+    # print(keys)
+    # print(values)
     user_prompt = ''
 
     while user_prompt != 'x':
@@ -94,13 +97,28 @@ def csv_crud_repl(file_path, mode):
                 contact_name = input('State the name of the contact you want to delete: ')
                 for contact in contacts:
                     if contact_name == contact['name']:
-                        del contact['name']
-                        print(contacts)
+                        check = input(f'{contact} will be deleted. Are you certain? y/n ')
+                        if check == 'y':
+                            contacts.remove(contact)
+                        elif check == 'n':
+                            pass
+                        # print(contacts)
                         return(contacts)
             delete()
             continue
                     
-        
+# ....Lab 10 Version 3 ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
+
+        elif user_prompt == 's':
+            print('Saving file...')
+            lines = [','.join(keys)]
+            for contact in contacts:
+                new_string = ','.join(contact.values())
+                lines.append(new_string)
+            contact_list = '\n'.join(lines)
+            with open(file_path, 'w') as file:
+                file.write(contact_list)
+
 
 csv_crud_repl('C:/users/johns/desktop/contact_list.csv', 'r')
 
