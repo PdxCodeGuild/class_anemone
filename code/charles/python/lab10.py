@@ -1,5 +1,10 @@
 from itertools import zip_longest
 import re 
+name = ['name', 'n']
+ff =['favorite food', 'favorite fruit', 'favorite snack']
+fc =['favorite color', 'favorite dye', 'favorite shade']
+
+
 
 def read():
     with open('contacts.csv') as f:
@@ -9,28 +14,65 @@ def read():
     for i in range(1, len(info)):
         pinfo = info[i].split(',')
         contacts.append(dict(zip(keys, pinfo)))
+    return contacts, keys
 
 
-def find(contacts, input):
+def search():
+    contacts, keys = read()
+    search = input('Who are you looking for? ')
     for i, contact in enumerate(contacts):
-        if contact['name'] == input:
+        if contact['name'] == search:
             return contacts[i]
         else:
            return print('Contact not in list')
 
-def create(contacts):
-    
-    name = input('Enter their name: ').lower()
-    ff = input('Enter their favorite fruit: ').lower()
-    fc = input('Enter their favorite color: ').lower()
-    ninfo = {'name': name, 'favorite fruit': ff, 'favorite color': fc}
-    for ninfo in contacts:
-        contacts.append(ninfo)
 
-print(create(read()))
+def delete():
+    contacts, keys = read()
+    remove = input('What contact would you like to get rid of? ').lower()
+    for i, contact in enumerate(contacts):
+        if contact['name'] == remove:
+            del contacts[i]
+            return contacts
+        else:
+            return print('Person not in list or spelling incorrect.')
 
 
+def update():
+    contacts, keys = read()
+    replace = input('What contact would you like to change? ').lower()
+    for i, contact in enumerate(contacts):
+        if contact['name'] == replace:
+            name 
+            key = input(f'What would you like to change about {replace}\n{keys}: ').lower()
+            if key in name:
+                val = input('What will be the new name? ')
+                contacts[i]['name'] = val
+            if key in ff:
+                val = input('What will be the new favorite fruit? ')
+                contacts[i]['favorite fruit'] = val
+            if key in fc:
+                val = input('What will be the new favorite color? ')
+                contacts[i]['favorite color'] = val
+        else:
+            return print('Desired contact is not in the list.')
+    return contacts           
 
+
+def create():
+    contacts, keys = read()
+    contact = {}    
+    for key in keys:
+        value = input(f'{key}: ')
+        contact[key] = value
+    contacts.append(contact)
+    return contacts
+
+print(update())
+
+
+def something():
+    contacts, keys = read()
 
 
 # def keys(put):
