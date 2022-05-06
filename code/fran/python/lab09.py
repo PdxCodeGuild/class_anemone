@@ -1,6 +1,9 @@
 # Lab09 - Compute Automated Readability Index (ARI)
 # Fran Kappes
 
+# Import the regular expressions module
+import re
+
 # Create dictionary for the ARI scale
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -20,32 +23,53 @@ ari_scale = {
 }
 
 # Import text file that will contain a passage to be evaluated for an ARI score
-#file_name = 
+file_name = 'gettysburg_address.txt'
 
-with open('gettysburg_address.txt', 'r') as f:
+with open(file_name, 'r') as f:
     contents = f.read()
 
+#    print(contents)     ### TEST
+
 # Count the number of characters in the passage
-char_count = 
+char_count_list = re.findall(r'[a-z,A-Z]', contents)
+char_count = len(char_count_list)
+
+#print(f"character count: {char_count}")     ### TEST
 
 
 # Count the number of words in the passage
-word_count = 
+word_count_list = contents.split()
+word_count = len(word_count_list)
+
+#print(f"word count: {word_count}")      ### TEST
 
 
 # Count the number of sentences in the passage
-sentence_count = 
+sentence_count_list = re.findall(r'[.?!]', contents)
+sentence_count = len(sentence_count_list)
+
+#print(f"sentence count: {sentence_count}")      ### TEST
 
 
 # Calculate the ARI score
-ari = (4.71 * (char_count/word_count)) + (0.5 * (word_count/sentence_count)) - 21.43
+ari = round((4.71 * (char_count/word_count)) + (0.5 * (word_count/sentence_count)) - 21.43)
+
+#print (f"ari: {ari}")       ### TEST
+
+# Look up ARI grade and ARI age, based on the ARI score
+ari_lookup = ari_scale[ari]
+ari_grade = ari_lookup['grade_level']
+ari_age = ari_lookup['ages']
+
+#print(f"ari grade: {ari_grade}")    ### TEST
+#print(f"ari age: {ari_age}")    ### TEST
 
 
 # Report the score back to the user
 print(f"""
 --------------------------------------------------------
 The ARI for {file_name} is {ari}
-This corresponds to a {grade} level of difficulty
-that is suitable for an average person {age} years old.
+This corresponds to a {ari_grade} level of difficulty
+that is suitable for an average person {ari_age} years old.
 --------------------------------------------------------
 """)
