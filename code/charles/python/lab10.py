@@ -1,10 +1,11 @@
 from itertools import zip_longest
 import re 
 name = ['name', 'n']
-ff =['favorite food', 'favorite fruit', 'favorite snack']
-fc =['favorite color', 'favorite dye', 'favorite shade']
-
-
+ff =['favorite food', 'favorite fruit', 'favorite snack', 'food']
+fc =['favorite color', 'favorite dye', 'favorite shade', 'color']
+commands = ['list', 'new', 'update', 'search', 'delete']
+yes = ['y', 'yes', 'yes', 'ye', 'ya']
+no = ['n', 'no', 'na', 'nada', 'nope']
 
 def read():
     with open('contacts.csv') as f:
@@ -15,20 +16,18 @@ def read():
         pinfo = info[i].split(',')
         contacts.append(dict(zip(keys, pinfo)))
     return contacts, keys
-
+contacts, keys = read()
 
 def search():
-    contacts, keys = read()
-    search = input('Who are you looking for? ')
+    search = input('Who are you looking for? ').lower()
     for i, contact in enumerate(contacts):
         if contact['name'] == search:
             return contacts[i]
         else:
-           return print('Contact not in list')
+           return 'Contact not in list'
 
 
 def delete():
-    contacts, keys = read()
     remove = input('What contact would you like to get rid of? ').lower()
     for i, contact in enumerate(contacts):
         if contact['name'] == remove:
@@ -39,40 +38,98 @@ def delete():
 
 
 def update():
-    contacts, keys = read()
     replace = input('What contact would you like to change? ').lower()
     for i, contact in enumerate(contacts):
         if contact['name'] == replace:
             name 
             key = input(f'What would you like to change about {replace}\n{keys}: ').lower()
             if key in name:
-                val = input('What will be the new name? ')
+                val = input('What will be the new name? ').lower()
                 contacts[i]['name'] = val
-            if key in ff:
-                val = input('What will be the new favorite fruit? ')
+                return contacts
+            elif key in ff:
+                val = input('What will be the new favorite fruit? ').lower()
                 contacts[i]['favorite fruit'] = val
-            if key in fc:
-                val = input('What will be the new favorite color? ')
+                return contacts
+            elif key in fc:
+                val = input('What will be the new favorite color? ').lower()
                 contacts[i]['favorite color'] = val
+                return contacts
+            return contacts 
         else:
-            return print('Desired contact is not in the list.')
-    return contacts           
+            return 'Contact not in list'
+    return contacts, 
+         
 
 
 def create():
-    contacts, keys = read()
     contact = {}    
     for key in keys:
-        value = input(f'{key}: ')
+        value = input(f'{key}: ').title()
         contact[key] = value
-    contacts.append(contact)
-    return contacts
-
-print(update())
+    return contact
 
 
-def something():
-    contacts, keys = read()
+
+
+def save(contacts, keys):
+    nf = [','.join(keys)]
+    for contact in contacts:
+        contact = contact.values()
+        contact = [','.join(contact)]
+        # contact = ['\n'.join(contact)]
+        nf.extend(contact)
+    nf = '\n'.join(nf)
+    
+    with open('contacts2.csv', 'w') as file:
+            file.write(nf)
+    return
+
+def sys():
+    phone_book = True
+    while phone_book:
+        print('Welcome to your Off-brand phone book.')
+        direct = input(f"{', '.join(commands)}"'\n What is it that you would like to do? ').lower()
+        
+        if direct in commands:
+            if direct == 'list':
+                direct = None
+                print(contacts)
+            elif direct == 'new':
+                direct = None
+                contact = create()
+                contacts.append(contact)
+            elif direct == 'update':
+                direct == None
+                contact = update()
+                if contact == 'Contact not in list':
+                    print(contact)  
+                    print(contacts)
+                    pass
+                contacts.append(contact)
+            elif direct == 'search':
+                direct == None
+                print(search())
+            elif direct == 'delete':
+                direct == None
+                delete()
+                print(contacts)
+     
+        redo = input('Is there more you would like to do? Y/N: ').lower()
+        if redo in yes:
+            phone_book= True
+        elif redo in no:
+            phone_book = False
+            print('Goodbye')
+    save(contacts, keys)  
+
+
+# print(ucontacts)        
+        
+sys()        
+
+
+
 
 
 # def keys(put):
