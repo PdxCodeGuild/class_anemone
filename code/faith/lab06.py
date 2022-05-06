@@ -1,6 +1,5 @@
-def stringnum(cardnum):
-    cardnum = cardnum.split()
-    for x in range(len(cardnum)):
-        cardnum[x] = int(cardnum[x])
-    return cardnum
+cardnum = [4556737586899855]
 
+def validnum(cardnum):
+    cardnumber = cardnum.split(' ')
+    print(cardnumber)
