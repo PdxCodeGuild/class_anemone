@@ -3,24 +3,24 @@ import re
 name = ['name', 'n']
 ff =['favorite food', 'favorite fruit', 'favorite snack', 'food']
 fc =['favorite color', 'favorite dye', 'favorite shade', 'color']
-commands = ['list', 'new', 'update', 'search', 'delete']
+commands = ['list', 'new', 'update', 'search', 'delete']                        # list of strings for laters
 yes = ['y', 'yes', 'yes', 'ye', 'ya']
 no = ['n', 'no', 'na', 'nada', 'nope']
 
-def read():
+def read():                                                                     # loads and breaks down csv file
     with open('contacts.csv') as f:
-        info = f.read().split('\n')
+        info = f.read().split('\n')                                             
     contacts = []
-    keys = info[0].split(',')
+    keys = info[0].split(',')                                                   # takes inputs from 0th line and creates a list of keys 
     for i in range(1, len(info)):
-        pinfo = info[i].split(',')
-        contacts.append(dict(zip(keys, pinfo)))
-    return contacts, keys
-contacts, keys = read()
+        pinfo = info[i].split(',')                                              # creates two list with contact info
+        contacts.append(dict(zip(keys, pinfo)))                                 # combines key and info into tuples to be put into a dict
+    return contacts, keys                                                       # returns contacts listdict and keys
+contacts, keys = read()                                                         # opens the contacts and keys to be edited globally... but not the actual global just like everything access global
 
 def search():
-    search = input('Who are you looking for? ').lower()
-    for i, contact in enumerate(contacts):
+    search = input('Who are you looking for? ').lower()                         # takes input from user and process through each contact til match
+    for i, contact in enumerate(contacts):                                      # and returns the list[int] dict to user
         if contact['name'] == search:
             return contacts[i]
         else:
@@ -28,7 +28,7 @@ def search():
 
 
 def delete():
-    remove = input('What contact would you like to get rid of? ').lower()
+    remove = input('What contact would you like to get rid of? ').lower()       # same as search just with the del function
     for i, contact in enumerate(contacts):
         if contact['name'] == remove:
             del contacts[i]
@@ -38,10 +38,10 @@ def delete():
 
 
 def update():
-    replace = input('What contact would you like to change? ').lower()
-    for i, contact in enumerate(contacts):
-        if contact['name'] == replace:
-            name 
+    replace = input('What contact would you like to change? ').lower()                          # same as search/del at first
+    for i, contact in enumerate(contacts):                                                      # repleaces information based of user input and would 
+        if contact['name'] == replace:                                                          # have to be accessed again for additional
+            name                                                                                # while loop would fix
             key = input(f'What would you like to change about {replace}\n{keys}: ').lower()
             if key in name:
                 val = input('What will be the new name? ').lower()
@@ -62,27 +62,27 @@ def update():
          
 
 
-def create():
+def create():                                                                                   # creates new contact to be appended to the list
     contact = {}    
     for key in keys:
-        value = input(f'{key}: ').title()
-        contact[key] = value
+        value = input(f'{key}: ').title()                                                       # rotates through each key to be printed and input for
+        contact[key] = value                                                                    # each value entered
     return contact
 
 
 
 
-def save(contacts, keys):
-    nf = [','.join(keys)]
-    for contact in contacts:
-        contact = contact.values()
-        contact = [','.join(contact)]
+def save(contacts, keys):                                                           # inports updated contacts and keys to be saved into new file
+    nf = [','.join(keys)]                                                           # joins the keys back to the base of name,favorite,favorite
+    for contact in contacts:                                                        
+        contact = contact.values()                                                  # process through each contact dict to join values like keys
+        contact = [','.join(contact)]   
         # contact = ['\n'.join(contact)]
-        nf.extend(contact)
+        nf.extend(contact)                                                          # adds each listed contact to the nf variable to be save
     nf = '\n'.join(nf)
     
-    with open('contacts2.csv', 'w') as file:
-            file.write(nf)
+    with open('contacts2.csv', 'w') as file:                                        # saves the information onto new file opening to be written on with
+            file.write(nf)                                                          # 'w' and .wwrite
     return
 
 def sys():
@@ -92,7 +92,7 @@ def sys():
         direct = input(f"{', '.join(commands)}"'\n What is it that you would like to do? ').lower()
         
         if direct in commands:
-            if direct == 'list':
+            if direct == 'list':                                                    # if/elifs to run through each command based on user input
                 direct = None
                 print(contacts)
             elif direct == 'new':
@@ -115,7 +115,7 @@ def sys():
                 delete()
                 print(contacts)
      
-        redo = input('Is there more you would like to do? Y/N: ').lower()
+        redo = input('Is there more you would like to do? Y/N: ').lower()                   # user can loop to modify the file to liking
         if redo in yes:
             phone_book= True
         elif redo in no:
