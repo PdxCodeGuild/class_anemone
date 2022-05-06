@@ -1,14 +1,10 @@
 '''Contact List'''
 
 # Open and read the csv file 'contacts.csv'
-from requests import head
-
-
 with open('contacts.csv', 'r') as file:
     lines = file.read().split("\n")
     # print(lines)
-
-
+    
 # Create a list containing contacts
 contact_list = []
 for line in lines:
