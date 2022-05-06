@@ -31,8 +31,11 @@ def credit_card_validator(card_num):
 
     ## double the reverse list
   
-    for x in num_list:
-          double_card.append(x + x)
+    for x, num in enumerate(num_list):
+          if x % 2 == 0:
+                double_card.append(num * 2)
+          else:
+                double_card.append(num)
     print(str(double_card))
 
     # subtracting 9 from numbers over 9
@@ -53,7 +56,7 @@ def credit_card_validator(card_num):
     print(second_digit)
 
     ## check if valid 
-    if second_digit == check_digit:
+    if int(second_digit) == check_digit:
           print("Card is Valid")
     else:
           print("Card is Invalid")
