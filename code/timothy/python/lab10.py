@@ -29,7 +29,8 @@ def csv_crud_repl(file_path, mode):
         lines = file.read().split('\n')
 
     contacts = []
-    # print(lines) - ['name,favorite color,favorite fruit', 'tim,black,watermelon', 'liz,yellow,mango', 'james,blue,strawberry']
+    
+# Reads csv and converts to list of dicts.
     header =  True
     for line in lines:
         if header:
@@ -38,10 +39,8 @@ def csv_crud_repl(file_path, mode):
         else:
             values = ''.join(line).split(',')
             contacts.append({keys[i]:values[i] for i in range(len(keys))})
-    # print(contacts) - [{'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'}, {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'james', 'favorite 
-                        # color': 'blue', 'favorite fruit': 'strawberry'}]
-    # print(keys)
-    # print(values)
+    
+# Beginning of CRUD REPL, takes user input key to initiate conditional functions (that don't really need to be functions in this format..).
     user_prompt = ''
 
     while user_prompt != 'x':
@@ -54,11 +53,11 @@ def csv_crud_repl(file_path, mode):
         s = Save contact list
         x = Exit program
         """)
-
+# Simple print of current contacts.
         if user_prompt == 'v':
             print(contacts)
             continue
-
+# Creation and addition of new contact.
         elif user_prompt == 'c':
             def create():
                 new_values = input('Please state: Name, Favorite Color, Favorite Fruit: ')
@@ -68,17 +67,17 @@ def csv_crud_repl(file_path, mode):
                 print(contacts)
             create()
             continue
-
+# Retrieval and display of existing contact.
         elif user_prompt == 'r':
             def retrieve():
                 contact_name = input('State the name of the contact you want to retrieve: ')
-                for elements in contacts:
-                    if contact_name == elements['name']:
-                        print(elements)
-                        return elements        
+                for contact in contacts:
+                    if contact_name == contact['name']:
+                        print(contact)
+                        return contact        
             retrieve()
             continue
-
+# Update existing contact with new attributes.
         elif user_prompt == 'u':
             def update():
                 contact_name = input('State the name of the contact you want to update: ')
@@ -91,7 +90,7 @@ def csv_crud_repl(file_path, mode):
                         return contact
             update()
             continue
-
+# Deletion of a selected contact from the list.
         elif user_prompt == 'd':
             def delete():
                 contact_name = input('State the name of the contact you want to delete: ')
@@ -109,6 +108,7 @@ def csv_crud_repl(file_path, mode):
                     
 # ....Lab 10 Version 3 ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
 
+# Ability to save updated csv file at path.
         elif user_prompt == 's':
             print('Saving file...')
             lines = [','.join(keys)]
@@ -119,8 +119,102 @@ def csv_crud_repl(file_path, mode):
             with open(file_path, 'w') as file:
                 file.write(contact_list)
 
+### Definitely a lot of code in unnecessary functions since it's one big function that just immediately calls the nested ones... but it works! 
+## It made me tear my hair out...but it works!
+# Pulling as completed, but I will be reviewing and rebuilding (functionally) from scratch since this kicked my butt.
 
 csv_crud_repl('C:/users/johns/desktop/contact_list.csv', 'r')
+
+# OUTPUT
+# λ py lab10.py
+# What would you like to do? 
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         v
+# [{'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'}, {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'frodo', 'favorite 
+# color': ' green', 'favorite fruit': 'carrots'}]
+# What would you like to do?
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         c
+# Please state: Name, Favorite Color, Favorite Fruit: james, blue, strawberries
+# [{'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'}, {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'frodo', 'favorite 
+# color': ' green', 'favorite fruit': 'carrots'}, {'name': 'james', 'favorite color': ' blue', 'favorite fruit': ' strawberries'}]
+# What would you like to do?
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         r
+# State the name of the contact you want to retrieve: liz
+# {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}
+# What would you like to do?
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         u
+# State the name of the contact you want to update: frodo
+# {'name': 'frodo', 'favorite color': ' green', 'favorite fruit': 'carrots'}
+# Which attribute would you like to update? favorite fruit
+# Type updated information: apples
+# {'name': 'frodo', 'favorite color': ' green', 'favorite fruit': 'apples'}
+# What would you like to do?
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         d
+# State the name of the contact you want to delete: tim
+# {'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'} will be deleted. Are you certain? y/n y
+# What would you like to do? 
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         s
+# Saving file...
+# What would you like to do?
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         v
+# [{'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'frodo', 'favorite color': ' green', 'favorite fruit': 'apples'}, {'name': 'james', 'favorite color': ' blue', 'favorite fruit': ' strawberries'}]
+# What would you like to do?
+#         v = View contact list
+#         c = Create a new contact
+#         r = Retrieve a contact
+#         u = Update a contact
+#         d = Delete a contact
+#         s = Save contact list
+#         x = Exit program
+#         x
 
 
 
