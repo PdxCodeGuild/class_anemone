@@ -53,7 +53,7 @@ def csv_crud_repl(file_path, mode):
         s = Save contact list
         x = Exit program
         """)
-# Simple print of current contacts.
+# Print of current contacts.
         if user_prompt == 'v':
             print(contacts)
             continue
@@ -121,7 +121,7 @@ def csv_crud_repl(file_path, mode):
 
 ### Definitely a lot of code in unnecessary functions since it's one big function that just immediately calls the nested ones... but it works! 
 ## It made me tear my hair out...but it works!
-# Pulling as completed, but I will be reviewing and rebuilding (functionally) from scratch since this kicked my butt.
+# Pulling as completed, but I will be reviewing and rebuilding (functionally) from scratch this weekend, since this kicked my butt.
 
 csv_crud_repl('C:/users/johns/desktop/contact_list.csv', 'r')
 
