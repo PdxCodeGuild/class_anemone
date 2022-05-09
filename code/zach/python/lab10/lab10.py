@@ -19,29 +19,22 @@ def write_f():#TODO: Figure out a use for this
         f.close()
     return
 
-def read_f():
+def read_contacts():
     with open('contacts.csv', 'r') as f:
-        results = []
-        f.readline() # ignores header row
-        for line in f:
-            contact = line.split(',\n')
-            results.append(contact)
-        print(contact[0::-1])
-    # answer = {}
-    # with open('path/to/file') as infile:
-    #     infile.readline()  # we don't care about the header row
-    #     for line in infile:
-    #         year, gender, name, count = (s.strip('"') for s in line.split(','))
-    #         key = (name, gender)
-    #         if key not in answer: answer[key] = {}
-    #         answer[key][int(year)] = (int(count), None)
-    return
+        data_csv = f.read()
+        data_csv = [line.split(',') for line in data_csv.split('\n')]
+        keys = data_csv[0]
+        contacts = [dict(zip(keys, values)) for values in data_csv[1::]]
+
+        print(contacts)
+
+    return contacts
 def main():
     #         words = line.split(',')
     #         results.append((words[0]), words[1:])
     # return
-    write_f()
-    #read_f()
+    # write_f()
+    read_contacts()
     return
 
 
