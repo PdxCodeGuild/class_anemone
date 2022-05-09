@@ -1,5 +1,5 @@
 class ATM():
-    balance = 0
+    balance = 0                                                 # set a base balance in the ATM class and a list to be appended with changes    
     account_changes = []
     
     
@@ -8,43 +8,44 @@ class ATM():
     
 
     def check_balance(self):
-        balance = ATM.balance
-        ATM.account_changes.append('User checked balance.')
+        balance = ATM.balance                                   # checks what the ATM balance is showing and inports it to the def to be returned
+        ATM.account_changes.append('User checked balance.')     # appends the list with the account interaction
         return balance
     
 
     def check_withdrawal(self, amount):
-        if ATM.balance - amount < 0:
-            ATM.account_changes.append('User had insufficent funds.')
+        if ATM.balance - amount < 0:                            # checks whether user has sufficent funds
+            ATM.account_changes.append('User had insufficent funds.')   # appends the list with the account interaction
             return 
-        elif ATM.balance - amount > 0:
+        elif ATM.balance - amount > 0:                          # returns True if so to be passed into withdraw function
             return True
     
     
     def withdraw(self, amount):
-        if ATM.check_withdrawal(self, amount) == None:
-            return
+        if ATM.check_withdrawal(self, amount) == None:              # pulls in None or True form check withdrawl
+            return                                                  # returns None if inported None
         elif ATM.balance - amount > 0:
-            ATM.account_changes.append(f'User withdrew {amount}.')
-            ATM.balance -= amount
+            ATM.account_changes.append(f'User withdrew {amount}.')  # appends the list with the account interaction
+            ATM.balance -= amount                                   # modifys the ATM balance with the amount withdrawn
             return ATM.balance
     
     
     def deposit(self, amount):
-        ATM.account_changes.append(f'User deposited {amount}.')
-        ATM.balance += amount
+        ATM.account_changes.append(f'User deposited {amount}.')     # appends the list with the account interaction
+        ATM.balance += amount                                       # modifys the ATM balance with the amount deposited
         return ATM.balance
     
     
     def calc_interest(self):
-        interest = ATM.balance * .0001
-        ATM.balance += interest
-        ATM.account_changes.append(f'User acummilated {interest}.')
+        interest = ATM.balance * .0001                              # calculates interest earned of .01%
+        # ATM.balance += interest  and now i understand the deposit in the loop # modifys the ATM balance with the amount of interest earned
+        ATM.account_changes.append(f'User acummilated {interest}.') # appends the list with the account interaction
         return interest
     
 
     def transactions(self):
-        transactions = '\n'.join(ATM.account_changes)
+        ATM.account_changes.append(f'User requested list of account transactions.') # appends the list with the account interaction
+        transactions = '\n'.join(ATM.account_changes)                               # splits the list into new lines for easier reading
         return transactions
 
 
@@ -75,7 +76,7 @@ while True:
         amount = atm.calc_interest() # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
-    elif command == 'transactions':
+    elif command == 'transactions':                                         # added transactions elif for user to check account transactions
         inter = atm.transactions()
         print(inter)
     elif command == 'help':
@@ -85,7 +86,7 @@ while True:
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
-        print('transactions - returns a list of account trasactions')
+        print('transactions - returns a list of account trasactions')                  # add transactions for user
     elif command == 'exit':
         break
     else:
