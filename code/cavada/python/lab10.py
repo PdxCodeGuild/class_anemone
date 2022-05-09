@@ -48,19 +48,23 @@ def dict_list(lines):
     print(f"tuples: {tuples}")
     conts = [t for t in tuples]
     v = conts.pop(0)
+    
     print(f"conts: {conts}")
     contacts= [] # dict list shell set to compile dictionaries as dict list
+    contacts.append(v)
     a = 0 # counter used for each for loop, ensures right value is selected when assigning dictionary key:value pairs
     x = 0 # counter used throughout the 3 for loops to ensure that correct dictionary is being update,
     for cont in conts:
-        print(cont)
-        for key in v: # first for loop used to collect and assign data to 1st contact that will be update in the 0th index of the contacts_list dict list dictionary for contact1 (ronald parker)
-            print(key)
-            dict_index = cont_basket[x] 
-            contact = conts[x+1] 
-            dict_index[key]= contact[a] 
-            a +=1 
-            x +=1 
+        print(f"cont: {cont}")
+        contacts.append(cont)
+    print(contacts)
+        # for key in v: # first for loop used to collect and assign data to 1st contact that will be update in the 0th index of the contacts_list dict list dictionary for contact1 (ronald parker)
+        #     print(key)
+        #     dict_index = cont_basket[x] 
+        #     contact = conts[x+1] 
+        #     dict_index[key]= contact[a] 
+        #     a +=1 
+        #     x +=1 
     # # print(f"contact1: {cont1}") # print statement i used at some point for verification after a LOT of code being written and deleted
     # a = 0 # reset a value to 0 in order to work again from left to right in list step-wise fashion 
     # for key in tuples[0]: # same as above
@@ -81,10 +85,10 @@ def dict_list(lines):
     contacts= [] # recompling of dict list
     # cont1 = cont1[0]
     # print(cont_basket)
-    for cont in cont_basket:
-        if cont != {} and type(cont) != list:
-            contacts.append(cont)
-    print(f"contacts:{contacts}")
+    # for cont in cont_basket:
+    #     if cont != {} and type(cont) != list:
+    #         contacts.append(cont)
+    # print(f"contacts:{contacts}")
 
     return contacts # return of dictlist that can be futher maniuplated 
 # lines=open_file(csv)
