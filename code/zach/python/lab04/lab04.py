@@ -48,7 +48,10 @@ def bj_deal(game_deck, deal_count, hand_count):
 
 # bj_hint function fulfills the requirement for lab04, the goal of implementing the function this way is to allow the user to eventually be able to prompt a hint at anytime during the game the game by attaching it to some input
 def bj_hint(player_hand):
+    player_hand[0] = input('enter 1st card (2-A)').strip().upper()
+    player_hand[1] = input('enter 2nd card (2-A)').strip().upper()
     hand_val = 0
+
     for card in player_hand:
         hand_val += variables.card_val[card[0]]
     separator = ' , '
@@ -65,7 +68,7 @@ def main():
     play_game = input(
         'Would you like to learn to play ♠️ ♥️ ♣️ ♦️ BlackJack ♠️ ♥️ ♣️ ♦️ [Y/n] ').upper().strip()
 
-    test_hand = ['7 ♥️', '9 ♠️', '5 ♣️'] # Change to see different results from game functions by hand.
+    test_hand = ['7 ♥️', '9 ♠️'] # Change to see different results from game functions by hand.
 
     bj_hint(test_hand)
 
