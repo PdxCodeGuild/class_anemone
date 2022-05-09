@@ -25,6 +25,14 @@ for i in range(1,len(lines)):           # loop through all lines except the head
     print(f"contact: {contact}")       # TEST
     contacts.append(contact)            # append individual's dictionary contents to contacts list
 
+print(f"contacts: {contacts}")       # TEST
+
+### Notes from discussion with Liz ###
+
+# Need to have REPL (while True loop)
+# Pass in contacts dictionary to all functions
+
+##### END NOTES #####
 
 # Prompt user to create, view, modify, or delete a contact record, then execute the action
 user_action = input("What would you like to do? Enter 'c' to create a new contact, 'r' to retrieve a contact record, 'u' to update an existing contact record, or 'd' to delete an existing contact record: ")
@@ -61,10 +69,10 @@ elif user_action == 'r':
 
 
     matches = [match for match in lines if user_name in match]
-    values = [value for value in contact.values() if user_name in value]  ### GET empty list []
-    print(f"matches: {matches}")
+    values = [value for value in contact.values() if user_name in value]  ### RETURNS empty list []
+    print(f"matches: {matches}")  ### RETURNS ['bert,banana,blue']
     
-    match_name = matches[0]
+    match_name = matches[0]   ### RETURNS bert,banana,blue
     print(f"match name: {match_name}")
     #record = matches.split(',')  ### GET AttributeError: 'list' object has no attribute 'split'
     #print(f"record: {record}")
