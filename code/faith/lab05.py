@@ -15,12 +15,12 @@ def num_matches(winning, ticket):
     match = 0
     for x in range(len(winning)):
         if winning[x]==ticket[x]:
-         match += 1
-         return match
+            match += 1
+    return match
 
 winnings = {6:25000000, 5:1000000, 4:50000, 3:100, 2:7, 1:4, 0:0}
 
-num_of_matches = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0,6:0}
+
 
 winning_ticket = pick6()
 
@@ -33,13 +33,12 @@ for _ in range(100000):
     balance -= 2
     expenses += 2
     match = num_matches(winning_ticket, new_ticket)
-   
+    earnings += winnings[match]
 
 
     
 
-print('balance',balance)
+print('balance',(balance + earnings))
 print('earning' ,earnings)
 print('expenses', expenses)
-print('ROI', earnings - expenses/expenses)
-print(num_of_matches)
+print('ROI', ((earnings - expenses)/expenses))
