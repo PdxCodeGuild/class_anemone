@@ -7,10 +7,6 @@ class ATM():
         pass 
     
 
-    def __repr__(self, account_changes):
-        return '\n'.join(ATM.account_changes)
-    
-    
     def check_balance(self):
         balance = ATM.balance
         ATM.account_changes.append('User checked balance.')
