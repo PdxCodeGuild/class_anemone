@@ -49,17 +49,22 @@ def num_to_phrase(number):
         ones = number % 10
         tens = (number // 10)%10
         hundreds = number//100
-    if tens < 2:
+        #print(ones)
+        if tens == 0 and ones == 0:
+            result = numbersunder20[hundreds] + 'hundred'
+        elif ones == 0:
+                result = numbersunder20[hundreds] + 'hundred and'+ numbersover20[tens]
+        elif tens < 2:
             result2 = 10*tens +ones
+            print(result2)
             if result2 == 0:
                 result = numbersunder20[hundreds]+ 'hundred'
             else:
                 result = numbersunder20[hundreds]+'hundred and'+ numbersunder20[result2]
-    else:
-            result = numbersunder20[hundreds]+ 'hundred and'+ numbersover20[tens]
-    if ones == 0:
-                result = numbersunder20[hundreds] + 'hundred and'+ numbersover20[tens] + '-' +numbersunder20[ones]
+        else:
+            result = numbersunder20[hundreds]+ 'hundred and'+ numbersover20[tens] +'-'+ numbersunder20[ones]
+        
     return result
 
-
-print(num_to_phrase(199))
+usernum = int(input('Please enter number: '))
+print(num_to_phrase(usernum))
