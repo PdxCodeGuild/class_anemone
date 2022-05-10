@@ -1,4 +1,3 @@
-import os
 import random
 
 deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * 4
@@ -22,8 +21,10 @@ def dealer(deck):
 def total(hand_cards):
     total = 0
     for cards in hand_cards:
-        if cards == 'J' or cards == 'Q' or cards == 'K' or cards == 'A':
+        if cards == 'J' or cards == 'Q' or cards == 'K':
             total += 10
+        elif cards == 'A':
+            total += 1
         else:
             total += cards
     return total
@@ -66,8 +67,7 @@ def game():
         black_jack(dealer_hand, player_hand)
         if total(dealer_hand) < 17:
             cards_to_hit(dealer_hand)
-            print(dealer_hand)
-            print(f"Dealer has {dealer_hand}.")
+            print(f"Dealer has now has {dealer_hand}.")
         if total(dealer_hand) > 21:
             print("Dealer busts, YOU WIN! ")
             # black_jack(dealer_hand, player_hand)
