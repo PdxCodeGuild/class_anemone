@@ -67,11 +67,11 @@ def ROT13(user_string): # define ROT13 function
     # rotate through the list of numbers and add 13 to them or subtract 13 to get the key that is 13 away
     # then convert to a string and add it to the empty encryption string
     for number in user_list_number_values:
-        if number > 14:
-            number += 13
+        if number > 13:
+            number -= 13
             encryption = encryption + number_values[number]
         else:
-            number -= 13
+            number += 13
             encryption = encryption + number_values[number]
     
     return encryption
