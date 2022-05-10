@@ -1,5 +1,3 @@
-# ------------- #
-
 def dict_keys(file_name): # create function to get the keys for the list
 
     with open(file_name, 'r') as file:
@@ -9,18 +7,14 @@ def dict_keys(file_name): # create function to get the keys for the list
 
     return keys
 
-# --------------- #
-
 def contacts(file_name): #create a function that returns a list of dict of contacts with a given file_name
 
     with open(file_name, 'r') as file:
         lines = file.read().split('\n')
 
-    keys = lines.pop(0).split(',') # create a key list to reference, split so that each key has its own index and remove the first index of the lines list
+    keys = lines.pop(0).split(',') # create a key list to reference, split so that each key has its own index
         # keys[0] is name keys[1] is favorite fruit and keys[2] is favorite 
         # didn't use key function because I need the lines variable
-
-    lines.pop() # removes last empty '' item on list
 
     contacts_list = []
 
@@ -34,40 +28,30 @@ def contacts(file_name): #create a function that returns a list of dict of conta
 
     return contacts_list_dict 
 
-# ------------------------- #
-
-# Implement a CRUD REPL
-
 # create functions for CRUD
 
 def create_record(contacts_list_dict, file_name): #function to add user to a contacts_list_dict and uses the file_name for the keys
 
     keys = dict_keys(file_name)
 
-    name = input("enter the person's name you want added: ")
-    fruit = input("enter their favorite fruit: ")
-    color = input("enter their favorite color: ")
+    name = input("\nenter the person's name you want added: ")
+    fruit = input("\nenter their favorite fruit: ")
+    color = input("\nenter their favorite color: ")
 
     contacts_list_dict.append({keys[0]: name, keys[1]: fruit, keys[2]: color})
 
-    # print(contacts_list_dict) # can be deleted used to check to make sure its working properly
-
     return contacts_list_dict
-
-# -------------- #
 
 def retrieve_record(contacts_list_dict): # this function doesn't need the keys
     
-    name = input("enter the name of the person who's record you would like to view: ")
+    name = input("\nenter the name of the person who's record you would like to view: ")
 
     for contact in contacts_list_dict:
         for item in contact:
             if contact[item] == name:
-                print(f'The record for {name} is: {contact}')
+                print(f'\nThe record for {name} is: {contact}')
 
                 return name # returning the name of the person they looked for so I can use this in the update_record function
-
-# ------------ #
 
 def update_record(contacts_list_dict, file_name): # this one does need keys so needs the file name too
 
@@ -82,48 +66,54 @@ def update_record(contacts_list_dict, file_name): # this one does need keys so n
             if contact[item] == name:
                 contact[attribute] = value
     
-    print(f"The records have been updated\nThe new record is {contacts_list_dict}")
-    return contacts_list_dict # I am not sure if this is the right thing to return yet
+    print(f"\nThe records have been updated\nThe new record is {contacts_list_dict}")
+    return contacts_list_dict 
 
-# ----------------- #
+def delete_record(contacts_list_dict): # function to delete a record
 
-def delete_record(contacts_list_dict): # function to delete a record can add a while true loop to it
-
-    name = input("enter the person's name of the record you want deleted: ")
+    name = input("\nenter the person's name of the record you want deleted: ")
 
     for contact in contacts_list_dict:
         for item in contact:
             if contact[item] == name:
                 contacts_list_dict.remove(contact)
 
-    print(contacts_list_dict) # can delete this, using it to check accuracy
-
     return contacts_list_dict
 
-def contact_crud_repl(file_name):
+def contact_crud_repl(file_name): #create a function to run all of the functions for a CRUD REPL
 
-    contacts_list_dict = []
+    contact_list_dict = contacts(file_name)
 
-    contact_list_dict = contacts(file_name) 
-    contact_list_create = create_record(contact_list_dict, file_name)
-    retrieve_record(contact_list_create)
-    contact_list_update = update_record(contact_list_create, file_name)
-    contact_list_delete = delete_record(contact_list_update)
+    while True:
+        choice = input("Your record is ready for some changes!\nType 'c' to create a new contact: \nType 'v' to view a contact's record: \nType 'u' to update a record: \nType 'd' to delete a contact: \nType 'done' to exit the program and save your changes: ")
+        
+        if choice == 'done':
+            break
+        elif choice == 'v':
+            retrieve_record(contact_list_dict)
+        elif choice == 'u':
+            contact_list_dict = update_record(contact_list_dict, file_name)
+        elif choice == 'd':
+            contact_list_dict = delete_record(contact_list_dict)
+        elif choice == 'c':
+            contact_list_dict = create_record(contact_list_dict, file_name)
+        else:
+            print("\nThat was not a valid entry please try again: ")
 
-    contacts_list_dict = contact_list_delete
-
-    return contacts_list_dict
-
-#     while True:
-#         print(f"\nThe current record is {contacts_list_dict}\n")
-#         user_choice = input("Would you like to create a new contact to add to the record (y/n)? ")
-#         if user_choice == 'n':
-#             break
-#         else:
-#             contacts_list_dict = create_record()
+    return contact_list_dict
 
 file_name = 'contacts.csv'
+keys = dict_keys(file_name)
+contact_list_dict = contact_crud_repl(file_name)
+line_1 = ''
 
-contact_crud_repl(file_name)
+for key in keys: #create the first line of the csv file
+    line_1 += f'{key},'
 
-# TOMORROW --- need to turn each function in CRUD into a REPL and then do version 3
+for item in contact_list_dict: #add the other lines of the csv file
+    line_1 += '\n' + item['name'] + ','
+    line_1 += item['favorite fruit'] + ','
+    line_1 += item['favorite color']
+
+with open(file_name, 'w') as file: #overwrite the info on the csv file
+        file.write(line_1)
