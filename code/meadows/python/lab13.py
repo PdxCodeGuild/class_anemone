@@ -27,6 +27,8 @@ class Board:
         return a
         
     def __getitem__(self, x, o)
+        if self.token in len(self.board):
+            
 
     def __len__(self):
         return self.board
