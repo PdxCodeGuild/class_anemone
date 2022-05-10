@@ -5,29 +5,36 @@ class ATM():
     def __init__(self, balance, interest_rate):
         self.balance = balance
         self.interest_rate = interest_rate
+        self.transactions = []
 
     def check_balance(self):
-        return atm.balance
+        return round(self.balance, 2)
 
     def deposit(self, amount):
-        atm.balance += amount
+        self.balance += amount
+        self.transactions.append(f"User deposited: ${amount}")
 
     def check_withdrawal(self, amount):
-        if amount <= atm.balance:
+        if amount <= self.balance:
             return True
         else:
             return False
 
     def withdraw(self, amount):
-        if atm.check_balance == True:
-            atm.balance -= amount
+        self.balance -= amount
+        self.transactions.append(f"User withdrew: ${amount}")
 
     def calc_interest(self):
-        interest = atm.balance * 0.001
-        return interest
+        interest = self.balance * self.interest_rate
+        return round(interest, 2)
     
+    def print_transactions(self):
+        print(f"Recent Transactions:\n {self.transactions}")
+    
+balance = 0
+interest_rate = 0.001
 
-atm = ATM() # create an instance of our class
+atm = ATM(balance, interest_rate) # create an instance of our class
 print('Welcome to the ATM')
 while True:
     command = input('Enter a command: ')
@@ -49,13 +56,16 @@ while True:
         amount = atm.calc_interest() # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
+    elif command == 'transactions':
+        atm.print_transactions()
     elif command == 'help':
         print('Available commands:')
-        print('balance  - get the current balance')
-        print('deposit  - deposit money')
-        print('withdraw - withdraw money')
-        print('interest - accumulate interest')
-        print('exit     - exit the program')
+        print('balance      - get the current balance')
+        print('deposit      - deposit money')
+        print('withdraw     - withdraw money')
+        print('interest     - accumulate interest')
+        print('exit         - exit the program')
+        print('transactions - view most recent transactions')
     elif command == 'exit':
         break
     else:
