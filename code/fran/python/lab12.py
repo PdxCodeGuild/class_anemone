@@ -1,12 +1,13 @@
 # Lab12 - ATM
 # Fran Kappes
 
+
 class ATM():
     # Define initialization method
     def __init__(self): 
         self.balance = 0
         self.interest_rate = 0.001
-        # self.transaction_history = []
+        self.transaction_history = []
 
     # Define check balance method
     def check_balance(self):
@@ -14,30 +15,37 @@ class ATM():
         # Fetch balance and return to user
         return self.balance
 
-
     # Define deposit method
     def deposit(self, deposit_amount):
         self.balance += deposit_amount
 
-
-    # # Define check withdrawl amount method, which checks balance prior to withdrawal attempt
+        self.transaction_history.append('user deposited $' + str(deposit_amount))
+       
+    # Define check withdrawl amount method, which checks balance prior to withdrawal attempt
     def check_withdrawal(self, withdrawal_amount):
         if withdrawal_amount <= self.balance:
             return True
         elif withdrawal_amount > self.balance:
             return False
 
-
-    # # Define withdraw method
+    # Define withdraw method
     def withdraw(self, withdrawal_amount):
         self.balance -= withdrawal_amount
 
+        self.transaction_history.append('user withdrew $' + str(withdrawal_amount))
 
-    # # Define calculate interest method
+    # Define calculate interest method
     def calc_interest(self):
         interest = self.balance * self.interest_rate
 
         return interest
+
+
+    # Define print transactions method
+    def print_transactions(self):
+        transactions = self.transaction_history
+
+        return transactions
 
 
 atm = ATM() # create an instance of our class
@@ -62,12 +70,19 @@ while True:
         amount = atm.calc_interest() # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
+    elif command == 'transactions':
+        transactions = atm.print_transactions() # call the print_transactions() method
+        
+        for i in range(len(transactions)):
+            print(f"{transactions[i]}")
+
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')
         print('deposit  - deposit money')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
+        print('transactions - view transaction history')
         print('exit     - exit the program')
     elif command == 'exit':
         break
