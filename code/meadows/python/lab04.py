@@ -26,8 +26,7 @@ else:
     response = f'{total}..over 21 you BUST'
     print(response)
 
-
-
+#meow
 
 
 
