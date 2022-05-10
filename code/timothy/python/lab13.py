@@ -87,10 +87,11 @@ while True:
     while True:
         player = player_one if turn % 2 == 0 else player_two
         print(game.__repr__())
-        x = int(input('Which row: '))
-        y = int(input('Which column: '))
+        x = int(input(f'{player.name}, which row: '))
+        y = int(input(f'{player.name}, which column: '))
         game.move(x, y, player)
         game.calc_winner
         turn += 1
         if game.is_game_over(player) == True:
             break
+    
