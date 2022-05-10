@@ -28,8 +28,8 @@ class ATM:
 
     def print_transactions(self):
         return self.transactions
-        
-
+        ### Something is causing my interest to be counted as a deposit, adding the interest amount to the balance
+                                                                    ### and creating a "deposit" string in transactions list...
 atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
 while True:
