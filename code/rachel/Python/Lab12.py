@@ -1,19 +1,19 @@
 #Lab12: ATM
 
 
-transactions = []
-
 class ATM:
 
     def __init__(self):
         self.balance = 0
         self.interest_rate = 0.001
+        self.transactions = []
     
     def check_balance(self):
         return (self.balance) 
     
     def deposit(self, amount):
         self.balance += amount
+        self.transactions.append(f'User deposited ${amount}')
 
     def check_withdrawal(self, amount):
         if (self.balance - amount) >= 0:
@@ -21,16 +21,14 @@ class ATM:
 
     def withdraw(self, amount):
         self.balance -= amount
+        self.transactions.append(f'User withdrew ${amount}')
 
     def calc_interest(self):
         interest = self.balance * self.interest_rate
         return interest
     
     def print_transactions(self):
-        if self == 'deposit':
-            transactions.append(f"User deposited ${amount}")
-        elif self == 'withdraw':
-            transactions.append(f"User withdrew ${amount}")
+        return (self.transactions)
 
 
 atm = ATM() # create an instance of our class
@@ -56,6 +54,7 @@ while True:
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
     elif command == 'transactions':
+        transactions = atm.transactions
         print (transactions)
     elif command == 'help':
         print('Available commands:')
