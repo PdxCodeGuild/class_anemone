@@ -35,7 +35,4 @@ if __name__ == '__main__':
 	for i in range(26):
 		print(f'Encoded ROT-{i}: {encode_rot(alpha, i)} \nDecoded: {decode_rot(encode_rot(alpha,i),i)}\n')
 
-<<<<<<< HEAD:1 Python/solutions/rot-cypher.py
-=======
 main()
->>>>>>> 06f1e824f1e4fcad611654ff4d54c54c912646b8:1 Python/solutions/lab13-rotn.py

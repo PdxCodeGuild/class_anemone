@@ -4,8 +4,8 @@ ones = {
 }
 
 teens = {
-    10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
-    15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen'
+    0: 'ten', 1: 'eleven', 2: 'twelve', 3: 'thirteen', 4: 'fourteen',
+    5: 'fifteen', 6: 'sixteen', 7: 'seventeen', 8: 'eighteen', 9: 'nineteen'
 }
 
 tens = {
@@ -27,7 +27,7 @@ ones_digit = num%10
 if tens_digit == 0:
     phrase = ones[ones_digit]
 elif tens_digit == 1:
-    phrase = teens[num]
+    phrase = teens[ones_digit]
 elif ones_digit == 0:
     phrase = tens[tens_digit]
 elif tens_digit > 1:
@@ -35,5 +35,8 @@ elif tens_digit > 1:
 
 if hundreds_digit > 0:
     phrase = hundreds[hundreds_digit] + ' and ' + phrase
+
+if ones_digit == 0 and tens_digit == 0:
+        phrase = hundreds[hundreds_digit]
 
 print(phrase)
