@@ -17,8 +17,12 @@ class ATM:
 #Writing functions for each function referenced in the REPL
     def __init__(Self, balance,):
         Self.balance = balance
-        Self.interest = 0.01
+        Self.interest_amount = 0.01
+        Self.transactions = []
         
+    def print_transactions(Self):
+        Self.Total_transactions = len(Self.transactions)
+        print(f"You have engaged in {Self.Total_transactions} transactions")
     
 
     def check_balance(Self):
@@ -28,7 +32,14 @@ class ATM:
 
     def deposit(Self, amount):
         Self.balance += amount
+        if amount <= 0 :
+            print('***You cannot deposit negative funds***')
+            Self.balance -= amount
+        Self.transactions.append(amount)
         print (f' User added {amount} to their account. your account balance is {Self.balance}')
+        
+
+
 
     def check_withdrawal(Self, amount):
         if amount <= Self.balance:
@@ -37,16 +48,25 @@ class ATM:
             print ('Insufficent Funds ')
 
     def withdraw(Self, amount):
-        Self.balance -= amount
+        Self.balance -= amount 
+        if amount <= 0 :
+            print('***You cannot withdraw negative funds***')
+            Self.balance += amount
+    
+
+        Self.transactions.append(amount)
         print(f' You withdrew {amount} - Your remaining balance is {Self.balance}')
+     
 
     def calc_interest(Self):
-        interest = []
-        Self.interest = 0.01
-        Self.calc_interest = (Self.balance * Self.interest)
-        print(f' Accoutn interest equals {Self.calc_interest}')
-        int(Self.calc_interest)
-        return Self.calc_interest
+        Self.interest = []
+        Self.interest_amount = 0.01
+        Self.calc_interest = (Self.balance * Self.interest_amount)
+        print(f' Account interest equals {Self.calc_interest}')
+        Self.interest.append(Self.calc_interest)
+        Self.interest_final = sum(Self.interest)
+        Self.deposit(Self.interest_final)
+        return Self.interest_final
 
         
 
@@ -61,12 +81,12 @@ class ATM:
 
 
 
-atm = ATM(0) 
+atm = ATM(0)
 
 
 print('Welcome to the ATM')
 while True:
-    command = input('Enter a command: - (deposit, balance, withdraw, interest, help, exit: )')
+    command = input('Enter a command: - (deposit, balance, withdraw, interest, help, transactions, exit: )  ')
     if command == 'balance':
         balance = atm.check_balance() # call the check_balance() method
         print(f'Your balance is ${balance}')
@@ -84,7 +104,7 @@ while True:
     elif command == 'interest':
         amount = atm.calc_interest() # call the calc_interest() method
         #atm.deposit(amount)
-        print(f'Accumulated ${atm.calc_interest} in interest')
+        print(f'Accumulated ${amount} in interest')
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')
@@ -92,6 +112,9 @@ while True:
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
+    elif command == 'transactions':
+        amount = atm.print_transactions()
+
     elif command == 'exit':
         break
     else:
