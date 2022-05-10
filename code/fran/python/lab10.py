@@ -25,7 +25,7 @@ for i in range(1,len(lines)):           # loop through all lines except the head
     # print(f"contact: {contact}")      ### TEST
     contacts.append(contact)            # append individual's dictionary contents to contacts list
 
-print(f"contacts: {contacts}")       # TEST
+#print(f"contacts: {contacts}")       # TEST
 
 
 # Define create_contact function, which creates a new contact record
@@ -79,10 +79,15 @@ def delete_contact(user_name, contacts):
     existing_contact = retrieve_contact(user_name, contacts)
     #print(f"existing contact: {existing_contact}")     ### TEST
 
+    for index, contact_dict in enumerate(contacts):   
+        # print(index, contact_dict)                    ### TEST
+        if contact_dict["name"] == user_name:
+            del contacts[index]
+
     # Delete contact record from dictionary
-    del existing_contact['name']
-    del existing_contact['favorite fruit']
-    del existing_contact['favorite color']
+    # del existing_contact['name']
+    # del existing_contact['favorite fruit']
+    # del existing_contact['favorite color']
     
     #print(f"contacts after delete: {contacts}")  ### TEST
 
