@@ -77,12 +77,12 @@ def delete_contact(user_name, contacts):
 
     # Find existing contact record
     existing_contact = retrieve_contact(user_name, contacts)
+    #print(f"existing contact: {existing_contact}")     ### TEST
 
     # Delete contact record from dictionary
     del existing_contact['name']
     del existing_contact['favorite fruit']
     del existing_contact['favorite color']
-    #del existing_contact
     
     #print(f"contacts after delete: {contacts}")  ### TEST
 
@@ -125,10 +125,17 @@ while True:
     elif user_action == 'exit':
         break
 
-# Write contents of dictionary to csv file
+# Write contents of post-CRUD dictionary to csv file
+# First, create header record
+with open('contacts_lab10_output.csv', 'w') as file:
+    file.write(f'name,favorite fruit,favorite color\n')  
 
-        # Add new record to file
-        # with open(file_name, 'a') as file:
-        #     file.write(new_record)
-
-
+# Now populate the file with the individual contact info dictionaries
+with open('contacts_lab10_output.csv', 'a') as file:
+    for contact in contacts:
+        line = f"{contact['name'],contact['favorite fruit'],contact['favorite color']}\n"
+        line = line.replace("(","")
+        line = line.replace(")","")
+        line = line.replace("'","")
+        line = line.replace(" ","")
+        file.write(line)
