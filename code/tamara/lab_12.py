@@ -1,42 +1,35 @@
 class ATM:
-    def __init__(self, balance, interest_rate):
+    def __init__(self, balance=0, interest_rate=.001):
         self.__balance = balance # these should be private varibles now
         self.__interest_rate = interest_rate
-        global transactions_list
-        transactions_list = []
+        self.__transactions_list = []
 
     def print_transactions(self):
-        return print(f"Your transactions are:\n {transactions_list}")
+        return self.__transactions_list
 
     def check_balance(self):
         return self.__balance
     
     def deposit(self, amount):
         self.__balance += amount 
-        transactions_list.append(f"User deposited {amount}$")
+        self.__transactions_list.append(f"User deposited {amount}$")
         return self.__balance
     
     def check_withdrawal(self, amount):
-        if amount <= self.__balance:
-            return True
-        else:
-            return False
+        return amount <= self.__balance
     
     def withdraw(self, amount):
         self.__balance -= amount
-        transactions_list.append(f"User withdrew {amount}$")
+        self.__transactions_list.append(f"User withdrew {amount}$")
         return amount
     
-    def calc_interest(self): ## double check this one
+    def calc_interest(self): 
         interest_made = self.__interest_rate * self.__balance
-        transactions_list.append(f"User made {interest_made}$ in interest")
+        self.__transactions_list.append(f"User made {interest_made}$ in interest")
         return interest_made
     
 
-balance = 0
-interest_rate = .01
-
-atm = ATM(balance, interest_rate) # create an instance of our class
+atm = ATM() # create an instance of our class
 
 print('Welcome to the ATM')
 while True:
@@ -60,7 +53,9 @@ while True:
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
     elif command == 'transactions':
-        atm.print_transactions()
+        transactions = atm.print_transactions()
+        transactions = '\n'.join(transactions)
+        print(transactions)
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')
