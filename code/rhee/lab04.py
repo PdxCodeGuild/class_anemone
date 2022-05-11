@@ -40,56 +40,50 @@ def cards_to_hit(hand_cards):
     return hand_cards
 
 
-def results(dealer_hand, player_hand):
-    print(f"The dealer has a {dealer_hand} for a total of {total(dealer_hand)},")
-    print(f"You have a {player_hand} for a total of {total(player_hand)}.")
-
-
-def black_jack(dealer_hand, player_hand):
-    if total(player_hand) < total(dealer_hand):
-        # results(player_hand, dealer_hand)
-        print(f"You Lost! \nDealer has {dealer_hand} and you have {player_hand}.")
-    elif total(player_hand) > total(dealer_hand):
-        # results(player_hand, dealer_hand)
-        print(f"You Win! \nYour score is {player_hand} and the dealer has {dealer_hand}.")
-    elif total(player_hand) == dealer_hand:
-        print(f"It's a tie. You have {player_hand} and the dealer has {dealer_hand}")
-
-
 def game():
-    choice = 0
     dealer_hand = dealer(deck)
     player_hand = dealer(deck)
     print(f"The dealer is showing a {dealer_hand[0]}.")
     print(f"You have a {player_hand} for a total of {total(player_hand)}.")
     choice = input("Do you want to 'Stay' or get another card 'Hit'?: ").lower()
     if choice == 'stay':
-        black_jack(dealer_hand, player_hand)
-        if total(dealer_hand) < 17:
+        while True:
+            total(dealer_hand) < 17
             cards_to_hit(dealer_hand)
-            print(f"Dealer has now has {dealer_hand}.")
-        if total(dealer_hand) > 21:
-            print("Dealer busts, YOU WIN! ")
-            # black_jack(dealer_hand, player_hand)
-        if total(dealer_hand) == 21:
-            # results(dealer_hand, player_hand)
-            print("BLACKJACK for dealer! ")
+            print(f"Dealer now has {dealer_hand}.")
+            if total(dealer_hand) > 21:
+                print("Dealer busts, YOU WIN! ")
+                break
+            if total(dealer_hand) == 21:
+                # results(dealer_hand, player_hand)
+                print("BLACKJACK for dealer! ")
+                break
 
-    elif choice == 'hit':
-        cards_to_hit(player_hand)
-        print(player_hand)
-        if total(player_hand) > 21:
-            print("YOU BUST! ")
-            if total(player_hand) < 21:
-                cards_to_hit(player_hand)
-                print(player_hand)
-                print(f"Your have: {total(player_hand)}.")
-                black_jack(dealer_hand, player_hand)
+    if choice == 'hit':
+        while True:
+            total(player_hand) < 21
+            cards_to_hit(player_hand)
+            print(player_hand)
+            print(f"Your have {total(player_hand)}.")
+            if total(player_hand) > 21:
+                print("YOU BUST! ")
+                break
             if total(player_hand) == 21:
                 # results(dealer_hand, player_hand)
                 print("BLACKJACK! ")
-    else:
-        print("Can only accept 'stay' or 'hit'. ")
+                break
+            option = input("Hit again? ('y' or 'n'):")
+            if option == 'y':
+                continue
+            elif option == 'n':
+                print(total(player_hand))
+                if total(player_hand) > total(dealer_hand):
+                    print(f"You WIN! You have {total(player_hand)} and the Dealer has {total(dealer_hand)}. ")
+                else:
+                    print(f"Dealer WINS! Dealer has {total(dealer_hand)} and you have {total(player_hand)}.")
+                break
+            elif choice != 'stay' or 'hit':
+                print("Can only accept 'stay' or 'hit', Try again. ")
 
 
 if __name__ == "__main__":
