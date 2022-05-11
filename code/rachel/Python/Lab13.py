@@ -44,34 +44,36 @@ class Game:
         self.board[x][y] = player.token
 
     def calc_winner(self, player):
-        if self.board[0][0] and self.board[0][1] and self.board[0][2] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board[1][0] and self.board[1][1] and self.board[1][2] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board[2][0] and self.board[2][1] and self.board[2][2] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board[0][0] and self.board[1][0] and self.board[2][0] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board [0][1] and self.board[1][1] and self.board[2][1] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board[0][2] and self.board[1][2] and self.board[2][2] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board[0][0] and self.board[1][1] and self.board[2][2] == player.token:
-            print(f"{player.name} wins!")
-        elif self.board[2][0] and self.board[1][1] and self.board[0][2] == player.token:
-            print(f"{player.name} wins!")
+        if self.board[0][0] == self.board[0][1] == self.board[0][2] == player.token:
+            return player.token
+        elif self.board[1][0] == self.board[1][1] == self.board[1][2] == player.token:
+            return player.token
+        elif self.board[2][0] == self.board[2][1] == self.board[2][2] == player.token:
+            return player.token
+        elif self.board[0][0] == self.board[1][0] == self.board[2][0] == player.token:
+            return player.token
+        elif self.board [0][1] == self.board[1][1] == self.board[2][1] == player.token:
+            return player.token
+        elif self.board[0][2] == self.board[1][2] == self.board[2][2] == player.token:
+            return player.token
+        elif self.board[0][0] == self.board[1][1] == self.board[2][2] == player.token:
+            return player.token
+        elif self.board[2][0] == self.board[1][1] == self.board[0][2] == player.token:
+            return player.token
+        else:
+            return None
 
     def is_full(self):
         #NOT WORKING ):
         for x in self.board:
-            if x == '':
-                return True
-            else:
-                return False
+            for y in x:
+                if y == ' ':
+                    return False
+        return True
 
-    def is_game_over(self):
-    
-        print ("GAME OVER.")
+    def is_game_over(self, player):
+        if self.is_full() or self.calc_winner(player):
+            return True
 
 
 
@@ -101,5 +103,20 @@ while True:
         tictactoe.move(row, column, current_player)
         tictactoe.__repr__()
 
-        tictactoe.is_full()
-    
+        if tictactoe.is_game_over(current_player) == True:
+            if tictactoe.is_full():
+                print ("It's a tie.")
+            elif tictactoe.calc_winner(current_player):
+                print (f'{current_player.name} won!')
+            print ("GAME OVER.")
+            break
+
+    #Ask user if they would like to play again: yes = restart game/no = end game   
+    play_again = input('Would you like to play again? yes or no? ')
+
+    if play_again == 'yes':
+        tictactoe.__init__()
+        continue
+    if play_again == 'no':
+        print ("Thanks for playing Tic Tac Toe!")
+        break
