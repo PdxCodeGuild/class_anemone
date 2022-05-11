@@ -59,39 +59,48 @@ class Game(Player):
             return None
 
     def is_full(self):
-        pass
+        for _ in self.board:
+            if any(item == '-' for item in _):
+                return False
+        return True
+        
 
     def is_game_over(self, player):
         return self.calc_winner(player) or self.is_full()
 
 # ....TIC TAC TOE ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-while True:
-    game = Game()
-    print('Welcome to Tic Tac Toe')
-    player_one = Player(input('Player One Name: '), input('Player One Token: '))
-    player_two = Player(input('Player Two Name: '), input('Player Two Token: '))
-    print(f'{player_one.name} is {player_one.token}')
-    print(f'{player_two.name} is {player_two.token}')
-    turn = 0
+def Main():
     while True:
-        player = player_one if turn % 2 == 0 else player_two
-        print(game.__repr__())
-        x = int(input(f'{player.name}, which row: '))
-        y = int(input(f'{player.name}, which column: '))
-        game.move(x, y, player)
-        if game.calc_winner(player) == player.token:
+        game = Game()
+        print('Welcome to Tic Tac Toe')
+        player_one = Player(input('Player One Name: '), input('Player One Token: '))
+        player_two = Player(input('Player Two Name: '), input('Player Two Token: '))
+        print(f'{player_one.name} is {player_one.token}')
+        print(f'{player_two.name} is {player_two.token}')
+        turn = 0
+        while True:
+            player = player_one if turn % 2 == 0 else player_two
             print(game.__repr__())
-            print(f'{player.name} has won the game!')
-            break
-        elif game.is_full() == True:
-            print(game.__repr__())
-            print('The game was a draw!')
-            break
-        turn += 1
-    if game.is_game_over(player) == True:
-        another_game = input('Would you like to play again? y/n ')
-        if another_game == 'y':
-            break
-        elif another_game == 'n':
-            False
+            x = int(input(f'{player.name}, which row: '))
+            y = int(input(f'{player.name}, which column: '))
+            game.move(x, y, player)
+            if game.calc_winner(player) == player.token:
+                print(game.__repr__())
+                print(f'{player.name} has won the game!')
+                break
+            elif game.is_full() == True:
+                print(game.__repr__())
+                print('The game was a draw!')
+                break
+            turn += 1
+        if game.is_game_over(player) == True or player.token:
+            another_game = input('Would you like to play again? y/n ')
+            if another_game == 'n':
+                break
+            elif another_game == 'y':
+                False
+Main()
+
+# Issues:
+# - 'Space already claimed' skips player turn
