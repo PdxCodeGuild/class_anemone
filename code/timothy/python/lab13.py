@@ -59,19 +59,12 @@ class Game(Player):
             return None
 
     def is_full(self):
-        for _ in range(len(self.board)):
-            if '-' not in self.board:
-                return False
-            else:
-                 return True
+        pass
 
     def is_game_over(self, player):
         return self.calc_winner(player) or self.is_full()
 
-    # def current_player(self):
-    #     if Player.token == 'X':
-    #         Player.token = 'O'
-    #     else: Player.token == 'X'
+# ....TIC TAC TOE ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
 while True:
     game = Game()
@@ -87,8 +80,18 @@ while True:
         x = int(input(f'{player.name}, which row: '))
         y = int(input(f'{player.name}, which column: '))
         game.move(x, y, player)
-        game.calc_winner
-        turn += 1
-        if game.is_game_over(player) == True:
+        if game.calc_winner(player) == player.token:
+            print(game.__repr__())
+            print(f'{player.name} has won the game!')
             break
-    
+        elif game.is_full() == True:
+            print(game.__repr__())
+            print('The game was a draw!')
+            break
+        turn += 1
+    if game.is_game_over(player) == True:
+        another_game = input('Would you like to play again? y/n ')
+        if another_game == 'y':
+            break
+        elif another_game == 'n':
+            False
