@@ -28,55 +28,135 @@ class Game:
         return a
         
     def move(self, player, spot1):
-        q=self.board[0][1]
-        w=self.board[0][2]
-        e=self.board[0][0]
 
-        r=self.board[1][0]
-        t=self.board[1][1]
-        y=self.board[1][2]
+        if spot1 == 'q':
+            if self.board[0][0] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[0][0] = player.token
 
-        u=self.board[2][0]
-        i=self.board[2][1]
-        o=self.board[2][2]
-        
-        if spot1 != ' ':
-            return 'Spot Already in use'
-        else:
-            spot1 = player.token
+        if spot1 == 'w': 
+            if self.board[0][1] != ' ':
+                return print('\nSpot Already in use\n')   
+            self.board[0][1] = player.token
 
-        
-     
-    def __len__(self):
-        if len(self.board) != ' ':
-            return 'Board full'
+        if spot1 == 'e':
+            if self.board[0][2] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[0][2] = player.token
+
+        if spot1 == 'r':
+            if self.board[1][0] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[1][0] = player.token
+
+        if spot1 == 't':
+            if self.board[1][1] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[1][1] = player.token
+
+        if spot1 == 'y':
+            if self.board[1][2] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[1][2] = player.token
+            
+        if spot1 == 'u':
+            if self.board[2][0] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[2][0] = player.token
+            
+        if spot1 == 'i':
+            if self.board[2][1] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[2][1] = player.token
+
+        if spot1 == 'o':
+            if self.board[2][2] != ' ':
+                return print('\nSpot Already in use\n')
+            self.board[2][2] = player.token
+
+    def calc_winner(self):
+
+        # side to side winner
+        if self.board[0][0] == self.board[0][1] == self.board[0][2] != ' ':
+            return self.board[0][0]
+        elif self.board[1][0] == self.board[1][1] == self.board[1][2] != ' ':
+            return self.board[1][0]
+        elif self.board[2][0] == self.board[2][1] == self.board[2][2] != ' ':
+            return self.board[1][0]
+
+        # up / down winner
+        elif self.board[0][0] == self.board[1][0] == self.board[2][0] != ' ':
+            return self.board[0][0]
+        elif self.board[0][1] == self.board[1][1] == self.board[2][1] != ' ':
+            return self.board[0][1]
+        elif self.board[0][2] == self.board[1][2] == self.board[2][2] != ' ':
+            return self.board[0][2]
+
+        # diagnal winner
+        elif self.board[0][0] == self.board[1][1] == self.board[2][2] != ' ':
+            return self.board[0][0]
+        elif self.board[2][0] == self.board[1][1] == self.board[0][2] != ' ':
+            return self.board[2][0]
+       
+    def is_full(self):
+        # space = ' '
+        for list in self.board:
+            for item in list:
+                if item == ' ':
+                    return False
+        print("bored is full")
+        return True
     
+    def is_game_over(self):
+        return self.calc_winner or self.is_full
+
+
+        
     
-    # def calc_winner(self, spot1):
-
-
-# game = Game()
-# name1 = input('enter name: ')
-# token1 = input(' x or o: ')
-# name2 = input('enter name: ')
-# token2 = input(' x or o: ')
-# player1 = Player(name1,token1)
-# player2 = Player(name2,token2)
-
 while True:
     game = Game()
-    name1 = input('enter name: ')
-    token1 = input(' x or o: ')
-    name2 = input('enter name: ')
-    token2 = input(' x or o: ')
+    name1 = input('\nenter "player 1" name: ')
+    token1 = 'x'
+    name2 = input('\nenter "player 2" name: ')
+    token2 = 'o'
     player1 = Player(name1,token1)
+
     player2 = Player(name2,token2)
-    print(f"'Q'|'W'|'E'\n'R'|'T'|'Y'\n'U'|'I'|'O'")
-    choose = input('select spot by using letters above | Enter spot: ').lower()
-    game.move(player1, choose)
-    print(game.__repr__())    
+
+    # game_over = game.is_full()
+
+    # winner = game.calc_winner()
+
+    # g = game.is_game_over()
+    while True:
+        print(f"\n'Q'|'W'|'E'\n'R'|'T'|'Y'\n'U'|'I'|'O'\n")
+        choose = input(f'select spot by using letters above "{name1}" |{token1}| Enter spot: ').lower()
+        print('\n')
+        game.move(player1, choose)
+        print(game.__repr__())
+        if game.calc_winner():
+            print('nice')
+        if game.is_full():
+            print(' GG !')
+            break
+        if game.is_game_over():
+            print('oh')
+
+        print(f"\n'Q'|'W'|'E'\n'R'|'T'|'Y'\n'U'|'I'|'O'\n") 
+        choose = input(f'select spot by using letters above "{name2}" |{token2}| Enter spot: ').lower()
+        print('\n')
+        game.move(player2, choose)
+        print(game.__repr__())
+        if game.calc_winner():
+            print('nice')
+            break
+    
 
 
+
+#qto [0,0] [1,1] [2,2] for diagnal
+
+#ute [2,0] [1,1] [0,2] for diagnal
 
 # a = [
 # ['Q','W','E'],
@@ -84,9 +164,9 @@ while True:
 # ['U','I','O']
 #         ]
 
-# q= a[0][1]
-# w= a[0][2]
-# e= a[0][0]
+# q= a[0][0]
+# w= a[0][1]
+# e= a[0][2]
 
 # r= a[1][0]
 # t= a[1][1]
@@ -102,7 +182,15 @@ while True:
 # print(r,t,y)
 # print(u,i,o)
 
-
+# winner = game.calc_winner()
+#     if winner:
+#         rematch_1 = input(f'\nWINNER is! {name1}!!! New game?: ( Y or N ): ') # if this works move to player 2 also
+#         print(rematch_1)
+#         break
+#     board_full = game.is_full
+#     if board_full:
+#         print(input('TIE GAME.. Re Match?: ( Y or N ):')).lower()
+#         break
 
 
 
