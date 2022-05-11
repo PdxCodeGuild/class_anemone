@@ -66,52 +66,52 @@ class Board():
         if winner == '':
             if self.board[0] == ['X', 'X', 'X']:
                 winner = 'X'
-           
+                return winner
             elif self.board[1] == ['X', 'X', 'X']:   
                 winner = 'X'
-           
+                return winner
             elif self.board[2] == ['X', 'X', 'X']:   
                 winner += 'X'
-           
+                return winner
             elif [self.board[0][0], self.board[1][0], self.board[2][0]] == ['X', 'X', 'X']:   # had + at first instead of ,'s but that didn't match the ==
                 winner = 'X'
-           
+                return winner
             elif [self.board[0][1], self.board[1][1], self.board[2][1]] == ['X', 'X', 'X']:   
                 winner = 'X'
-           
+                return winner
             elif [self.board[0][2], self.board[1][2], self.board[2][2]] == ['X', 'X', 'X']:   
                 winner = 'X'
-           
+                return winner
             elif [self.board[0][0], self.board[1][1], self.board[2][2]] == ['X', 'X', 'X']:   
                 winner = 'X'
-            
+                return winner
             elif [self.board[0][2], self.board[1][1], self.board[2][0]] == ['X', 'X', 'X']:   
                 winner = 'X'
-            
+                return winner
             elif self.board[0] == ['O', 'O', 'O']:
                 winner = 'O'
-            
+                return winner
             elif self.board[1] == ['O', 'O', 'O']:   
                 winner = 'O'
-            
+                return winner
             elif self.board[2] == ['O', 'O', 'O']:   
                 winner = 'O'
-                
+                return winner
             elif [self.board[0][0], self.board[1][0], self.board[2][0]] == ['O', 'O', 'O']:   
                 winner = 'O'
-                
+                return winner
             elif [self.board[0][1], self.board[1][1], self.board[2][1]] == ['O', 'O', 'O']:   
                 winner = 'O'
-                
+                return winner
             elif [self.board[0][2], self.board[1][2], self.board[2][2]] == ['O', 'O', 'O']:   
                 winner = 'O'
-                
+                return winner
             elif [self.board[0][0], self.board[1][1], self.board[2][2]] == ['O', 'O', 'O']:   
                 winner = 'O'
-                
+                return winner
             elif [self.board[0][2], self.board[1][1], self.board[2][0]] == ['O', 'O', 'O']:   
                 winner = 'O'
-                
+                return winner
             elif winner == '':                                     
                 return False
             
@@ -157,6 +157,7 @@ no = ['n', 'no', 'na', 'nada', 'nope']
 pieces = ['X', 'O']    
 playon = True
 turns = 1
+
 while playon:                                                   # initiates a while loop for the game to be played
     xo = Board()   
     pl = Player()
@@ -173,12 +174,17 @@ while playon:                                                   # initiates a wh
             xint = int(input(f'{pl.cplayersxo[0]}) its you turn choose a row by entering a number bewtween 1 - 3. ')) - 1   # inputs for specific rows and coloums
             yint = int(input('Now choose a column by entering a number bewtween 1 - 3. ')) - 1
             
-            if xo.validation(xint, yint) == True:           # test if placement if capable and if not returns the play to try again
-                xo.move(xint, yint, pl.cplayersxo[0][1])    # if so places the piece and adds one to turn
-                turns += 1
+            if xint not in range(0, 3) or yint not in range(0, 3):
+                print('Your input was not a correct option please try again.')
+                
+            elif xint in range(0, 3) and yint in range(0, 3):
+                
+                if xo.validation(xint, yint) == True:           # test if placement if capable and if not returns the play to try again
+                    xo.move(xint, yint, pl.cplayersxo[0][1])    # if so places the piece and adds one to turn
+                    turns += 1
             
-            elif xo.validation(xint, yint) == False:
-                print('That space has been taken')
+                elif xo.validation(xint, yint) == False:
+                    print('That space has been taken')
             
                         
         elif turns % 2 == 0:                                # if turns is 0 moves to player 2s turn
@@ -186,20 +192,26 @@ while playon:                                                   # initiates a wh
             xint = int(input(f'{pl.cplayersxo[1]} its your turn choose a row by entering a number bewtween 1 - 3. ')) - 1
             yint = int(input('Now choose a column by entering a number bewtween 1 - 3. ')) - 1 
                         
-            if xo.validation(xint, yint) == True:
-                xo.move(xint, yint, pl.cplayersxo[1][1])
-                turns += 1
-            
-            elif xo.validation(xint, yint) == False:
-                print('That space has been taken')
-        pass
+            if xint not in range(0, 3) or yint not in range(0, 3):
+                print('Your input was not a correct option please try again.')
+                
+            elif xint in range(0, 3) and yint in range(0, 3):
+                
+                if xo.validation(xint, yint) == True:
+                    xo.move(xint, yint, pl.cplayersxo[1][1])
+                    turns += 1
+                
+                elif xo.validation(xint, yint) == False:
+                    print('That space has been taken')
+        
     
     
     if xo.calc_winner() != False:                           # test the board for a winner though it already did in the above while loop
-        winner = xo.calc_winner()                           # should change to winner but is saying None
+        winner = xo.calc_winner()                           # should change to winner but is saying None... so each winning condition has a return winner now
         print(xo.__repr__())                                # prints the final board for players to see
         print(winner, 'has won the game')                   # prints winner of the game
         again = input('Would you like to play again? Y/N. ').lower()        # ask if they want to play again
+        
         if again in yes:
             playon = True
             turns = 1
@@ -207,22 +219,7 @@ while playon:                                                   # initiates a wh
             # pl.reset()
             pieces = ['X', 'O']
             pass
+        
         elif again in no:                                           # breaks the loop if they do not want to play again
             print('I hope you had fun and it worked well enough.')
             break
-
-
-    
-    
-
-
-
-    
-
-
-
-
-
-
-
-
