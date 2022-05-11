@@ -29,50 +29,50 @@ class Game:
         
     def move(self, player, spot1):
 
-        if spot1 == 'q':
-            if self.board[0][0] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[0][0] = player.token
+            if spot1 == 'q':
+                if self.board[0][0] != ' ':
+                    return move()
+                self.board[0][0] = player.token
 
-        if spot1 == 'w': 
-            if self.board[0][1] != ' ':
-                return print('\nSpot Already in use\n')   
-            self.board[0][1] = player.token
+            if spot1 == 'w': 
+                if self.board[0][1] != ' ':
+                    return print('\nSpot Already in use\n')   
+                self.board[0][1] = player.token
 
-        if spot1 == 'e':
-            if self.board[0][2] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[0][2] = player.token
+            if spot1 == 'e':
+                if self.board[0][2] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[0][2] = player.token
 
-        if spot1 == 'r':
-            if self.board[1][0] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[1][0] = player.token
+            if spot1 == 'r':
+                if self.board[1][0] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[1][0] = player.token
 
-        if spot1 == 't':
-            if self.board[1][1] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[1][1] = player.token
+            if spot1 == 't':
+                if self.board[1][1] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[1][1] = player.token
 
-        if spot1 == 'y':
-            if self.board[1][2] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[1][2] = player.token
-            
-        if spot1 == 'u':
-            if self.board[2][0] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[2][0] = player.token
-            
-        if spot1 == 'i':
-            if self.board[2][1] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[2][1] = player.token
+            if spot1 == 'y':
+                if self.board[1][2] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[1][2] = player.token
+                
+            if spot1 == 'u':
+                if self.board[2][0] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[2][0] = player.token
+                
+            if spot1 == 'i':
+                if self.board[2][1] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[2][1] = player.token
 
-        if spot1 == 'o':
-            if self.board[2][2] != ' ':
-                return print('\nSpot Already in use\n')
-            self.board[2][2] = player.token
+            if spot1 == 'o':
+                if self.board[2][2] != ' ':
+                    return print('\nSpot Already in use\n')
+                self.board[2][2] = player.token
 
     def calc_winner(self):
 
@@ -104,7 +104,7 @@ class Game:
             for item in list:
                 if item == ' ':
                     return False
-        print("bored is full")
+        print("BORED IS FULL!\n")
         return True
     
     def is_game_over(self):
@@ -112,36 +112,32 @@ class Game:
 
 
         
-    
-while True:
+yes = True   
+while yes:
     game = Game()
+    game.is_game_over()
     name1 = input('\nenter "player 1" name: ')
     token1 = 'x'
     name2 = input('\nenter "player 2" name: ')
     token2 = 'o'
     player1 = Player(name1,token1)
-
     player2 = Player(name2,token2)
-
-    # game_over = game.is_full()
-
-    # winner = game.calc_winner()
-
-    # g = game.is_game_over()
+    
     while True:
         print(f"\n'Q'|'W'|'E'\n'R'|'T'|'Y'\n'U'|'I'|'O'\n")
         choose = input(f'select spot by using letters above "{name1}" |{token1}| Enter spot: ').lower()
         print('\n')
         game.move(player1, choose)
         print(game.__repr__())
+        
         if game.calc_winner():
-            print('nice')
-        if game.is_full():
-            print(' GG !')
+            rematch_1 = input(f'\nWINNER is! {name1}!!!\n \n New game?: ( Y or N ): ') # if this works move to player 2 also
+            print(rematch_1)
             break
-        if game.is_game_over():
-            print('oh')
-
+        if game.is_full():
+            rematch_1 = input('TIE GAME.. Re Match?: ( Y or N ):').lower()
+            break
+        
         print(f"\n'Q'|'W'|'E'\n'R'|'T'|'Y'\n'U'|'I'|'O'\n") 
         choose = input(f'select spot by using letters above "{name2}" |{token2}| Enter spot: ').lower()
         print('\n')
@@ -150,6 +146,16 @@ while True:
         if game.calc_winner():
             print('nice')
             break
+
+    yeah = ['yes', 'y', 'yeh', 'sure', 'si']
+    no = ['no','nah','nope', 'nay', 'n']
+    if rematch_1 in yeah:
+        yes = True    
+    elif rematch_1 in no:
+        print('BYE!')
+        break
+    else:
+        print(f'Choose either {yeah} or {no} words')
     
 
 
