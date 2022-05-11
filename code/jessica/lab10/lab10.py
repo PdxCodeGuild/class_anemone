@@ -13,52 +13,66 @@ def list_split():
         contacts.append(contact)
     return contacts
 
+
+
 #-------------CRUD functions v2--------------------#
 
-def create_list():
-    new_line = input("Name, Favorite fruit, Favorite color: ")
-    new_line = list(new_line.split(","))       
-    contacts.append(new_line)
-    print(contacts)
+def create_list(contacts):
+    new_name = input("Name? ")
+    new_fruit = input("Favorite fruit? ")    
+    new_color = input("Favorite color? ")
+    new_dict = {"name": new_name, "favorite fruit": new_fruit, "favorite color": new_color}
+    contacts.append(new_dict)
     return contacts
 
-def retrieve(contacts, name):
-    for index, contact in enumerate(contacts):
-        if contact['name'] == name:
-            print(contact)
-    return contacts[index]
-    
-def update():
-    contact_name = input('Which contact do you want to update? ')
+def retrieve(contacts):
+    user_name = input("contact name? ")
     for contact in contacts:
-        if contact_name == contact['name']:
-            print(contact)
-            update = input('Which attribute would you like to update? ')
-            contact[update] = input('Type updated information: ')
-            print(contact)
+        if contact["name"] == user_name:
             return contact
+    else:
+        return "Name not found"
+    # for index, contact in enumerate(contacts):
+    #     if contact['name'] == name:
+    #         print(contact)
+    # return contacts[index]
     
-def delete():
-    contact_name = input('Which contact do you want to delete? ')
+def update(contacts):
+    contact_update = retrieve(contacts)
+    user_input = input("Which do you want to update: 'name', 'favorite fruit', 'favorite color'")
+    new_attribute = input(f"What do you want to update {user_input} to?")
+    contact_update[user_input] = new_attribute
+    print(contact_update)
+    return contacts
+   
+    
+def delete(contacts):
+    contact_delete = retrieve(contacts)
+    confirm = input(f"Are you sure: yes or no ")
+    if confirm == 'yes':
+        contacts.remove(contact_delete)
+        return contacts
+    elif confirm == 'no':
+        return(contacts)
+
+def convert_to_csv(contacts):  #.join
+    csv_output = []
     for contact in contacts:
-        if contact_name == contact['name']:
-            confirm = input(f"Are you sure: yes or no ")
-            if confirm == 'yes':
-                contacts.remove(contact)
-            elif confirm == 'no':
-                pass
-                print(contacts)
-                return(contacts)
+        csv_output.append(list(contact.values()))
+    csv_output = [",".join(line) for line in csv_output]
+    csv_output = "\n".join(csv_output)
+    with open('contacts.csv', 'w') as f:
+        f.write(csv_output)
 
 
 
 #-----------While loop for user input---------------#
 
-commands = ['1', 'retrieve',
-           '2', 'update', 
-           '3', 'create new',
-           '4', 'delete',
-           '5', 'quit']
+commands = {'1': 'retrieve',
+           '2': 'update', 
+           '3': 'create new',
+           '4': 'delete',
+           '5': 'save'}
 
 contacts = list_split()
 
@@ -66,20 +80,19 @@ while True:
     print(commands)
     command = input("Name a command: ")
     if command == '1':
-        name = input("Name? ")
-        retrieve(contacts, name)
+        print(retrieve(contacts))
     elif command == '2':
-        update()
+        update(contacts)
     elif command == '3':
-        create_list()
+        create_list(contacts)
     elif command == '4':
-        delete()
-        print(contacts)
+        delete(contacts)
     elif command == '5':
         break
+convert_to_csv(contacts)
+
     
-    
-        
+
 
 
 
