@@ -88,5 +88,5 @@ while play:
         print('\nfor english press the num..bb.rrrr.. for espon... SORRY! please enter a correct input!')
 print(contact)
 
-with open('test.csv', 'r') as f:
-    contents = f.read().join('\n')
+with open('test.csv', 'w') as f:
+    contents = f.write().join('\n')
