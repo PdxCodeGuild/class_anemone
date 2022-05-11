@@ -39,16 +39,13 @@ class Game(Player):
         else: self.board[x][y] = player.token
 
     def calc_winner(self, player):
-        for _ in range(len(self.board[0])):
-            if [0] == [1] == [2]:
-                return player.token
-        for _ in range(len(self.board[1])):
-            if [0] == [1] == [2]:
-                return player.token
-        for _ in range(len(self.board[2])):
-            if [0] == [1] == [2]:
-                return player.token
-        if self.board[0][0] == self.board[1][1] == self.board[2][2] == player.token:
+        if self.board[0][0] == self.board[0][1] == self.board[0][2] == player.token:
+            return player.token
+        elif self.board[1][0] == self.board[1][1] == self.board[1][2] == player.token:
+            return player.token
+        elif self.board[2][0] == self.board[2][1] == self.board[2][2] == player.token:
+            return player.token
+        elif self.board[0][0] == self.board[1][1] == self.board[2][2] == player.token:
             return player.token
         elif self.board[0][2] == self.board[1][1] == self.board[2][0] == player.token:
             return player.token
