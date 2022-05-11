@@ -17,7 +17,7 @@ class Game(TicTacToe):
         
 
     def __repr__(self):
-        print(self.board)
+        print(self.board
     
     def move(self, x, y, player):
         pass
