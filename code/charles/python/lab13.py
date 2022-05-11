@@ -114,8 +114,8 @@ class Board():
         
 
     def full(self):
-        full = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-        for i in full:
+        full = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+        for i in self.board:
             if i in self.board:
                 return False
             else:
@@ -138,22 +138,26 @@ pieces = ['X', 'O']
 playon = True
 turns = 0
 while playon:
-    while len(pl.cplayersxo) != 2:
+    while len(Player.cplayersxo) != 2:
         player = input('Please enter your name. ').lower()
         piece = input(f'Select a piece {pieces}. ').upper()
         pieces.remove(piece)
-        pl.cplayersxo.append([player, piece])
-    while xo.calc_winner() == False and xo.is_game_over() == False:
-        print(Board().__repr__())
-        xint = int(input(f'{pl.cplayersxo[0]}) its you turn choose a row. '))
-        yint = int(input('Now choose a column. '))
-        xo.move(xint, yint,  pl.cplayersxo[0][1])
+        Player.cplayersxo.append([player, piece])
+    
+    while Board.calc_winner() == False and Board.is_game_over() == False:
+        if turns % 2 == 1:
+            print(Board().__repr__())
+            xint = int(input(f'{Player.cplayersxo[0]}) its you turn choose a row. '))
+            yint = int(input('Now choose a column. '))
+            Board.move(xint, yint, Player.cplayersxo[0][1])
+            turns += 1
             
-        
-        print(Board().__repr__())
-        xint = int(input(f'{pl.cplayersxo[1]} its your turn choose a row. '))
-        yint = int(input('Now choose a column. '))
-        xo.move(xint, yint, pl.cplayersxo[1][1])
+        elif turns % 2 == 0:
+            print(Board().__repr__())
+            xint = int(input(f'{Player.cplayersxo[1]} its your turn choose a row. '))
+            yint = int(input('Now choose a column. '))
+            Board.move(xint, yint, Player.cplayersxo[1][1])
+            turns += 1
         
         
         
