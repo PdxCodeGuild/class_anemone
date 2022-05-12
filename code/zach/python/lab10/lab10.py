@@ -4,24 +4,25 @@ def write_f(data_list):  # TODO: Figure out a use for this
         for row in data_list:
             for item in row:
                 print(item, ',')
-                # * 'name':'matthew','favorite fruit':'blackberries','favorite_color':'purple',....
                 f.writelines(f'{ item },')
             f.writelines('\n')
         f.close()
     return
+
 
 def init_contacts():
     with open('contacts.csv', 'r') as f:
         data_csv = f.read()
         csv_list = [line.split(',') for line in data_csv.split('\n')]
         keys = csv_list[0]
-        contacts = [dict(zip(keys,values)) for values in csv_list[1::]]
+        contacts = [dict(zip(keys, values)) for values in csv_list[1::]]
         f.close()
     return csv_list, contacts
 
 
 def add_contacts(data, name, fav_fruit, fav_color):
-    new_contact = {'name':name,'favorite fruit':fav_fruit,'favorite color': fav_color}
+    new_contact = {'name': name, 'favorite fruit': fav_fruit,
+                   'favorite color': fav_color}
     data.append(new_contact)
     return data
 
@@ -32,7 +33,6 @@ def del_contacts(data, name):
             data.remove(data[i])
             return data
     return print(f'{ name.capitalize() } not found in contacts')
-
 
 
 def main():
@@ -59,7 +59,7 @@ def main():
             fruit = input('Favorite Fruit: ')
             color = input('Favorite Color: ')
             add_contacts(contact_list, name, fruit, color)
-            csv_list.append([name,fruit,color])
+            csv_list.append([name, fruit, color])
         elif user_input == 'remove':
             name = input('Enter name of contact you wish to remove\nName: ')
             del_contacts(contact_list, name)
@@ -67,9 +67,9 @@ def main():
             print(contact_list[1::])
             print(csv_list)
             print('input not recognized... \n')
-    
+
     write_f(csv_list)
-        
+
     return
 
 
