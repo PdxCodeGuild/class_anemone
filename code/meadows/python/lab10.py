@@ -3,9 +3,8 @@ import re
 #-------------------------------------------------VERSION 3 ---------------------------------------------------------------#
 contact = []
 
-
 def csv_tansfer():
-    with open('contacts.csv', 'r') as f:
+    with open('contact.csv', 'r') as f:
         contents = f.read().split('\n')
     book = []
     spots = contents[0].split(',')
@@ -33,8 +32,8 @@ def info(contact):
     enter = input('\nEnter Name for contact "INFO": \n').lower()
     for person in contact:
         if person['name'] == enter:
-            print(person)
-            return contact
+            print(f"\n Name: {person.get('name')}\n State: {person.get('state')}\n Number: {person.get('number')}")
+    return contact
 
 def update(contact):
     enter = input('\nEnter Name for contact "UPDATE": ')
@@ -65,6 +64,17 @@ def poof(contact):
             print('\nPOOF.. gone')
             return contact
 
+
+def csv_upload(contact):
+    csv_write = []
+    for items, lists in enumerate(contact, 0):
+        if items == 0:
+            csv_write.append(list(lists.keys()))
+            csv_write.append(list(lists.values()))   
+    csv_write = '\n'.join([','.join(line) for line in csv_write])
+    with open('contact.csv', 'w') as f:
+        f.write(csv_write)
+
 # print(poof(update(info(create(contact)))))
 play = True
 while play:
@@ -92,8 +102,14 @@ while play:
         print('\nfor english press the num..bb.rrrr.. for espon... SORRY! please enter a correct input!')
 print(contact)
 
-# with open('test.csv', 'w') as f:
-#     f.write() 
+csv_upload(contact)
+# csv_write = []
 
-
-#f.write( put varaible in here )
+# for items, lists in enumerate(contact, 0):
+#     if items == 0:
+#         csv_write.append(list(lists.keys()))
+#         csv_write.append(list(lists.values()))
+    
+# csv_write = '\n'.join([','.join(line) for line in csv_write])
+# with open('contacts.csv', 'w') as f:
+#     f.write(csv_write)
