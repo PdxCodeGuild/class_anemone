@@ -2,15 +2,19 @@ import math
 import re
 #-------------------------------------------------VERSION 3 ---------------------------------------------------------------#
 contact = []
-og_c = []
-# with open('contacts.csv', 'r') as f:
-#     contents = f.read().split('\n')
 
-# for spot in contents:
-#     og_c.append(spot.split(','))
 
-# print(a)
+def csv_tansfer():
+    with open('contacts.csv', 'r') as f:
+        contents = f.read().split('\n')
+    book = []
+    spots = contents[0].split(',')
 
+    for i in range(1, len(contents)):
+        lists = contents[i].split(',')
+        book.append(dict(zip(spots, lists)))
+    return book
+contact.extend(csv_tansfer())
 
 
 
@@ -88,5 +92,8 @@ while play:
         print('\nfor english press the num..bb.rrrr.. for espon... SORRY! please enter a correct input!')
 print(contact)
 
-with open('test.csv', 'w') as f:
-    contents = f.write().join('\n')
+# with open('test.csv', 'w') as f:
+#     f.write() 
+
+
+#f.write( put varaible in here )
