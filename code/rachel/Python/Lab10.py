@@ -36,6 +36,7 @@ def retrieve(contacts):
     lookup_name = input('Enter the name of the contact you would like to search: ')
     for contact in contacts:
         if contact['name'] == lookup_name:
+            print (contact)
             return contact
         else:
             return ('Name not found.')
