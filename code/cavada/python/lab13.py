@@ -17,7 +17,7 @@ class Game(TicTacToe):
         
 
     def __repr__(self):
-        print(self.board
+        print(self.board)
     
     def move(self, x, y, player):
         pass
@@ -39,78 +39,135 @@ class Board(TicTacToe):
         \t-----------
         3\t{6}|{7}|{8}
         \t"""
+        pass
+
+
+"""this is outside of the class info"""
+
 
 cont = ''
 s = {0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'}
+x1,x2,x3,x4,x5,x6,x7,x8 = {0:'X',1:'X',2:'X',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'},{0:'-',1:'-',2:'-',3:'X',4:'X',5:'X',6:'-',7:'-',8:'-'},{0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'X',7:'X',8:'X'},{0:'X',1:'-',2:'-',3:'X',4:'-',5:'-',6:'X',7:'-',8:'-'},{0:'-',1:'X',2:'-',3:'-',4:'X',5:'-',6:'-',7:'X',8:'-'},{0:'-',1:'-',2:'X',3:'-',4:'-',5:'X',6:'-',7:'-',8:'X'},{0:'X',1:'-',2:'-',3:'-',4:'X',5:'-',6:'-',7:'-',8:'X'},{0:'-',1:'-',2:'X',3:'-',4:'X',5:'-',6:'X',7:'-',8:'-'}
+xwins=[]
+xwins.append(x1)
+xwins.append(x2)
+xwins.append(x3)
+xwins.append(x4)
+xwins.append(x5)
+xwins.append(x6)
+xwins.append(x7)
+xwins.append(x8)
 
-s1_x = {0:'X',1:'X',2:'X',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'}
-# 1 [0,1,2]
-s2_x = {0:'-',1:'-',2:'-',3:'X',4:'X',5:'X',6:'-',7:'-',8:'-'}
-# 2 [3,4,5]
-s3_x = {0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'X',7:'X',8:'X'}
-# 3 [6,7,8]
-s4_x = {0:'X',1:'-',2:'-',3:'X',4:'-',5:'-',6:'X',7:'-',8:'-'}
-# 4 [0,3,6]
-s5_x = {0:'-',1:'X',2:'-',3:'-',4:'X',5:'-',6:'-',7:'X',8:'-'}
-# 5 [1,4,7]
-s6_x = {0:'-',1:'-',2:'X',3:'-',4:'-',5:'X',6:'-',7:'-',8:'X'}
-# 6 [2,5,8]
-s7_x = {0:'X',1:'-',2:'-',3:'X',4:'-',5:'-',6:'-',7:'X',8:'-'}
-# 7 [0,3,7]
-s8_x = {0:'-',1:'X',2:'-',3:'-',4:'X',5:'-',6:'X',7:'-',8:'-'}
-# 8 [1,4,6]
 
-s1_o = {0:'O',1:'O',2:'O',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'}
-s2_o = {0:'-',1:'-',2:'-',3:'O',4:'O',5:'O',6:'-',7:'-',8:'-'}
-s3_o = {0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'O',7:'O',8:'O'}
-s4_o = {0:'O',1:'-',2:'-',3:'O',4:'-',5:'-',6:'O',7:'-',8:'-'}
-s5_o = {0:'-',1:'O',2:'-',3:'-',4:'O',5:'-',6:'-',7:'O',8:'-'}
-s6_o = {0:'-',1:'-',2:'O',3:'-',4:'-',5:'X',6:'-',7:'-',8:'O'}
-s7_o = {0:'O',1:'-',2:'-',3:'O',4:'-',5:'-',6:'-',7:'O',8:'-'}
-s8_o = {0:'-',1:'O',2:'-',3:'-',4:'O',5:'-',6:'O',7:'-',8:'-'}
-x = 2
-s1x={0:'X',1:'X',2:'X',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'}
-xs1='0:2:1'
-slice = s1x[xs1]
-print(slice)
-xs2='3:5:1'
-xs3='0:2:1'
-xs3='6:8:1'
-xs4='0:6:3'
-xs5='1:7:3'
-xs6='2:8:3'
-xs7_a='0:3:3'
-xs7_b='7'
+o1,o2,o3,o4,o5,o6,o7,o8 = {0:'O',1:'O',2:'O',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'},{0:'-',1:'-',2:'-',3:'O',4:'O',5:'O',6:'-',7:'-',8:'-'},{0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'O',7:'O',8:'O'},{0:'O',1:'-',2:'-',3:'O',4:'-',5:'-',6:'O',7:'-',8:'-'},{0:'-',1:'O',2:'-',3:'-',4:'O',5:'-',6:'-',7:'O',8:'-'},{0:'-',1:'-',2:'O',3:'-',4:'-',5:'O',6:'-',7:'-',8:'O'},{0:'O',1:'-',2:'-',3:'-',4:'O',5:'-',6:'-',7:'-',8:'O'},{0:'-',1:'-',2:'O',3:'-',4:'O',5:'-',6:'O',7:'-',8:'-'}
+owins= []
+owins.append(o1)
+owins.append(o2)
+owins.append(o3)
+owins.append(o4)
+owins.append(o5)
+owins.append(o6)
+owins.append(o7)
+owins.append(o8)
 
-xs8_a='1:4:3'
-xs8_b='6'
 
+"""these are the slices that make a tic-tac-toe win"""
+wins=[]
+w1,w2,w3,w4,w5,w6,w7,w8= [0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]
+wins.append(w1)
+wins.append(w2)
+wins.append(w3)
+wins.append(w4)
+wins.append(w5)
+wins.append(w6)
+wins.append(w7)
+wins.append(w8)
+
+
+tictactoe = []
+tictactoe.append(owins)
+tictactoe.append(xwins)
+
+set = {0:'X',1:'X',2:'X',3:'O',4:'-',5:'O',6:'O',7:'X',8:'O'} 
+set_check = []
+x=0
+options = {'o':'O','x':'X'}
+
+set_a = []
+for s in set:
+    for win in wins:
+        for w in win:
+            # print(set[w])
+            if len(set_a) < 3:
+                set_a.append(set[w])
+            else:
+                print(set_a, w, win, s, set)
+                set_a = []
+            
+
+
+print(set_a)
+
+for tictac in tictactoe: # 2 loops for xwins and owins lists
+    for i, option in enumerate(options): #2 loops for each option x and o
+        x = 0
+        # print(i)
+        for tic in tictac: # 10 loops for each dictlist in xwins and owins
+            # print(set_check) 
+            ct = 0
+            set_check=[]
+            x+=1
+
+            # print(f"{options[option]} - player win board {x}: {tic}") # each dictlist in both xwins and owins
+            for win in wins:
+                ct +=1
+                for w in win:
+                    # print(w)
+                    
+                    # print(tic[w])
+                    if len(set_check) < 3 and tic[w] != '-':
+                        set_check.append(tic[w])
+                        # print(set_check)
+                        # set_check=[]
+                    else:
+                        # print(set_check)
+                        set_check = []
+                if x == ct and len(set_check) == 3:
+                    print(set_check,ct,win,tic) 
+
+                # elif ct == 7:
+                    # print(set_check,win)
+                
+                
+            
+            
+            
+            
+            
+            
+            
+            # for win in wins:
+            #     for w in win:
+            #         set_check = []
+            #         for t in tic: # each index in dictlist
+            #             a =0
+            #             # print('t:',t)
+                        
+            #             if len(set_check) < 3:
+            #                 a+=1
+            #                 set_check.append(tic[w])
+            #             else:
+            #                 # print(set_check,win[w])
+            #                 set_check= []
+                
+            
+
+
+           
 shell = []
 blank = ['X', 'X', 'X', '-', '-', '-', '-', '-', '-']
-x1 = [i for i in enumerate(blank)]
+# x1 = [i for i in enumerate(blank)]
 
-print(x1)
-
-win_x = []
-win_x.append(xs1)
-win_x.append(xs2)
-win_x.append(xs3)
-win_x.append(xs4)
-win_x.append(xs5)
-win_x.append(xs6)
-win_x.append(xs7)
-win_x.append(xs8)
-
-# print(win_x)
-win_o = []
-win_o.append(s1_o)
-win_o.append(s2_o)
-win_o.append(s3_o)
-win_o.append(s4_o)
-win_o.append(s5_o)
-win_o.append(s6_o)
-win_o.append(s7_o)
-win_o.append(s8_o)
 
 counter = 0
 used = []
@@ -273,32 +330,3 @@ def test_winner(s):
         return True
 
 
-# print(blank[3:5])
-s2_x = {0:'-',1:'-',2:'-',3:'X',4:'X',5:'X',6:'-',7:'-',8:'-'}
-
-# print(blank[6:8])
-s3_x = {0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'X',7:'X',8:'X'}
-
-# print(blank[0:6:3])
-s4_x = {0:'X',1:'-',2:'-',3:'X',4:'-',5:'-',6:'X',7:'-',8:'-'}
-
-# print(blank[1:7:3])
-s5_x = {0:'-',1:'X',2:'-',3:'-',4:'X',5:'-',6:'-',7:'X',8:'-'}
-
-# print(blank[2:8:3])
-s6_x = {0:'-',1:'-',2:'X',3:'-',4:'-',5:'X',6:'-',7:'-',8:'X'}
-
-# print(blank[0])
-s7_x = {0:'X',1:'-',2:'-',3:'X',4:'-',5:'-',6:'-',7:'X',8:'-'}
-
-# print(blank[0])
-s8_x = {0:'-',1:'X',2:'-',3:'-',4:'X',5:'-',6:'X',7:'-',8:'-'}
-
-win_x.append(s1_x)
-win_x.append(s2_x)
-win_x.append(s3_x)
-win_x.append(s4_x)
-win_x.append(s5_x)
-win_x.append(s6_x)
-win_x.append(s7_x)
-win_x.append(s8_x)
