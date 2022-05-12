@@ -1,16 +1,14 @@
 #! write_f() will rewrite entire .csv file
-def write_f(data):  # TODO: Figure out a use for this
+def write_f(data_list):  # TODO: Figure out a use for this
     with open('contacts.csv', 'w') as f:
-
-        for contact in range (len(data)):
-            for cat, info in zip(contact_org, contact):
-                print(cat, ':', info)
+        for row in data_list:
+            for item in row:
+                print(item, ',')
                 # * 'name':'matthew','favorite fruit':'blackberries','favorite_color':'purple',....
-                f.writelines(f'\'{ cat }\':\'{ info }\',')
+                f.writelines(f'{ item },')
             f.writelines('\n')
         f.close()
     return
-re
 
 def init_contacts():
     with open('contacts.csv', 'r') as f:
@@ -19,7 +17,7 @@ def init_contacts():
         keys = csv_list[0]
         contacts = [dict(zip(keys,values)) for values in csv_list[1::]]
         f.close()
-    return contacts
+    return csv_list, contacts
 
 
 def add_contacts(data, name, fav_fruit, fav_color):
@@ -40,7 +38,7 @@ def del_contacts(data, name):
 def main():
     # REPL loop for user_input and application navigation and control
 
-    contact_list = init_contacts()
+    csv_list, contact_list = init_contacts()
     while True:
         user_input = input('User Enter: read, add, remove, or quit: ')
         if user_input == 'quit':
@@ -61,14 +59,16 @@ def main():
             fruit = input('Favorite Fruit: ')
             color = input('Favorite Color: ')
             add_contacts(contact_list, name, fruit, color)
+            csv_list.append([name,fruit,color])
         elif user_input == 'remove':
             name = input('Enter name of contact you wish to remove\nName: ')
             del_contacts(contact_list, name)
         else:
-            print(contact_list[0],contact_list)
+            print(contact_list[1::])
+            print(csv_list)
             print('input not recognized... \n')
     
-    # def write_f(contact_list)
+    write_f(csv_list)
         
     return
 
