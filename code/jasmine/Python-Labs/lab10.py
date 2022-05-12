@@ -3,6 +3,7 @@
 # Class Example
 
 import re
+from turtle import update
 
 with open ('contact.csv', 'r') as f:
     data_csv = f.read()
@@ -28,4 +29,82 @@ contacts = []
     # print(row_dict)
 for values in list_of_lists[1::]:
     contacts.append(dict(zip(keys,values)))
-print(contacts)
+# print(contacts)
+
+def create_contact(data, keys):
+    # new_contact = {}
+    # for key in keys:
+    #     new_contact[key] = input(f"What is your new contact's {key}?")
+    # data.append(new_contact)
+
+    ##dict comprehension
+    data.append({key:input(f"What is your new contact's {key}?") for key in keys})
+
+def read_contact(data,keys):
+    # result = "you found me"
+    # return result
+    ##Which contact do you want to search
+    # name = input("What is your contact's name? ")
+    # ##look for that name
+    # for contact in data:
+    #     if contact['name'] == name:
+           
+    #         print(contact)
+    #         return contact
+    key_string = "\n" + "\n".join(keys) + "\n"
+    key_input = input(f'What would you like to search by? Choose from: {key_string}')
+    contact_input = input("What is your search term? ")
+
+    data_results = []
+    for contact in data:
+        if contact[key_input] == contact_input:
+            data_results.append(contact)
+
+    print(data_results)
+    return data_results   
+
+def update_contact(data,keys):
+    result = read_contact(data,keys)
+    # update the result
+    key_to_update = input(f'What key would you like to update? {keys}')
+    value_to_update = input(f'What do you want to change {key_to_update} to? ')
+    result[key_to_update] == value_to_update
+
+
+
+
+
+def delete_contact(data,keys):
+    result = read_contact(data,keys)
+    #delete the result
+    confirmation = input(f"Are you sure you want to delete? (result['name'])")
+
+    if confirmation.lower() in ['y', 'yes']:
+        data.remove(result)
+
+
+while True:
+    # print(contacts)
+    user_input=input("What would you like to do? (c)reate, (r)ead, (u)pdate, (d)elete, (q)uit > ")
+    if user_input.lower() in ['q', 'quit', 'exit']:
+        break
+    elif user_input == 'c':
+        create_contact(contacts,keys)
+    elif user_input == 'r':
+        read_contact(contacts,keys)
+    elif user_input == 'u':
+        update_contact(contacts,keys)
+    elif user_input == 'd':
+        delete_contact(contacts,keys)
+
+data_csv_out = []
+data_csv_out.append[keys]
+for contact in contacts:
+    data_csv_out.append(list(contact.values()))
+
+
+output = []
+for row in data_csv_out:
+    output.append(",".join(row))
+
+print(output)
