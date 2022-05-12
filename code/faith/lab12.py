@@ -27,7 +27,7 @@ class ATM:
         return self.balance * self.interest   
 
     
-    
+
 
 
 
@@ -68,8 +68,6 @@ while True:
         
     
     
-
-
 
 
 
