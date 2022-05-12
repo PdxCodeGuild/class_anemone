@@ -3,7 +3,6 @@ def write_f(data_list):  # TODO: Figure out a use for this
     with open('contacts.csv', 'w') as f:
         for row in data_list:
             for item in row:
-                print(item, ',')
                 f.writelines(f'{ item },')
             f.writelines('\n')
         f.close()
@@ -64,8 +63,6 @@ def main():
             name = input('Enter name of contact you wish to remove\nName: ')
             del_contacts(contact_list, name)
         else:
-            print(contact_list[1::])
-            print(csv_list)
             print('input not recognized... \n')
 
     write_f(csv_list)
