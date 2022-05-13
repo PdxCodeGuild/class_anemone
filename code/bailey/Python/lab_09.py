@@ -25,11 +25,11 @@ ari_scale = {
 
 with open('gettysburg_adress.txt', 'r') as f:
     contents = f.read()
-    words = contents.split()
+    words = contents.split(' ')
     sentences = contents.split('.')
-    characters = len(contents)
+    characters = re.findall(r"[a-zA-z]", contents)
 
-ari = (4.71 * (characters / len(words))) + .05 * (len(words) / len(sentences)) - 21.43
+ari = (4.71 * (len(characters) / len(words))) + .5 * (len(words) / len(sentences)) - 21.43
 ari = math.ceil(ari)
 
 
