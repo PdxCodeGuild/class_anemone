@@ -107,8 +107,7 @@ keys = dict_keys(file_name)
 contact_list_dict = contact_crud_repl(file_name)
 line_1 = ''
 
-for key in keys: #create the first line of the csv file
-    line_1 += f'{key},'
+line_1 += ','.join(keys)
 
 for item in contact_list_dict: #add the other lines of the csv file
     line_1 += '\n' + item['name'] + ','
