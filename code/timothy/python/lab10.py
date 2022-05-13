@@ -123,7 +123,7 @@ def csv_crud_repl(file_path, mode):
 ## It made me tear my hair out...but it works!
 # Pulling as completed, but I will be reviewing and rebuilding (functionally) from scratch this weekend, since this kicked my butt.
 
-csv_crud_repl('C:/users/johns/desktop/contact_list.csv', 'r')
+csv_crud_repl('contacts.csv', 'r')
 
 # OUTPUT
 # λ py lab10.py

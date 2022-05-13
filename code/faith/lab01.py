@@ -3,30 +3,30 @@ unit = input('What is the starting unit?  ')
 unit2 = input('What unit do you want to convert to?  ')
 
 if unit == 'ft':
-    ft = distance * 0.3048
+    result = distance * 0.3048
 elif unit == 'mi':
-    mi = distance * 1609.34
+    result = distance * 1609.34
 elif unit == 'm':
-    m = distance
+    result = distance
 elif unit == 'km':
-    km = distance * 1000
+    result = distance * 1000
 elif unit == 'yard':
-    yard = distance * 0.9144
+    result = distance * 0.9144
 elif unit == 'inch':
-    inch = distance * 0.0254
-
-    trannum = distance*unit/unit2
-
+    result = distance * 0.0254
+    
+ 
+print(result)
 
 if unit2 == 'ft':
-    print(trannum)
-elif unit == 'mi':
-    print(trannum)
-elif unit == 'm':
-    print(trannum)
-elif unit == 'km':
-    print(trannum)
-elif unit == 'yard':
-    print(trannum)
-elif unit == 'inch':
-    print(trannum)
+    print(result/0.3048)
+elif unit2 == 'mi':
+    print(result/1609.34)
+elif unit2 == 'm':
+    print(result)
+elif unit2 == 'km':
+    print(result/1000)
+elif unit2 == 'yard':
+    print(result/0.9144)
+elif unit2 == 'inch':
+    print(result/0.0254)

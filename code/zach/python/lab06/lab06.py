@@ -2,17 +2,17 @@ test_cc = '4556737586899855'
 
 def cc_check(cc_number):
     # Convert the input string into list
-    cc_number = list(test_cc)
+    cc_num = list(cc_number)
     cc_original = cc_number
     # Slice off last digit, this is check_digit
-    check_digit = test_cc[-1]
-    cc_number.pop(-1)
+    check_digit = cc_num[-1]
+    cc_num.pop(-1)
     # Reverse the digits
-    cc_number.reverse()
+    cc_num.reverse()
     # Double every other element in reversed list stating with first number
     # subtract 9 from numbers over nine
-    cc_doubled = cc_number[::2]
-    cc_normal = cc_number[1::2]
+    cc_doubled = cc_num[::2]
+    cc_normal = cc_num[1::2]
     for number in cc_doubled:
         number = int(number)*2
         if number > 9:
@@ -31,9 +31,22 @@ def cc_check(cc_number):
     else:
         return False
 def main():
+    while True:
+        command = input('input cc number to check: ')
+        if len(command) >= 15:
+            if cc_check(command):
+                print('CC Valid')
+            else:
+                print('CC Not Valid')
+        elif command == 'exit':
+            break
 
-    if cc_check(test_cc):
-        print('CC Valid')
-    else:
-        print('CC Not Valid')
+        elif command == 'test':
+            if cc_check(test_cc):
+                print('CC Valid')
+            else:
+                print('CC Not Valid')           
+        else:
+            print('invalid input')
+        
 main()
