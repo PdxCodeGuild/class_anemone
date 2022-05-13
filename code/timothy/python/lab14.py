@@ -34,7 +34,7 @@ def search_dad_jokes():
     response_dict = response.json()
     jokes = response_dict['results']
     pages = response_dict['total_pages']
-
+    
     if jokes == []: # Case for search term returning no jokes.
         print(f"I don't have any {search_term} jokes...")
     else: print(f'I found {pages} page(s) of {search_term} jokes.')
@@ -46,8 +46,7 @@ def search_dad_jokes():
         if another in ['no', 'n', 'please god no']:
             break
         time.sleep(3)
-    print(f'End of {search_term} jokes.')
+    print(f"I'm all out of {search_term} jokes.")
 
 search_dad_jokes()
-
 
