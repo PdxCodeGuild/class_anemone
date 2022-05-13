@@ -1,10 +1,5 @@
-
-#
-#
-#
-#
-
-ari_scale = {
+# scale pulled from lab info
+ari_scale = { 
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
      3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},

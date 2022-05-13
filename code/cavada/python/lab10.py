@@ -5,7 +5,6 @@
 #     lines = f.read().split('\n')
 # print(lines)
 """running a function that will essentially take the data and assemble a neat dictionary list"""
-
 csv = 'contacts.csv'
 
 def open_file(csv):

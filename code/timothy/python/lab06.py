@@ -9,7 +9,7 @@ def sub_nine(card_number):
 def credit_card_validator():
     card_number = [] #create an empty list
     card_number = input("Enter your credit card number: ") #take in a cc number
-    card_number = [int(num) for num in str(card_number)] #convert each individual number into an integer element of the list
+    card_number = [int(num) for num in card_number] #convert each individual number into an integer element of the list
     check_digit = card_number.pop() #pop out the last digit for later use
     card_number = card_number[::-1] #reverse the list
     card_number = [num*2 if index %2 == 0 else num for index, num in enumerate(card_number)]

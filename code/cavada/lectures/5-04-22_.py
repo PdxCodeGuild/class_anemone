@@ -204,3 +204,7 @@ with open('file.txt', encoding='utf-8'):
 #
 
 """"""
+
+x = []
+list_a = [[x].append(input(f"{x}: ")) for x in range(10) ]
+print(len(list_a),list_a,x)
