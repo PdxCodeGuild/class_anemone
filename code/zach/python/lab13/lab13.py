@@ -29,9 +29,9 @@ class GameBoard:
             self.move_count += 1
         else:
             print('\t\tspace has already been filled!!!')
-    
+
     # creates list of indices that needed for a win condition rows, cols, and diags
-    def win_indices(self,n):
+    def win_indices(self, n):
         # winning rows
         for row in range(self.size):
             yield [(row, col) for col in range(self.size)]
@@ -39,16 +39,16 @@ class GameBoard:
         for col in range(self.size):
             yield [(row, col) for row in range(self.size)]
         # winning diagonals
-        #* Top Left to Bottom Right
-        yield[[i,i] for i in range(self.size)]
-        #* Top Right to Bottom Left
+        # * Top Left to Bottom Right
+        yield[[i, i] for i in range(self.size)]
+        # * Top Right to Bottom Left
         yield [(i, self.size-1-i) for i in range(self.size)]
 
     def calc_winner(self, player):
         n = len(self.data)
         for indices in self.win_indices(n):
             # if all winning indices are same player token return true
-            if all(self.data[row][col] == player.token for row,col in indices):
+            if all(self.data[row][col] == player.token for row, col in indices):
                 return True, print('we have a winner')
         return False
 #     def is_full(self):
@@ -56,6 +56,8 @@ class GameBoard:
 
 #     def is_game_over(self):
 #         return
+
+
 class GameView:
     def __init__(self, board: GameBoard):
         self.board = board
@@ -87,9 +89,6 @@ class GameControl:
         self.move_count -= 1
         self.board.calc_winner(player)
         return self.move_count > 0
-        
-
-
 
     def __repr__(self):
         return str(self.view)
@@ -100,5 +99,3 @@ game = GameControl(players=players)
 
 while game.make_move():
     print(game)
-
-
