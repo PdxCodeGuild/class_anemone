@@ -10,7 +10,7 @@ url = 'https://awesome-python.com'
 """download video from my Logi Circle Security Camera"""
 
 
-from requests_html import HTMLSession
+# from requests_html import HTMLSession
 
-session = HTMLSession()
-r = session.get('https://python.org/')
+# session = HTMLSession()
+# r = session.get('https://python.org/')
