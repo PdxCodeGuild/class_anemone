@@ -17,10 +17,25 @@ class GameBoard:
     def __init__(self, size = 3, blank_space = '_' ):
         self.size = size
         self.data = [[blank_space for i in range (size)] for j in range(size)]
+    
+    def get_row(self, row):
+        return self.data[row]
 
+class GameView:
+    def __init__(self, board: GameBoard):
+        self.board = board
+    
+    def __repr__(self): # prints our pretty board output for user
+        row_list = []
+        for i in range (self.board.size):
+            row = self.board.get_row(i)
+            pretty_text = '|'.join(str(space) for space in row)
+            row_list.append(pretty_text)
+        return '\n'.join(row_list)
+test_board = GameBoard()
+test = GameView(test_board)
 
-
-
+print(test)
 # class Game:
 #     def __init__(self, board):
 #         self.board = []
