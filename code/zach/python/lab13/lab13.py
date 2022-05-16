@@ -17,13 +17,28 @@ class GameBoard:
     def __init__(self, size=3, blank_space='-'):
         self.size = size
         self.data = [[blank_space for _ in range(size)] for _ in range(size)]
+        self.blank = blank_space
+        self.move_count = 0
 
     def get_row(self, row):
         return self.data[row]
 
     def move(self, row, col, player):
-        self.data[row][col] = player.token
+        if self.data[row][col] == self.blank:
+            self.data[row][col] = player.token
+            self.move_count += 1
+        else:
+            print('\t\tspace has already been filled!!!')
+    
 
+#     def calc_winner(self):
+#         return
+
+#     def is_full(self):
+#         return
+
+#     def is_game_over(self):
+#         return
 
 class GameView:
     def __init__(self, board: GameBoard):
@@ -62,28 +77,8 @@ class GameControl:
 
 players = [Player(name='Piccard', token='X'), Player(name='Q', token='O')]
 game = GameControl(players=players)
-# test_board = GameBoard()
-# test = GameView(test_board)
 
 while game.make_move():
     print(game)
-# class Game:
-#     def __init__(self, board):
-#         self.board = []
 
-#     def __repr__(self):
-#         for i in range(3):
 
-#         return
-
-#     def move(self, dx, dy, player):
-#         return
-
-#     def calc_winner(self):
-#         return
-
-#     def is_full(self):
-#         return
-
-#     def is_game_over(self):
-#         return
