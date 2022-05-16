@@ -1,14 +1,15 @@
+import random
 import requests
 
-def api_call():
+def random_quote():
     r = requests.get('https://favqs.com/api/qotd')
     data = dict(r.json())
     return data
 
 def main():
-    qotd = api_call()
+    random_quote = random_quote()
     
-    print (f"\t\t{ qotd['quote']['body'] }\n\t\t~{ qotd['quote']['author'] }")
+    print (f"\t\t{ random_quote['quote']['body'] }\n\t\t~{ random_quote['quote']['author'] }")
    
 
 if __name__ == '__main__':
