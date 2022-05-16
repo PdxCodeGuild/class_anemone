@@ -1,9 +1,4 @@
-import random
 import requests
-
-
-url = 'https://favqs.com/api/'
-
 
 def random_quote():
     r = requests.get('https://favqs.com/api/qotd')
