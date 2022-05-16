@@ -3,7 +3,7 @@ import re
 #-------------------------------------------------VERSION 3 ---------------------------------------------------------------#
 contact = []
 
-def csv_tansfer():
+def csv_tansfer():                             # turning the CSV file into a list dict 
     with open('contact.csv', 'r') as f:
         contents = f.read().split('\n')
     book = []
@@ -13,11 +13,11 @@ def csv_tansfer():
         lists = contents[i].split(',')
         book.append(dict(zip(spots, lists)))
     return book
-contact.extend(csv_tansfer())
+# contact.extend(csv_tansfer())  using . extend to put the conact inside of the list without adding an entirely new list ontop of the list of lists
 
 
 
-def create(contact):
+def create(contact):             # making a new contact and turning it into a list then appending it to the list outside (contact)
     contacts = {}
     name = input('Name: ').lower()
     contacts['name'] = name
@@ -29,7 +29,7 @@ def create(contact):
     return contact
 
 def info(contact):
-    enter = input('\nEnter Name for contact "INFO": \n').lower()
+    enter = input('\nEnter Name for contact "INFO": \n').lower()           # function to get the persons info and display everything , so they can then decide if the contact is correct and needing an update or not or use the info
     for person in contact:
         if person['name'] == enter:
             print(f"\n Name: {person.get('name')}\n State: {person.get('state')}\n Number: {person.get('number')}")
@@ -37,7 +37,7 @@ def info(contact):
 
 def update(contact):
     enter = input('\nEnter Name for contact "UPDATE": ')
-    update = input('\nChoose 1 to update ( NAME , STATE , NUMBER ): \n').lower()
+    update = input('\nChoose 1 to update ( NAME , STATE , NUMBER ): \n').lower()       # updating the contact via what the person would like to input and fix
     for person in contact:
         if person['name'] == enter:
             print(f'\n{person}')
@@ -55,7 +55,7 @@ def update(contact):
                 return contact
 # for x in no:
 def poof(contact):
-    del_enter = input('\nEnter contact to destroy: ')
+    del_enter = input('\nEnter contact to destroy: ')            # used to fully delete a contact if needed from the contact list
     for person in contact:
         if person['name'] == del_enter:
             del person['name']
@@ -65,16 +65,15 @@ def poof(contact):
             return contact
 
 
-def csv_upload(contact):
+def csv_upload(contact):                            # Created a Def to have my function continue to loop through until all things are fixed as needed for a CSV file 
     csv_write = []
-    for items, lists in enumerate(contact, 0):
-        if items == 0:
-            csv_write.append(list(lists.keys()))
-            csv_write.append(list(lists.values()))   
-    csv_write = '\n'.join([','.join(line) for line in csv_write])
-    with open('contact.csv', 'w') as f:
-        f.write(csv_write)
-
+    for items, lists in enumerate(contact):     # made this to get the first line ( keys ) only then break so it didn't continue adding it over and over since all of them have name, state, num
+        csv_write.append(list(lists.keys()))
+        break
+    for items, lists in enumerate(contact):    # a continue loop till all contacts have been fully changed over to a CSV format ..... # used enmurate since everything was already set as a list(dict) and it would pull the word and not just the range or length
+        csv_write.append(list(lists.values()))   
+    csv_write = '\n'.join([','.join(line) for line in csv_write])    
+    return csv_write
 # print(poof(update(info(create(contact)))))
 play = True
 while play:
@@ -100,9 +99,15 @@ while play:
         break
     else:
         print('\nfor english press the num..bb.rrrr.. for espon... SORRY! please enter a correct input!')
-print(contact)
 
-csv_upload(contact)
+
+list(filter(None, contact))
+print(csv_upload(contact))
+with open('contact.csv', 'w') as f:
+        f.write(csv_upload(contact))
+
+# csv_write.append(list(lists.keys()))
+# csv_upload(contact)
 # csv_write = []
 
 # for items, lists in enumerate(contact, 0):
