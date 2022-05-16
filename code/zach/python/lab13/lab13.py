@@ -10,13 +10,13 @@ class Player:
         return row, col
 
     def __repr__(self):
-        return self.name
+        return self.name, self.token
 
 
 class GameBoard:
-    def __init__(self, size = 3, blank_space = '_' ):
+    def __init__(self, size = 3, blank_space = '-' ):
         self.size = size
-        self.data = [[blank_space for i in range (size)] for j in range(size)]
+        self.data = [[blank_space for _ in range (size)] for _ in range(size)]
     
     def get_row(self, row):
         return self.data[row]
@@ -32,10 +32,24 @@ class GameView:
             pretty_text = '|'.join(str(space) for space in row)
             row_list.append(pretty_text)
         return '\n'.join(row_list)
-test_board = GameBoard()
-test = GameView(test_board)
 
-print(test)
+class GameControl:
+    def __init__(self, players):
+        self.players = players
+        self.board = GameBoard()
+        self.view = GameView(self.board)
+        return
+
+    def __repr__(self):
+        return str(self.view)
+
+
+players = [Player(name='Piccard', token='X'), Player(name='Q', token='O')]
+game = GameControl(players=players)
+# test_board = GameBoard()
+# test = GameView(test_board)
+
+print(game)
 # class Game:
 #     def __init__(self, board):
 #         self.board = []
