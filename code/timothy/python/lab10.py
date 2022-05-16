@@ -109,7 +109,7 @@ def csv_crud_repl(file_path, mode):
 # ....Lab 10 Version 3 ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
 
 # Ability to save updated csv file at path.
-        elif user_prompt == 's':
+        elif user_prompt == 's' or 'x':
             print('Saving file...')
             lines = [','.join(keys)]
             for contact in contacts:
