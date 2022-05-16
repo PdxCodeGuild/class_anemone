@@ -2,23 +2,26 @@ import requests
 import pprint
 import json
 
+#-------------------------------------------------# VERSION 2 #---------------------------------------------------------#
+
+# keywords = keyword
+# page = 1
+
+# while True:
+page = int(input('enter a page number: '))
+keyword = input('Enter a keyword for a Quote: ')
+
+response = requests.get('https://favqs.com/api/quotes', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"', 'Accept': 'application/json'}, params = {'filter': keyword, 'page': page})
+
+data = response.json()
+# body = quote['quote']['body']
+    # author = quote['author']
+    # pages = quote['page']
 
 
-response = requests.get('https://favqs.com/api/qotd', headers = {'Accept' : 'application/json'})
+   
+# pprint.pprint(quote)
+    
 
-quote = response.json()
-body = quote['quote']['body']
-author = quote['quote']['author']
-print(f'\nAuthor: {author}\n\nQuote: {body}\n')
-
-
-
-# headers = {'Accept': 'application/json'}
-
-# response = requests.get("https://icanhazdadjoke.com/", headers = {'Accept': 'application/json'})
-
-
-# joke = response.json()
-# print('\n')
-# pprint.pprint(joke)
-# print('\n')
+for x in data['quotes']:
+    print(x['body'])
