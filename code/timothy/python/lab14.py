@@ -28,25 +28,33 @@ def rolling_term_jokes(): # Asks user for a keyword to filter jokes, and rolls t
 
 # ....Lab 14 Version 2 ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-def search_dad_jokes():
-    search_term = input('Enter a keyword and I will tell you some Dad Jokes: ')
-    response = requests.get('https://icanhazdadjoke.com/search', headers ={'Accept':'application/json'}, params={'term':search_term})
-    response_dict = response.json()
-    jokes = response_dict['results']
-    pages = response_dict['total_pages']
+
+def main():
     
-    if jokes == []: # Case for search term returning no jokes.
-        print(f"I don't have any {search_term} jokes...")
-    else: print(f'I found {pages} page(s) of {search_term} jokes.')
+    print('Welcome to the Dad Joke Simulator!')
 
-    for joke in jokes:
-        print(joke['joke'])
-        time.sleep(3)
-        another = input('Want to hear another? ').lower()
-        if another in ['no', 'n', 'please god no']:
+    time.sleep(3)
+
+    while True:
+        search_term = input('Enter a keyword and I will tell you some Dad Jokes: ')
+        response = requests.get('https://icanhazdadjoke.com/search', headers ={'Accept':'application/json'}, params={'term':search_term})
+        response_dict = response.json()
+        jokes = response_dict['results']
+        pages = response_dict['total_pages']
+        if jokes == []: # Case for search term returning no jokes.
+            print(f"I don't have any {search_term} jokes...")
             break
-        time.sleep(3)
-    print(f"I'm all out of {search_term} jokes.")
+        else: 
+            print(f'I found {pages} page(s) of {search_term} jokes.')
+            pass
+        for joke in jokes:
+            print(joke['joke'])
+            time.sleep(3)
+            another = input('Want to hear another? ').lower()
+            if another in ['no', 'n', 'please god no']:
+                break
+            time.sleep(3)
+        print(f"End of {search_term} jokes.")
+        break
 
-search_dad_jokes()
-
+main()
