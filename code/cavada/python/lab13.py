@@ -27,6 +27,7 @@ class Game(TicTacToe):
         pass
     def is_game_over(self):
         pass
+    
 class Board(TicTacToe):
     def __init__(self, board):
         self.spaces = ['','']

@@ -1,65 +1,53 @@
-
-
-
-class TicTacToe:
-    def __init__(self):
-        self.index = 0
-        self.counter = 0
-        self.used = []
-        self.token = {'x':'X', 'o':'O'}
-        self.s = {0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'}
-        self.board = f"""
-                                TIC-TAC-TOE
-                    ___________________________________________
-                    |                                           |
-                    |                x  - a x i s               |
-                    |        ___________________________________|   Current Player:  
-                    |       |                                   |       {self.token[self.index]}  
-                    |       |         1)       2)       3)      |   
-                    |   y   |             |         |           |    Turn:{self.counter}
-                    |       |  1)     {self.s[0]}   |    {self.s[1]}    |   {self.s[2]}\t    |
-                    |   -   |     ________|_________|_________  |
-                    |       |             |         |           |
-                    |   a   |  2)     {self.s[3]}   |    {self.s[4]}    |   {self.s[5]}\t    |
-                    |   x   |     ________|_________|_________  |
-                    |   i   |             |         |           |
-                    |   s   |  3)     {self.s[6]}   |    {self.s[7]}    |   {self.s[8]}\t    |
-                    |       |             |         |           |
-                    |_______|___________________________________|                        
-                """
+# class TicTacToe:
+#     def __init__(self):
+#         self.index = 0
+#         self.counter = 0
+#         self.used = []
+#         self.token = {'x':'X', 'o':'O'}
+#         self.s = {0:'-',1:'-',2:'-',3:'-',4:'-',5:'-',6:'-',7:'-',8:'-'}
+#         self.choice = input(f"""
+#                                 TIC-TAC-TOE
+#                     ___________________________________________
+#                     |                                           |
+#                     |                x  - a x i s               |
+#                     |        ___________________________________|   Current Player:  
+#                     |       |                                   |       {self.token[self.index]}  
+#                     |       |         1)       2)       3)      |   
+#                     |   y   |             |         |           |    Turn:{self.counter}
+#                     |       |  1)     {self.s[0]}   |    {self.s[1]}    |   {self.s[2]}\t    |
+#                     |   -   |     ________|_________|_________  |
+#                     |       |             |         |           |
+#                     |   a   |  2)     {self.s[3]}   |    {self.s[4]}    |   {self.s[5]}\t    |
+#                     |   x   |     ________|_________|_________  |
+#                     |   i   |             |         |           |
+#                     |   s   |  3)     {self.s[6]}   |    {self.s[7]}    |   {self.s[8]}\t    |
+#                     |       |             |         |           |
+#                     |_______|___________________________________|                        
+#                 """)
         
-
-class Player(TicTacToe):
+class Player:
     def __init__(self, name, token):
         self.name = name
         self.token = token
-    pass
+        # self.wins
 
-class Board(TicTacToe):
-    def __init__(self, s, board):
-        self.s = s
-        self.board = board
-        
-         
-        
-        pass
+class Board:
+    def __init__(self):
+        self.board = f"
+        "
 
-class Game(TicTacToe):
-    def __init__(self, board, used, s):
-        self.board = board
-        self.used = used
-        self.s = s
-        
     def __repr__(self):
-        print(self.board)
-        print(self.s)
-        print(self.used)
-    
-    def move(self, x_pos, y_pos, token):
-        __repr__(self)
+        ret = ''
+        for row in self.board:
+            ret+= ' | '.join(row)
+            ret+= '\n'
+        return ret
 
-
-        pass
+    def move(self, x, y, token):
+        if self.board[y][x] != '-': # hyphen
+            return "space already taken"
+        else:
+            self.board[y][x]= token
 
     def calc_winner(self):
         pass
@@ -69,6 +57,21 @@ class Game(TicTacToe):
 
     def is_game_over(self):
         pass
+    
+board= Board()
+print(board)           
+
+player1 = Player.move()
+
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# x = [['-','-','-'],
+#      ['-','-','-'],
+#      ['-','-','-']]
+# print(x)
+
 def check(set):
     set_check = []
     x=0
@@ -111,9 +114,9 @@ def check(set):
 
 
 
-
-
-while True:
+control = 1
+# break
+while control == 0:
  play = input("play? 'y' or 'n' ")
  while play == "y":
 
@@ -213,7 +216,7 @@ while True:
                  -----------     |           |         |           |
                   1 | 2 | 3      |       {b_dict[1]}   |    {b_dict[2]}    |   {b_dict[3]}       |
                                  |           |         |           |   
-                                 |_________________________________|    این فارسی""")
+                                 |_________________________________|   """)
   print("after game over")
   play = ''  
   break       
