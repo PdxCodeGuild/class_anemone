@@ -6,8 +6,10 @@ import pprint
 
 
 
-response = requests.get('https://icanhazdadjoke.com/search', headers = {'accept': 'application/json'})
-# print(response.json())
-joke = response.json()
+response = requests.get("https://icanhazdadjoke.com/", headers = {'Accept': 'application/json'})
 
-pprint.pprint(joke)
+joke = response.json()
+laugh = joke['joke']
+print(f'\n{laugh}\n')
+
+# can also do pprint.pprint() to see all the jokes in respone.json()
