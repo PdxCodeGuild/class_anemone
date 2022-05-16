@@ -31,7 +31,7 @@ class GameBoard:
             print('\t\tspace has already been filled!!!')
 
     # creates list of indices that needed for a win condition rows, cols, and diags
-    def win_indices(self, n):
+    def win_indices(self):
         # winning rows
         for row in range(self.size):
             yield [(row, col) for col in range(self.size)]
@@ -46,7 +46,7 @@ class GameBoard:
 
     def calc_winner(self, player):
         n = len(self.data)
-        for indices in self.win_indices(n):
+        for indices in self.win_indices():
             # if all winning indices are same player token return true
             if all(self.data[row][col] == player.token for row, col in indices):
                 return True, print('we have a winner')
