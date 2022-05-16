@@ -14,24 +14,26 @@ class Player:
 
 
 class GameBoard:
-    def __init__(self, size = 3, blank_space = '-' ):
+    def __init__(self, size=3, blank_space='-'):
         self.size = size
-        self.data = [[blank_space for _ in range (size)] for _ in range(size)]
-    
+        self.data = [[blank_space for _ in range(size)] for _ in range(size)]
+
     def get_row(self, row):
         return self.data[row]
+
 
 class GameView:
     def __init__(self, board: GameBoard):
         self.board = board
-    
-    def __repr__(self): # prints our pretty board output for user
+
+    def __repr__(self):  # prints our pretty board output for user
         row_list = []
-        for i in range (self.board.size):
+        for i in range(self.board.size):
             row = self.board.get_row(i)
             pretty_text = '|'.join(str(space) for space in row)
             row_list.append(pretty_text)
         return '\n'.join(row_list)
+
 
 class GameControl:
     def __init__(self, players):
@@ -39,6 +41,8 @@ class GameControl:
         self.board = GameBoard()
         self.view = GameView(self.board)
         return
+
+    def make_move(self)
 
     def __repr__(self):
         return str(self.view)
@@ -70,5 +74,3 @@ print(game)
 
 #     def is_game_over(self):
 #         return
-
-        
