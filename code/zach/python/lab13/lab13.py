@@ -21,6 +21,9 @@ class GameBoard:
     def get_row(self, row):
         return self.data[row]
 
+    def move(self, row, col, player):
+        self.data[row][col] = player.token
+
 
 class GameView:
     def __init__(self, board: GameBoard):
@@ -40,9 +43,18 @@ class GameControl:
         self.players = players
         self.board = GameBoard()
         self.view = GameView(self.board)
-        return
+        # TODO: Ends games when out of turns need win conditions
+        self.move_count = 9
+        self.index = 0
 
-    def make_move(self)
+    def make_move(self):
+        player = self.players[self.index]
+        # alternates turns without using reverse allowing for n number of players (index + 1) % len(n_players)
+        self.index = (self.index + 1) % 2
+        row, col = player.get_move()
+        self.board.move(row, col, player)
+        self.move_count -= 1
+        return self.move_count > 0
 
     def __repr__(self):
         return str(self.view)
@@ -53,7 +65,8 @@ game = GameControl(players=players)
 # test_board = GameBoard()
 # test = GameView(test_board)
 
-print(game)
+while game.make_move():
+    print(game)
 # class Game:
 #     def __init__(self, board):
 #         self.board = []
