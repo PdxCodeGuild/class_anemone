@@ -32,6 +32,7 @@ while orig == "blank":
     elif orig in valid_yd:
         conv = dist / 1.094
     elif orig in valid_m or orig == 'm':
+
         conv = dist / 1
     elif orig in valid_km:
         conv = dist / (1/1000)
