@@ -19,7 +19,8 @@ user_output = input(' Please enter which unit you wish to convert to. Supported 
 user_value = input(' Please enter the distance value for conversion  ')
 
 if user_units ==  user_output:
-    solution = "You have selected the same units!"
+    print(f"***You have selected the same units! The Answer to your calculation is {user_value}***")
+    solution = int(user_value) * 1 
 elif user_units == 'ft':
     solution = int(user_value) * .3048 
 elif user_units == 'miles':
@@ -50,3 +51,4 @@ elif user_output == 'inches':
 print(f'Your final value is {final} and the units are {user_output}')
 
 
+#I believe I have fixed the issue that Liz pointed out on slack!
