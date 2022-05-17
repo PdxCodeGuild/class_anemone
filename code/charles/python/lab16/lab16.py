@@ -37,7 +37,11 @@ def main():
 
     xpos += step_x
     ypos += step_y
-    screen.blit(image, (50,50))
+    screen.blit(image, (xpos, ypos))
+    pygame.display.flip()
+    screen.blit(background, (0,0))
+    screen.blit(image, (xpos, ypos))
+    pygame.display.flip()
     
     
     # define a variable to control the main loop
@@ -48,20 +52,7 @@ def main():
         # event handling, gets all event from the event queue
         for event in pygame.event.get():
             # movement
-            xpos = 50
-            ypos = 50
-            # pixel steps
-            step_x = 10
-            step_y = 10
-
-            if xpos > screen_width - 64 or xpos < 0:
-                step_x = -step_x
-            if ypos > screen_hight - 64 or ypos < 0:
-                step_y = -step_y
-
-            xpos += step_x
-            ypos += step_y
-            screen.blit(image, (50,50))
+          
             # only do something if the event is of type QUIT
             if event.type == pygame.QUIT:
                 # change the value to False, to exit the main loop
