@@ -1,16 +1,14 @@
-
-
 # Convert a Number to Phrase
 
-## IN PROGRESS
+
 
 num = int(input('Select any number 0-99: '))
 
 #print = (num[0])
 
 ones_digit = (num % 10)
-tens_digit = (num // 10)
-hundreds_digit = (num // 100)
+tens_digit = (num % 100 // 10)
+hundreds_digit = (num % 1000 // 100)
 
 #print(num)
 
@@ -41,23 +39,58 @@ teens = {
 }
 
 tens = {
-    20:"twenty",
-    30:"thirty",
-    40:"forty",
-    50:"fifty",
-    60:"sixty",
-    70:"seventy",
-    80:"eighty",
-    90:"ninety"
+    0: "",
+    1: "",
+    2:"twenty",
+    3:"thirty",
+    4:"forty",
+    5:"fifty",
+    6:"sixty",
+    7:"seventy",
+    8:"eighty",
+    9:"ninety"
 }
+
+
+hundreds = {
+    0: "",
+    1:'one-hundred', 
+    2:'two-hundred', 
+    3:'three-hundred', 
+    4:'four-hundred', 
+    5:'five-hundred', 
+    6:'six-hundred', 
+    7:'seven-hundred', 
+    8:'eight-hundred', 
+    9:'nine-hundred'}
+123
 
 
 #Single
 if num <= 9:
     print(singles[ones_digit])
 
+#Teens
 elif num >= 10 and num <= 19:
-    print(teens[ones_digit])
+    print(f'{teens[num]}')
 
-elif num >=20 or num <= 99:
-    print(tens[tens_digit] - singles[ones_digit])
+#Tens
+elif num >=20 and num <= 99:
+    # if ones_digit != 0:
+    print(f'{tens[tens_digit]} - {singles[ones_digit]}')
+    # else:
+    #     print(f'{tens[tens_digit]}')
+
+
+
+elif num > 99 and  num <= 999:
+    if tens_digit == 0 and ones_digit == 0:
+        print(f"{hundreds[hundreds_digit]}")
+    # elif tens_digit == 1:
+    #     print(f"{hundreds[hundreds_digit]}{teens[tens_digit]}")
+    if tens_digit == 1:
+        print(f"{hundreds[hundreds_digit]} {teens[tens_digit]}")
+    if tens_digit > 0 and ones_digit == 0:
+        print(f"{hundreds[hundreds_digit]} {tens[ones_digit]}")
+    if ones_digit > 0:
+        print(f"{hundreds[hundreds_digit]}{tens[tens_digit]} {singles[ones_digit]}")
