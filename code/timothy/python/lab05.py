@@ -5,7 +5,7 @@ import random
 # generate a list of 6 random numbers (COMPLETE)
 def pick6():
     x = []
-    for i in range(6):
+    for _ in range(6):
         r = random.randint(1, 99)
         x.append(r)
     return x
@@ -44,13 +44,15 @@ def num_matches(winning, ticket):
 def lottery():
     wallet = 0
     winner = 0
+    expenses = 0
     winning = pick6()
-    for i in range(100000):
+    for _ in range(100000):
         ticket = pick6()
         wallet = wallet - 2
+        expenses = expenses + 2
         winner += num_matches(winning, ticket)   
     final_balance = wallet + winner
-    roi = (winner - wallet)/wallet
-    return print(f'Your final balance is ${final_balance}, your earnings were ${winner}, your expenses were ${wallet}. Your ROI is {roi}%.')
+    roi = (winner - expenses)/expenses
+    return print(f'Your final balance is ${final_balance}, your earnings were ${winner}, your expenses were ${expenses}. Your ROI is {roi}%.')
 
 lottery()

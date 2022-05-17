@@ -87,6 +87,11 @@ elif len(str(num)) == 3 and num[1] == "0":
     hundred_digit = int(str(hundred_digit) + "00")          
     print (english_nums[hundred_digit] + " and " + english_nums[ones_digit])
 
+elif len(str(num)) == 3 and num[2] == "0":
+    hundred_digit = int(str(hundred_digit) + "00")
+    hundred_tens_digit = int(str(num[1]) + "0")
+    print (english_nums[hundred_digit], "and", english_nums[hundred_tens_digit])
+
 elif len(str(num)) == 3:
     hundred_digit = int(str(hundred_digit) + "00") #400
     hundred_tens_digit = int(num[1] + "0") #50

@@ -32,7 +32,7 @@ if total < 17:
 
 elif total >= 17:
     if total > 21:
-        print (str(total), "You Lost!")
+        print (str(total), "Already Busted")
     if total < 21:
         print (str(total), "Stay")
     if total == 21:
