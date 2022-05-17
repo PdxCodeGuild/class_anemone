@@ -31,13 +31,14 @@ while orig == "blank":
         conv = dist / 3.281
     elif orig in valid_yd:
         conv = dist / 1.094
-    elif orig in valid_m:
+    elif orig in valid_m or orig == 'm':
+
         conv = dist / 1
     elif orig in valid_km:
         conv = dist / (1/1000)
     elif orig in valid_mi:
         conv = dist / (1/1609.334)
-    while orig == "blank1" or end == "blank2":
+    while orig == "blank" or end == "blank":
         end = input("unit to convert distance to: ")
         if end in valid_in:
             conv *= 39.37
@@ -48,7 +49,7 @@ while orig == "blank":
         elif end in valid_yd:
             conv *= 1.09361
             conv = round(conv)
-        elif end in valid_m:
+        elif end in valid_m or orig == 'm':
             conv *= 1
         elif end in valid_km:
             conv *= 1/1000
