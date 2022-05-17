@@ -51,12 +51,6 @@ class Player:
                 return False
   
         
-    def game_running(check):
-        if check == True:
-            return False
-
-
-
 
 
 #=================================================================================
