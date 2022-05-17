@@ -9,12 +9,12 @@ def trans_id_assign():
         t_id+=t
     return t_id      
 
-balance = 0 # set account balance to zero
-rate = .1 # 10% interest rate for interest accumulation function
+# balance = 0 # set account balance to zero
+# rate = .1 # 10% interest rate for interest accumulation function
 # trans_template = [{"action":"transaction", "amount": 0, "begin balance":0, "end balance": 0}]
 
 class ATM: # class set to contain all the functions relevant to the instantion represened by calling the balance and rate through it to essentially simulate an ATM session
-    def __init__(self, balance, rate): #dunder init function set to store running variables for rate, balance, and transactions
+    def __init__(self, balance= 0, rate=.01): #dunder init function set to store running variables for rate, balance, and transactions
         self.transactions = [] # creates shell for storing transactions
         self.balance = balance # sets this as class varible
         self.rate = rate # set this as class variavle
@@ -37,14 +37,17 @@ class ATM: # class set to contain all the functions relevant to the instantion r
         trans_id = trans_id_assign() # uses function to get a random transaction id number (hash method)
         self.transactions.append(f"trans #{trans_id}: \n\twithdraw, amount: ${amount}, ending balance: ${self.balance}")
         
-    def calc_interest(self, rate): # tells user the amount of interest expected after 12 accumulation
-        interest = self.balance * rate    
+    def calc_interest(self,savings,  t): # tells user the amount of interest expected after 12 accumulation
+        # print(savings,t)
+        # t = int(input('How many months do you plan on holding this amount for interest accumulation? ')) 
+        interest = (int(savings) * self.rate) * (int(t)/12)  
+        # print(interest)
         return interest
 
     def print_transactions(self): # funtction to bring transaction list to global 
         return self.transactions
 
-atm = ATM(balance, rate) # create an instance of our class, 
+atm = ATM() # create an instance of our class, 
 
 print('Welcome to the ATM')
 while True:
@@ -74,7 +77,10 @@ while True:
             print('Insufficient funds')
             
     elif command == 'interest' or command == 'i':
-        amount = atm.calc_interest(rate) # call the calc_interest() method    
+        savings= input("amount to save: ")
+        t = input("how many months do you plan on saving for interest accumulation?")
+        interest = atm.calc_interest(t, savings) # call the calc_interest() method 
+        print(f"\tinterest: ${round(interest)} @ {t} months maturity")
 
     elif command == 'transactions' or command == 't':
         print("Transaction Report Summary: ")
