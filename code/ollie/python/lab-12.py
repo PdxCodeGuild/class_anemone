@@ -2,7 +2,7 @@
 
 class ATM():
 
-    def __init__(self, balance, interest_rate):
+    def __init__(self, balance = 0, interest_rate = 0.001):
         self.balance = balance
         self.interest_rate = interest_rate
         self.transactions = []
@@ -30,11 +30,8 @@ class ATM():
     
     def print_transactions(self):
         print(f"Recent Transactions:\n {self.transactions}")
-    
-balance = 0
-interest_rate = 0.001
 
-atm = ATM(balance, interest_rate) # create an instance of our class
+atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
 while True:
     command = input('Enter a command: ')
