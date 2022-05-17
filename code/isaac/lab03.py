@@ -68,7 +68,7 @@ if user_input < 100:
  
         print(f"{tens[tens_digit]}-{ones[ones_digit]}".capitalize())
 
-if user_input <= 1000:        # print out numbers below 1000 in the hundreds
+elif user_input <= 1000:        # print out numbers below 1000 in the hundreds
     ones_digit = int(str(user_input)[-1])
     teens_digit = int(str(user_input)[1:])  
     tens_digit = int(str(user_input)[-2]) * 10
