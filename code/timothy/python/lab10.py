@@ -109,7 +109,7 @@ def csv_crud_repl(file_path, mode):
 # ....Lab 10 Version 3 ~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_~
 
 # Ability to save updated csv file at path.
-        elif user_prompt == 's':
+        elif user_prompt == 's' or 'x':
             print('Saving file...')
             lines = [','.join(keys)]
             for contact in contacts:
@@ -119,102 +119,10 @@ def csv_crud_repl(file_path, mode):
             with open(file_path, 'w') as file:
                 file.write(contact_list)
 
-### Definitely a lot of code in unnecessary functions since it's one big function that just immediately calls the nested ones... but it works! 
-## It made me tear my hair out...but it works!
-# Pulling as completed, but I will be reviewing and rebuilding (functionally) from scratch this weekend, since this kicked my butt.
 
 csv_crud_repl('contacts.csv', 'r')
 
-# OUTPUT
-# λ py lab10.py
-# What would you like to do? 
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         v
-# [{'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'}, {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'frodo', 'favorite 
-# color': ' green', 'favorite fruit': 'carrots'}]
-# What would you like to do?
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         c
-# Please state: Name, Favorite Color, Favorite Fruit: james, blue, strawberries
-# [{'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'}, {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'frodo', 'favorite 
-# color': ' green', 'favorite fruit': 'carrots'}, {'name': 'james', 'favorite color': ' blue', 'favorite fruit': ' strawberries'}]
-# What would you like to do?
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         r
-# State the name of the contact you want to retrieve: liz
-# {'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}
-# What would you like to do?
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         u
-# State the name of the contact you want to update: frodo
-# {'name': 'frodo', 'favorite color': ' green', 'favorite fruit': 'carrots'}
-# Which attribute would you like to update? favorite fruit
-# Type updated information: apples
-# {'name': 'frodo', 'favorite color': ' green', 'favorite fruit': 'apples'}
-# What would you like to do?
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         d
-# State the name of the contact you want to delete: tim
-# {'name': 'tim', 'favorite color': 'black', 'favorite fruit': 'watermelon'} will be deleted. Are you certain? y/n y
-# What would you like to do? 
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         s
-# Saving file...
-# What would you like to do?
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         v
-# [{'name': 'liz', 'favorite color': 'yellow', 'favorite fruit': 'mango'}, {'name': 'frodo', 'favorite color': ' green', 'favorite fruit': 'apples'}, {'name': 'james', 'favorite color': ' blue', 'favorite fruit': ' strawberries'}]
-# What would you like to do?
-#         v = View contact list
-#         c = Create a new contact
-#         r = Retrieve a contact
-#         u = Update a contact
-#         d = Delete a contact
-#         s = Save contact list
-#         x = Exit program
-#         x
+
 
 
 
