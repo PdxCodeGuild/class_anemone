@@ -13,106 +13,126 @@ def open_file(csv):
     # print(lines)
     return lines
 lines = open_file(csv)    
-
+contact = []
+contacts = []
+contacts_list = []
+# f1 = 0
+# f2 = 0
 def dict_list(lines):
     lines= open_file(csv)
     tuples=[]
-    print(f"lines:{lines}")
-    # tuples = [['name,car,age', 'ronald parker,van,53', 'elmo,bicycle,12', 'sarah wilder,motorbike,27', 'harry carey,limo,45', 'harry carey,limo,45', 'moe skaggs,scooter,32', 'dwayne forthwright,pickup,82', 'chicken little,coupe,9', 'jiminy cricket,shoe,28']] # this will be used for my 3 for loops that go into the tuples list and grab values for assigning the dictionary key-value pairs
+    # print(f"lines:{lines}")
     shell = [tuples.append((line.split(','))) for line in lines] # used 'shell' to pretty much do a list comprehension
     # print(lines)
     x  = shell # threw shell into x so it doesn't mess with my function since it's going to be set to zero later
-    cont1 = {} # dict shells set to assign and store contact info
-    cont2 = {} 
-    cont3 = {} 
-    cont4 = {}
-    cont5 = {}
-    cont6 = {}
-    cont7 = {} 
-    cont8 = {}
-    cont9 = {}
-    cont10 = {}
-    cont_basket= []
-    cont_basket.append(cont1)
-    cont_basket.append(cont2)
-    cont_basket.append(cont3)
-    cont_basket.append(cont4)
-    cont_basket.append(cont5)
-    cont_basket.append(cont6)
-    cont_basket.append(cont7)
-    cont_basket.append(cont8)
-    cont_basket.append(cont9)
-    # print(lines)
-    # print(tuples)
-    # tuples = [x for x in tuples if x != ['']]
-    print(f"tuples: {tuples}")
+    # print(f"tuples: {tuples}")
     conts = [t for t in tuples]
-    v = conts.pop(0)
+    keys = conts.pop(0)
+    x = -1
+   # print(f"conts: {conts}")
+    cont_tuples = []
     
-    print(f"conts: {conts}")
-    contacts= [] # dict list shell set to compile dictionaries as dict list
-    contacts.append(v)
-    a = 0 # counter used for each for loop, ensures right value is selected when assigning dictionary key:value pairs
-    x = 0 # counter used throughout the 3 for loops to ensure that correct dictionary is being update,
     for cont in conts:
-        print(f"cont: {cont}")
-        contacts.append(cont)
-    print(contacts)
-        # for key in v: # first for loop used to collect and assign data to 1st contact that will be update in the 0th index of the contacts_list dict list dictionary for contact1 (ronald parker)
-        #     print(key)
-        #     dict_index = cont_basket[x] 
-        #     contact = conts[x+1] 
-        #     dict_index[key]= contact[a] 
-        #     a +=1 
-        #     x +=1 
-    # # print(f"contact1: {cont1}") # print statement i used at some point for verification after a LOT of code being written and deleted
-    # a = 0 # reset a value to 0 in order to work again from left to right in list step-wise fashion 
-    # for key in tuples[0]: # same as above
-    #     dict_index = cont_basket[x]
-    #     contact = tuples[x+1]
-    #     dict_index[key]= contact[a]   
-    #     a += 1
-    # # print(f"contact2: {cont2}")
-    # x += 1
-    # a = 0
-    # for key in tuples[0]:
-    #     dict_index = cont_basket[x]
-    #     contact = tuples[x+1]
-    #     dict_index[key]= contact[a]
-    #     a += 1
-    # # print(f"contact3: {cont3}")
-    # x += 1 # cant remember if necessary, but not going to take out just yet
-    contacts= [] # recompling of dict list
-    # cont1 = cont1[0]
-    # print(cont_basket)
-    # for cont in cont_basket:
-    #     if cont != {} and type(cont) != list:
-    #         contacts.append(cont)
-    # print(f"contacts:{contacts}")
+        x+=1
+        for i, key in enumerate(keys):
+            cont = {}
+            # print(keys)
+            contact = conts[x]
+            # print(key, contact)
+            cont[(key)] = contact[i]
+            # print(c) # dict list shell set to compile dictionaries as dict lis.t
+            cont_tuples.append(cont)
+            # print(cont, contact)
+            # for c in cont:
+            #     cont[c]= contact[i]
+            #     print(cont,c)
+        # contact.append(cont)
+        # print(cont)
+    # print(f"cont_tuples: {cont_tuples}")
+    # contacts = []
+    f1 = 0
+    f2 = 0
+    contact = {}
+    contacts = []
+    contacts_list=[]
+    c1 = {}
+    c2 = {}
+    c3 = {}
+    c4 = {}
+    c5 = {}
+    # print(f1,f2)
+    for c in cont_tuples:
+        f1+=1
+        # print(contacts)
+        for key in keys:
+            f2+=1
+            # contact.update(c)
+            # print("f2:",f2,"c:", c)
+        contact.update(c)    
+        # print("\n\tf1:",f1,"f2:"
+        # ,f2, contact)
+        # contacts.update(contact)
+        
+        if f1 == 3 and f2 == 9:
+            # print(f"cont1: {contact}")
+            c1.update(contact)
+            # print(f"c1: {c1}")
+            # c1.update = contact
+            # contacts_list.append(contact)
+            contacts_list.append(c1)
+            
+        elif f1 == 6 and f2 == 18:
+            # print(f"cont2: {contact}")
+            c2.update(contact)
+            # print(f"c2:{c2}")
+            contacts_list.append(c2)
+            
+            # print(contacts)
+            # contacts_list.append(c2)
+        elif f1 == 9 and f2 == 27:
+            # print(f"cont3: {contact}")
+            c3.update(contact)
+            # print(f"c3:{c3}")
+            contacts_list.append(c3)
+            
+            # print(contacts)
+            # contacts_list.append(c3)
+        elif f1 == 12 and f2 == 36:
+            # print(f"cont4: {contact}")
+            c4.update(contact)
+            # print(f"c4:{c4}")
+            contacts_list.append(c4)
+            
+            # print(contacts)
+            # contacts_list.append(c4)
+        elif f1 == 15 and f2 == 45:
+            # print(f"cont5: {contact}")
+            c5.update(contact)
+            # print(f"c5:{c5}")
+            
+            # print(contacts)
+            contacts_list.append(c5)
 
-    return contacts # return of dictlist that can be futher maniuplated 
-# lines=open_file(csv)
-# contacts_list = csv_dict_rip(csv)
+    return contacts_list
+
+contacts=dict_list(lines)
+# print(contacts)
 
 """have my useable dictionary list data to maniupulate in python"""
 
 """other functions to use in CRUD """
 
 def retrieve(contacts):
+    x = 0
+    a = 0
     user = input("Enter contact name: ")
-    # print(contacts) # [{'name': 'ronald parker', 'car': 'van', 'age': '53'}, {'name': 'elmo', 'car': 'bicycle', 'age': '12'}, {'name': 'sarah wilder', 'car': 'motorbike', 'age': '27'}]
-    for contact in contacts:
-        # print(contact) # {'name': 'ronald parker', 'car': 'van', 'age': '53'}
-        for key in contact: 
-            # print(key) # name
-            if contact[key] == user:
-                for key in contact:
-                    print(f"\t{key}: {contact[key]}")
-                # print(f"info: {contact}")
-                # p
-                # rint(f"contacts list: {contacts}")
-            # else:
-                # print("contact not found")
+    for i, contact in enumerate(contacts):
+        # print(contact)
+        if user == contact['name']:
+        # print(contact)
+            for cont in contact:
+                print(f"\t{cont}: {contact[cont]}")
+            break
 
 def create(contacts):  # function created to update contacts dict list with new dictionaries representing additional contacts
     user = ''
@@ -131,7 +151,6 @@ def create(contacts):  # function created to update contacts dict list with new 
             dict_name['age'] = age
             contacts.append(dict_name)
             print(f"contact added: {contacts[x]}")
-    # user = input("See contact info: ")
     return contacts
  
 def update(contacts):
@@ -159,7 +178,7 @@ def update(contacts):
 
                     for c in contact:
                         print(f"\t{c}: {contact[c]}")
-    print(contacts)
+    # print(contacts)
     return contacts
 # contacts_list = update_cont(contacts_list)
 # print(contacts_list)
@@ -174,7 +193,7 @@ def remove(contacts):
         choice = input("Enter contact name: ")
         for contact in contacts:
             # print(contact)
-            print('made it to the for loop')
+            # print('made it to the for loop')
             if choice == contact['name']:
                 print(contact)
                 contacts.remove(contact)   
@@ -185,84 +204,6 @@ def remove(contacts):
 # contacts_list = del_cont(contacts_list)
 # print(contacts_list)
 
-def dictlist_to_csv(contacts):
-    line_u = []
-    line1= []
-    line2= []
-    line3= []
-    line4= []
-    line5= []
-    line6= []
-    line7= []
-    line8= []
-    line9= []
-    line10= []
-    list_a = [contacts[x].values() for x in range(len(contacts))]
-    tuples_u = []
-    list_a = [tuples_u.append(list) for list in list_a]
-    # print(tuples_u)
-    x = 0
-    for tuple_u in (tuples_u):
-        line_bucket=[]
-        for t in tuple_u:
-            # print(t)
-            if x < 3:
-                line1.append(t)
-            elif x < 6:
-                line2.append(t)
-            elif x < 9:
-                line3.append(t)
-            elif x < 12:
-                line4.append(t)
-            elif x < 15:
-                line5.append(t)
-            elif x < 18:
-                line6.append(t)
-            elif x < 21:
-                line7.append(t)
-            elif x < 24:
-                line8.append(t)
-            elif x < 27:
-                line9.append(t)
-            else:
-                break
-            x +=1   
-    line_bucket.append(line1)
-    line_bucket.append(line2)
-    line_bucket.append(line3)
-    line_bucket.append(line4)
-    line_bucket.append(line4)
-    line_bucket.append(line5)
-    line_bucket.append(line6)
-    line_bucket.append(line7)
-    line_bucket.append(line8)
-    line_bucket.append(line9)
-    line_bucket.append(line10)
-    for line in line_bucket:
-        if line != '':
-            line_u.append(line)  
-    v = ['name', 'car', 'age']
-    line_shell=[]
-    line_shell.append(v)
-    work = [line_shell.append(line) for line in line_u]
-    # print(line_shell) # line_shell = [['ronald parker', 'buick', '50'], ['sarah wilder', 'tesla', '25'], ['huck jones', 'truck', '30']]
-    """from here i will convert this set of tuples, 1 representing a set of variable for contact info, the rest represent variable values for each specific contact"""
-    lines = []
-    csv_data = []
-    for line in line_shell:
-        x=(','.join(line))
-        lines.append(x)
-    for line in lines:
-        x = ('\n'.join(line))
-        csv_data.append(x)
-    if work == 'haha':
-        print('popo')
-    csv_data = ''
-    lines = []
-    for line in lines:
-        x = (line+'\n')
-        csv_data += x
-    return csv_data
 # ==================================================================================
 def save_csv(csv_data):
     with open("contacts.csv", 'w') as f:
@@ -270,12 +211,12 @@ def save_csv(csv_data):
     return print(f"csv file: {csv} saved with and changes")
 # ==================================================================================
 
-# lines=open_file(csv)
+lines=open_file(csv)
 def contacts_interface(lines):
     contacts = dict_list(lines)
     x = 0
-    print(contacts)
-    print("welcome to interface", contacts)
+    # print(contacts)
+    print("welcome to interface")
     """code for contact list interface"""
     while x == 0:
         c = ['create', 'c']
@@ -303,12 +244,15 @@ def contacts_interface(lines):
             cont = input("create other contact data? ")
             if cont == 'n':
                 action = 'x'
+            else: 
+                contacts = (create(contacts))
         while action in u and action != 'x':
             update(contacts)
             cont = input("update other contact data? ")
             if cont == 'n':
                 action = 'x'
-            contacts = (update(contacts))    
+            else:
+                contacts = (update(contacts))    
         while action in d and action != 'x':
             remove(contacts)    
             cont = input("delete other contact data? ")
@@ -317,13 +261,13 @@ def contacts_interface(lines):
             else:
                 contacts = (remove(contacts))
         end = input('Select other option?: (y/n)')
-        print(contacts)
+        # print(contacts)
 
         if end != 'y':
-            save = 'save updates?'
-            if save == 'y':
-                csv_data = dictlist_to_csv(csv)    
-                save_csv(csv_data)
+        #     save = 'save updates?'
+        #     if save == 'y':
+        #         csv_data = dictlist_to_csv(csv)    
+        #         save_csv(csv_data)
 
             
             break
@@ -351,102 +295,56 @@ contacts = contacts_interface(lines)
 #     for c in contact:
 #         print(c,contact[c])
 
-line_u = []
-line1= []
-line2= []
-line3= []
-line4= []
-line5= []
-line6= []
-line7= []
-line8= []
-line9= []
-line10= []
-list_a = [contacts[x].values() for x in range(len(contacts))]
-tuples_u = []
-list_a = [tuples_u.append(list) for list in list_a]
-# print(tuples_u)
-x = 0
-for tuple_u in (tuples_u):
-    line_bucket=[]
-    for t in tuple_u:
-        # print(t)
-        if x < 3:
-            line1.append(t)
-        elif x < 6:
-            line2.append(t)
-        elif x < 9:
-            line3.append(t)
-        elif x < 12:
-            line4.append(t)
-        elif x < 15:
-            line5.append(t)
-        elif x < 18:
-            line6.append(t)
-        elif x < 21:
-            line7.append(t)
-        elif x < 24:
-            line8.append(t)
-        elif x < 27:
-            line9.append(t)
-        else:
-            break
-        x +=1   
-line_bucket.append(line1)
-line_bucket.append(line2)
-line_bucket.append(line3)
-line_bucket.append(line4)
-line_bucket.append(line4)
-line_bucket.append(line5)
-line_bucket.append(line6)
-line_bucket.append(line7)
-line_bucket.append(line8)
-line_bucket.append(line9)
-line_bucket.append(line10)
-for line in line_bucket:
-    if len(line) == 3:
-        line_u.append(line)  
-print(f"line_u: {line_u}")        
-v = ['name', 'car', 'age']
-line_shell=[]
-line_shell.append(v)
-work = [line_shell.append(line) for line in line_u]
-# print(line_shell) # line_shell = [['ronald parker', 'buick', '50'], ['sarah wilder', 'tesla', '25'], ['huck jones', 'truck', '30']]
-"""from here i will convert this set of tuples, 1 representing a set of variable for contact info, the rest represent variable values for each specific contact"""
-print(line_shell)
-csv_data = ''
-# print(lines)
-lines = []
-for line in line_shell:
-    x=(','.join(line))
-    lines.append(x)
-print(lines)
-a =0
-c=len(lines)
-print(c)
-for line in lines:
-    a +=1
-    if a <= c-1:
-        x = (line+'\n')
-        csv_data += x
-        # print(csv_data)
-    elif a == c:
-        csv_data += line
-        # print(csv_data)
-    
-    
-print(csv_data)
+""" CODE FOR RUNNING THE DICTLIST TO CSV and THEN CSV WRITE"""
 
+# print(contacts)
+
+# csv_data = dictlist_to_csv(contacts)
+
+# print(csv_data)
+
+"""I kinda gave up on working onthis, would have wanted to make the next code a function, but 
+the following works well to format the updated dict list data to be called through my write
+function to save the data to the existing csv file"""
+
+list_a = [contacts[x].values() for x in range(len(contacts))]
+# print(f"list_a: {list_a}")
+
+lines= []
+for list in list_a:
+    values = []
+    for l in list:
+        # values = []
+        values.append(l)
+        # print(l) # prints dict values as strings
+        # print(values)
+    lines.append(values)  
+    # print(shell) 
+
+# print(lines)  
+csv_data = 'name,car,age\n'
+a =0
+for line in lines:
+    a+=1
+    x = (','.join(line))
+    #i for l in line:
+    if a <= ((len(lines))-1):
+        csv_data+=(x+'\n')
+    else:
+        # print("else worked")
+        csv_data+=x
+        
 save_csv(csv_data)
+
 """
 checklist:
-[] open csv file and convert strings into 'lines' (tuples)        - open_file(csv)
-[] convert lines from csv rip into workable dictionary list       - dict_list(csv)  
-[] create function to create user data                            - create(contacts)
-[] create function to retrieve user data                          - retrieve(contacts)
-[] create function to update user data                            - update(contacts)
-[] create function to delete user data                            - delete(contacts)
-[] create Contacts Interface 'while loop' including all funx      - contacts_interace(lines)
+[x] open csv file and convert strings into 'lines' (tuples)        - open_file(csv)
+[x] convert lines from csv rip into workable dictionary list       - dict_list(csv)  
+[x] create function to create user data                            - create(contacts)
+[x] create function to retrieve user data                          - retrieve(contacts)
+[x] create function to update user data                            - update(contacts)
+[x] create function to delete user data                            - delete(contacts)
+[x] create Contacts Interface 'while loop' including all funx      - contacts_interace(lines)
 [x] create function to convert dictlist data to strings to write   - dictlist_to_csv(contacts)
 [x] write update data to csv file                                  - save_csv(csv_data)   
     to csv file                                                                                    
