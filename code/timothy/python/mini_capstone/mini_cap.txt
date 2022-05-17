@@ -1,7 +1,7 @@
 ....Python Mini Capstone ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-/Sample Manager "ReSimple"/
-- Move/iterate within folder of .wav samples, play/replay, analyze (BPM, Key?), rename file.
+/Sample Manager - "ReSimple" or "rAmple"/
+- move/iterate within folder of .wav samples, play/replay, analyze (BPM, Key?), rename file.
 - utilize playsound and librosa libs
-- CRUD REPL
+- CRUD REPL interface
 - 
