@@ -6,7 +6,7 @@ def encryption(string, function, rotation_num):
     if function[0] == 'e':
         for char in orig_list:
             if char in english:
-                if english.index(char) <= 13:
+                if english.index(char) < 13:
                     rot_string.append(english[english.index(char)+rotation_num])
                 else:
                     rot_string.append(english[english.index(char)-rotation_num])
