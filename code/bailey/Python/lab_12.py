@@ -9,6 +9,7 @@ class ATM:
     def __init__(self):
         self.balance = 0     # Initiate users balance
         self.transactions = []   # initiate transaction list
+        self.interest = self.balance * 0.001 
 
     def check_balance(self):    # funciton to return class balance
         return round(self.balance, 2)
@@ -28,8 +29,8 @@ class ATM:
             return True
 
     def calc_interest(self):  # function to calculate interest of total balance and return interest amount
-        interest = self.balance * 0.001 
-        return round(interest, 2)
+        self.interest = self.balance * 0.001 
+        return round(self.interest, 2)
 
     def print_transaction(self): # function to return transactions to be printed
         return self.transactions
