@@ -12,8 +12,9 @@ def csv_tansfer():                             # turning the CSV file into a lis
     for i in range(1, len(contents)):
         lists = contents[i].split(',')
         book.append(dict(zip(spots, lists)))
+        contact.extend(book)
     return book
-# contact.extend(csv_tansfer())  using . extend to put the conact inside of the list without adding an entirely new list ontop of the list of lists
+csv_tansfer() #using . extend to put the conact inside of the list without adding an entirely new list ontop of the list of lists
 
 
 
