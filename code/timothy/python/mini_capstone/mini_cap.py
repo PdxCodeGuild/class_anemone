@@ -6,7 +6,7 @@ from playsound import playsound
 import librosa
 from librosa import core
 from librosa import beat
-
+import time
 
 # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/snares
 # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/breaks
@@ -28,18 +28,23 @@ class reSimple:
                 print(entry)
 
     def sample_rename(self, sample):
-        new_sample_name = input('Rename Sample: ').lower()
+        new_sample_name = input('Rename Sample: ').title()
         new_name = new_sample_name + '.wav'
         os.rename(os.path.join(self.filepath, sample), os.path.join(self.filepath, new_name))
         print(f'Sample renamed {new_name}')
         return sample
+
+    def play_sound(self, sample):
+        playsound(self.filepath + '/' + sample)
+        return
+
     
-    def sample_player(self): #WinError 32 (file is being used), 'with open' somewhere? or split off new function for 'rename' to call within.
+    def sample_player(self): #WinError 32 (file is being used), 'with open' somewhere?
         repr(self.filepath)
         samples = os.listdir(self.filepath)
         for sample in samples:
             print(sample)
-            playsound(self.filepath + '/' + sample)
+            self.play_sound(sample)
             name_check = input("Do you need to rename this sample? Y/N ").lower()
             if name_check == 'y':
                 self.sample_rename(sample)
@@ -50,9 +55,11 @@ class reSimple:
             batch_name = input('New Batch Sample Name: ').title()
             for filename in os.listdir(self.filepath):
                 new_name = batch_name + '(' + str(i) + ')' + '.wav'
-                os.rename(os.path.join(self.filepath, filename), os.path.join(self.filepath, new_name))
+                if new_name in self.filepath:
+                    break
+                else: os.rename(os.path.join(self.filepath, filename), os.path.join(self.filepath, new_name))
                 i+=1     
-            print(f"Samples batch renamed {batch_name}().wav")
+            print(f"Sample batch renamed {batch_name}().wav")
 
 
     def tempo_finder(self): # Runtime Error Opening & FileNotFound Errno 2
@@ -61,8 +68,8 @@ class reSimple:
         for sample in samples:
             print(sample)
             playsound(self.filepath + '/' + sample)
-            y, sr = librosa.load(sample)
-            tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr)
+            y = librosa.load(sample)
+            tempo = librosa.beat(y)
             print('Estimated tempo: {:.2f} beats per minute'.format(tempo))
 
 tim = reSimple()
@@ -70,5 +77,5 @@ tim = reSimple()
 # reSimple.folder_path(tim) OBSOLETE
 # reSimple.folder_contents(tim)
 # reSimple.sample_player(tim)
-reSimple.batch_rename(tim)
-# reSimple.tempo_finder(tim)
+# reSimple.batch_rename(tim)
+reSimple.tempo_finder(tim)
