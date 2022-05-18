@@ -19,25 +19,25 @@ class Game:
     def move(self, key, player): # define the move the player will make on the board
         self.board[key] = player.token
     
-    def calc_winner(self):  # calculate the winner if the move[key] matches
-        if self.board['7'] == self.board['8'] == self.board['9'] and self.board != ' ':
-            return True
-        elif self.board['4'] == self.board['5'] == self.board['6'] and self.board != ' ':
-            return True 
-        elif self.board['1'] == self.board['2'] == self.board['3'] and self.board != ' ':
-            return True 
-        elif self.board['7'] == self.board['5'] == self.board['3'] and self.board != ' ':
-            return True
-        elif self.board['1'] == self.board['5'] == self.board['9'] and self.board != ' ':
-            return True
-        elif self.board['7'] == self.board['4'] == self.board['1'] and self.board != ' ':
-            return True
-        elif self.board['8'] == self.board['5'] == self.board['2'] and self.board != ' ':
-            return True 
-        elif self.board['9'] == self.board['6'] == self.board['3'] and self.board != ' ':
-            return True 
+    def calc_winner(self, player):  # calculate the winner if the move[key] matches
+        if self.board['7'] == self.board['8'] == self.board['9'] == player.token:
+            return player.token
+        elif self.board['4'] == self.board['5'] == self.board['6'] == player.token:
+            return player.token 
+        elif self.board['1'] == self.board['2'] == self.board['3'] == player.token:
+            return player.token 
+        elif self.board['7'] == self.board['5'] == self.board['3'] == player.token:
+            return player.token
+        elif self.board['1'] == self.board['5'] == self.board['9'] == player.token:
+            return player.token
+        elif self.board['7'] == self.board['4'] == self.board['1'] == player.token:
+            return player.token
+        elif self.board['8'] == self.board['5'] == self.board['2'] == player.token:
+            return player.token 
+        elif self.board['9'] == self.board['6'] == self.board['3'] == player.token:
+            return player.token 
         else:
-            return False
+            return None
 
     def is_full(self):  # define when the board is full
         for key in self.board:
@@ -45,8 +45,8 @@ class Game:
                 return False
         return True
 
-    def game_over(self):  # define when the game will be over whether a player matches three or the board is full
-        if self.calc_winner():
+    def game_over(self, player):  # define when the game will be over whether a player matches three or the board is full
+        if self.calc_winner(player):
             return True
         elif self.is_full():
             return True
@@ -66,45 +66,36 @@ def main():  # define the main game
 
     player_1 = Player(player_one_name, player_one_token)
     player_2 = Player(player_two_name, player_two_token)
-    
-
+        
     # create the instance of the game and board
     full_game = Game()
     # board display
     full_game.__repr__()
-    
-    while full_game.game_over() is False:  # while loop to keep the game playing
-        x_move = input(f"{player_one_name} enter your move using the numpad or numbers key (1-9): ")
 
-        # call the move function
-        full_game.move(x_move, player_1)
-        # display the board
-        full_game.__repr__()
+    while True:
 
-        # call the winner if the winner matches three in a row
-        if full_game.calc_winner():
-            print(f"Player {player_1} wins!")
-            break
-        
-        # call the game is full function if board is full with no winners
-        if full_game.is_full():
-            print("Game over, no winners")
+        # create move variable
+        move_one = input(f"{player_1.player} enter your move: ")
+        full_game.move(move_one, player_1)
+        print(full_game.__repr__())
+
+        if full_game.game_over(player_1) == True:
+            if full_game.is_full() == True:
+                print("Tie Game")
+            elif full_game.calc_winner(player_1):
+                print(f"{player_1.player} wins!")
             break
 
-        o_move = input(f"{player_two_name} enter your move using the numpad or numbers key (1-9): ")
 
-        # call player 2 move
-        full_game.move(o_move, player_2)
-        
-        # Display game board
-        full_game.__repr__()
+        move_two = input(f"{player_2.player} enter your move: ")
+        full_game.move(move_two, player_2)
+        print(full_game.__repr__())
 
-        if full_game.calc_winner():
-            print(f"Player {player_2} wins!")
-            break
-
-        if full_game.is_full():
-            print("Game over, no winners")
+        if full_game.game_over(player_2) == True:
+            if full_game.is_full() == True:
+                print("Tie Game")
+            elif full_game.calc_winner(player_2):
+                print(f"{player_2.player} wins!")
             break
 
 main()
