@@ -6,31 +6,34 @@ Bailey Baker
 
 
 class ATM:
-    balance = 0     # Initiate users balance
-    transactions = []   # initiate transaction list
+    def __init__(self):
+        self.balance = 0     # Initiate users balance
+        self.transactions = []   # initiate transaction list
+        self.interest = self.balance * 0.001 
+
     def check_balance(self):    # funciton to return class balance
-        return round(atm.balance, 2)
+        return round(self.balance, 2)
 
     def deposit(self, amount):
-        atm.balance += amount   # function to 'deposit' to account, adds to balance
-        atm.transactions.append(f'user deposited: {amount}')
+        self.balance += amount   # function to 'deposit' to account, adds to balance
+        self.transactions.append(f'user deposited: {amount}')
 
     def withdraw(self, amount): # function to 'withdraw' from account, dubtracts from balance
-        atm.balance -= amount
-        atm.transactions.append(f'user withdrew: {amount}')
+        self.balance -= amount
+        self.transactions.append(f'user withdrew: {amount}')
 
     def check_withdrawal(self, amount): # function to check if account has enough to conduct withdrawal
-        if amount > atm.balance:
+        if amount > self.balance:
             return False
         else:
             return True
 
     def calc_interest(self):  # function to calculate interest of total balance and return interest amount
-        interest = atm.balance * 0.001 
-        return round(interest, 2)
+        self.interest = self.balance * 0.001 
+        return round(self.interest, 2)
 
     def print_transaction(self): # function to return transactions to be printed
-        return atm.transactions
+        return self.transactions
 
 atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
