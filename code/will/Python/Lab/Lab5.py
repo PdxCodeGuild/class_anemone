@@ -60,7 +60,7 @@ while i < 6:
 
 
 print(f'The winning numbers are as follows: {winning_set}')
-print(f'Your numbers are as follows:        {player_set}')
+print(f'We will now draw you 10000 sets of numbers and show your results!')
 
 temp_set.clear() 
 newset()
@@ -74,7 +74,7 @@ if comparison(winning_set, player_set) >=1:
 
 comparison(winning_set, player_set)
 
-print (comparison(winning_set, player_set))
+#print (comparison(winning_set, player_set))
 
 #For logic to run program as often as is necessary 
 for i in range(100000):
@@ -82,7 +82,7 @@ for i in range(100000):
      newset()
      player_set.clear()
      player_set.extend(newset())
-     print(f' Your new numbers are {player_set}')
+     #print(f' Your new numbers are {player_set}')
      nummatch = comparison(winning_set, player_set)
      if nummatch == 1:
           earnings += 4 
@@ -96,8 +96,8 @@ for i in range(100000):
           earnings += 1000000
      elif nummatch == 6:
           earnings += 25000000
-     expenses -= 2 
-     print(comparison(winning_set, player_set))
+     expenses += 2 
+    # print(comparison(winning_set, player_set))
      counter()
      player_cash.append(counter())
      running_total = sum(player_cash)
@@ -110,9 +110,9 @@ for i in range(100000):
 print(expenses)
 print(earnings)
 matches_sum = sum(total_matches)
-print(running_total)
-print(matches_sum)
-print(total_matches)
+#print(running_total)
+print(f'You had {matches_sum} Matches total!')
+#print(total_matches)
 
 roi = (earnings - expenses) / expenses
 
