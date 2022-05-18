@@ -2,14 +2,14 @@
 
 import requests
 
+"""create logitech acct"""
+
 url = "https://accounts.logi.com/identity/oauth2/createandsignin"
-
-
 payload = {
     "email": "cavada.jonathon@gmail.com",
     "email_verified": True,
     "password": "^213Logi908^",
-    "channel_id": "\"\"",
+    "channel_id": "",
     "locale": "en-US"
 }
 headers = {
@@ -17,25 +17,38 @@ headers = {
     "X-Forwarded-For": "76.115.162.123",
     "Content-Type": "application/json"
 }
-
-
 response = requests.post(url, json=payload, headers=headers)
-
-
 print(response.text)
 
+"""create circle acct"""
 
-
-url = "https://accounts.logi.com/identity/oauth2/createandsignin"
-
+url = "https://api.circle.logi.com/api/accounts"
+payload = {"marketingOptIn": 0}
 headers = {
     "Accept": "application/json",
+    "X-API-Key": "abc123",
     "Content-Type": "application/json"
 }
-response = requests.post(url, headers=headers)
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+
+"""get acct"""
+
+url = "https://api.circle.logi.com/api/accounts/self"
+headers = {
+    "Accept": "application/json",
+    "X-API-Key": "abc123"
+}
+
+
+response = requests.get(url, headers=headers)
 
 
 print(response.text)
+
+
+
+
 
 
 
