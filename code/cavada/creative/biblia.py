@@ -41275,7 +41275,7 @@ bible = {
 bk_old = random.choice(old_t)
 bk_new = random.choice(new_t)
 # text = bible[bk][]
-"""unique words to each book and unique words to each chapter and across book"""
+"""unique words to each book and unisque words to each chapter and across book"""
 # user=input('Start reading?')
 x = 0
 trip = True
