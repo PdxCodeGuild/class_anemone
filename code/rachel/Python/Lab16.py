@@ -57,10 +57,11 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    
+    #Add game header/title
+    screen.blit(header, (200,20))
+
     #Add bluecard stack to game
     screen.blit(bluecard, (325,75))
-    screen.blit(header, (200,20))
     screen.blit(prompt, (330, 100))
 
     pygame.display.update()
