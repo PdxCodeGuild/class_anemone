@@ -26,7 +26,7 @@ class ATM:
         # self.amount = amount
         #if the deposit amount is valid. add to obj balance
         self.balance += amount
-        self.transaction.append(f'Amount deposited ${amount}')
+        self.transactions.append(f'Amount deposited ${amount}')
 
     ## withdraw money from the acct balance
     def withdraw(self,amount):
@@ -60,6 +60,10 @@ while True:
     if command == 'balance':
         balance = atm.check_balance() # call the check_balance() method
         print(f'Your balance is ${balance}')
+
+    elif command == "transaction":
+        transaction = atm.show_transactions()
+        print(f'{transaction}')
     elif command == 'deposit':
         amount = float(input('How much would you like to deposit? '))
         atm.deposit(amount) # call the deposit(amount) method
