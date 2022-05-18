@@ -62,8 +62,9 @@ hundreds = {
     6:'six-hundred', 
     7:'seven-hundred', 
     8:'eight-hundred', 
-    9:'nine-hundred'}
-123
+    9:'nine-hundred'
+    }
+
 
 
 #Single
@@ -81,9 +82,14 @@ elif num >=20 and num <= 99:
     # else:
     #     print(f'{tens[tens_digit]}')
 
+    
+#hundreds
 elif num >= 100:
     if tens_digit == 0 and ones_digit == 0:
         print(f"{hundreds[hundreds_digit]}")
+
+    elif tens_digit == 1:
+        print(f"{hundreds[hundreds_digit]} {teens[(num - (hundreds_digit * 100))]} ")
     elif ones_digit != 0:
         print(f"{hundreds[hundreds_digit]} {tens[tens_digit]} {singles[ones_digit]}")
     elif ones_digit == 0:
