@@ -1,6 +1,8 @@
 import json
 import pprint
 import requests
+import sys
+
 response = requests.get('https://developer.trimet.org/ws/v2/vehicles?appID=D065A3A5DAE4622752786CEB9', headers: )
 # response = requests.get("https://developer.trimet.org/ws/v2/vehicles", params={'appID': 'D065A3A5DAE4622752786CEB9', 'routes': 70"})
 
