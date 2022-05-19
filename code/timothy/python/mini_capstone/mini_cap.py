@@ -99,8 +99,8 @@ tim = reSimple()
 
 # reSimple.folder_path(tim) OBSOLETE
 # reSimple.folder_contents(tim)
-# reSimple.sample_player(tim)
-reSimple.batch_rename(tim)
+reSimple.sample_player(tim)
+# reSimple.batch_rename(tim)
 # reSimple.tempo_finder(tim)
 
 

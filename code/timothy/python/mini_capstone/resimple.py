@@ -2,6 +2,8 @@ import os
 import time
 from playsound import playsound
 import reprlib
+from pathlib import Path
+
 
 # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples
 
@@ -9,12 +11,17 @@ class resimple():
     def __init__(self):
         self.filepath = input("Enter path to sample directory: ")
 
+
     def display_folders(self):
         folders_in_path = os.listdir(self.filepath)
         print(f'Sample directory includes these folders: {folders_in_path}')
-        choose_folder = input("Choose folder to enter: ")
-        if choose_folder in folders_in_path:
-            samps_in_folder = os.listdir(self.filepath + '/' + choose_folder)
+        while True:
+            choose_folder = input("Choose folder to enter: ")
+            if choose_folder in folders_in_path:
+                samps_in_folder = os.listdir(self.filepath + '/' + choose_folder)
+                break
+            else:
+                print(f'Folder not in sample directory...\nPlease choose from {folders_in_path}: ')            
         pre_full = input('See (P)review or (F)ull list of files? ').lower()
         if pre_full == 'f':
             print('\n'.join(samps_in_folder))
@@ -23,20 +30,42 @@ class resimple():
             r.maxlist = 4
             r.maxstring = 20
             print(r.repr(samps_in_folder))
-        return samps_in_folder
+        samples = self.filepath + '/' + choose_folder
+        return samples
 
-    def sample_player(self): 
-        repr(samps_in_folder)
-        samples = os.listdir(samps_in_folder)
-        for sample in samples:
-            print(sample)
-            playsound(sample)
-            stop_play = input("Press Enter for next sample or type Stop: ").lower()
-            if stop_play == 'stop':
+    # def play_sound(self, sample):
+    #     playsound(sample)
+    #     return
+
+    def sample_player(self, samples):
+        repr(samples)
+        sample = os.listdir(samples)
+        for i in range(len(sample)):
+            print(sample[i])
+            wav = os.path.join(samples, sample[i])
+            playsound(wav)
+            name_check = input("Press Enter to play next sample, or type Stop: ").lower()
+            if name_check == 'stop':
                 break
-        print(f'End of samples...')
+        # print(f'End of samples...')
+
+    def batch_rename(self, samples):
+            i = 0
+            batch_name = input('New Batch Sample Name: ').title()
+            for filename in os.listdir(samples):
+                # print(samples)
+                # print(filename)
+                new_name = batch_name + '(' + str(i) + ')' + '.wav'
+                if new_name in samples:
+                    break
+                else: os.rename(os.path.join(samples, filename), os.path.join(samples, new_name))
+                i+=1     
+            print(f"Sample batch renamed {batch_name}().wav")
 
 
+# user = resimple()
+# # resimple.display_folders(user)
+# resimple.sample_player(user)
 
 def main():
 
@@ -44,15 +73,21 @@ def main():
 
     user = resimple()
 
-    resimple.display_folders(user)
-
+    sample_path = resimple.display_folders(user)
+    samples = Path(sample_path)
+    os.chdir(samples)
+    
 
     while True:
         command = input("\n[Return] to Parent Folder\n[Play] Samples in Folder\n[Batch] Rename Folder Contents\n").lower()
         if command == 'return':
-            resimple.display_folders(user)
+            sample_path = resimple.display_folders(user)
+            samples = Path(sample_path)
+            os.chdir(samples)
         elif command == 'play':
-            resimple.sample_player(user)
+            resimple.sample_player(user, samples)
+        elif command == 'batch':
+            resimple.batch_rename(user, sample_path)
 
 
 main()
