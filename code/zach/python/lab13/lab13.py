@@ -49,13 +49,22 @@ class GameBoard:
         for indices in self.win_indices():
             # if all winning indices are same player token return true
             if all(self.data[row][col] == player.token for row, col in indices):
-                return True, print('we have a winner')
+                return True, print(f'\n\t\twe have a winner\n\t\tCongrats { player.name }')
         return False
-#     def is_full(self):
-#         return
 
-#     def is_game_over(self):
-#         return
+    def is_full(self):
+        for row in self.data:
+            for space in row:
+                if space == '-':
+                    return False
+        print('\n\t\tBoard is Full.')
+        return True
+
+    def is_game_over(self, player):
+        if self.is_full() or self.calc_winner(player):
+            print('\n\t\tGame Over!!!')
+            return True
+        return False
 
 
 class GameView:
@@ -77,7 +86,7 @@ class GameControl:
         self.board = GameBoard()
         self.view = GameView(self.board)
         # TODO: Ends games when out of turns need win conditions
-        self.move_count = 9
+        self.move_count = 10
         self.index = 0
 
     def make_move(self):
@@ -87,15 +96,30 @@ class GameControl:
         row, col = player.get_move()
         self.board.move(row, col, player)
         self.move_count -= 1
-        self.board.calc_winner(player)
-        return self.move_count > 0
+        if self.board.is_game_over(player):
+            return False
+        return True
 
     def __repr__(self):
         return str(self.view)
 
 
-players = [Player(name='Piccard', token='X'), Player(name='Q', token='O')]
-game = GameControl(players=players)
+def main():
+    rematch = 'r'
+    t1 = 'X'
+    t2 = 'O'
+    p1 = input(f'Player { t1 } enter name: ')
+    p2 = input(f'Player { t2 } enter name: ')
 
-while game.make_move():
-    print(game)
+    while rematch == 'r':
+        players = [Player(name=p1, token=t1), Player(name=p2, token=t2)]
+        game = GameControl(players=players)
+
+        while game.make_move():
+            print(game)
+        print(game)
+        rematch = input('[r]ematch? ')
+
+
+if __name__ == '__main__':
+    main()
