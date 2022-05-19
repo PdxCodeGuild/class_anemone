@@ -1,8 +1,11 @@
+from fileinput import close
+from multiprocessing.pool import CLOSE
 import os
 import time
 from playsound import playsound
 import reprlib
 from pathlib import Path
+import multiprocessing
 
 
 # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples
@@ -44,10 +47,11 @@ class resimple():
             print(sample[i])
             wav = os.path.join(samples, sample[i])
             playsound(wav)
+            # playsound.close()
             name_check = input("Press Enter to play next sample, or type Stop: ").lower()
             if name_check == 'stop':
                 break
-        # print(f'End of samples...')
+        
 
     def batch_rename(self, samples):
             i = 0
@@ -72,7 +76,7 @@ def main():
     print('Welcome to reSimple - Renaming samples, simply.')
 
     user = resimple()
-
+    originldir = os.getcwd()
     sample_path = resimple.display_folders(user)
     samples = Path(sample_path)
     os.chdir(samples)
@@ -86,6 +90,7 @@ def main():
             os.chdir(samples)
         elif command == 'play':
             resimple.sample_player(user, samples)
+            os.chdir(originldir)
         elif command == 'batch':
             resimple.batch_rename(user, sample_path)
 
