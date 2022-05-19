@@ -12,7 +12,7 @@ good_morning = [
     "I don't cook, I don't clean let me tell you how I got this ring  :)"
 ]
 
-##Step 2 Send preset message using API send_message(my_message[0])
+#Step 2 Send preset message using API send_message(my_message[0])
 from twilio.rest import Client
 # from twilio_credentials import cellphone, twilio_account, twilio_num
 
@@ -27,7 +27,7 @@ def send_message(quote_list=good_morning):
     client = Client(account,token)
     quote = quote_list[random.randint(0,len(quote_list)-1)]
 
-    client.messages.create(to=cellphone,from=twilio_num, body = quote)
+    # client.messages.create(to=cellphone,from=twilio_num, body = quote)
 
 ## pip install schedule library
 # quote = good_morning[random.randint(0,len(good_morning))]
