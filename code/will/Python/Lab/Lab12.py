@@ -119,3 +119,5 @@ while True:
         break
     else:
         print('Command not recognized')
+
+        #Lab12 complete
