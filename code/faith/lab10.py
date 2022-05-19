@@ -7,3 +7,4 @@ list= []
 for line in csv:
     list.append(line.split(','))
 
+keys = list[0]
