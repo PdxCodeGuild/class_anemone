@@ -13,13 +13,17 @@ import time
 
 # reSimple - Renaming samples, simply.
 
+class Context_Manager():
+    pass
+
 class reSimple:
     def __init__(self):
         self.filepath = input("Please enter the path to your sample folder: ")
-
-    # def folder_path(self):
-    #     self.filepath = input("Please enter the path to your sample folder: ")
-    #     return self.filepath
+        os.chdir(self.filepath)
+    
+    # def nav_into(self, subfolders):
+    #     forward = ('Which folder would you like to work in? ')
+    #     if forward in
 
     def folder_contents(self): # NEEDS NATURAL SORTING
         basepath = self.filepath
@@ -27,27 +31,46 @@ class reSimple:
             if os.path.isfile(os.path.join(basepath, entry)):
                 print(entry)
 
+    # def sample_player(self): #WinError 32 (file is being used), 'with open' somewhere?
+    # repr(self.filepath)
+    # samples = os.listdir(self.filepath)
+    # for sample in samples:
+    #     print(sample)
+    #     self.play_sound(sample)
+    #     name_check = input("Do you need to rename this sample? Y/N ").lower()
+    #     if name_check == 'y':
+    #         self.sample_rename(sample)
+    #         pass
+    # print(f'End of samples...')
+
     def sample_rename(self, sample):
         new_sample_name = input('Rename Sample: ').title()
         new_name = new_sample_name + '.wav'
-        os.rename(os.path.join(self.filepath, sample), os.path.join(self.filepath, new_name))
+        old_name = sample
+        os.rename(os.path.join(self.filepath, old_name), os.path.join(self.filepath, new_name))
         print(f'Sample renamed {new_name}')
-        return sample
+        # return sample
 
     def play_sound(self, sample):
-        playsound(self.filepath + '/' + sample)
+        playsound(sample)
         return
 
     
     def sample_player(self): #WinError 32 (file is being used), 'with open' somewhere?
         repr(self.filepath)
         samples = os.listdir(self.filepath)
-        for sample in samples:
-            print(sample)
-            self.play_sound(sample)
-            name_check = input("Do you need to rename this sample? Y/N ").lower()
-            if name_check == 'y':
-                self.sample_rename(sample)
+        for i in range(len(samples)):
+            print(samples[i])
+            self.play_sound(samples[i])
+            while True:
+                name_check = input("'R'ename or 'H'ear again?' ").lower()
+                if name_check == 'r':
+                    self.sample_rename(samples[i])
+                    print('yo')
+                    continue
+                elif name_check == "h":
+                    print('hey')
+                    break
         print(f'End of samples...')
 
     def batch_rename(self): # WORKING
@@ -67,15 +90,42 @@ class reSimple:
         samples = os.listdir(self.filepath)
         for sample in samples:
             print(sample)
-            playsound(self.filepath + '/' + sample)
-            y = librosa.load(sample)
-            tempo = librosa.beat(y)
-            print('Estimated tempo: {:.2f} beats per minute'.format(tempo))
+            # playsound(self.filepath + '/' + sample)
+            y, sr = librosa.load(sample)
+            tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr)
+            print('Estimated tempo: {:.2f}'.format(tempo))
 
 tim = reSimple()
 
 # reSimple.folder_path(tim) OBSOLETE
 # reSimple.folder_contents(tim)
 # reSimple.sample_player(tim)
-# reSimple.batch_rename(tim)
-reSimple.tempo_finder(tim)
+reSimple.batch_rename(tim)
+# reSimple.tempo_finder(tim)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def main():
+
+#     print('Welcome to reSimple - Renaming samples, simply.')
+#     time.sleep(3)
+#     user = reSimple()
+
+#     while True:
+#         pass
+        
+
+# main()
