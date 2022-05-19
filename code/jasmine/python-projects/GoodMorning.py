@@ -16,14 +16,14 @@ good_morning = [
 from twilio.rest import Client
 # from twilio_credentials import cellphone, twilio_account, twilio_num
 
-cellphone = '+12544150573'
-twilio_num = '+14422392305'
+cellphone = ''
+twilio_num = ''
 
 
 #take in message and send to phone number
 def send_message(quote_list=good_morning):
-    account = 'AC8b13db7b0422ad7fb620f671bb82d819'
-    token = '005e015240b3fe34717837df3aa16951'
+    account = ''
+    token = ''
     client = Client(account,token)
     quote = quote_list[random.randint(0,len(quote_list)-1)]
 
@@ -51,8 +51,7 @@ while True:
 # message = client.messages \
 #                 .create(
 #                      body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-#                      from_='+14422392305',
-#                      to='+12544150573'
+#                      
 #                  )
 
 # print(message.sid)
