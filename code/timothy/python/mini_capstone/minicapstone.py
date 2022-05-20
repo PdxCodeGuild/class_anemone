@@ -1,6 +1,10 @@
 import os
 import time
+import wave
+import pyaudio
 import reprlib
+from array import array
+from struct import pack
 from pathlib import Path
 from playsound import playsound
 
@@ -51,11 +55,28 @@ class resimple():
             r.maxstring = 20
             print(r.repr(self.samples))
 
+    def play(file):
+        CHUNK = 1024
+        wf = wave.open(file, 'rb')
+        p=pyaudio.PyAudio()
+        stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                            channels=wf.getnchannels(),
+                            rate = wf.getframerate(),
+                            output = True)
+        data = wf.readframes(CHUNK)
+        while len(data)>0:
+            stream.write(data)
+            data = wf.readframes(CHUNK)
+
+        stream.stop_stream()
+        stream.close
+        p.terminate
+
     def play_samples(self):
         for i in range(len(self.samples)):
             while True:
                 print(self.samples[i])
-                playsound(self.folder + '/' + self.samples[i])
+                self.play(self.folder + '/' + self.samples[i])
                 repextop = input('(R)eplay, (N)ext, (S)top ').lower()
                 if repextop == 'r':
                     continue

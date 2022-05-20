@@ -9,7 +9,29 @@ from librosa import core
 from librosa import beat
 import time
 import reprlib
+import pyaudio
+import wave
+from array import array
+from struct import pack
 
+# def play(file):
+#     CHUNK = 1024
+#     wf = wave.open(file, 'rb')
+#     p=pyaudio.PyAudio()
+#     stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+#                         channels=wf.getnchannels(),
+#                         rate = wf.getframerate(),
+#                         output = True)
+#     data = wf.readframes(CHUNK)
+#     while len(data)>0:
+#         stream.write(data)
+#         data = wf.readframes(CHUNK)
+
+#     stream.stop_stream()
+#     stream.close
+#     p.terminate
+
+# play('C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/snares/Snare(0).wav')
 
 # # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/snares
 # # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/breaks
@@ -167,11 +189,28 @@ class resimple():
             r.maxstring = 20
             print(r.repr(self.samples))
 
+    def play(self, file):
+        CHUNK = 1024
+        wf = wave.open(file, 'rb')
+        p=pyaudio.PyAudio()
+        stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                            channels=wf.getnchannels(),
+                            rate = wf.getframerate(),
+                            output = True)
+        data = wf.readframes(CHUNK)
+        while len(data)>0:
+            stream.write(data)
+            data = wf.readframes(CHUNK)
+
+        stream.stop_stream()
+        stream.close
+        p.terminate
+
     def play_samples(self):
         for i in range(len(self.samples)):
             while True:
                 print(self.samples[i])
-                playsound(self.folder + '/' + self.samples[i])
+                self.play(self.folder + '/' + self.samples[i])
                 repextop = input('(R)eplay, (N)ext, (S)top ').lower()
                 if repextop == 'r':
                     continue
@@ -180,6 +219,7 @@ class resimple():
                 elif repextop == 's':
                     return False
         self.samples = os.listdir(self.folder)
+
     
     def rename_samples(self):
         i = 0
