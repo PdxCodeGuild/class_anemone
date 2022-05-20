@@ -1,7 +1,7 @@
 import math
 import os
 
-books = os.path.join(os.getcwd('lab09.txt'))
+books = os.path.join(os.getcwd())
 # print('The book: ', books)
 result = ""
 for files in os.listdir(books):
@@ -27,7 +27,7 @@ for files in os.listdir(books):
             for word in words:
                 print('word', word)
 
-            num_letters += len(word)
+                num_letters += len(word)
 
 
 
