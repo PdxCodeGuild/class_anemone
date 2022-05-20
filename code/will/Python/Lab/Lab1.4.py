@@ -51,4 +51,3 @@ elif user_output == 'inches':
 print(f'Your final value is {final} and the units are {user_output}')
 
 
-#I believe I have fixed the issue that Liz pointed out on slack!
