@@ -26,14 +26,16 @@ trip = True
 books = {}
 test = {}
 entire_bible={}
-a = 0
+a = -1
 o_dict_list = []
 n_dict_list = []
 pyble = []
-while trip == True and a <= 1:
+while trip == True and a < 1:
+    a += 1
+    
     for i, testament in enumerate(list(both.keys())):
-        a += 1
-        book_dict = {}
+        test= {}
+        book_list = []
         for i, book in enumerate(both[testament]):  # genesis, exodus, deuteronomy....
             # print(book)
             x=0
@@ -43,9 +45,10 @@ while trip == True and a <= 1:
                 chapter_verses = {}
                 url = f"https://bible-api.com/{book} {i+1}"
                 print(url)
-                time.sleep(.01) 
-
-                resp = requests.get(url)  
+                time.sleep(.0001) 
+                
+                resp = requests.get(url) 
+                print(resp) 
                 resp = resp.json()
                 chap_verses_dict = resp['verses'] # verse_dict
                 for dict in chap_verses_dict:
@@ -55,126 +58,32 @@ while trip == True and a <= 1:
                     text = dict['text'] #verse text
 
                     chapter_verses.update({verse:text}) # adding verses to dictionary list shell
-                
                 chapters.update({chap:chapter_verses})  
+            book_list.append({book:chapters})
+        test.update({testament:book_list})
+        pyble.append([test])   
+    a+=1
 
-            book_dict.update({book:chapters})
-
-        test.update({a:book_dict})   
-           
-    entire_bible.update({testament:test})
 
 sys.stdout = open('test.py','w', encoding= 'utf-8')   
-pprint.pprint(test)
+pprint.pprint(pyble)
 sys.stdout.close()    
     
-        # # sys.stdout = open('book.py', 'w')
-#         book_dict.update({book:chapters})
-#         pprint.pprint(chapters)     
-#         # sys.stdout.close()
-#     books.update({book:book_dict})   
-#     # pprint.pprint(book)     
-# sys.stdout = open('book.py', 'w')    
-# entire_bible.update({'old testament':books})
-# sys.stdout.close()
-#     #         #         # print(book,y,x,i)
-            
-            # break
 
-
-#                 chapters.update({chap:verses}) 
-#             # pprint.pprint(chapters)
-#         books.update({book:chapters})
-#     break
-# entire_bible.update({'old testament':books})
-
-# sys.stdout = open('test.py', 'w', encoding = 'utf-8')
-# pprint.pprint(entire_bible)
-# sys.stdout.close()
-
-trip = True
-while trip == False:
-    books = {}
-    for i, book in enumerate(new_t):  # genesis, exodus, deuteronomy....
-        x = 1
-        chapters = {}
-        if book == new_t[i]:
-            verses = {}
-            # print(old_t[i])
-            for i in range(new_ch[i]):
-                url = f"https://bible-api.com/{book} {i+1}"
-                resp = requests.get(url)  
-                resp = resp.json()
-                time.sleep(.2) 
-                chap_verses_dict = resp['verses'] # verse_dict
-                for dict in chap_verses_dict:
-                    chap = dict['chapter']
-                    # print(dict)
-                    verse = dict['verse']
-                    text = dict['text']
-                    verses.update({verse:text})
-                    # print(text)
-                    # print(book,y,x,i)
-                print(book, chap)       
-                chapters.update({chap:verses}) 
-            # pprint.pprint(chapters)
-        books.update({book:chapters})
-    # pprint.pprint(books)
-    break
-entire_bible.update({'new testament':books})
-
-
-# sys.stdout = open('book.py', 'w', encoding = 'utf-8')
-# pprint.pprint(entire_bible)
-# sys.stdout.close()
-    # pprint.pprint(chapters)
-    # books.update({book:chapters})    
-# pprint.pprint(books)        
-# entire_bible.update({'old testament':books})     
-
-
-#             pprint.pprint(verses)    
-#             chapters.update({chap:verses})    
-#             x += 1
-#         else:
-#             continue
-#     pprint.pprint(chapters)        
-#     books.update({book:chapters})
-# # pass    
-# pprint.pprint(books)
-# old_test.update(books)
-
-# sys.stdout = open('book.py', 'w')
-# pprint.pprint(old_test)
-# sys.stdout.close()
-# NlTK
-# natural language 
-
-    #     time.sleep(5)
-    #     
-    
-    # break
-    # cont = input("continue: ")
-    # if cont == 'y':
-    #     break
-    # new_test = {}
-    # sys.stdout = open('new_testament.py', 'w')
-    # for i, book in enumerate(new_t):
-    #     url = f"https://bible-api.com/{book} 1-{new_ch[i]}"
-    #     print(url)
-    #     resp = requests.get(url)
-    #     resp = resp.json()
-    #     new_test.update({book:resp})
-    #     time.sleep(.5) 
-    # pprint.pprint(new_test)
-    # sys.stdout.close()
-
-
-# url = "https://bible-api.com/genesis 1-50"
-# print(url)
-# resp = requests.get(url)
-# resp = resp.json()
-# pprint.pprint(resp)
+skip = True
+while skip == False:
+    for i, pyb in enumerate(pyble):
+        pyb = pyble[i]
+        # print(testament)``
+        for i, testmament in enumerate(pyb):
+            testament = pyb[i]
+            # pprint.pprint(testament)
+            for i, book in enumerate(testament):
+                book_list = testament[book]
+                # pprint.pprint(book_list)
+                for i, book in enumerate(book_list):
+                    book = book_list[i]
+                    print(book)
 
 
 test_list = ['old testament','new testament']
