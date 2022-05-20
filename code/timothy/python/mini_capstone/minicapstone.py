@@ -53,11 +53,30 @@ class resimple():
 
     def play_samples(self):
         for i in range(len(self.samples)):
-            print(self.samples[i])
-            playsound(self.folder + '/' + self.samples[i])
-            # repextop = input('(R)eplay, (N)ext, (S)top ').lower()
-            
-        
+            while True:
+                print(self.samples[i])
+                playsound(self.folder + '/' + self.samples[i])
+                repextop = input('(R)eplay, (N)ext, (S)top ').lower()
+                if repextop == 'r':
+                    continue
+                elif repextop == 'n':
+                    break
+                elif repextop == 's':
+                    return False
+
+    
+    def rename_samples(self):
+        i = 0
+        batch_name = input("Enter batch-name for samples: ").title()
+        for file in self.samples:
+            new_name = batch_name + '(' + str(i) + ')' + '.wav'
+            if new_name == file:
+                pass
+            else: os.rename(os.path.join(self.folder, file), os.path.join(self.folder, new_name))
+            i += 1
+        print(f'Samples renamed to {batch_name}().wav')
+        self.samples = os.listdir(self.folder)
+
 def main():
 
     print('\t- ReSimple -\n   Renaming samples, simply!')
@@ -72,7 +91,14 @@ def main():
             open.display_samples()
         elif command == '2':
             open.play_samples()
+        elif command == '3':
+            open.rename_samples()
         elif command == '4':
             open.switch_folders()
+        elif command == '5':
+            print('Thank you for using ReSimple!')
+            return False
 
 main()
+
+# C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples
