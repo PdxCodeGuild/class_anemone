@@ -1,6 +1,7 @@
 from doctest import testfile
 import random
 import time
+import sys
 old_t = ['genesis', 'exodus', 'leviticus', 'numbers', 'deuteronomy', 'joshua', 'judges', 'ruth', '1 samuel', '2 samuel', '1 kings', '2 kings', '1 chronicles', '2 chronicles', 'ezra', 'nehemiah', 'esther', 'job', 'psalms', 'proverbs', 'ecclesiastes', 'song of solomon', 'isaiah', 'jeremiah', 'lamentations', 'ezekiel', 'daniel','hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habukkuk', 'zephaniah', 'haggai', 'zechariah', 'malachi']
 new_t = ['matthew', 'mark', 'luke', 'john', 'acts', 'romans', '1 corinthians', '2 corinthians', 'galatians', 'ephesians', 'philippians', 'colossians', '1 thessalonians', '2 thessalonians', '1 timothy', '2 timothy', 'titus', 'philemon', 'hebrews', 'james', '1 peter', '2 peter', '1 john', '2 john', '3 john', 'jude', 'revelation']
 biblia = [new_t,old_t]
@@ -41316,9 +41317,21 @@ while trip == False:
 
 # for line in lines:
 
+# old_testament = bible['old testament']
+# ot_bk_list={}
+# for i, old in enumerate(old_testament):
+#         book_info = old_testament[old_t[0]]
+#         text = book_info['text']
+#         # print(text)
+#         text_list = text.split('\n')
+#         # print(text_list)
+#         break
+
+# for i, text in enumerate(text_list):
+        # print(f"{i}:  {text}")
 
 
-
+# print(ot_bk_list)
 # print(f"{bible[testament][book]['text']}")
 
 
@@ -41339,7 +41352,20 @@ while trip == False:
 #                         # print(t)
 #                 else: 
 #                         break
-        
+for testament in bible:  
+        testament=bible[testament]
+        for book in testament:     
+                book = testament[book]
+                verses = book['verses']
+                for i, verse_dict in enumerate(verses):
+                        text = verse_dict['text']
+                        ch = verse_dict['chapter']
+                        vs = verse_dict['verse']
+                        print(f"ch{ch}:{vs} {text}")
+                break
+
+
+
 class Pyble:
 
         def __init__(self, user, bible):
@@ -41394,13 +41420,15 @@ class Viewer(Pyble):
                                                 print((bibl[choice])['text'])
                         # print(book['text'])                               
 
-user = input('name: ')
-bible = Pyble(bible, user)
+# user = input('name: ')
+# bible = Pyble(bible, user)
 
-testament = input('testament: ')
-book = input('book: ')
-bible.rd_ch(testament,book)
+# testament = input('testament: ')
+# book = input('book: ')
+# bible.rd_ch(testament,book)
 
-
-
+# for testament in bible:
+#         testament = bible[testament]
+#         testament = list(testament.values())
+#         print(testament)
 
