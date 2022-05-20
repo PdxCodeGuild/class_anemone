@@ -1,12 +1,9 @@
-from fileinput import close
-from multiprocessing.pool import CLOSE
 import os
 import time
 from playsound import playsound
 import reprlib
 from pathlib import Path
-import multiprocessing
-
+import librosa
 
 # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples
 
@@ -74,7 +71,7 @@ class resimple():
 def main():
 
     print('Welcome to reSimple - Renaming samples, simply.')
-
+    time.sleep(2)
     user = resimple()
     originldir = os.getcwd()
     sample_path = resimple.display_folders(user)
@@ -83,7 +80,7 @@ def main():
     
 
     while True:
-        command = input("\n[Return] to Parent Folder\n[Play] Samples in Folder\n[Batch] Rename Folder Contents\n").lower()
+        command = input("\n[Return] to Parent Folder\n[Play] Samples in Folder\n[Batch] Rename Folder Contents\n\n").lower()
         if command == 'return':
             sample_path = resimple.display_folders(user)
             samples = Path(sample_path)
