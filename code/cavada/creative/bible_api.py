@@ -22,49 +22,52 @@ both_t = [old_t, new_t]
 y = 0
 """"""
 entire_bible = {}
-trip = False
+trip = True
 books = {}
+test = {}
 entire_bible={}
-for i, testament in enumerate(list(both.keys())):
-    # print(testament) 
-    book_dict = {}
-    for i, book in enumerate(both[testament]):  # genesis, exodus, deuteronomy....
-        # print(book)
-        x=0
-        chapters = {}
-        for i in range(both[testament][book]): # for the number of chapters in a given book
-            # print(testament, book, i+1)
-            chapter_verses = {}
-            url = f"https://bible-api.com/{book} {i+1}"
-            print(url)
-            resp = requests.get(url)  
-            resp = resp.json()
-            time.sleep(.2) 
-            chap_verses_dict = resp['verses'] # verse_dict
-            for dict in chap_verses_dict:
-                name = dict['book_name']
-                chap = dict['chapter'] #chapter number
-                # print(dict)
-                verse = dict['verse'] #verse number
-                text = dict['text'] #verse text
-                # print(book,i+1)
-                chapter_verses.update({verse:text}) # adding verses to dictionary list shell
-                # print(text)
-            
-            chapters.update({chap:chapter_verses})  
-            # print(x) 
-        
-            x+=1
-        book_dict.update({book:chapters})
-        # print(chapters)
-        
-    entire_bible.update({testament:book_dict})
-    # pprint.pprint(entire_bible)    /    
-          # print(chapters)
+a = 0
+o_dict_list = []
+n_dict_list = []
+pyble = []
+while trip == True and a <= 1:
+    for i, testament in enumerate(list(both.keys())):
+        a += 1
+        book_dict = {}
+        for i, book in enumerate(both[testament]):  # genesis, exodus, deuteronomy....
+            # print(book)
+            x=0
+            chapters = {}
+            for i in range(both[testament][book]): # for the number of chapters in a given book
+                # print(testament, book, i+1)
+                chapter_verses = {}
+                url = f"https://bible-api.com/{book} {i+1}"
+                print(url)
+                time.sleep(.01) 
 
-sys.stdout = open('book.py', 'w', encoding= 'utf-8')   
-pprint.pprint(entire_bible)
-sys.stdout.close()     
+                resp = requests.get(url)  
+                resp = resp.json()
+                chap_verses_dict = resp['verses'] # verse_dict
+                for dict in chap_verses_dict:
+                    name = dict['book_name']
+                    chap = dict['chapter'] #chapter number
+                    verse = dict['verse'] #verse number
+                    text = dict['text'] #verse text
+
+                    chapter_verses.update({verse:text}) # adding verses to dictionary list shell
+                
+                chapters.update({chap:chapter_verses})  
+
+            book_dict.update({book:chapters})
+
+        test.update({a:book_dict})   
+           
+    entire_bible.update({testament:test})
+
+sys.stdout = open('test.py','w', encoding= 'utf-8')   
+pprint.pprint(test)
+sys.stdout.close()    
+    
         # # sys.stdout = open('book.py', 'w')
 #         book_dict.update({book:chapters})
 #         pprint.pprint(chapters)     
