@@ -1,8 +1,11 @@
 import math
 import os
 
-books = os.path.join(os.getcwd())
+books = os.path.join(os.getcwd('lab09.txt'))
+# print('The book: ', books)
+result = ""
 for files in os.listdir(books):
+    # print('files', files)
     if files.endswith('.txt'):
         file = files.split('.')
         with open(os.path.join(books, files), 'r') as f:
@@ -16,18 +19,24 @@ for files in os.listdir(books):
 
 
             words = read_files.split()
+            print('The Type: ',type(words))
             num_words = len(words)
 
 
             num_letters = 0
-            for letter in words:
-                num_letters += len(words)
+            for word in words:
+                print('word', word)
+
+            num_letters += len(word)
+
+
 
             ARI = 4.71 * (num_letters/num_words) + 0.5 *(num_words/num_sent)-21.43
+            print(num_letters, num_words)
             ARI = math.ceil(ARI)
             if ARI > 14:
                 ARI = 14
-
+            print('text', num_letters, num_words, num_sent )
             ari_scale = {
                 1: {'ages':   '5-6', 'grade': 'Kindergarten'},
                 2: {'ages':   '6-7', 'grade':    '1st Grade'},
@@ -50,7 +59,7 @@ for files in os.listdir(books):
             result = f"The ARI for {file} is {ARI} "
             result += f"This corresponds to a {grade['grade']} level of difficulty"
             result += f"\n that is suitable for an average person {grade['ages']} years old\n"
-            print(result) 
+print(result) 
 
 
 
