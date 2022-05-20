@@ -63,7 +63,7 @@ class resimple():
                     break
                 elif repextop == 's':
                     return False
-
+        self.samples = os.listdir(self.folder)
     
     def rename_samples(self):
         i = 0
@@ -86,7 +86,7 @@ def main():
     while True:
 
         print("Type the associated number of the action you would like to perform:")
-        command = input("1. Display samples\n2. Play samples\n3. Rename samples\n4. Switch folders\n5. Quit\n")
+        command = input("\n1. Display samples\n2. Play samples\n3. Rename samples\n4. Switch folders\n5. Quit\n")
         if command == '1':
             open.display_samples()
         elif command == '2':
@@ -96,8 +96,9 @@ def main():
         elif command == '4':
             open.switch_folders()
         elif command == '5':
-            print('Thank you for using ReSimple!')
+            print('\nThank you for using ReSimple!')
             return False
+        else: print('\nThat option does not exist. Type the associated number of the action you would like to perform: ')
 
 main()
 

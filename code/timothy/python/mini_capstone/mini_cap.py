@@ -10,6 +10,7 @@ from librosa import beat
 import time
 import reprlib
 
+
 # # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/snares
 # # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples/breaks
 
@@ -171,6 +172,7 @@ class resimple():
             while True:
                 print(self.samples[i])
                 playsound(self.folder + '/' + self.samples[i])
+                time.sleep(5)
                 repextop = input('(R)eplay, (N)ext, (S)top ').lower()
                 if repextop == 'r':
                     continue
