@@ -172,7 +172,6 @@ class resimple():
             while True:
                 print(self.samples[i])
                 playsound(self.folder + '/' + self.samples[i])
-                time.sleep(5)
                 repextop = input('(R)eplay, (N)ext, (S)top ').lower()
                 if repextop == 'r':
                     continue
