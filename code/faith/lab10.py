@@ -7,4 +7,12 @@ list= []
 for line in csv:
     list.append(line.split(','))
 
-keys = list[0]
+key = list[0]
+contacts = [dict(zip(key, values))for values in list[1::]]
+
+def new_contacts(data, key):
+    new_contacts = {}
+    for x in key:
+        new_contacts[key] = input(f'What is the new contacts {x}?')
+    data.append(new_contacts) 
+    
