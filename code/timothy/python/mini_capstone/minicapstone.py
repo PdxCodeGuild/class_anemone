@@ -55,7 +55,7 @@ class resimple():
             r.maxstring = 20
             print(r.repr(self.samples))
 
-    def play(file):
+    def play(self, file):
         CHUNK = 1024
         wf = wave.open(file, 'rb')
         p=pyaudio.PyAudio()
@@ -77,7 +77,7 @@ class resimple():
             while True:
                 print(self.samples[i])
                 self.play(self.folder + '/' + self.samples[i])
-                repextop = input('(R)eplay, (N)ext, (S)top ').lower()
+                repextop = input('(N)ext or (S)top ').lower()
                 if repextop == 'r':
                     continue
                 elif repextop == 'n':
@@ -92,7 +92,7 @@ class resimple():
         for file in self.samples:
             new_name = batch_name + '(' + str(i) + ')' + '.wav'
             if new_name == file:
-                pass
+                break
             else: os.rename(os.path.join(self.folder, file), os.path.join(self.folder, new_name))
             i += 1
         print(f'Samples renamed to {batch_name}().wav')
@@ -106,8 +106,8 @@ def main():
 
     while True:
 
-        print("Type the associated number of the action you would like to perform:")
-        command = input("\n1. Display samples\n2. Play samples\n3. Rename samples\n4. Switch folders\n5. Quit\n")
+        print("\nType the associated number of the action you would like to perform:")
+        command = input("\n1. Display samples\n2. Play samples\n3. Rename samples\n4. Switch folders\n5. Quit\n- ")
         if command == '1':
             open.display_samples()
         elif command == '2':
@@ -119,7 +119,7 @@ def main():
         elif command == '5':
             print('\nThank you for using ReSimple!')
             return False
-        else: print('\nThat option does not exist. Type the associated number of the action you would like to perform: ')
+        else: print('\nThat option does not exist.')
 
 main()
 
