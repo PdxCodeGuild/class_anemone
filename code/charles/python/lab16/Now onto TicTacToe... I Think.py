@@ -2,142 +2,150 @@ import pygame
 import time
 from pygame.locals import *
 
-class Screen():
-    board = [[None] * 3, [None] * 3, [None] * 3]
-    width = 1080
-    height = 960
-    white = (255, 255, 255)
-    linered = (10, 10, 10)
-    winner = None
-    draw = False
-    pieces = 'x'
-        
-    pygame.init()
-    fps = 60
-    clock = pygame.time.Clock()
-    screen = pygame.display.set_mode((width, height), 0, 32)
-    pygame.display.set_caption('Tic Tac Toe Final')
+class Screen():                                                 # sets base values for the game appart from the lines for the board dont in loading()
+                                                                # initiates pygame and calls forth the pictures for pieces and screen size and picture
+    def __init__(self):
+        self.board = [[None] * 3, [None] * 3, [None] * 3]
+        self.width = 1080
+        self.height = 960
+        self.white = (255, 255, 255)
+        self.linered = (10, 10, 10)
+        self.winner = None
+        self.draw = False
+        self.turn = 1
+        self.pieces = 'x'
+            
+        pygame.init()
+        self.fps = 60
+        self.clock = pygame.time.Clock()
+        self.screen = pygame.display.set_mode((self.width, self.height+100), 0, 32)
+        pygame.display.set_caption('Tic Tac Toe Final')
 
-    opening = pygame.image.load('opening.jpg')
-    ximg = pygame.image.load('x.jpg')
-    oimg = pygame.image.load('x.jpg')
+        self.opening = pygame.image.load('opening.jpg')
+        self.ximg = pygame.image.load('x.jpg')
+        self.oimg = pygame.image.load('o.jpg')
 
-    opening = pygame.transform.scale(opening, (width, height))
-    ximg = pygame.transform.scale(ximg, (160, 160))
-    oimg = pygame.transform.scale(oimg, (160, 160))
+        self.opening = pygame.transform.scale(self.opening, (self.width, self.height+100))
+        self.ximg = pygame.transform.scale(self.ximg, (160, 160))
+        self.oimg = pygame.transform.scale(self.oimg, (160, 160))
 
 kren = Screen()
 
 
 def loading():
     
-    kren.screen.blit(kren.opening, (0, 0))
-    pygame.display.update()
-    time.sleep(3)
-    kren.screen.fill(kren.white)
+    kren.screen.blit(kren.opening, (0, 0))              # loads the screen and displays the set picture during loading
+    pygame.display.update()                             # calls the screen to update with new datat
+    time.sleep(1)
+    kren.screen.fill(kren.white)                        # fills the screen with a white background before the lines are called and pasted atop
 
-    pygame.draw.line(kren.screen, kren.linered, (kren.width/3, 0), (kren.width/3, kren.height), 7)
-    pygame.draw.line(kren.screen, kren.linered, (kren.width/3 * 2, 0), (kren.width/3 * 2, kren.height), 7)
+    pygame.draw.line(kren.screen, kren.linered, (kren.width/3, 0), (kren.width/3, kren.height), 14)
+    pygame.draw.line(kren.screen, kren.linered, (kren.width/3 * 2, 0), (kren.width/3 * 2, kren.height), 14)
 
-    pygame.draw.line(kren.screen, kren.linered, (0, kren.height/3), (kren.width, kren.height/3), 7)
-    pygame.draw.line(kren.screen, kren.linered, (0, kren.height/3 * 2), (kren.width, kren.height/3 * 2), 7)
+    pygame.draw.line(kren.screen, kren.linered, (0, kren.height/3), (kren.width, kren.height/3), 14)
+    pygame.draw.line(kren.screen, kren.linered, (0, kren.height/3 * 2), (kren.width, kren.height/3 * 2), 14)
     
     drawsome()
 
 
 def drawsome():
        
-    if kren.winner is None:
+    if kren.winner is None:                                         # defines messages to be displayed in the bottom box
         message = (f"{kren.pieces.upper()}'s Turn") 
     else:
         message = (f"{kren.winner.upper()} has won the game!")
     if kren.draw:
         message = 'Neither of you could outsmart the other.'
 
-    font = pygame.font.Font(None, 30)
-    text = font.render(message, 1, (255, 0, 0))
+    font = pygame.font.Font(None, 60)                               # sets the font size to be used
+    text = font.render(message, 1, (255, 0, 0))                     # sets the font/message be displaye with the color
 
-    kren.screen.fill((0,0,0), (0, 400, 600, 100))
-    textrect = text.get_rect(center = (kren.width/2, 500 - 50))
-    kren.screen.blit(text, textrect)
-    pygame.display.update()
+    kren.screen.fill((0,0,0), (0, 960, 1080, 100))                  # sets the message box on the screen with a color of black
+    textrect = text.get_rect(center = (kren.width/2, 1080 - 75))    # sets the location of the message box
+    kren.screen.blit(text, textrect)                                # paste the message box and text on to the screen
+    pygame.display.update()                                         # updates the screen with the message box
 
 
 def wwcd():
-       
+    
+                                                                                    # test rows for a winner  
     for row in range(0,3):
         if ((kren.board[row][0] == kren.board[row][1] == kren.board[row][2]) and \
             (kren.board[row][0] is not None)):
             
-            kren.winner = kren.board[row][0]
-            
-            pygame.draw.line(kren.screen, (250, 0, 0), (0, \
-                (row + 1) * kren.height/3 - kren.height/6),\
-                (kren.width, (row + 1) * kren.height/3 - kren.height/6), 4)
+            kren.winner = kren.board[row][0]                                        # changes winner if True
+                        
+            pygame.draw.line(kren.screen, (250, 0, 0),\
+                (0, (row + 1) * kren.height/3 - kren.height/6),\
+                (kren.width, (row + 1) * kren.height/3 - kren.height/6), 10)        # draws winning line over pieces if True
             
             break
 
-
+                                                                                    # test columns for a winner
     for col in range(0, 3):
         if (kren.board[0][col] == kren.board[1][col] == kren.board[2][col]) and \
             (kren.board[0][col] is not None):
             
-            kren.winner = kren.board[0][col]
+            kren.winner = kren.board[0][col]                                        
             
             pygame.draw.line (kren.screen, (250,0,0),\
                 ((col + 1)* kren.width/3 - kren.width/6, 0),\
-                ((col + 1)* kren.width/3 - kren.width/6, kren.height), 4)
+                ((col + 1)* kren.width/3 - kren.width/6, kren.height), 10)
             
             break
 
-
+                                                                                    # test board for a bottom top left bottom right diag winner
     if (kren.board[0][0] == kren.board[1][1] == kren.board[2][2]) and \
         (kren.board[0][0] is not None):
         
-        kren.winner = kren.board[0][0]
+        kren.winner = kren.board[0][0]                                              
         
-        pygame.draw.line (kren.screen, (250,70,70), (50, 50), (350, 350), 4)
+        pygame.draw.line (kren.screen, (250,0,0), (0, 0), (1080, 960), 10)          
     
-    
+                                                                                    # test board for a bottom left to top right diag winner
     if (kren.board[0][2] == kren.board[1][1] == kren.board[2][0]) and \
-        (kren.board[0][2] is not None):
-        kren.winner = kren.board[0][2]
-        pygame.draw.line (kren.screen, (250,70,70), (350, 50), (50, 350), 4)
+        (kren.board[0][2] is not None):                                               
+        
+        kren.winner = kren.board[0][2]                                              
+        
+        pygame.draw.line (kren.screen, (250,0,0), (1080, 0), (0, 960), 10)          
 
 
-    if (all((all(row) for row in kren.board)) and kren.winner is None):
+    if (all([all(row) for row in kren.board]) and kren.winner is None):   # test the board for a draw status if neither x or o has won
         kren.draw = True
     drawsome()
 
-def piece(row, col):
-    
+def piece(row, col):                                # passed into click() and defines where on the screen piece shall be placed base          
+                                                    # off of row and col
     if row == 1:
-        posx = 30
+        posx = 75
     elif row == 2:
-        posx = kren.width/3 + 30
+        posx = kren.width/3 + 40
     elif row == 3:
-        posx = kren.width/3 * 2 + 30 
+        posx = kren.width/3 * 2 
     
     if col == 1:
-        posy = 30
+        posy = 100
     elif col == 2:
-        posy = kren.height/3 + 30
+        posy = kren.height/3 + 140
     elif col == 3:
-        posy = kren.height/3 * 2 + 30
+        posy = kren.height/3 * 2 + 180
     
-    kren.board[row - 1][col -1] = kren.pieces
+    kren.board[row - 1][col -1] = kren.pieces       # stops a single game from running infinitely
 
-    if (kren.pieces == 'x'):
-        kren.screen.blit(kren.ximg, (posy, posx))
+    if kren.turn % 2 == 1:
+        kren.screen.blit(kren.ximg, (posy, posx))   # paste an Ximg onto the screen at input loaction, adds one to turn, sets pieces to o
+        kren.turn += 1
         kren.pieces = 'o'
     else:
-        kren.screen.blit(kren.oimg, (posy, posx))
+        kren.screen.blit(kren.oimg, (posy, posx))   # paste an Oimg onto the screen at input loaction, adds one to turn, sets pieces to x
+        kren.turn += 1
         kren.pieces = 'x'
     
     pygame.display.update()
 
-def click():
-    
+def click():                                        # calls in x and y positions from .mouse.get_pos() to be compared to the screen width and height
+                                                    # based on return gives row and column data to be passed into piece
     x,y = pygame.mouse.get_pos()
 
     if (x < kren.width/3):
@@ -158,17 +166,17 @@ def click():
     else:
         row = None
     
-    if (row and col and kren.board[row- 1][col - 1] is None):
-        kren.pieces
+    if (row and col and kren.board[row - 1][col - 1] is None):  # validates to move to make sure that the board is empty and will not accept a click
+        kren.pieces                                             # if the board space is already filled
 
         piece(row, col)
         wwcd()
 
 
-def reset_game():
-  
-    time.sleep(3)
+def reset_game():               # resets to default values again so the game runs continuously until a quit is triggered
     kren.pieces = 'x'
+    time.sleep(1)
+    kren.turn = 1
     kren.draw = False
     loading()
     kren.winner = None
@@ -182,6 +190,10 @@ while (True):
         if event.type == QUIT:
             pygame.quit()
             pygame.exit()
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                pygame.quit()
+                pygame.exit()
         elif event.type == MOUSEBUTTONDOWN:
             click()
             if (kren.winner or kren.draw):
