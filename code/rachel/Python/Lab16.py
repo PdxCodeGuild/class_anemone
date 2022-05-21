@@ -69,17 +69,19 @@ while True:
             i += 1
             random_response= random.choice(whitecards)
             random_responses_list.append(random_response)
-            print (i, random_response)
+            # print (i, random_response)
     
         #Ask user which card they would like to play; pop() answer and append to list
-        selected_card = input("\nSelect your funniest answer (1, 2, 3, 4, or 5): ")
+        # selected_card = input("\nSelect your funniest answer (1, 2, 3, 4, or 5): ")
+        selected_card = '1'
         if selected_card == "quit":
             break
         funniest_responses = []
         selected_card_index = funny_card[selected_card]
-        funniest_card = random_responses_list.pop(selected_card_index)
+        funniest_card = random_responses_list[selected_card_index]
         funniest_responses.append(funniest_card)
-        print(funniest_card)
+        funniest_responses.pop()
+        # print(funniest_card)
 
         #Add 3 more whitecards/responses to funniest_responses list for card Czar to choose from (*posing as 3 other players*)
         print ("\nThe whitecards chosen for this round are: ")
@@ -88,13 +90,13 @@ while True:
             funniest_responses.append(random_computer_responses)
         for i, card in enumerate(funniest_responses):
             i += 1
-            print ('fr', i, card)
+            # print ('fr', i, card)
 
         #Have the card Czar pick the funniest card
         winning_card = random.choice(funniest_responses)
         winning_card_index = funniest_responses.index(winning_card)
-        print ("\nThe winning card is...")
-        print (f'{winning_card}\n')
+        # print ("\nThe winning card is...")
+        # print (f'{winning_card}\n')
         
 
         #Add points to the winner of that round
@@ -108,7 +110,7 @@ while True:
             players['player4'] += 1
         elif winning_card_index == 4:
             players['player5'] += 1
-        print(f'Player Points:\n-Player 1: {players["player1"]}\n-Player 2: {players["player2"]}\n-Player 3: {players["player3"]}\n-Player 4: {players["player4"]}\n-Player 5: {players["player5"]}')
+        # print(f'Player Points:\n-Player 1: {players["player1"]}\n-Player 2: {players["player2"]}\n-Player 3: {players["player3"]}\n-Player 4: {players["player4"]}\n-Player 5: {players["player5"]}')
 
         #End pick_card_page once one player reaches 5 points
         game_done = False
@@ -119,7 +121,8 @@ while True:
         if game_done == True:
             break
     #Ask player if they would like to play again
-    play_again = input('Would you like to start a new game? yes or no? ')
+    # play_again = input('Would you like to start a new game? yes or no? ')
+    play_again = 'no'
     if play_again == 'yes':
         continue
     elif play_again == 'no':
