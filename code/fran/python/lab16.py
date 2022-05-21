@@ -26,16 +26,17 @@ def find_actor_id(actor):
     
     # Fetch id from the response, where actor_1 name matches the 'title' response element (where actor name is returned)
     search_name_results = search_name_response.json()['results']     # list of dictionaries
-    print('inside find_actor_id...')
-    pprint.pprint(search_name_response.json())
+    
+    # print('inside find_actor_id...')                  ### TEST
+    # pprint.pprint(search_name_response.json())        ### TEST
 
     # Display actors to user
     for search_name_result in search_name_results:
         if search_name_result['title'].lower() == actor.lower():
             actor_id = search_name_result['id']
             actor_name = search_name_result['title']
-            # print(search_name_result['id'],' - ',search_name_result['title']) 
-            print(actor_id,' - ',search_name_result['title']) 
+
+            # print(actor_id,' - ',search_name_result['title'])     ### TEST
         
         # ADD LOGIC TO HANDLE THE CASE WHERE NO NAME MATCHES. In that case,
         #   return the result set back to the user and have them select the actor
@@ -45,31 +46,12 @@ def find_actor_id(actor):
 
     return actor_id, actor_name
 
-####  THIS FUNCTION IS NOT NECESSARY; DELETE AFTER FINISH TESTING ####
-# Define function that inserts actor id, actor name, and filmography (including release year) 
-#  into a Pandas DataFrame
-# def insert_film_info(films,filmography_df):
-
-#     ##filmography_df = pd.DataFrame(films,
-#     ##            columns = ['Actor ID' , 'Actor Name', 'Movie Title' , 'Release Year'])
-
-#     filmography_df = pd.concat(films, ignore_index = True) 
-
-#     ##Print filmography data frame for TEST
-#     print(filmography_df)
-
-
-# Define find_actor_films function which invokes the Name API that fetches actor's filmography
-# and then loads the filmography data into a Pandas DataFrame. 
-# "df" refers to dataframe
 
 def find_actor_films(actor_id, actor_name, filmography_df):
 
-    print('filmography_df at beginning of find_actor_films: ')
-    print(filmography_df)
-
-
-    print("Before second API call...")
+    # print('filmography_df at beginning of find_actor_films: ')    ### TEST
+    # print(filmography_df)                         ### TEST
+    
     # Make second API call to fetch movies for that actor
     name_response = requests.get('https://imdb-api.com/en/API/Name', params={'apiKey': 'k_qq4vuxy0', 'id': actor_id})
 
@@ -94,13 +76,7 @@ def find_actor_films(actor_id, actor_name, filmography_df):
     # print('filmography_df: ')       ### TEST
     # print(filmography_df)           ### TEST
 
-
-####  THIS FUNCTION IS NOT NECESSARY; DELETE AFTER FINISH TESTING ####
-# Define function that finds the movie(s) that both actors were in.
-#  Constrain on release year, to ensure that both actors are in the same movie
-#  (and not two separate versions of the same movie).
-# def find_common_movies():
-#     pass
+    return filmography_df          
 
 
 ### Main logic ###
@@ -123,31 +99,42 @@ while n < 3:    # we want to loop two times
     actor_id, actor_name = find_actor_id(actor)
     actors.append(actor_name)  
 
-    # print('actors: ', actors)   ### TEST
+    # print('actors: ', actors)         ### TEST
 
     # Find all films that actor has been in
     if actor_id:
         films = find_actor_films(actor_id, actor_name, filmography_df)
+        filmography_df = films
     else:
         print('No match found')
 
         # if not actor_id:
         #     print('No actor found for that search term')
 
-    
-    # Insert filmography into Pandas data frame     ### REMOVE
-    # insert_film_info()                            ### REMOVE
-
     n += 1
+
+    # print('inside main loop, after call to find_actor_films...')    ### TEST
+    # print('films variable content: ')               ### TEST
+    # print(films)                                    ### TEST
+
+# print('filmography_df before common_films logic...')    ### TEST
+# print(filmography_df)                                   ### TEST
 
 
 # Find common movies across both actors
 # Constrain on release year, to ensure that both actors are in the same movie
 # (and not two separate versions of the same movie).
 common_films = filmography_df[filmography_df.duplicated(['Movie Title', 'Release Year'])]
-common_films = common_films['Movie Title']
+# print('common_films:')          ### TEST
+# print(common_films)             ### TEST
 
+common_films = common_films['Movie Title']
+# print('common_films[Movie Title]:')         ### TEST
+# print(common_films['Movie Title'])          ### TEST
 
 # Return results
-print(actors[0],'and',actors[1],'were both in these same films:')
+print('\n')
+print(actors[0],'and',actors[1],'were both in these films:\n')
 print(common_films.to_string(index=False))    # do not print dataframe index
+print('\n')
+
