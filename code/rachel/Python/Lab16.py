@@ -44,14 +44,15 @@ while True:
     #Player Points Dictionary
     players = {
 
-        'player1' : 0,
-        'player2' : 0,
-        'player3' : 0,
-        'player4' : 0,
-        'player5' : 0,
+        'Player 1:' : 0,
+        'Player 2:' : 0,
+        'Player 3:' : 0,
+        'Player 4:' : 0,
+        'Player 5:' : 0,
 
         }
-    print('Welcome to Cards Against Humanity - Family Edition!\nTo exit the pick_card_page at any time enter "quit".')
+    
+    #print('Welcome to Cards Against Humanity - Family Edition!\nTo exit the pick_card_page at any time enter "quit".')
 
     while True:
         #Empty Lists
@@ -59,11 +60,11 @@ while True:
 
         #Pick random card from blackcards pile and show to player
         random_prompt = random.choice(blackcards)
-        print (f'\nBlackcard:\n{random_prompt}\n')
+        #print (f'\nBlackcard:\n{random_prompt}\n')
 
 
         #Show the player their 5 whitecards (responses)
-        print("Your whitecards are the following: ")
+        #print("Your whitecards are the following: ")
 
         for i,response in enumerate(range(5)):
             i += 1
@@ -84,7 +85,7 @@ while True:
         # print(funniest_card)
 
         #Add 3 more whitecards/responses to funniest_responses list for card Czar to choose from (*posing as 3 other players*)
-        print ("\nThe whitecards chosen for this round are: ")
+        #print ("\nThe whitecards chosen for this round are: ")
         for card in range(4):
             random_computer_responses = random.choice(whitecards)
             funniest_responses.append(random_computer_responses)
@@ -101,22 +102,22 @@ while True:
 
         #Add points to the winner of that round
         if winning_card_index == 0:
-            players['player1'] += 1
+            players['Player 1:'] += 1
         elif winning_card_index == 1:
-            players['player2'] += 1
+            players['Player 2:'] += 1
         elif winning_card_index == 2:
-            players['player3'] += 1
+            players['Player 3:'] += 1
         elif winning_card_index == 3:
-            players['player4'] += 1
+            players['Player 4:'] += 1
         elif winning_card_index == 4:
-            players['player5'] += 1
-        # print(f'Player Points:\n-Player 1: {players["player1"]}\n-Player 2: {players["player2"]}\n-Player 3: {players["player3"]}\n-Player 4: {players["player4"]}\n-Player 5: {players["player5"]}')
+            players['Player 5:'] += 1
+        # print(f'Player Points:\n-Player 1: {players["Player 1"]}\n-Player 2: {players["Player 2"]}\n-Player 3: {players["Player 3"]}\n-Player 4: {players["Player 4"]}\n-Player 5: {players["Player 5"]}')
 
         #End pick_card_page once one player reaches 5 points
         game_done = False
         for player in players:
             if players[player] == 5:
-                print(f'\n{player} wins!')
+                #print(f'\n{player} wins!')
                 game_done = True
         if game_done == True:
             break
@@ -126,11 +127,12 @@ while True:
     if play_again == 'yes':
         continue
     elif play_again == 'no':
-        print('Thank you for playing Cards Against Humanity - Family Edition')
+        #print('Thank you for playing Cards Against Humanity - Family Edition')
         break
     break
 
 #Pygame Code
+player_info = {input('Enter your name to play game: ') : 0}
 
 #Display Setup
 pygame.init()
@@ -141,11 +143,13 @@ clock = pygame.time.Clock()
 #Text Setup
 header_font = pygame.font.Font('basic_light.ttf', 50)
 card_font = pygame.font.Font('basic_light.ttf', 25)
+score_font = pygame.font.Font('basic_light.ttf', 20)
 top = pygame.Surface((1100, 325))
 top.fill('black')
 header = header_font.render('Cards Against Humanity', True, 'white')
 prompt = card_font.render(random_prompt, True, 'white')
-#response = card_font.render(random_responses_list, True, 'black')
+winning_card = card_font.render(winning_card, True, 'black')
+player_score = score_font.render('Player Scores:', True, 'white')
 
 #Button Setup
 new_game_img = pygame.image.load('new_game_img.png').convert_alpha()
@@ -154,6 +158,8 @@ two_img = pygame.image.load('two.png').convert_alpha()
 three_img = pygame.image.load('three.png').convert_alpha()
 four_img = pygame.image.load('four.png').convert_alpha()
 five_img = pygame.image.load('five.png').convert_alpha()
+winning_card_img = pygame.image.load('winning_card.png').convert_alpha()
+next_round_img = pygame.image.load('next_round.png').convert_alpha()
 
 class Button():
     def __init__(self, x, y, image, scale):
@@ -164,7 +170,6 @@ class Button():
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.clicked = False
-        print (width, height)
     
     def draw(self):
         #Allow for mouse clicks
@@ -188,6 +193,8 @@ two_button = Button(20, 390, two_img, 0.35)
 three_button = Button(23, 430, three_img, 0.35)
 four_button = Button(19, 468, four_img, 0.35)
 five_button = Button(24, 510, five_img, 0.35)
+winning_card_button = Button(425, 600, winning_card_img, 0.35)
+next_round_button = (Button(425, 600, next_round_img, 0.35))
 
 #Next Screen Setup
 class GamePlay ():
@@ -234,7 +241,7 @@ class GamePlay ():
         
         screen.blit(top, (0,0))
         screen.blit(header, (290,20))
-        screen.blit(prompt, (10, 150))
+        screen.blit(prompt, (10, 185))
         
         x = 70
         y = 350
@@ -252,21 +259,80 @@ class GamePlay ():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
+            screen.fill('white')
+            if winning_card_button.draw():
+                self.play = 'winning_card_page'
+        
         #Add header, prompt, and funniest cards to page
-        screen.fill('white')
         screen.blit(top, (0,0))
         screen.blit(header, (290,20))
-        screen.blit(prompt, (10, 150))
+        screen.blit(prompt, (10, 185))
 
-        x = 70
+        x = 20
         y = 350
-        #print(funniest_responses)
         for funny_response in funniest_responses:
             funny_response_position = (x, y)
             funny_response_display = card_font.render(funny_response, True, 'black')
             screen.blit(funny_response_display, (funny_response_position))
             y += 40
             
+        pygame.display.update()
+    
+    def winning_card_page(self):
+        players = {
+
+        'Player 1' : 0,
+        'Player 2' : 0,
+        'Player 3' : 0,
+        'Player 4' : 0,
+
+        }
+        #Adds in player name
+        players.update(player_info)
+
+        #Add game exit
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            screen.fill('white')
+            if next_round_button.draw():
+                self.play = 'next_round'
+        #Add header, prompt, and winning card to page
+        screen.blit(top, (0,0))
+        screen.blit(header, (290,20))
+        screen.blit(prompt, (10, 185))
+        screen.blit(winning_card, (20, 350))
+        screen.blit(player_score, (950 ,10)) 
+
+        #Add player scores
+        if winning_card_index == 0:
+            players['Player 1'] += 1
+        elif winning_card_index == 1:
+            players['Player 2'] += 1
+        elif winning_card_index == 2:
+            players['Player 3'] += 1
+        elif winning_card_index == 3:
+            players['Player 4'] += 1
+        elif winning_card_index == 4:
+            players['Player 5'] += 1
+
+        x = 950
+        y = 40
+        for player in players:
+            player_score_position = (x, y)
+            player_score_display = score_font.render(player, True, 'white')
+            screen.blit(player_score_display, (player_score_position))
+            y += 30
+        
+        score_x = 1050
+        score_y = 40
+        for player in players:
+            score_position = (score_x, score_y)
+            score_display = score_font.render(str(players[player]), True, 'white')
+            screen.blit(score_display, (score_position))
+            score_y += 30
+
         pygame.display.update()
 
 game_play = GamePlay()
@@ -277,6 +343,10 @@ while True:
         game_play.pick_card_page()
     if game_play.play == 'funniest_card_page':
         game_play.funniest_card_page()
+    if game_play.play == 'winning_card_page':
+        game_play.winning_card_page()
+    if game_play.play == 'next_round':
+        game_play.__init__()
 
 
 
