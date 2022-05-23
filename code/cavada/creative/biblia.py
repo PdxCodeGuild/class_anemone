@@ -1,11 +1,13 @@
+from doctest import testfile
 import random
 import time
+import sys
 old_t = ['genesis', 'exodus', 'leviticus', 'numbers', 'deuteronomy', 'joshua', 'judges', 'ruth', '1 samuel', '2 samuel', '1 kings', '2 kings', '1 chronicles', '2 chronicles', 'ezra', 'nehemiah', 'esther', 'job', 'psalms', 'proverbs', 'ecclesiastes', 'song of solomon', 'isaiah', 'jeremiah', 'lamentations', 'ezekiel', 'daniel','hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habukkuk', 'zephaniah', 'haggai', 'zechariah', 'malachi']
 new_t = ['matthew', 'mark', 'luke', 'john', 'acts', 'romans', '1 corinthians', '2 corinthians', 'galatians', 'ephesians', 'philippians', 'colossians', '1 thessalonians', '2 thessalonians', '1 timothy', '2 timothy', 'titus', 'philemon', 'hebrews', 'james', '1 peter', '2 peter', '1 john', '2 john', '3 john', 'jude', 'revelation']
-
-
-
-bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
+biblia = [new_t,old_t]
+bible = {
+'new testament': {
+        '1 corinthians': {'reference': '1 Corinthians 1,16',
                                      'text': 'Paul, called to be an apostle of '
                                              'Jesus Christ through the will of '
                                              'God, and our brother Sosthenes,\n'
@@ -769,7 +771,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                          'you in Christ Jesus. '
                                                          'Amen.\n',
                                                  'verse': 24}]},
-                   '1 john': {'reference': '1 John 1,5',
+        '1 john': {'reference': '1 John 1,5',
                               'text': 'That which was from the beginning, that '
                                       'which we have heard, that which we have '
                                       'seen with our eyes, that which we saw, '
@@ -1173,7 +1175,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                           'text': 'Little children, keep '
                                                   'yourselves from idols.\n',
                                           'verse': 21}]},
-                   '1 peter': {'reference': '1 Peter 1,5',
+        '1 peter': {'reference': '1 Peter 1,5',
                                'text': 'Peter, an apostle of Jesus Christ, to '
                                        'the chosen ones who are living as '
                                        'foreigners in the Dispersion in '
@@ -1725,7 +1727,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'you all who are in Christ '
                                                    'Jesus. Amen.\n',
                                            'verse': 14}]},
-                   '1 thessalonians': {'reference': '1 Thessalonians 1,5',
+        '1 thessalonians': {'reference': '1 Thessalonians 1,5',
                                        'text': 'Paul, Silvanus, and Timothy, '
                                                'to the assembly of the '
                                                'Thessalonians in God the '
@@ -2284,7 +2286,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                            'be with you. '
                                                            'Amen.\n',
                                                    'verse': 28}]},
-                   '1 timothy': {'reference': '1 Timothy 1,6',
+        '1 timothy': {'reference': '1 Timothy 1,6',
                                  'text': 'Paul, an apostle of Jesus Christ '
                                          'according to the commandment of God '
                                          'our Savior and the Lord Jesus Christ '
@@ -2876,7 +2878,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'the faith. Grace be with '
                                                      'you. Amen.\n',
                                              'verse': 21}]},
-                   '2 corinthians': {'reference': '2 Corinthians 1,13',
+        '2 corinthians': {'reference': '2 Corinthians 1,13',
                                      'text': 'Paul, an apostle of Christ Jesus '
                                              'through the will of God, and '
                                              'Timothy our brother, to the '
@@ -3477,7 +3479,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                          'Holy Spirit, be with '
                                                          'you all. Amen.\n',
                                                  'verse': 14}]},
-                   '2 john': {'reference': '2 John 1:1',
+        '2 john': {'reference': '2 John 1:1',
                               'text': 'The elder, to the chosen lady and her '
                                       'children, whom I love in truth; and not '
                                       'I only, but also all those who know the '
@@ -3494,7 +3496,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'only, but also all those '
                                                   'who know the truth;\n',
                                           'verse': 1}]},
-                   '2 peter': {'reference': '2 Peter 1,3',
+        '2 peter': {'reference': '2 Peter 1,3',
                                'text': 'Simon Peter, a servant and apostle of '
                                        'Jesus Christ, to those who have '
                                        'obtained a like precious faith with us '
@@ -4053,7 +4055,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'him be the glory both now '
                                                    'and forever. Amen.\n',
                                            'verse': 18}]},
-                   '2 thessalonians': {'reference': '2 Thessalonians 1,3',
+        '2 thessalonians': {'reference': '2 Thessalonians 1,3',
                                        'text': 'Paul, Silvanus, and Timothy, '
                                                'to the assembly of the '
                                                'Thessalonians in God our '
@@ -4562,7 +4564,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                            'be with you all. '
                                                            'Amen.\n',
                                                    'verse': 18}]},
-                   '2 timothy': {'reference': '2 Timothy 1,4',
+        '2 timothy': {'reference': '2 Timothy 1,4',
                                  'text': 'Paul, an apostle of Jesus Christ '
                                          'through the will of God, according '
                                          'to the promise of the life which is '
@@ -5086,7 +5088,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'with your spirit. Grace '
                                                      'be with you. Amen.\n',
                                              'verse': 22}]},
-                   '3 john': {'reference': '3 John 1:1',
+        '3 john': {'reference': '3 John 1:1',
                               'text': 'The elder to Gaius the beloved, whom I '
                                       'love in truth.\n',
                               'translation_id': 'web',
@@ -5099,7 +5101,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'beloved, whom I love in '
                                                   'truth.\n',
                                           'verse': 1}]},
-                   'acts': {'reference': 'Acts 1,28',
+        'acts': {'reference': 'Acts 1,28',
                             'text': 'The first book I wrote, Theophilus, '
                                     'concerned all that Jesus began both to do '
                                     'and to teach,\n'
@@ -5878,7 +5880,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'Christ with all boldness, '
                                                 'without hindrance.\n',
                                         'verse': 31}]},
-                   'colossians': {'reference': 'Colossians 1,4',
+        'colossians': {'reference': 'Colossians 1,4',
                                   'text': 'Paul, an apostle of Christ Jesus '
                                           'through the will of God, and '
                                           'Timothy our brother,\n'
@@ -6536,7 +6538,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                       'Grace be with you. '
                                                       'Amen.\n',
                                               'verse': 18}]},
-                   'ephesians': {'reference': 'Ephesians 1,6',
+        'ephesians': {'reference': 'Ephesians 1,6',
                                  'text': 'Paul, an apostle of Christ Jesus '
                                          'through the will of God, to the '
                                          'saints who are at Ephesus, and the '
@@ -7166,7 +7168,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'incorruptible love. '
                                                      'Amen.\n',
                                              'verse': 24}]},
-                   'galatians': {'reference': 'Galatians 1,6',
+        'galatians': {'reference': 'Galatians 1,6',
                                  'text': 'Paul, an apostle (not from men, nor '
                                          'through man, but through Jesus '
                                          'Christ, and God the Father, who '
@@ -7700,7 +7702,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'your spirit, brothers. '
                                                      'Amen.\n',
                                              'verse': 18}]},
-                   'hebrews': {'reference': 'Hebrews 1,13',
+        'hebrews': {'reference': 'Hebrews 1,13',
                                'text': 'God, having in the past spoken to the '
                                        'fathers through the prophets at many '
                                        'times and in various ways,\n'
@@ -8216,7 +8218,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                            'text': 'Grace be with you all. '
                                                    'Amen.\n',
                                            'verse': 25}]},
-                   'james': {'reference': 'James 1,5',
+        'james': {'reference': 'James 1,5',
                              'text': 'James, a servant of God and of the Lord '
                                      'Jesus Christ, to the twelve tribes which '
                                      'are in the Dispersion: Greetings.\n'
@@ -8793,7 +8795,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                  'soul from death and will '
                                                  'cover a multitude of sins.\n',
                                          'verse': 20}]},
-                   'john': {'reference': 'John 1,21',
+        'john': {'reference': 'John 1,21',
                             'text': 'In the beginning was the Word, and the '
                                     'Word was with God, and the Word was God.\n'
                                     'The same was in the beginning with God.\n'
@@ -9755,7 +9757,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'the books that would be '
                                                 'written.\n',
                                         'verse': 25}]},
-                   'jude': {'reference': 'Jude 1:1',
+        'jude': {'reference': 'Jude 1:1',
                             'text': 'Jude, a servant of Jesus Christ, and '
                                     'brother of James, to those who are '
                                     'called, sanctified by God the Father, and '
@@ -9772,7 +9774,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'sanctified by God the Father, '
                                                 'and kept for Jesus Christ:\n',
                                         'verse': 1}]},
-                   'luke': {'reference': 'Luke 1,24',
+        'luke': {'reference': 'Luke 1,24',
                             'text': 'Since many have undertaken to set in '
                                     'order a narrative concerning those '
                                     'matters which have been fulfilled among '
@@ -11286,7 +11288,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'temple, praising and blessing '
                                                 'God. Amen.\n',
                                         'verse': 53}]},
-                   'mark': {'reference': 'Mark 1,16',
+        'mark': {'reference': 'Mark 1,16',
                             'text': 'The beginning of the Good News of Jesus '
                                     'Christ, the Son of God.\n'
                                     'As it is written in the prophets,\n'
@@ -12069,7 +12071,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'word by the signs that '
                                                 'followed. Amen.\n',
                                         'verse': 20}]},
-                   'matthew': {'reference': 'Matthew 1,28',
+        'matthew': {'reference': 'Matthew 1,28',
                                'text': 'The book of the genealogy of Jesus '
                                        'Christ, the son of David, the son of '
                                        'Abraham.\n'
@@ -12670,7 +12672,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    "to the end of the age.' "
                                                    'Amen.\n',
                                            'verse': 20}]},
-                   'philemon': {'reference': 'Philippians 1:1',
+        'philemon': {'reference': 'Philippians 1:1',
                                 'text': 'Paul and Timothy, servants of Jesus '
                                         'Christ;\n'
                                         'To all the saints in Christ Jesus who '
@@ -12691,7 +12693,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'overseers\n'
                                                     ' and servants:\n',
                                             'verse': 1}]},
-                   'philippians': {'reference': 'Philippians 1,4',
+        'philippians': {'reference': 'Philippians 1,4',
                                    'text': 'Paul and Timothy, servants of '
                                            'Jesus Christ;\n'
                                            'To all the saints in Christ Jesus '
@@ -13430,7 +13432,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                        'Jesus Christ be with '
                                                        'you all. Amen.\n',
                                                'verse': 23}]},
-                   'revelation': {'reference': 'Revelation 1,22',
+        'revelation': {'reference': 'Revelation 1,22',
                                   'text': 'This is the Revelation of Jesus '
                                           'Christ, which God gave him to show '
                                           'to his servants the things which '
@@ -14094,7 +14096,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                       'Jesus Christ be with '
                                                       'all the saints. Amen.\n',
                                               'verse': 21}]},
-                   'romans': {'reference': 'Romans 1,16',
+        'romans': {'reference': 'Romans 1,16',
                               'text': 'Paul, a servant of Jesus Christ, called '
                                       'to be an apostle, set apart for the '
                                       'Good News of God,\n'
@@ -14808,7 +14810,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                           'chapter': 16,
                                           'text': '\n\n',
                                           'verse': 25}]},
-                   'titus': {'reference': 'Titus 1,3',
+        'titus': {'reference': 'Titus 1,3',
                              'text': 'Paul, a servant of God, and an apostle '
                                      'of Jesus Christ, according to the faith '
                                      "of God's chosen ones, and the knowledge "
@@ -15192,324 +15194,326 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                  'in faith. Grace be with you '
                                                  'all. Amen.\n',
                                          'verse': 15}]}},
- 'old testament': {'1 chronicles': {'reference': '1 Chronicles 1,29',
-                                    'text': 'Adam, Seth, Enosh,\n'
-                                            'Kenan, Mahalalel, Jared,\n'
-                                            'Enoch, Methuselah, Lamech,\n'
-                                            'Noah, Shem, Ham, and Japheth.\n'
-                                            'The sons of Japheth: Gomer, '
-                                            'Magog, Madai, Javan, Tubal, '
-                                            'Meshech, and Tiras.\n'
-                                            'The sons of Gomer: Ashkenaz, '
-                                            'Diphath, and Togarmah.\n'
-                                            'The sons of Javan: Elishah, '
-                                            'Tarshish, Kittim, and Rodanim.\n'
-                                            'The sons of Ham: Cush, Mizraim, '
-                                            'Put, and Canaan.\n'
-                                            'The sons of Cush: Seba, Havilah, '
-                                            'Sabta, Raama, Sabteca. The sons '
-                                            'of Raamah: Sheba and Dedan.\n'
-                                            'Cush became the father of Nimrod. '
-                                            'He began to be a mighty one in '
-                                            'the earth.\n'
-                                            'Mizraim became the father of '
-                                            'Ludim, Anamim, Lehabim, '
-                                            'Naphtuhim,\n'
-                                            'Pathrusim, Casluhim (where the '
-                                            'Philistines came from), and '
-                                            'Caphtorim.\n'
-                                            'Canaan became the father of Sidon '
-                                            'his firstborn, Heth,\n'
-                                            'the Jebusite, and the Amorite, '
-                                            'the Girgashite,\n'
-                                            'the Hivite, the Arkite, the '
-                                            'Sinite,\n'
-                                            'the Arvadite, the Zemarite, and '
-                                            'the Hamathite.\n'
-                                            'The sons of Shem: Elam, Asshur, '
-                                            'Arpachshad, Lud, Aram, Uz, Hul, '
-                                            'Gether, and Meshech.\n'
-                                            'Arpachshad became the father of '
-                                            'Shelah, and Shelah became the '
-                                            'father of Eber.\n'
-                                            'To Eber were born two sons: the '
-                                            'name of the one was Peleg, for in '
-                                            'his days the earth was divided; '
-                                            "and his brother's name was "
-                                            'Joktan.\n'
-                                            'Joktan became the father of '
-                                            'Almodad, Sheleph, Hazarmaveth, '
-                                            'Jerah,\n'
-                                            'Hadoram, Uzal, Diklah,\n'
-                                            'Ebal, Abimael, Sheba,\n'
-                                            'Ophir, Havilah, and Jobab. All '
-                                            'these were the sons of Joktan.\n'
-                                            'Shem, Arpachshad, Shelah,\n'
-                                            'Eber, Peleg, Reu,\n'
-                                            'Serug, Nahor, Terah,\n'
-                                            'Abram (also called Abraham).\n'
-                                            'The sons of Abraham: Isaac and '
-                                            'Ishmael.\n'
-                                            'These are their generations: the '
-                                            'firstborn of Ishmael, Nebaioth; '
-                                            'then Kedar, Adbeel, Mibsam,\n'
-                                            'Mishma, Dumah, Massa, Hadad, '
-                                            'Tema,\n'
-                                            'Jetur, Naphish, and Kedemah. '
-                                            'These are the sons of Ishmael.\n'
-                                            "The sons of Keturah, Abraham's "
-                                            'concubine: she bore Zimran, '
-                                            'Jokshan, Medan, Midian, Ishbak, '
-                                            'and Shuah. The sons of Jokshan: '
-                                            'Sheba and Dedan.\n'
-                                            'The sons of Midian: Ephah, Epher, '
-                                            'Hanoch, Abida, and Eldaah. All '
-                                            'these were the sons of Keturah.\n'
-                                            'Abraham became the father of '
-                                            'Isaac. The sons of Isaac: Esau '
-                                            'and Israel.\n'
-                                            'The sons of Esau: Eliphaz, Reuel, '
-                                            'Jeush, Jalam, and Korah.\n'
-                                            'The sons of Eliphaz: Teman, Omar, '
-                                            'Zephi, Gatam, Kenaz, Timna, and '
-                                            'Amalek.\n'
-                                            'The sons of Reuel: Nahath, Zerah, '
-                                            'Shammah, and Mizzah.\n'
-                                            'The sons of Seir: Lotan, Shobal, '
-                                            'Zibeon, Anah, Dishon, Ezer, and '
-                                            'Dishan.\n'
-                                            'The sons of Lotan: Hori and '
-                                            "Homam; and Timna was Lotan's "
-                                            'sister.\n'
-                                            'The sons of Shobal: Alian, '
-                                            'Manahath, Ebal, Shephi, and Onam. '
-                                            'The sons of Zibeon: Aiah and '
-                                            'Anah.\n'
-                                            'The son of Anah: Dishon. The sons '
-                                            'of Dishon: Hamran, Eshban, '
-                                            'Ithran, and Cheran.\n'
-                                            'The sons of Ezer: Bilhan, Zaavan, '
-                                            'and Jaakan. The sons of Dishan: '
-                                            'Uz and Aran.\n'
-                                            'Now these are the kings who '
-                                            'reigned in the land of Edom, '
-                                            'before any king reigned over the '
-                                            'children of Israel: Bela the son '
-                                            'of Beor; and the name of his city '
-                                            'was Dinhabah.\n'
-                                            'Bela died, and Jobab the son of '
-                                            'Zerah of Bozrah reigned in his '
-                                            'place.\n'
-                                            'Jobab died, and Husham of the '
-                                            'land of the Temanites reigned in '
-                                            'his place.\n'
-                                            'Husham died, and Hadad the son of '
-                                            'Bedad, who struck Midian in the '
-                                            'field of Moab, reigned in his '
-                                            'place; and the name of his city '
-                                            'was Avith.\n'
-                                            'Hadad died, and Samlah of '
-                                            'Masrekah reigned in his place.\n'
-                                            'Samlah died, and Shaul of '
-                                            'Rehoboth by the River reigned in '
-                                            'his place.\n'
-                                            'Shaul died, and Baal Hanan the '
-                                            'son of Achbor reigned in his '
-                                            'place.\n'
-                                            'Baal Hanan died, and Hadad '
-                                            'reigned in his place; and the '
-                                            'name of his city was Pai: and his '
-                                            "wife's name was Mehetabel, the "
-                                            'daughter of Matred, the daughter '
-                                            'of Mezahab.\n'
-                                            'Then Hadad died. The chiefs of '
-                                            'Edom were: chief Timna, chief '
-                                            'Aliah, chief Jetheth,\n'
-                                            'chief Oholibamah, chief Elah, '
-                                            'chief Pinon,\n'
-                                            'chief Kenaz, chief Teman, chief '
-                                            'Mibzar,\n'
-                                            'chief Magdiel, and chief Iram. '
-                                            'These are the chiefs of Edom.\n'
-                                            'David the king said to all the '
-                                            "assembly, 'Solomon my son, whom "
-                                            'alone God has chosen, is yet '
-                                            'young and tender, and the work is '
-                                            'great; for the palace is not for '
-                                            'man, but for Yahweh God.\n'
-                                            'Now I have prepared with all my '
-                                            'might for the house of my God the '
-                                            'gold for the things of gold, the '
-                                            'silver for the things of silver, '
-                                            'the brass for the things of '
-                                            'brass, iron for the things of '
-                                            'iron, and wood for the things of '
-                                            'wood; also onyx stones, stones to '
-                                            'be set, stones for inlaid work, '
-                                            'of various colors, all kinds of '
-                                            'precious stones, and marble '
-                                            'stones in abundance.\n'
-                                            'In addition, because I have set '
-                                            'my affection on the house of my '
-                                            'God, since I have a treasure of '
-                                            'my own of gold and silver, I give '
-                                            'it to the house of my God, over '
-                                            'and above all that I have '
-                                            'prepared for the holy house,\n'
-                                            'even three thousand talents of '
-                                            'gold, of the gold of Ophir, and '
-                                            'seven thousand talents of refined '
-                                            'silver, with which to overlay the '
-                                            'walls of the houses;\n'
-                                            'of gold for the things of gold, '
-                                            'and of silver for the things of '
-                                            'silver, and for all kinds of work '
-                                            'to be made by the hands of '
-                                            'artisans. Who then offers '
-                                            'willingly to consecrate himself '
-                                            "today to Yahweh?'\n"
-                                            "Then the princes of the fathers' "
-                                            'households, and the princes of '
-                                            'the tribes of Israel, and the '
-                                            'captains of thousands and of '
-                                            'hundreds, with the rulers over '
-                                            "the king's work, offered "
-                                            'willingly;\n'
-                                            'and they gave for the service of '
-                                            "God's house of gold five thousand "
-                                            'talents and ten thousand darics, '
-                                            'of silver ten thousand talents, '
-                                            'of brass eighteen thousand '
-                                            'talents, and of iron one hundred '
-                                            'thousand talents.\n'
-                                            'People with whom precious stones '
-                                            'were found gave them to the '
-                                            "treasure of Yahweh's house, under "
-                                            'the hand of Jehiel the '
-                                            'Gershonite.\n'
-                                            'Then the people rejoiced, because '
-                                            'they offered willingly, because '
-                                            'with a perfect heart they offered '
-                                            'willingly to Yahweh; and David '
-                                            'the king also rejoiced with great '
-                                            'joy.\n'
-                                            'Therefore David blessed Yahweh '
-                                            'before all the assembly; and '
-                                            "David said, 'You are blessed, "
-                                            'Yahweh, the God of Israel our '
-                                            'father, forever and ever.\n'
-                                            'Yours, Yahweh, is the greatness, '
-                                            'the power, the glory, the '
-                                            'victory, and the majesty! For all '
-                                            'that is in the heavens and in the '
-                                            'earth is yours. Yours is the '
-                                            'kingdom, Yahweh, and you are '
-                                            'exalted as head above all.\n'
-                                            'Both riches and honor come from '
-                                            'you, and you rule over all! In '
-                                            'your hand is power and might! It '
-                                            'is in your hand to make great, '
-                                            'and to give strength to all!\n'
-                                            'Now therefore, our God, we thank '
-                                            'you, and praise your glorious '
-                                            'name.\n'
-                                            'But who am I, and what is my '
-                                            'people, that we should be able to '
-                                            'offer so willingly as this? For '
-                                            'all things come from you, and of '
-                                            'your own have we given you.\n'
-                                            'For we are strangers before you, '
-                                            'and foreigners, as all our '
-                                            'fathers were. Our days on the '
-                                            'earth are as a shadow, and there '
-                                            'is no remaining.\n'
-                                            'Yahweh our God, all this store '
-                                            'that we have prepared to build '
-                                            'you a house for your holy name '
-                                            'comes from your hand, and is all '
-                                            'your own.\n'
-                                            'I know also, my God, that you try '
-                                            'the heart, and have pleasure in '
-                                            'uprightness. As for me, in the '
-                                            'uprightness of my heart I have '
-                                            'willingly offered all these '
-                                            'things. Now I have seen with joy '
-                                            'your people, who are present '
-                                            'here, offer willingly to you.\n'
-                                            'Yahweh, the God of Abraham, of '
-                                            'Isaac, and of Israel, our '
-                                            'fathers, keep this desire forever '
-                                            'in the thoughts of the heart of '
-                                            'your people, and prepare their '
-                                            'heart for you;\n'
-                                            'and give to Solomon my son a '
-                                            'perfect heart, to keep your '
-                                            'commandments, your testimonies, '
-                                            'and your statutes, and to do all '
-                                            'these things, and to build the '
-                                            'palace, for which I have made '
-                                            "provision.'\n"
-                                            'Then David said to all the '
-                                            "assembly, 'Now bless Yahweh your "
-                                            "God!'\n"
-                                            'All the assembly blessed Yahweh, '
-                                            'the God of their fathers, and '
-                                            'bowed down their heads and '
-                                            'prostrated themselves before '
-                                            'Yahweh and the king.\n'
-                                            'They sacrificed sacrifices to '
-                                            'Yahweh, and offered burnt '
-                                            'offerings to Yahweh, on the next '
-                                            'day after that day, even one '
-                                            'thousand bulls, one thousand '
-                                            'rams, and one thousand lambs, '
-                                            'with their drink offerings and '
-                                            'sacrifices in abundance for all '
-                                            'Israel,\n'
-                                            'and ate and drank before Yahweh '
-                                            'on that day with great gladness. '
-                                            'They made Solomon the son of '
-                                            'David king the second time, and '
-                                            'anointed him before Yahweh to be '
-                                            'prince, and Zadok to be priest.\n'
-                                            'Then Solomon sat on the throne of '
-                                            'Yahweh as king instead of David '
-                                            'his father, and prospered; and '
-                                            'all Israel obeyed him.\n'
-                                            'All the princes, the mighty men, '
-                                            'and also all of the sons of king '
-                                            'David submitted themselves to '
-                                            'Solomon the king.\n'
-                                            'Yahweh magnified Solomon '
-                                            'exceedingly in the sight of all '
-                                            'Israel, and gave to him such '
-                                            'royal majesty as had not been on '
-                                            'any king before him in Israel.\n'
-                                            'Now David the son of Jesse '
-                                            'reigned over all Israel.\n'
-                                            'The time that he reigned over '
-                                            'Israel was forty years; he '
-                                            'reigned seven years in Hebron, '
-                                            'and he reigned thirty-three years '
-                                            'in Jerusalem.\n'
-                                            'He died at a good old age, full '
-                                            'of days, riches, and honor; and '
-                                            'Solomon his son reigned in his '
-                                            'place.\n'
-                                            'Now the acts of David the king, '
-                                            'first and last, behold, they are '
-                                            'written in the history of Samuel '
-                                            'the seer, and in the history of '
-                                            'Nathan the prophet, and in the '
-                                            'history of Gad the seer,\n'
-                                            'with all his reign and his might, '
-                                            'and the times that went over him, '
-                                            'and over Israel, and over all the '
-                                            'kingdoms of the countries.\n',
-                                    'translation_id': 'web',
-                                    'translation_name': 'World English Bible',
-                                    'translation_note': 'Public Domain',
-                                    'verses': [{'book_id': '1CH',
+'old testament': {
+        '1 chronicles': {
+                'reference':   '1 Chronicles 1,29',
+                'text': 'Adam, Seth, Enosh,\n'
+                        'Kenan, Mahalalel, Jared,\n'
+                        'Enoch, Methuselah, Lamech,\n'
+                        'Noah, Shem, Ham, and Japheth.\n'
+                        'The sons of Japheth: Gomer, '
+                        'Magog, Madai, Javan, Tubal, '
+                        'Meshech, and Tiras.\n'
+                        'The sons of Gomer: Ashkenaz, '
+                        'Diphath, and Togarmah.\n'
+                        'The sons of Javan: Elishah, '
+                        'Tarshish, Kittim, and Rodanim.\n'
+                        'The sons of Ham: Cush, Mizraim, '
+                        'Put, and Canaan.\n'
+                        'The sons of Cush: Seba, Havilah, '
+                        'Sabta, Raama, Sabteca. The sons '
+                        'of Raamah: Sheba and Dedan.\n'
+                        'Cush became the father of Nimrod. '
+                        'He began to be a mighty one in '
+                        'the earth.\n'
+                        'Mizraim became the father of '
+                        'Ludim, Anamim, Lehabim, '
+                        'Naphtuhim,\n'
+                        'Pathrusim, Casluhim (where the '
+                        'Philistines came from), and '
+                        'Caphtorim.\n'
+                        'Canaan became the father of Sidon '
+                        'his firstborn, Heth,\n'
+                        'the Jebusite, and the Amorite, '
+                        'the Girgashite,\n'
+                        'the Hivite, the Arkite, the '
+                        'Sinite,\n'
+                        'the Arvadite, the Zemarite, and '
+                        'the Hamathite.\n'
+                        'The sons of Shem: Elam, Asshur, '
+                        'Arpachshad, Lud, Aram, Uz, Hul, '
+                        'Gether, and Meshech.\n'
+                        'Arpachshad became the father of '
+                        'Shelah, and Shelah became the '
+                        'father of Eber.\n'
+                        'To Eber were born two sons: the '
+                        'name of the one was Peleg, for in '
+                        'his days the earth was divided; '
+                        "and his brother's name was "
+                        'Joktan.\n'
+                        'Joktan became the father of '
+                        'Almodad, Sheleph, Hazarmaveth, '
+                        'Jerah,\n'
+                        'Hadoram, Uzal, Diklah,\n'
+                        'Ebal, Abimael, Sheba,\n'
+                        'Ophir, Havilah, and Jobab. All '
+                        'these were the sons of Joktan.\n'
+                        'Shem, Arpachshad, Shelah,\n'
+                        'Eber, Peleg, Reu,\n'
+                        'Serug, Nahor, Terah,\n'
+                        'Abram (also called Abraham).\n'
+                        'The sons of Abraham: Isaac and '
+                        'Ishmael.\n'
+                        'These are their generations: the '
+                        'firstborn of Ishmael, Nebaioth; '
+                        'then Kedar, Adbeel, Mibsam,\n'
+                        'Mishma, Dumah, Massa, Hadad, '
+                        'Tema,\n'
+                        'Jetur, Naphish, and Kedemah. '
+                        'These are the sons of Ishmael.\n'
+                        "The sons of Keturah, Abraham's "
+                        'concubine: she bore Zimran, '
+                        'Jokshan, Medan, Midian, Ishbak, '
+                        'and Shuah. The sons of Jokshan: '
+                        'Sheba and Dedan.\n'
+                        'The sons of Midian: Ephah, Epher, '
+                        'Hanoch, Abida, and Eldaah. All '
+                        'these were the sons of Keturah.\n'
+                        'Abraham became the father of '
+                        'Isaac. The sons of Isaac: Esau '
+                        'and Israel.\n'
+                        'The sons of Esau: Eliphaz, Reuel, '
+                        'Jeush, Jalam, and Korah.\n'
+                        'The sons of Eliphaz: Teman, Omar, '
+                        'Zephi, Gatam, Kenaz, Timna, and '
+                        'Amalek.\n'
+                        'The sons of Reuel: Nahath, Zerah, '
+                        'Shammah, and Mizzah.\n'
+                        'The sons of Seir: Lotan, Shobal, '
+                        'Zibeon, Anah, Dishon, Ezer, and '
+                        'Dishan.\n'
+                        'The sons of Lotan: Hori and '
+                        "Homam; and Timna was Lotan's "
+                        'sister.\n'
+                        'The sons of Shobal: Alian, '
+                        'Manahath, Ebal, Shephi, and Onam. '
+                        'The sons of Zibeon: Aiah and '
+                        'Anah.\n'
+                        'The son of Anah: Dishon. The sons '
+                        'of Dishon: Hamran, Eshban, '
+                        'Ithran, and Cheran.\n'
+                        'The sons of Ezer: Bilhan, Zaavan, '
+                        'and Jaakan. The sons of Dishan: '
+                        'Uz and Aran.\n'
+                        'Now these are the kings who '
+                        'reigned in the land of Edom, '
+                        'before any king reigned over the '
+                        'children of Israel: Bela the son '
+                        'of Beor; and the name of his city '
+                        'was Dinhabah.\n'
+                        'Bela died, and Jobab the son of '
+                        'Zerah of Bozrah reigned in his '
+                        'place.\n'
+                        'Jobab died, and Husham of the '
+                        'land of the Temanites reigned in '
+                        'his place.\n'
+                        'Husham died, and Hadad the son of '
+                        'Bedad, who struck Midian in the '
+                        'field of Moab, reigned in his '
+                        'place; and the name of his city '
+                        'was Avith.\n'
+                        'Hadad died, and Samlah of '
+                        'Masrekah reigned in his place.\n'
+                        'Samlah died, and Shaul of '
+                        'Rehoboth by the River reigned in '
+                        'his place.\n'
+                        'Shaul died, and Baal Hanan the '
+                        'son of Achbor reigned in his '
+                        'place.\n'
+                        'Baal Hanan died, and Hadad '
+                        'reigned in his place; and the '
+                        'name of his city was Pai: and his '
+                        "wife's name was Mehetabel, the "
+                        'daughter of Matred, the daughter '
+                        'of Mezahab.\n'
+                        'Then Hadad died. The chiefs of '
+                        'Edom were: chief Timna, chief '
+                        'Aliah, chief Jetheth,\n'
+                        'chief Oholibamah, chief Elah, '
+                        'chief Pinon,\n'
+                        'chief Kenaz, chief Teman, chief '
+                        'Mibzar,\n'
+                        'chief Magdiel, and chief Iram. '
+                        'These are the chiefs of Edom.\n'
+                        'David the king said to all the '
+                        "assembly, 'Solomon my son, whom "
+                        'alone God has chosen, is yet '
+                        'young and tender, and the work is '
+                        'great; for the palace is not for '
+                        'man, but for Yahweh God.\n'
+                        'Now I have prepared with all my '
+                        'might for the house of my God the '
+                        'gold for the things of gold, the '
+                        'silver for the things of silver, '
+                        'the brass for the things of '
+                        'brass, iron for the things of '
+                        'iron, and wood for the things of '
+                        'wood; also onyx stones, stones to '
+                        'be set, stones for inlaid work, '
+                        'of various colors, all kinds of '
+                        'precious stones, and marble '
+                        'stones in abundance.\n'
+                        'In addition, because I have set '
+                        'my affection on the house of my '
+                        'God, since I have a treasure of '
+                        'my own of gold and silver, I give '
+                        'it to the house of my God, over '
+                        'and above all that I have '
+                        'prepared for the holy house,\n'
+                        'even three thousand talents of '
+                        'gold, of the gold of Ophir, and '
+                        'seven thousand talents of refined '
+                        'silver, with which to overlay the '
+                        'walls of the houses;\n'
+                        'of gold for the things of gold, '
+                        'and of silver for the things of '
+                        'silver, and for all kinds of work '
+                        'to be made by the hands of '
+                        'artisans. Who then offers '
+                        'willingly to consecrate himself '
+                        "today to Yahweh?'\n"
+                        "Then the princes of the fathers' "
+                        'households, and the princes of '
+                        'the tribes of Israel, and the '
+                        'captains of thousands and of '
+                        'hundreds, with the rulers over '
+                        "the king's work, offered "
+                        'willingly;\n'
+                        'and they gave for the service of '
+                        "God's house of gold five thousand "
+                        'talents and ten thousand darics, '
+                        'of silver ten thousand talents, '
+                        'of brass eighteen thousand '
+                        'talents, and of iron one hundred '
+                        'thousand talents.\n'
+                        'People with whom precious stones '
+                        'were found gave them to the '
+                        "treasure of Yahweh's house, under "
+                        'the hand of Jehiel the '
+                        'Gershonite.\n'
+                        'Then the people rejoiced, because '
+                        'they offered willingly, because '
+                        'with a perfect heart they offered '
+                        'willingly to Yahweh; and David '
+                        'the king also rejoiced with great '
+                        'joy.\n'
+                        'Therefore David blessed Yahweh '
+                        'before all the assembly; and '
+                        "David said, 'You are blessed, "
+                        'Yahweh, the God of Israel our '
+                        'father, forever and ever.\n'
+                        'Yours, Yahweh, is the greatness, '
+                        'the power, the glory, the '
+                        'victory, and the majesty! For all '
+                        'that is in the heavens and in the '
+                        'earth is yours. Yours is the '
+                        'kingdom, Yahweh, and you are '
+                        'exalted as head above all.\n'
+                        'Both riches and honor come from '
+                        'you, and you rule over all! In '
+                        'your hand is power and might! It '
+                        'is in your hand to make great, '
+                        'and to give strength to all!\n'
+                        'Now therefore, our God, we thank '
+                        'you, and praise your glorious '
+                        'name.\n'
+                        'But who am I, and what is my '
+                        'people, that we should be able to '
+                        'offer so willingly as this? For '
+                        'all things come from you, and of '
+                        'your own have we given you.\n'
+                        'For we are strangers before you, '
+                        'and foreigners, as all our '
+                        'fathers were. Our days on the '
+                        'earth are as a shadow, and there '
+                        'is no remaining.\n'
+                        'Yahweh our God, all this store '
+                        'that we have prepared to build '
+                        'you a house for your holy name '
+                        'comes from your hand, and is all '
+                        'your own.\n'
+                        'I know also, my God, that you try '
+                        'the heart, and have pleasure in '
+                        'uprightness. As for me, in the '
+                        'uprightness of my heart I have '
+                        'willingly offered all these '
+                        'things. Now I have seen with joy '
+                        'your people, who are present '
+                        'here, offer willingly to you.\n'
+                        'Yahweh, the God of Abraham, of '
+                        'Isaac, and of Israel, our '
+                        'fathers, keep this desire forever '
+                        'in the thoughts of the heart of '
+                        'your people, and prepare their '
+                        'heart for you;\n'
+                        'and give to Solomon my son a '
+                        'perfect heart, to keep your '
+                        'commandments, your testimonies, '
+                        'and your statutes, and to do all '
+                        'these things, and to build the '
+                        'palace, for which I have made '
+                        "provision.'\n"
+                        'Then David said to all the '
+                        "assembly, 'Now bless Yahweh your "
+                        "God!'\n"
+                        'All the assembly blessed Yahweh, '
+                        'the God of their fathers, and '
+                        'bowed down their heads and '
+                        'prostrated themselves before '
+                        'Yahweh and the king.\n'
+                        'They sacrificed sacrifices to '
+                        'Yahweh, and offered burnt '
+                        'offerings to Yahweh, on the next '
+                        'day after that day, even one '
+                        'thousand bulls, one thousand '
+                        'rams, and one thousand lambs, '
+                        'with their drink offerings and '
+                        'sacrifices in abundance for all '
+                        'Israel,\n'
+                        'and ate and drank before Yahweh '
+                        'on that day with great gladness. '
+                        'They made Solomon the son of '
+                        'David king the second time, and '
+                        'anointed him before Yahweh to be '
+                        'prince, and Zadok to be priest.\n'
+                        'Then Solomon sat on the throne of '
+                        'Yahweh as king instead of David '
+                        'his father, and prospered; and '
+                        'all Israel obeyed him.\n'
+                        'All the princes, the mighty men, '
+                        'and also all of the sons of king '
+                        'David submitted themselves to '
+                        'Solomon the king.\n'
+                        'Yahweh magnified Solomon '
+                        'exceedingly in the sight of all '
+                        'Israel, and gave to him such '
+                        'royal majesty as had not been on '
+                        'any king before him in Israel.\n'
+                        'Now David the son of Jesse '
+                        'reigned over all Israel.\n'
+                        'The time that he reigned over '
+                        'Israel was forty years; he '
+                        'reigned seven years in Hebron, '
+                        'and he reigned thirty-three years '
+                        'in Jerusalem.\n'
+                        'He died at a good old age, full '
+                        'of days, riches, and honor; and '
+                        'Solomon his son reigned in his '
+                        'place.\n'
+                        'Now the acts of David the king, '
+                        'first and last, behold, they are '
+                        'written in the history of Samuel '
+                        'the seer, and in the history of '
+                        'Nathan the prophet, and in the '
+                        'history of Gad the seer,\n'
+                        'with all his reign and his might, '
+                        'and the times that went over him, '
+                        'and over Israel, and over all the '
+                        'kingdoms of the countries.\n',
+                'translation_id': 'web',
+                'translation_name': 'World English Bible',
+                'translation_note': 'Public Domain',
+                'verses': [{'book_id': '1CH',
                                                 'book_name': '1 Chronicles',
                                                 'chapter': 1,
                                                 'text': 'Adam, Seth, Enosh,\n',
@@ -16333,479 +16337,480 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                         'the kingdoms of the '
                                                         'countries.\n',
                                                 'verse': 30}]},
-                   '1 kings': {'reference': '1 Kings 1,22',
-                               'text': 'Now king David was old and advanced in '
-                                       'years; and they covered him with '
-                                       "clothes, but he couldn't keep warm.\n"
-                                       'Therefore his servants said to him, '
-                                       "'Let a young virgin be sought for my "
-                                       'lord the king. Let her stand before '
-                                       'the king, and cherish him; and let her '
-                                       'lie in your bosom, that my lord the '
-                                       "king may keep warm.'\n"
-                                       'So they sought for a beautiful young '
-                                       'lady throughout all the borders of '
-                                       'Israel, and found Abishag the '
-                                       'Shunammite, and brought her to the '
-                                       'king.\n'
-                                       'The young lady was very beautiful; and '
-                                       'she cherished the king, and served '
-                                       "him; but the king didn't know her "
-                                       'intimately.\n'
-                                       'Then Adonijah the son of Haggith '
-                                       "exalted himself, saying, 'I will be "
-                                       "king.' Then he prepared him chariots "
-                                       'and horsemen, and fifty men to run '
-                                       'before him.\n'
-                                       'His father had not displeased him at '
-                                       "any time in saying, 'Why have you done "
-                                       "so?' and he was also a very handsome "
-                                       'man; and he was born after Absalom.\n'
-                                       'He conferred with Joab the son of '
-                                       'Zeruiah, and with Abiathar the priest; '
-                                       'and they followed Adonijah and helped '
-                                       'him.\n'
-                                       'But Zadok the priest, Benaiah the son '
-                                       'of Jehoiada, Nathan the prophet, '
-                                       'Shimei, Rei, and the mighty men who '
-                                       'belonged to David, were not with '
-                                       'Adonijah.\n'
-                                       'Adonijah killed sheep, cattle, and '
-                                       'fatlings by the stone of Zoheleth, '
-                                       'which is beside En Rogel; and he '
-                                       "called all his brothers, the king's "
-                                       'sons, and all the men of Judah, the '
-                                       "king's servants;\n"
-                                       "but he didn't call Nathan the prophet, "
-                                       'and Benaiah, and the mighty men, and '
-                                       'Solomon his brother.\n'
-                                       'Then Nathan spoke to Bathsheba the '
-                                       "mother of Solomon, saying, 'Haven't "
-                                       'you heard that Adonijah the son of '
-                                       'Haggith reigns, and David our lord '
-                                       "doesn't know it?\n"
-                                       'Now therefore come, please let me give '
-                                       'you counsel, that you may save your '
-                                       "own life, and your son Solomon's "
-                                       'life.\n'
-                                       'Go in to king David, and tell him, '
-                                       "'Didn't you, my lord, king, swear to "
-                                       "your servant, saying, 'Assuredly "
-                                       'Solomon your son shall reign after me, '
-                                       "and he shall sit on my throne?' Why "
-                                       "then does Adonijah reign?'\n"
-                                       'Behold, while you are still talking '
-                                       'there with the king, I will also come '
-                                       "in after you and confirm your words.'\n"
-                                       'Bathsheba went in to the king in his '
-                                       'room. The king was very old; and '
-                                       'Abishag the Shunammite was serving the '
-                                       'king.\n'
-                                       'Bathsheba bowed, and showed respect to '
-                                       "the king. The king said, 'What would "
-                                       "you like?'\n"
-                                       "She said to him, 'My lord, you swore "
-                                       'by Yahweh your God to your servant, '
-                                       "'Assuredly Solomon your son shall "
-                                       'reign after me, and he shall sit on my '
-                                       "throne.'\n"
-                                       'Now, behold, Adonijah reigns; and you, '
-                                       "my lord the king, don't know it.\n"
-                                       'He has slain cattle and fatlings and '
-                                       'sheep in abundance, and has called all '
-                                       'the sons of the king, Abiathar the '
-                                       'priest, and Joab the captain of the '
-                                       "army; but he hasn't called Solomon "
-                                       'your servant.\n'
-                                       'You, my lord the king, the eyes of all '
-                                       'Israel are on you, that you should '
-                                       'tell them who will sit on the throne '
-                                       'of my lord the king after him.\n'
-                                       'Otherwise it will happen, when my lord '
-                                       'the king sleeps with his fathers, that '
-                                       'I and my son Solomon will be '
-                                       "considered criminals.'\n"
-                                       'Behold, while she was still talking '
-                                       'with the king, Nathan the prophet came '
-                                       'in.\n'
-                                       "They told the king, saying, 'Behold, "
-                                       "Nathan the prophet!'\n"
-                                       'When he had come in before the king, '
-                                       'he bowed himself before the king with '
-                                       'his face to the ground.\n'
-                                       "Nathan said, 'My lord, king, have you "
-                                       "said, 'Adonijah shall reign after me, "
-                                       "and he shall sit on my throne?'\n"
-                                       'For he has gone down today, and has '
-                                       'slain cattle, fatlings, and sheep in '
-                                       'abundance, and has called all the '
-                                       "king's sons, the captains of the army, "
-                                       'and Abiathar the priest. Behold, they '
-                                       'are eating and drinking before him, '
-                                       "and saying, 'Long live king "
-                                       "Adonijah!'\n"
-                                       "But he hasn't called me, even me your "
-                                       'servant, Zadok the priest, Benaiah the '
-                                       'son of Jehoiada, and your servant '
-                                       'Solomon.\n'
-                                       'Was this thing done by my lord the '
-                                       "king, and you haven't shown to your "
-                                       'servants who should sit on the throne '
-                                       "of my lord the king after him?'\n"
-                                       "Then king David answered, 'Call "
-                                       "Bathsheba in to me.' She came into the "
-                                       "king's presence and stood before the "
-                                       'king.\n'
-                                       "The king swore, and said, 'As Yahweh "
-                                       'lives, who has redeemed my soul out of '
-                                       'all adversity,\n'
-                                       'most certainly as I swore to you by '
-                                       'Yahweh, the God of Israel, saying, '
-                                       "'Assuredly Solomon your son shall "
-                                       'reign after me, and he shall sit on my '
-                                       "throne in my place;' I will most "
-                                       "certainly do this today.'\n"
-                                       'Then Bathsheba bowed with her face to '
-                                       'the earth, and showed respect to the '
-                                       "king, and said, 'Let my lord king "
-                                       "David live forever!'\n"
-                                       "King David said, 'Call to me Zadok the "
-                                       'priest, Nathan the prophet, and '
-                                       "Benaiah the son of Jehoiada.' They "
-                                       'came before the king.\n'
-                                       "The king said to them, 'Take with you "
-                                       'the servants of your lord, and cause '
-                                       'Solomon my son to ride on my own mule, '
-                                       'and bring him down to Gihon.\n'
-                                       'Let Zadok the priest and Nathan the '
-                                       'prophet anoint him there king over '
-                                       'Israel. Blow the trumpet, and say, '
-                                       "'Long live king Solomon!'\n"
-                                       'Then come up after him, and he shall '
-                                       'come and sit on my throne; for he '
-                                       'shall be king in my place. I have '
-                                       'appointed him to be prince over Israel '
-                                       "and over Judah.'\n"
-                                       'Benaiah the son of Jehoiada answered '
-                                       "the king, and said, 'Amen. May Yahweh, "
-                                       'the God of my lord the king, say so.\n'
-                                       'As Yahweh has been with my lord the '
-                                       'king, even so may he be with Solomon, '
-                                       'and make his throne greater than the '
-                                       "throne of my lord king David.'\n"
-                                       'So Zadok the priest, Nathan the '
-                                       'prophet, Benaiah the son of Jehoiada, '
-                                       'and the Cherethites and the Pelethites '
-                                       'went down and had Solomon ride on king '
-                                       "David's mule, and brought him to "
-                                       'Gihon.\n'
-                                       'Zadok the priest took the horn of oil '
-                                       'from the Tent, and anointed Solomon. '
-                                       'They blew the trumpet; and all the '
-                                       "people said, 'Long live king "
-                                       "Solomon!'\n"
-                                       'All the people came up after him, and '
-                                       'the people piped with pipes, and '
-                                       'rejoiced with great joy, so that the '
-                                       'earth shook with their sound.\n'
-                                       'Adonijah and all the guests who were '
-                                       'with him heard it as they had finished '
-                                       'eating. When Joab heard the sound of '
-                                       "the trumpet, he said, 'Why is this "
-                                       'noise of the city being in an '
-                                       "uproar?'\n"
-                                       'While he yet spoke, behold, Jonathan '
-                                       'the son of Abiathar the priest came; '
-                                       "and Adonijah said, 'Come in; for you "
-                                       'are a worthy man, and bring good '
-                                       "news.'\n"
-                                       "Jonathan answered Adonijah, 'Most "
-                                       'certainly our lord king David has made '
-                                       'Solomon king.\n'
-                                       'The king has sent with him Zadok the '
-                                       'priest, Nathan the prophet, Benaiah '
-                                       'the son of Jehoiada, and the '
-                                       'Cherethites and the Pelethites; and '
-                                       'they have caused him to ride on the '
-                                       "king's mule.\n"
-                                       'Zadok the priest and Nathan the '
-                                       'prophet have anointed him king in '
-                                       'Gihon. They have come up from there '
-                                       'rejoicing, so that the city rang '
-                                       'again. This is the noise that you have '
-                                       'heard.\n'
-                                       'Also, Solomon sits on the throne of '
-                                       'the kingdom.\n'
-                                       "Moreover the king's servants came to "
-                                       'bless our lord king David, saying, '
-                                       "'May your God make the name of Solomon "
-                                       'better than your name, and make his '
-                                       "throne greater than your throne;' and "
-                                       'the king bowed himself on the bed.\n'
-                                       "Also thus said the king, 'Blessed be "
-                                       'Yahweh, the God of Israel, who has '
-                                       'given one to sit on my throne today, '
-                                       "my eyes even seeing it.''\n"
-                                       'All the guests of Adonijah were '
-                                       'afraid, and rose up, and each man went '
-                                       'his way.\n'
-                                       'Adonijah was afraid because of '
-                                       'Solomon; and he arose, and went, and '
-                                       'hung onto the horns of the altar.\n'
-                                       "Solomon was told, 'Behold, Adonijah "
-                                       'fears king Solomon; for, behold, he is '
-                                       'hanging onto the horns of the altar, '
-                                       "saying, 'Let king Solomon swear to me "
-                                       'first that he will not kill his '
-                                       "servant with the sword.''\n"
-                                       "Solomon said, 'If he shows himself a "
-                                       'worthy man, not a hair of his shall '
-                                       'fall to the earth; but if wickedness '
-                                       "is found in him, he shall die.'\n"
-                                       'So king Solomon sent, and they brought '
-                                       'him down from the altar. He came and '
-                                       'bowed down to king Solomon; and '
-                                       "Solomon said to him, 'Go to your "
-                                       "house.'\n"
-                                       'They continued three years without war '
-                                       'between Syria and Israel.\n'
-                                       'In the third year, Jehoshaphat the '
-                                       'king of Judah came down to the king of '
-                                       'Israel.\n'
-                                       'The king of Israel said to his '
-                                       "servants, 'You know that Ramoth Gilead "
-                                       "is ours, and we do nothing, and don't "
-                                       'take it out of the hand of the king of '
-                                       "Syria?'\n"
-                                       "He said to Jehoshaphat, 'Will you go "
-                                       "with me to battle to Ramoth Gilead?'\n"
-                                       'Jehoshaphat said to the king of '
-                                       "Israel, 'I am as you are, my people as "
-                                       'your people, my horses as your '
-                                       "horses.'\n"
-                                       'Jehoshaphat said to the king of '
-                                       "Israel, 'Please inquire first for "
-                                       "Yahweh's word.'\n"
-                                       'Then the king of Israel gathered the '
-                                       'prophets together, about four hundred '
-                                       "men, and said to them, 'Should I go "
-                                       'against Ramoth Gilead to battle, or '
-                                       "should I refrain?'\n"
-                                       "They said, 'Go up; for the Lord will "
-                                       'deliver it into the hand of the '
-                                       "king.'\n"
-                                       "But Jehoshaphat said, 'Isn't there "
-                                       'here a prophet of Yahweh, that we may '
-                                       "inquire of him?'\n"
-                                       'The king of Israel said to '
-                                       "Jehoshaphat, 'There is yet one man by "
-                                       'whom we may inquire of Yahweh, Micaiah '
-                                       'the son of Imlah; but I hate him, for '
-                                       'he does not prophesy good concerning '
-                                       "me, but evil.'\n"
-                                       "Jehoshaphat said, 'Don't let the king "
-                                       "say so.'\n"
-                                       'Then the king of Israel called an '
-                                       "officer, and said, 'Quickly get "
-                                       "Micaiah the son of Imlah.'\n"
-                                       'Now the king of Israel and Jehoshaphat '
-                                       'the king of Judah were sitting each on '
-                                       'his throne, arrayed in their robes, in '
-                                       'an open place at the entrance of the '
-                                       'gate of Samaria; and all the prophets '
-                                       'were prophesying before them.\n'
-                                       'Zedekiah the son of Chenaanah made '
-                                       'himself horns of iron, and said, '
-                                       "'Yahweh says, 'With these you will "
-                                       'push the Syrians, until they are '
-                                       "consumed.''\n"
-                                       'All the prophets prophesied so, '
-                                       "saying, 'Go up to Ramoth Gilead, and "
-                                       'prosper; for Yahweh will deliver it '
-                                       "into the hand of the king.'\n"
-                                       'The messenger who went to call Micaiah '
-                                       "spoke to him, saying, 'See now, the "
-                                       'prophets declare good to the king with '
-                                       'one mouth. Please let your word be '
-                                       'like the word of one of them, and '
-                                       "speak good.'\n"
-                                       "Micaiah said, 'As Yahweh lives, what "
-                                       'Yahweh says to me, that I will '
-                                       "speak.'\n"
-                                       'When he had come to the king, the king '
-                                       "said to him, 'Micaiah, shall we go to "
-                                       'Ramoth Gilead to battle, or shall we '
-                                       "forbear?'\n"
-                                       "He answered him, 'Go up and prosper; "
-                                       'and Yahweh will deliver it into the '
-                                       "hand of the king.'\n"
-                                       "The king said to him, 'How many times "
-                                       'do I have to adjure you that you speak '
-                                       'to me nothing but the truth in '
-                                       "Yahweh's name?'\n"
-                                       "He said, 'I saw all Israel scattered "
-                                       'on the mountains, as sheep that have '
-                                       "no shepherd. Yahweh said, 'These have "
-                                       'no master. Let them each return to his '
-                                       "house in peace.''\n"
-                                       'The king of Israel said to '
-                                       "Jehoshaphat, 'Didn't I tell you that "
-                                       'he would not prophesy good concerning '
-                                       "me, but evil?'\n"
-                                       "Micaiah said, 'Therefore hear Yahweh's "
-                                       'word. I saw Yahweh sitting on his '
-                                       'throne, and all the army of heaven '
-                                       'standing by him on his right hand and '
-                                       'on his left.\n'
-                                       "Yahweh said, 'Who will entice Ahab, "
-                                       'that he may go up and fall at Ramoth '
-                                       "Gilead?' One said one thing; and "
-                                       'another said another.\n'
-                                       'A spirit came out and stood before '
-                                       "Yahweh, and said, 'I will entice "
-                                       "him.'\n"
-                                       "Yahweh said to him, 'How?'\n"
-                                       "He said, 'I will go out and will be a "
-                                       'lying spirit in the mouth of all his '
-                                       "prophets.'\n"
-                                       "He said, 'You will entice him, and "
-                                       "will also prevail. Go out and do so.'\n"
-                                       'Now therefore, behold, Yahweh has put '
-                                       'a lying spirit in the mouth of all '
-                                       'these your prophets; and Yahweh has '
-                                       "spoken evil concerning you.'\n"
-                                       'Then Zedekiah the son of Chenaanah '
-                                       'came near, and struck Micaiah on the '
-                                       "cheek, and said, 'Which way did "
-                                       "Yahweh's Spirit go from me to speak to "
-                                       "you?'\n"
-                                       "Micaiah said, 'Behold, you will see on "
-                                       'that day, when you go into an inner '
-                                       "room to hide yourself.'\n"
-                                       "The king of Israel said, 'Take "
-                                       'Micaiah, and carry him back to Amon '
-                                       'the governor of the city, and to Joash '
-                                       "the king's son.\n"
-                                       "Say, 'Thus says the king, 'Put this "
-                                       'fellow in the prison, and feed him '
-                                       'with bread of affliction and with '
-                                       'water of affliction, until I come in '
-                                       "peace.'''\n"
-                                       "Micaiah said, 'If you return at all in "
-                                       "peace, Yahweh has not spoken by me.' "
-                                       "He said, 'Listen, all you people!'\n"
-                                       'So the king of Israel and Jehoshaphat '
-                                       'the king of Judah went up to Ramoth '
-                                       'Gilead.\n'
-                                       'The king of Israel said to '
-                                       "Jehoshaphat, 'I will disguise myself, "
-                                       'and go into the battle; but you put on '
-                                       "your robes.' The king of Israel "
-                                       'disguised himself, and went into the '
-                                       'battle.\n'
-                                       'Now the king of Syria had commanded '
-                                       'the thirty-two captains of his '
-                                       "chariots, saying, 'Don't fight with "
-                                       'small nor great, except only with the '
-                                       "king of Israel.'\n"
-                                       'When the captains of the chariots saw '
-                                       "Jehoshaphat, they said, 'Surely that "
-                                       "is the king of Israel!' and they came "
-                                       'over to fight against him. Jehoshaphat '
-                                       'cried out.\n'
-                                       'When the captains of the chariots saw '
-                                       'that it was not the king of Israel, '
-                                       'they turned back from pursuing him.\n'
-                                       'A certain man drew his bow at random, '
-                                       'and struck the king of Israel between '
-                                       'the joints of the armor. Therefore he '
-                                       'said to the driver of his chariot, '
-                                       "'Turn your hand, and carry me out of "
-                                       'the battle; for I am severely '
-                                       "wounded.'\n"
-                                       'The battle increased that day. The '
-                                       'king was propped up in his chariot '
-                                       'facing the Syrians, and died at '
-                                       'evening. The blood ran out of the '
-                                       'wound into the bottom of the chariot.\n'
-                                       'A cry went throughout the army about '
-                                       'the going down of the sun, saying, '
-                                       "'Every man to his city, and every man "
-                                       "to his country!'\n"
-                                       'So the king died, and was brought to '
-                                       'Samaria; and they buried the king in '
-                                       'Samaria.\n'
-                                       'They washed the chariot by the pool of '
-                                       'Samaria; and the dogs licked up his '
-                                       'blood where the prostitutes washed '
-                                       "themselves; according to Yahweh's word "
-                                       'which he spoke.\n'
-                                       'Now the rest of the acts of Ahab, and '
-                                       'all that he did, and the ivory house '
-                                       'which he built, and all the cities '
-                                       "that he built, aren't they written in "
-                                       'the book of the chronicles of the '
-                                       'kings of Israel?\n'
-                                       'So Ahab slept with his fathers; and '
-                                       'Ahaziah his son reigned in his place.\n'
-                                       'Jehoshaphat the son of Asa began to '
-                                       'reign over Judah in the fourth year of '
-                                       'Ahab king of Israel.\n'
-                                       'Jehoshaphat was thirty-five years old '
-                                       'when he began to reign; and he reigned '
-                                       'twenty-five years in Jerusalem. His '
-                                       "mother's name was Azubah the daughter "
-                                       'of Shilhi.\n'
-                                       'He walked in all the way of Asa his '
-                                       "father. He didn't turn away from it, "
-                                       "doing that which was right in Yahweh's "
-                                       'eyes. However the high places were not '
-                                       'taken away. The people still '
-                                       'sacrificed and burned incense on the '
-                                       'high places.\n'
-                                       'Jehoshaphat made peace with the king '
-                                       'of Israel.\n'
-                                       'Now the rest of the acts of '
-                                       'Jehoshaphat, and his might that he '
-                                       "showed, and how he fought, aren't they "
-                                       'written in the book of the chronicles '
-                                       'of the kings of Judah?\n'
-                                       'The remnant of the sodomites, that '
-                                       'remained in the days of his father '
-                                       'Asa, he put away out of the land.\n'
-                                       'There was no king in Edom. A deputy '
-                                       'ruled.\n'
-                                       'Jehoshaphat made ships of Tarshish to '
-                                       "go to Ophir for gold, but they didn't "
-                                       'go; for the ships wrecked at Ezion '
-                                       'Geber.\n'
-                                       'Then Ahaziah the son of Ahab said to '
-                                       "Jehoshaphat, 'Let my servants go with "
-                                       "your servants in the ships.' But "
-                                       'Jehoshaphat would not.\n'
-                                       'Jehoshaphat slept with his fathers, '
-                                       'and was buried with his fathers in his '
-                                       "father David's city. Jehoram his son "
-                                       'reigned in his place.\n'
-                                       'Ahaziah the son of Ahab began to reign '
-                                       'over Israel in Samaria in the '
-                                       'seventeenth year of Jehoshaphat king '
-                                       'of Judah, and he reigned two years '
-                                       'over Israel.\n'
-                                       "He did that which was evil in Yahweh's "
-                                       'sight, and walked in the way of his '
-                                       'father, and in the way of his mother, '
-                                       'and in the way of Jeroboam the son of '
-                                       'Nebat, in which he made Israel to '
-                                       'sin.\n'
-                                       'He served Baal and worshiped him, and '
-                                       'provoked Yahweh, the God of Israel, to '
-                                       'anger, in all the ways that his father '
-                                       'had done so.\n',
-                               'translation_id': 'web',
-                               'translation_name': 'World English Bible',
-                               'translation_note': 'Public Domain',
-                               'verses': [{'book_id': '1KI',
+        '1 kings': {
+                'reference': '1 Kings 1,22',
+                'text': 'Now king David was old and advanced in '
+                        'years; and they covered him with '
+                        "clothes, but he couldn't keep warm.\n"
+                        'Therefore his servants said to him, '
+                        "'Let a young virgin be sought for my "
+                        'lord the king. Let her stand before '
+                        'the king, and cherish him; and let her '
+                        'lie in your bosom, that my lord the '
+                        "king may keep warm.'\n"
+                        'So they sought for a beautiful young '
+                        'lady throughout all the borders of '
+                        'Israel, and found Abishag the '
+                        'Shunammite, and brought her to the '
+                        'king.\n'
+                        'The young lady was very beautiful; and '
+                        'she cherished the king, and served '
+                        "him; but the king didn't know her "
+                        'intimately.\n'
+                        'Then Adonijah the son of Haggith '
+                        "exalted himself, saying, 'I will be "
+                        "king.' Then he prepared him chariots "
+                        'and horsemen, and fifty men to run '
+                        'before him.\n'
+                        'His father had not displeased him at '
+                        "any time in saying, 'Why have you done "
+                        "so?' and he was also a very handsome "
+                        'man; and he was born after Absalom.\n'
+                        'He conferred with Joab the son of '
+                        'Zeruiah, and with Abiathar the priest; '
+                        'and they followed Adonijah and helped '
+                        'him.\n'
+                        'But Zadok the priest, Benaiah the son '
+                        'of Jehoiada, Nathan the prophet, '
+                        'Shimei, Rei, and the mighty men who '
+                        'belonged to David, were not with '
+                        'Adonijah.\n'
+                        'Adonijah killed sheep, cattle, and '
+                        'fatlings by the stone of Zoheleth, '
+                        'which is beside En Rogel; and he '
+                        "called all his brothers, the king's "
+                        'sons, and all the men of Judah, the '
+                        "king's servants;\n"
+                        "but he didn't call Nathan the prophet, "
+                        'and Benaiah, and the mighty men, and '
+                        'Solomon his brother.\n'
+                        'Then Nathan spoke to Bathsheba the '
+                        "mother of Solomon, saying, 'Haven't "
+                        'you heard that Adonijah the son of '
+                        'Haggith reigns, and David our lord '
+                        "doesn't know it?\n"
+                        'Now therefore come, please let me give '
+                        'you counsel, that you may save your '
+                        "own life, and your son Solomon's "
+                        'life.\n'
+                        'Go in to king David, and tell him, '
+                        "'Didn't you, my lord, king, swear to "
+                        "your servant, saying, 'Assuredly "
+                        'Solomon your son shall reign after me, '
+                        "and he shall sit on my throne?' Why "
+                        "then does Adonijah reign?'\n"
+                        'Behold, while you are still talking '
+                        'there with the king, I will also come '
+                        "in after you and confirm your words.'\n"
+                        'Bathsheba went in to the king in his '
+                        'room. The king was very old; and '
+                        'Abishag the Shunammite was serving the '
+                        'king.\n'
+                        'Bathsheba bowed, and showed respect to '
+                        "the king. The king said, 'What would "
+                        "you like?'\n"
+                        "She said to him, 'My lord, you swore "
+                        'by Yahweh your God to your servant, '
+                        "'Assuredly Solomon your son shall "
+                        'reign after me, and he shall sit on my '
+                        "throne.'\n"
+                        'Now, behold, Adonijah reigns; and you, '
+                        "my lord the king, don't know it.\n"
+                        'He has slain cattle and fatlings and '
+                        'sheep in abundance, and has called all '
+                        'the sons of the king, Abiathar the '
+                        'priest, and Joab the captain of the '
+                        "army; but he hasn't called Solomon "
+                        'your servant.\n'
+                        'You, my lord the king, the eyes of all '
+                        'Israel are on you, that you should '
+                        'tell them who will sit on the throne '
+                        'of my lord the king after him.\n'
+                        'Otherwise it will happen, when my lord '
+                        'the king sleeps with his fathers, that '
+                        'I and my son Solomon will be '
+                        "considered criminals.'\n"
+                        'Behold, while she was still talking '
+                        'with the king, Nathan the prophet came '
+                        'in.\n'
+                        "They told the king, saying, 'Behold, "
+                        "Nathan the prophet!'\n"
+                        'When he had come in before the king, '
+                        'he bowed himself before the king with '
+                        'his face to the ground.\n'
+                        "Nathan said, 'My lord, king, have you "
+                        "said, 'Adonijah shall reign after me, "
+                        "and he shall sit on my throne?'\n"
+                        'For he has gone down today, and has '
+                        'slain cattle, fatlings, and sheep in '
+                        'abundance, and has called all the '
+                        "king's sons, the captains of the army, "
+                        'and Abiathar the priest. Behold, they '
+                        'are eating and drinking before him, '
+                        "and saying, 'Long live king "
+                        "Adonijah!'\n"
+                        "But he hasn't called me, even me your "
+                        'servant, Zadok the priest, Benaiah the '
+                        'son of Jehoiada, and your servant '
+                        'Solomon.\n'
+                        'Was this thing done by my lord the '
+                        "king, and you haven't shown to your "
+                        'servants who should sit on the throne '
+                        "of my lord the king after him?'\n"
+                        "Then king David answered, 'Call "
+                        "Bathsheba in to me.' She came into the "
+                        "king's presence and stood before the "
+                        'king.\n'
+                        "The king swore, and said, 'As Yahweh "
+                        'lives, who has redeemed my soul out of '
+                        'all adversity,\n'
+                        'most certainly as I swore to you by '
+                        'Yahweh, the God of Israel, saying, '
+                        "'Assuredly Solomon your son shall "
+                        'reign after me, and he shall sit on my '
+                        "throne in my place;' I will most "
+                        "certainly do this today.'\n"
+                        'Then Bathsheba bowed with her face to '
+                        'the earth, and showed respect to the '
+                        "king, and said, 'Let my lord king "
+                        "David live forever!'\n"
+                        "King David said, 'Call to me Zadok the "
+                        'priest, Nathan the prophet, and '
+                        "Benaiah the son of Jehoiada.' They "
+                        'came before the king.\n'
+                        "The king said to them, 'Take with you "
+                        'the servants of your lord, and cause '
+                        'Solomon my son to ride on my own mule, '
+                        'and bring him down to Gihon.\n'
+                        'Let Zadok the priest and Nathan the '
+                        'prophet anoint him there king over '
+                        'Israel. Blow the trumpet, and say, '
+                        "'Long live king Solomon!'\n"
+                        'Then come up after him, and he shall '
+                        'come and sit on my throne; for he '
+                        'shall be king in my place. I have '
+                        'appointed him to be prince over Israel '
+                        "and over Judah.'\n"
+                        'Benaiah the son of Jehoiada answered '
+                        "the king, and said, 'Amen. May Yahweh, "
+                        'the God of my lord the king, say so.\n'
+                        'As Yahweh has been with my lord the '
+                        'king, even so may he be with Solomon, '
+                        'and make his throne greater than the '
+                        "throne of my lord king David.'\n"
+                        'So Zadok the priest, Nathan the '
+                        'prophet, Benaiah the son of Jehoiada, '
+                        'and the Cherethites and the Pelethites '
+                        'went down and had Solomon ride on king '
+                        "David's mule, and brought him to "
+                        'Gihon.\n'
+                        'Zadok the priest took the horn of oil '
+                        'from the Tent, and anointed Solomon. '
+                        'They blew the trumpet; and all the '
+                        "people said, 'Long live king "
+                        "Solomon!'\n"
+                        'All the people came up after him, and '
+                        'the people piped with pipes, and '
+                        'rejoiced with great joy, so that the '
+                        'earth shook with their sound.\n'
+                        'Adonijah and all the guests who were '
+                        'with him heard it as they had finished '
+                        'eating. When Joab heard the sound of '
+                        "the trumpet, he said, 'Why is this "
+                        'noise of the city being in an '
+                        "uproar?'\n"
+                        'While he yet spoke, behold, Jonathan '
+                        'the son of Abiathar the priest came; '
+                        "and Adonijah said, 'Come in; for you "
+                        'are a worthy man, and bring good '
+                        "news.'\n"
+                        "Jonathan answered Adonijah, 'Most "
+                        'certainly our lord king David has made '
+                        'Solomon king.\n'
+                        'The king has sent with him Zadok the '
+                        'priest, Nathan the prophet, Benaiah '
+                        'the son of Jehoiada, and the '
+                        'Cherethites and the Pelethites; and '
+                        'they have caused him to ride on the '
+                        "king's mule.\n"
+                        'Zadok the priest and Nathan the '
+                        'prophet have anointed him king in '
+                        'Gihon. They have come up from there '
+                        'rejoicing, so that the city rang '
+                        'again. This is the noise that you have '
+                        'heard.\n'
+                        'Also, Solomon sits on the throne of '
+                        'the kingdom.\n'
+                        "Moreover the king's servants came to "
+                        'bless our lord king David, saying, '
+                        "'May your God make the name of Solomon "
+                        'better than your name, and make his '
+                        "throne greater than your throne;' and "
+                        'the king bowed himself on the bed.\n'
+                        "Also thus said the king, 'Blessed be "
+                        'Yahweh, the God of Israel, who has '
+                        'given one to sit on my throne today, '
+                        "my eyes even seeing it.''\n"
+                        'All the guests of Adonijah were '
+                        'afraid, and rose up, and each man went '
+                        'his way.\n'
+                        'Adonijah was afraid because of '
+                        'Solomon; and he arose, and went, and '
+                        'hung onto the horns of the altar.\n'
+                        "Solomon was told, 'Behold, Adonijah "
+                        'fears king Solomon; for, behold, he is '
+                        'hanging onto the horns of the altar, '
+                        "saying, 'Let king Solomon swear to me "
+                        'first that he will not kill his '
+                        "servant with the sword.''\n"
+                        "Solomon said, 'If he shows himself a "
+                        'worthy man, not a hair of his shall '
+                        'fall to the earth; but if wickedness '
+                        "is found in him, he shall die.'\n"
+                        'So king Solomon sent, and they brought '
+                        'him down from the altar. He came and '
+                        'bowed down to king Solomon; and '
+                        "Solomon said to him, 'Go to your "
+                        "house.'\n"
+                        'They continued three years without war '
+                        'between Syria and Israel.\n'
+                        'In the third year, Jehoshaphat the '
+                        'king of Judah came down to the king of '
+                        'Israel.\n'
+                        'The king of Israel said to his '
+                        "servants, 'You know that Ramoth Gilead "
+                        "is ours, and we do nothing, and don't "
+                        'take it out of the hand of the king of '
+                        "Syria?'\n"
+                        "He said to Jehoshaphat, 'Will you go "
+                        "with me to battle to Ramoth Gilead?'\n"
+                        'Jehoshaphat said to the king of '
+                        "Israel, 'I am as you are, my people as "
+                        'your people, my horses as your '
+                        "horses.'\n"
+                        'Jehoshaphat said to the king of '
+                        "Israel, 'Please inquire first for "
+                        "Yahweh's word.'\n"
+                        'Then the king of Israel gathered the '
+                        'prophets together, about four hundred '
+                        "men, and said to them, 'Should I go "
+                        'against Ramoth Gilead to battle, or '
+                        "should I refrain?'\n"
+                        "They said, 'Go up; for the Lord will "
+                        'deliver it into the hand of the '
+                        "king.'\n"
+                        "But Jehoshaphat said, 'Isn't there "
+                        'here a prophet of Yahweh, that we may '
+                        "inquire of him?'\n"
+                        'The king of Israel said to '
+                        "Jehoshaphat, 'There is yet one man by "
+                        'whom we may inquire of Yahweh, Micaiah '
+                        'the son of Imlah; but I hate him, for '
+                        'he does not prophesy good concerning '
+                        "me, but evil.'\n"
+                        "Jehoshaphat said, 'Don't let the king "
+                        "say so.'\n"
+                        'Then the king of Israel called an '
+                        "officer, and said, 'Quickly get "
+                        "Micaiah the son of Imlah.'\n"
+                        'Now the king of Israel and Jehoshaphat '
+                        'the king of Judah were sitting each on '
+                        'his throne, arrayed in their robes, in '
+                        'an open place at the entrance of the '
+                        'gate of Samaria; and all the prophets '
+                        'were prophesying before them.\n'
+                        'Zedekiah the son of Chenaanah made '
+                        'himself horns of iron, and said, '
+                        "'Yahweh says, 'With these you will "
+                        'push the Syrians, until they are '
+                        "consumed.''\n"
+                        'All the prophets prophesied so, '
+                        "saying, 'Go up to Ramoth Gilead, and "
+                        'prosper; for Yahweh will deliver it '
+                        "into the hand of the king.'\n"
+                        'The messenger who went to call Micaiah '
+                        "spoke to him, saying, 'See now, the "
+                        'prophets declare good to the king with '
+                        'one mouth. Please let your word be '
+                        'like the word of one of them, and '
+                        "speak good.'\n"
+                        "Micaiah said, 'As Yahweh lives, what "
+                        'Yahweh says to me, that I will '
+                        "speak.'\n"
+                        'When he had come to the king, the king '
+                        "said to him, 'Micaiah, shall we go to "
+                        'Ramoth Gilead to battle, or shall we '
+                        "forbear?'\n"
+                        "He answered him, 'Go up and prosper; "
+                        'and Yahweh will deliver it into the '
+                        "hand of the king.'\n"
+                        "The king said to him, 'How many times "
+                        'do I have to adjure you that you speak '
+                        'to me nothing but the truth in '
+                        "Yahweh's name?'\n"
+                        "He said, 'I saw all Israel scattered "
+                        'on the mountains, as sheep that have '
+                        "no shepherd. Yahweh said, 'These have "
+                        'no master. Let them each return to his '
+                        "house in peace.''\n"
+                        'The king of Israel said to '
+                        "Jehoshaphat, 'Didn't I tell you that "
+                        'he would not prophesy good concerning '
+                        "me, but evil?'\n"
+                        "Micaiah said, 'Therefore hear Yahweh's "
+                        'word. I saw Yahweh sitting on his '
+                        'throne, and all the army of heaven '
+                        'standing by him on his right hand and '
+                        'on his left.\n'
+                        "Yahweh said, 'Who will entice Ahab, "
+                        'that he may go up and fall at Ramoth '
+                        "Gilead?' One said one thing; and "
+                        'another said another.\n'
+                        'A spirit came out and stood before '
+                        "Yahweh, and said, 'I will entice "
+                        "him.'\n"
+                        "Yahweh said to him, 'How?'\n"
+                        "He said, 'I will go out and will be a "
+                        'lying spirit in the mouth of all his '
+                        "prophets.'\n"
+                        "He said, 'You will entice him, and "
+                        "will also prevail. Go out and do so.'\n"
+                        'Now therefore, behold, Yahweh has put '
+                        'a lying spirit in the mouth of all '
+                        'these your prophets; and Yahweh has '
+                        "spoken evil concerning you.'\n"
+                        'Then Zedekiah the son of Chenaanah '
+                        'came near, and struck Micaiah on the '
+                        "cheek, and said, 'Which way did "
+                        "Yahweh's Spirit go from me to speak to "
+                        "you?'\n"
+                        "Micaiah said, 'Behold, you will see on "
+                        'that day, when you go into an inner '
+                        "room to hide yourself.'\n"
+                        "The king of Israel said, 'Take "
+                        'Micaiah, and carry him back to Amon '
+                        'the governor of the city, and to Joash '
+                        "the king's son.\n"
+                        "Say, 'Thus says the king, 'Put this "
+                        'fellow in the prison, and feed him '
+                        'with bread of affliction and with '
+                        'water of affliction, until I come in '
+                        "peace.'''\n"
+                        "Micaiah said, 'If you return at all in "
+                        "peace, Yahweh has not spoken by me.' "
+                        "He said, 'Listen, all you people!'\n"
+                        'So the king of Israel and Jehoshaphat '
+                        'the king of Judah went up to Ramoth '
+                        'Gilead.\n'
+                        'The king of Israel said to '
+                        "Jehoshaphat, 'I will disguise myself, "
+                        'and go into the battle; but you put on '
+                        "your robes.' The king of Israel "
+                        'disguised himself, and went into the '
+                        'battle.\n'
+                        'Now the king of Syria had commanded '
+                        'the thirty-two captains of his '
+                        "chariots, saying, 'Don't fight with "
+                        'small nor great, except only with the '
+                        "king of Israel.'\n"
+                        'When the captains of the chariots saw '
+                        "Jehoshaphat, they said, 'Surely that "
+                        "is the king of Israel!' and they came "
+                        'over to fight against him. Jehoshaphat '
+                        'cried out.\n'
+                        'When the captains of the chariots saw '
+                        'that it was not the king of Israel, '
+                        'they turned back from pursuing him.\n'
+                        'A certain man drew his bow at random, '
+                        'and struck the king of Israel between '
+                        'the joints of the armor. Therefore he '
+                        'said to the driver of his chariot, '
+                        "'Turn your hand, and carry me out of "
+                        'the battle; for I am severely '
+                        "wounded.'\n"
+                        'The battle increased that day. The '
+                        'king was propped up in his chariot '
+                        'facing the Syrians, and died at '
+                        'evening. The blood ran out of the '
+                        'wound into the bottom of the chariot.\n'
+                        'A cry went throughout the army about '
+                        'the going down of the sun, saying, '
+                        "'Every man to his city, and every man "
+                        "to his country!'\n"
+                        'So the king died, and was brought to '
+                        'Samaria; and they buried the king in '
+                        'Samaria.\n'
+                        'They washed the chariot by the pool of '
+                        'Samaria; and the dogs licked up his '
+                        'blood where the prostitutes washed '
+                        "themselves; according to Yahweh's word "
+                        'which he spoke.\n'
+                        'Now the rest of the acts of Ahab, and '
+                        'all that he did, and the ivory house '
+                        'which he built, and all the cities '
+                        "that he built, aren't they written in "
+                        'the book of the chronicles of the '
+                        'kings of Israel?\n'
+                        'So Ahab slept with his fathers; and '
+                        'Ahaziah his son reigned in his place.\n'
+                        'Jehoshaphat the son of Asa began to '
+                        'reign over Judah in the fourth year of '
+                        'Ahab king of Israel.\n'
+                        'Jehoshaphat was thirty-five years old '
+                        'when he began to reign; and he reigned '
+                        'twenty-five years in Jerusalem. His '
+                        "mother's name was Azubah the daughter "
+                        'of Shilhi.\n'
+                        'He walked in all the way of Asa his '
+                        "father. He didn't turn away from it, "
+                        "doing that which was right in Yahweh's "
+                        'eyes. However the high places were not '
+                        'taken away. The people still '
+                        'sacrificed and burned incense on the '
+                        'high places.\n'
+                        'Jehoshaphat made peace with the king '
+                        'of Israel.\n'
+                        'Now the rest of the acts of '
+                        'Jehoshaphat, and his might that he '
+                        "showed, and how he fought, aren't they "
+                        'written in the book of the chronicles '
+                        'of the kings of Judah?\n'
+                        'The remnant of the sodomites, that '
+                        'remained in the days of his father '
+                        'Asa, he put away out of the land.\n'
+                        'There was no king in Edom. A deputy '
+                        'ruled.\n'
+                        'Jehoshaphat made ships of Tarshish to '
+                        "go to Ophir for gold, but they didn't "
+                        'go; for the ships wrecked at Ezion '
+                        'Geber.\n'
+                        'Then Ahaziah the son of Ahab said to '
+                        "Jehoshaphat, 'Let my servants go with "
+                        "your servants in the ships.' But "
+                        'Jehoshaphat would not.\n'
+                        'Jehoshaphat slept with his fathers, '
+                        'and was buried with his fathers in his '
+                        "father David's city. Jehoram his son "
+                        'reigned in his place.\n'
+                        'Ahaziah the son of Ahab began to reign '
+                        'over Israel in Samaria in the '
+                        'seventeenth year of Jehoshaphat king '
+                        'of Judah, and he reigned two years '
+                        'over Israel.\n'
+                        "He did that which was evil in Yahweh's "
+                        'sight, and walked in the way of his '
+                        'father, and in the way of his mother, '
+                        'and in the way of Jeroboam the son of '
+                        'Nebat, in which he made Israel to '
+                        'sin.\n'
+                        'He served Baal and worshiped him, and '
+                        'provoked Yahweh, the God of Israel, to '
+                        'anger, in all the ways that his father '
+                        'had done so.\n',
+                'translation_id': 'web',
+                'translation_name': 'World English Bible',
+                'translation_note': 'Public Domain',
+                'verses': [{'book_id': '1KI',
                                            'book_name': '1 Kings',
                                            'chapter': 1,
                                            'text': 'Now king David was old and '
@@ -17889,7 +17894,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'all the ways that his '
                                                    'father had done so.\n',
                                            'verse': 53}]},
-                   '1 samuel': {'reference': '1 Samuel 1,31',
+        '1 samuel': {'reference': '1 Samuel 1,31',
                                 'text': 'Now there was a certain man of '
                                         'Ramathaim Zophim, of the hill country '
                                         'of Ephraim, and his name was Elkanah, '
@@ -18484,7 +18489,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'tamarisk tree in Jabesh, '
                                                     'and fasted seven days.\n',
                                             'verse': 13}]},
-                   '2 chronicles': {'reference': '2 Chronicles 1,36',
+        '2 chronicles': {'reference': '2 Chronicles 1,36',
                                     'text': 'Solomon the son of David was '
                                             'firmly established in his '
                                             'kingdom, and Yahweh\n'
@@ -19223,7 +19228,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                         'with him, and let him '
                                                         "go up.''\n",
                                                 'verse': 23}]},
-                   '2 kings': {'reference': '2 Kings 1,25',
+        '2 kings': {'reference': '2 Kings 1,25',
                                'text': 'Moab rebelled against Israel after the '
                                        'death of Ahab.\n'
                                        'Ahaziah fell down through the lattice '
@@ -20013,7 +20018,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'portion, all the days of '
                                                    'his life.\n',
                                            'verse': 30}]},
-                   '2 samuel': {'reference': '2 Samuel 1,24',
+        '2 samuel': {'reference': '2 Samuel 1,24',
                                 'text': 'After the death of Saul, when David '
                                         'had returned from the slaughter of '
                                         'the Amalekites, and David had stayed '
@@ -20832,7 +20837,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'and the plague was '
                                                     'removed from Israel.\n',
                                             'verse': 25}]},
-                   'amos': {'reference': 'Amos 1,9',
+        'amos': {'reference': 'Amos 1,9',
                             'text': 'The words of Amos, who was among the '
                                     'herdsmen of Tekoa, which he saw '
                                     'concerning Israel in the days of Uzziah '
@@ -21343,7 +21348,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 "which I have given them,'\n"
                                                 'says Yahweh your God.\n',
                                         'verse': 15}]},
-                   'daniel': {'reference': 'Daniel 1,12',
+        'daniel': {'reference': 'Daniel 1,12',
                               'text': 'In the third year of the reign of '
                                       'Jehoiakim king of Judah Nebuchadnezzar '
                                       'king of Babylon came to Jerusalem and '
@@ -21855,7 +21860,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'inheritance at the end of '
                                                   "the days.'\n",
                                           'verse': 13}]},
-                   'deuteronomy': {'reference': 'Deuteronomy 1,34',
+        'deuteronomy': {'reference': 'Deuteronomy 1,34',
                                    'text': 'These are the words which Moses '
                                            'spoke to all Israel beyond the '
                                            'Jordan in the wilderness, in the '
@@ -22754,7 +22759,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                        'Moses did in the sight '
                                                        'of all Israel.\n',
                                                'verse': 12}]},
-                   'ecclesiastes': {'reference': 'Ecclesiastes 1,12',
+        'ecclesiastes': {'reference': 'Ecclesiastes 1,12',
                                     'text': 'The words of the Preacher, the '
                                             'son of David, king in Jerusalem:\n'
                                             "'Vanity of vanities,' says the "
@@ -23257,7 +23262,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                         'it is good, or '
                                                         'whether it is evil.\n',
                                                 'verse': 14}]},
-                   'esther': {'reference': 'Esther 1,10',
+        'esther': {'reference': 'Esther 1,10',
                               'text': 'Now in the days of Ahasuerus (this is '
                                       'Ahasuerus who reigned from India even '
                                       'to Ethiopia, over one hundred '
@@ -23661,7 +23666,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'speaking peace to all his '
                                                   'descendants.\n',
                                           'verse': 3}]},
-                   'exodus': {'reference': 'Exodus 1,40',
+        'exodus': {'reference': 'Exodus 1,40',
                               'text': 'Now these are the names of the sons of '
                                       'Israel, who came into Egypt (every man '
                                       'and his household came with Jacob):\n'
@@ -24377,7 +24382,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'Israel, throughout all '
                                                   'their journeys.\n',
                                           'verse': 38}]},
-                   'ezekiel': {'reference': 'Ezekiel 1,48',
+        'ezekiel': {'reference': 'Ezekiel 1,48',
                                'text': 'Now in the thirtieth year, in the '
                                        'fourth month, in the fifth of the '
                                        'month, as I was among the captives by '
@@ -25361,7 +25366,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    "that day shall be, 'Yahweh "
                                                    "is there.'\n",
                                            'verse': 35}]},
-                   'ezra': {'reference': 'Ezra 1,10',
+        'ezra': {'reference': 'Ezra 1,10',
                             'text': 'Now in the first year of Cyrus king of '
                                     "Persia, that Yahweh's word\n"
                                     " by Jeremiah's mouth might be "
@@ -26070,7 +26075,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'wives by whom they had '
                                                 'children.\n',
                                         'verse': 44}]},
-                   'genesis': {'reference': 'Genesis 1,50',
+        'genesis': {'reference': 'Genesis 1,50',
                                'text': 'In the beginning, God created the '
                                        'heavens and the earth.\n'
                                        'The earth was formless and empty. '
@@ -26853,7 +26858,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'was put in a coffin in '
                                                    'Egypt.\n',
                                            'verse': 26}]},
-                   'habukkuk': {'reference': 'Habakkuk 1,3',
+        'habukkuk': {'reference': 'Habakkuk 1,3',
                                 'text': 'The revelation which Habakkuk the '
                                         'prophet saw.\n'
                                         'Yahweh, how long will I cry, and you '
@@ -27399,7 +27404,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'on my stringed '
                                                     'instruments.\n',
                                             'verse': 19}]},
-                   'haggai': {'reference': 'Haggai 1,2',
+        'haggai': {'reference': 'Haggai 1,2',
                               'text': 'In the second year of Darius the king, '
                                       'in the sixth month, in the first day of '
                                       "the month, Yahweh's word came by "
@@ -27952,7 +27957,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   "chosen you,' says Yahweh of "
                                                   "Armies.'\n",
                                           'verse': 23}]},
-                   'hosea': {'reference': 'Hosea 1,14',
+        'hosea': {'reference': 'Hosea 1,14',
                              'text': "Yahweh's word that came to Hosea the son "
                                      'of Beeri, in the days of Uzziah, Jotham, '
                                      'Ahaz, and Hezekiah, kings of Judah, and '
@@ -28256,7 +28261,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                  'But the rebellious stumble '
                                                  'in them.\n',
                                          'verse': 9}]},
-                   'isaiah': {'reference': 'Isaiah 1,66',
+        'isaiah': {'reference': 'Isaiah 1,66',
                               'text': 'The vision of Isaiah the son of Amoz, '
                                       'which he saw concerning Judah and '
                                       'Jerusalem, in the days of Uzziah, '
@@ -29155,7 +29160,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'they will be loathsome to '
                                                   "all mankind.'\n",
                                           'verse': 24}]},
-                   'jeremiah': {'reference': 'Jeremiah 1,52',
+        'jeremiah': {'reference': 'Jeremiah 1,52',
                                 'text': 'The words of Jeremiah the son of '
                                         'Hilkiah, one of the priests who were '
                                         'in Anathoth in the land of Benjamin.\n'
@@ -29998,7 +30003,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'his death, all the days '
                                                     'of his life.\n',
                                             'verse': 34}]},
-                   'job': {'reference': 'Job 1,42',
+        'job': {'reference': 'Job 1,42',
                            'text': 'There was a man in the land of Uz, whose '
                                    'name was Job. That man was blameless and '
                                    'upright, and one who feared God, and '
@@ -30530,7 +30535,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                        'text': 'So Job died, being old and '
                                                'full of days.\n',
                                        'verse': 17}]},
-                   'joel': {'reference': 'Joel 1,3',
+        'joel': {'reference': 'Joel 1,3',
                             'text': "Yahweh's word that came to Joel, the son "
                                     'of Pethuel.\n'
                                     'Hear this, you elders,\n'
@@ -31151,7 +31156,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'that I have not cleansed:\n'
                                                 "for Yahweh dwells in Zion.'\n",
                                         'verse': 21}]},
-                   'jonah': {'reference': 'Jonah 1,4',
+        'jonah': {'reference': 'Jonah 1,4',
                              'text': "Now Yahweh's word came to Jonah the son "
                                      'of Amittai, saying,\n'
                                      "'Arise, go to Nineveh, that great city, "
@@ -31553,7 +31558,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                  'their left hand; and also '
                                                  "much livestock?'\n",
                                          'verse': 11}]},
-                   'joshua': {'reference': 'Joshua 1,24',
+        'joshua': {'reference': 'Joshua 1,24',
                               'text': 'Now after the death of Moses the '
                                       'servant of Yahweh, Yahweh spoke to '
                                       "Joshua the son of Nun, Moses' servant, "
@@ -32334,7 +32339,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'the hill country of '
                                                   'Ephraim.\n',
                                           'verse': 33}]},
-                   'judges': {'reference': 'Judges 1,21',
+        'judges': {'reference': 'Judges 1,21',
                               'text': 'After the death of Joshua, the children '
                                       'of Israel asked of Yahweh,\n'
                                       " saying, 'Who should go up for us first "
@@ -33217,7 +33222,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'did that which was right in '
                                                   'his own eyes.\n',
                                           'verse': 25}]},
-                   'lamentations': {'reference': 'Lamentations 1,5',
+        'lamentations': {'reference': 'Lamentations 1,5',
                                     'text': 'How the city sits solitary,\n'
                                             'that was full of people!\n'
                                             'She has become as a widow,\n'
@@ -33991,7 +33996,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                         'You are very angry '
                                                         'against us.\n',
                                                 'verse': 22}]},
-                   'leviticus': {'reference': 'Leviticus 1,27',
+        'leviticus': {'reference': 'Leviticus 1,27',
                                  'text': 'Yahweh called to Moses, and spoke to '
                                          'him from the Tent of Meeting, '
                                          'saying,\n'
@@ -34765,7 +34770,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'for the children of '
                                                      'Israel on Mount Sinai.\n',
                                              'verse': 34}]},
-                   'malachi': {'reference': 'Malachi 1,4',
+        'malachi': {'reference': 'Malachi 1,4',
                                'text': "A revelation, Yahweh's word to Israel "
                                        'by Malachi.\n'
                                        "'I have loved you,' says Yahweh.\n"
@@ -35090,7 +35095,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'strike the earth with a '
                                                    "curse.'\n",
                                            'verse': 6}]},
-                   'micah': {'reference': 'Micah 1,7',
+        'micah': {'reference': 'Micah 1,7',
                              'text': "Yahweh's word that came to Micah the "
                                      'Morashtite in the days of Jotham, Ahaz, '
                                      'and Hezekiah, kings of Judah, which he '
@@ -35687,7 +35692,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                  'fathers from the days of '
                                                  'old.\n',
                                          'verse': 20}]},
-                   'nahum': {'reference': 'Nahum 1,3',
+        'nahum': {'reference': 'Nahum 1,3',
                              'text': 'A revelation about Nineveh. The book of '
                                      'the vision of Nahum the Elkoshite.\n'
                                      'Yahweh is a jealous God and avenges. '
@@ -36155,7 +36160,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                  "hasn't felt your endless "
                                                  'cruelty?\n',
                                          'verse': 19}]},
-                   'nehemiah': {'reference': 'Nehemiah 1,13',
+        'nehemiah': {'reference': 'Nehemiah 1,13',
                                 'text': 'The words of Nehemiah the son of '
                                         'Hacaliah.\n'
                                         'Now in the month Chislev, in the '
@@ -36867,7 +36872,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'first fruits. Remember '
                                                     'me, my God, for good.\n',
                                             'verse': 31}]},
-                   'numbers': {'reference': 'Numbers 1,36',
+        'numbers': {'reference': 'Numbers 1,36',
                                'text': 'Yahweh spoke to Moses in the '
                                        'wilderness of Sinai, in the Tent of '
                                        'Meeting, on the first day of the '
@@ -37842,7 +37847,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'in the plains of Moab by '
                                                    'the Jordan at Jericho.\n',
                                            'verse': 13}]},
-                   'obadiah': {'reference': 'Obadiah 1:1',
+        'obadiah': {'reference': 'Obadiah 1:1',
                                'text': 'The vision of Obadiah. This is what '
                                        'the Lord Yahweh says about Edom. We '
                                        'have heard news from Yahweh, and an '
@@ -37865,7 +37870,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                    'rise up against her in '
                                                    'battle.\n',
                                            'verse': 1}]},
-                   'proverbs': {'reference': 'Proverbs 1,31',
+        'proverbs': {'reference': 'Proverbs 1,31',
                                 'text': 'The proverbs of Solomon, the son of '
                                         'David, king of Israel:\n'
                                         'to know wisdom and instruction;\n'
@@ -38611,7 +38616,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                     'Let her works praise her '
                                                     'in the gates!\n',
                                             'verse': 31}]},
-                   'psalms': {'reference': 'Psalms 1,150',
+        'psalms': {'reference': 'Psalms 1,150',
                               'text': "Blessed is the man who doesn't walk in "
                                       'the counsel of the wicked,\n'
                                       'nor stand on the path of sinners,\n'
@@ -38761,7 +38766,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                   'breath praise Yah!\n'
                                                   'Praise Yah!\n',
                                           'verse': 6}]},
-                   'ruth': {'reference': 'Ruth 1,4',
+        'ruth': {'reference': 'Ruth 1,4',
                             'text': 'In the days when the judges judged, there '
                                     'was a famine in the land. A certain man '
                                     'of Bethlehem Judah went to live in the '
@@ -39377,7 +39382,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                 'Jesse, and Jesse became the '
                                                 'father of David.\n',
                                         'verse': 22}]},
-                   'song of solomon': {'reference': 'Song of Solomon 1,8',
+        'song of solomon': {'reference': 'Song of Solomon 1,8',
                                        'text': 'The Song of songs, which is '
                                                "Solomon's.\n"
                                                'Let him kiss me with the '
@@ -39945,7 +39950,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                            'the mountains of '
                                                            'spices!\n',
                                                    'verse': 14}]},
-                   'zechariah': {'reference': 'Zechariah 1,14',
+        'zechariah': {'reference': 'Zechariah 1,14',
                                  'text': 'In the eighth month, in the second '
                                          "year of Darius, Yahweh's word came "
                                          'to Zechariah the son of Berechiah, '
@@ -40650,7 +40655,7 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'house of Yahweh of '
                                                      'Armies.\n',
                                              'verse': 21}]},
-                   'zephaniah': {'reference': 'Zephaniah 1,3',
+        'zephaniah': {'reference': 'Zephaniah 1,3',
                                  'text': "Yahweh's word which came to "
                                          'Zephaniah, the son of Cushi, the son '
                                          'of Gedaliah, the son of Amariah, the '
@@ -41268,8 +41273,162 @@ bible = {'new testament': {'1 corinthians': {'reference': '1 Corinthians 1,16',
                                                      'your eyes, says '
                                                      'Yahweh.\n',
                                              'verse': 20}]}}}
+bk_old = random.choice(old_t)
+bk_new = random.choice(new_t)
+# text = bible[bk][]
+"""unique words to each book and unisque words to each chapter and across book"""
+# user=input('Start reading?')
+x = 0
+trip = True
+while trip == False:
+        for testament in bible:
+                if x == 2:
+                        x = 0
+                testament = bible[testament]
+                books = list(testament.keys())
+                for i, bibl in enumerate(biblia[x]):
+                        # print(bibl)
+                        print(f"\t{i+1}: {bibl.capitalize()}")        
+                book = (biblia[x])[int(input('choose: '))-1]
+                # print(book)
+                lines = testament[book]['text']
+                # print(text)
+                lines = lines.split('\n')
+                # print(lines)
+                x = 0
+                c= ''
+                print(f"\n\n\n{book.upper()}:")
+                for i, line in enumerate(lines):
+                        x +=1
+                        print(f"\n{i+1}) {line}")
+                        time.sleep(3)
+                        while x == 5:
+                                c = input('\n\t\t\tcontinue? ')
+                                if c == 'n':
+                                        break
+                                else:
+                                        x = 0
+                                        continue                
+                        if c == 'n':
+                                break                
 
-bk = random.choice(old_t)
+# book = input('book: ')
+# lines = bible[testament][book]['text']
 
-text = bible[bk][]
+# for line in lines:
+
+# old_testament = bible['old testament']
+# ot_bk_list={}
+# for i, old in enumerate(old_testament):
+#         book_info = old_testament[old_t[0]]
+#         text = book_info['text']
+#         # print(text)
+#         text_list = text.split('\n')
+#         # print(text_list)
+#         break
+
+# for i, text in enumerate(text_list):
+        # print(f"{i}:  {text}")
+
+
+# print(ot_bk_list)
+# print(f"{bible[testament][book]['text']}")
+
+
+# interface = input(f"""
+
+# -search by testament:
+# -search by book:
+# -search by keyword:
+# -find random passage:
+
+# """)
+# for testament in bible:
+#         test = bible[testament]
+#         print(test)
+#         for t in test:
+#                 ask = input(f'read {test}: ')
+#                 if ask == 'y':
+#                         # print(t)
+#                 else: 
+#                         break
+for testament in bible:  
+        testament=bible[testament]
+        for book in testament:     
+                book = testament[book]
+                verses = book['verses']
+                for i, verse_dict in enumerate(verses):
+                        text = verse_dict['text']
+                        ch = verse_dict['chapter']
+                        vs = verse_dict['verse']
+                        print(f"ch{ch}:{vs} {text}")
+                break
+
+
+
+class Pyble:
+
+        def __init__(self, user, bible):
+
+                self.user = user
+                self.bible = bible
+                self.favp = {}
+                self.favv = []
+
+class Viewer(Pyble):
+
+        def __init__(self):
+                pass
+
+        def rd_ch(self, testament, book):
+                print(testament)
+                test = self.bible[testament]
+                text = test['text']
+                text = self.bible[testament][book]['text']
+                lines = text.split('\n')
+                c=''
+                for i, line in enumerate(lines):
+                        x +=1
+                        print(f"\n{i+1}) {line}")
+                        time.sleep(1.5)
+                        while x == 5:
+                                c = input('\n\t\t\tcontinue? ')
+                                if c == 'n':
+                                        break
+                                else:
+                                        x = 0
+                                        continue                
+                        if c == 'n':
+                                break 
+
+                if c == 'n':
+                        pass    
+
+        def search(keyword):
+                options = []
+                for testament in bible:
+                        for book in testament:
+                                if keyword in book['text']:
+                                        options.append(book)
+                                        continue                
+                        for i, options in enumerate(options):
+                                print(f"{i+1}: {book}")
+                        choice = input('select: ')
+                        for bibl in biblia:
+                                for b in bibl:
+                                        if choice == bibl.index(choice):
+                                                print((bibl[choice])['text'])
+                        # print(book['text'])                               
+
+# user = input('name: ')
+# bible = Pyble(bible, user)
+
+# testament = input('testament: ')
+# book = input('book: ')
+# bible.rd_ch(testament,book)
+
+# for testament in bible:
+#         testament = bible[testament]
+#         testament = list(testament.values())
+#         print(testament)
 

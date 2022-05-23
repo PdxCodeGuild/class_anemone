@@ -98,13 +98,23 @@ while True:
         delete_contact(contacts,keys)
 
 data_csv_out = []
-data_csv_out.append[keys]
+data_csv_out.append(keys)
 for contact in contacts:
     data_csv_out.append(list(contact.values()))
+
 
 
 output = []
 for row in data_csv_out:
     output.append(",".join(row))
 
-print(output)
+## list
+final_output = "\n".join(output)
+
+
+
+with open('contact.csv', 'w') as file:
+    file.write(final_output)
+
+print(final_output)
+
