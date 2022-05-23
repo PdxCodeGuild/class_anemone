@@ -30,7 +30,7 @@ while new:
             k_word.append(body)
             
         print(f'\n{lines}')
-        print(f'\n{len(k_word)} Quotes with {keyword} - page {page}\n') # len(k_word) is explained in # above but placed in here to give the length to the user with their word of choice and the page number it is on and keep track
+        print(f'\n{len(k_word)} Quotes {k_word} - page {page}\n') # len(k_word) is explained in # above but placed in here to give the length to the user with their word of choice and the page number it is on and keep track
         print(f'\n{every}\n')  # for the actual quote for the user
         print(f'{lines}\n')
                                 # used line to seperate the info from everything to make it easier to see
