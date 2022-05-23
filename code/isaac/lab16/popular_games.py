@@ -1,0 +1,45 @@
+'''Top 5 video games'''
+# Write a program that displays the data showing the top 5 most popular video games between the years of 2020 to 2022.
+import json
+import requests as req
+import pprint as pp
+import matplotlib.pyplot as plt
+
+
+page = int(input("Which page would you like to view? \n"))
+size = int(input("How many searches per page? (max 25 per page) \n"))
+    
+
+# create the request.get() function to gather the required data
+# data: game name and rating
+url = req.get('https://api.rawg.io/api/games?key=48c7cfe6a1ec4e9cbd17cfc91400de82&dates=2020-01-01,2022-04-30',
+    params={'page': page, 'page_size': size, 'ordering': '-rating'})
+
+# create a variable containing the data in a json format
+game_results = url.json()
+
+
+# iterate through the results, collecting the following pieces of data
+# game name and rating.
+for result in game_results['results']:
+    name = result['name']
+    rating = result['rating']
+    prompt = f"\nGame: {name} \n-Rating: {rating}\n"
+    # print(prompt)
+
+# create visualization of data gathered
+fig, ax = plt.subplots()
+
+for result in game_results['results']:  # iterate through the data and display the data
+    name = result['name']
+    rating = result['rating']
+    game_name = name
+    game_rating = rating
+    ax.bar(game_name, game_rating, label=game_name)
+
+plt.xlabel('Game Name', fontsize=10)
+plt.ylabel('Game Rating', fontsize=10)
+plt.tick_params(axis='x', rotation=10)
+plt.title("Top 5 Games between 2020 and 2022", fontsize=20)
+plt.legend()
+plt.show()
