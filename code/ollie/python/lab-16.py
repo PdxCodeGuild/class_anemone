@@ -7,10 +7,10 @@ If this became a larger capstone project I would include all cities with
 a population over 10,000 and allow more than two capitals and determine
 the shortest path through all chosen capitals. """
 
-from geopy import distance
+from geopy import distance                          # to convert (lat, long) to distance in km
 import pandas as pd
 
-data = pd.read_csv("concap.csv")
+data = pd.read_csv("concap.csv")                            # converts csv file of capitals' data to dataframe
 
 data = data.rename(columns = {
     "CountryName": "COUNTRY",
@@ -24,11 +24,14 @@ data = data.rename(columns = {
 def cap_distance():
     cap1 = input("Enter a country's capital: ").title()
     cap2 = input("Enter another country's capital: ").title()
-    cap_data = data[data['CAPITAL'].isin([cap1, cap2])].reset_index()
-    coord_dist = distance.distance((cap_data.loc[0, 'LAT'], cap_data.loc[0, 'LONG']), (cap_data.loc[1, 'LAT'], cap_data.loc[1, 'LONG']))
+
+    cap_data = data[data['CAPITAL'].isin([cap1, cap2])].reset_index()                           # grabs dataframe info for only the two user given countries
+
+    coord_dist = distance.distance((cap_data.loc[0, 'LAT'], cap_data.loc[0, 'LONG']), (cap_data.loc[1, 'LAT'], cap_data.loc[1, 'LONG']))                # get coords from both countries under 'Long' and 'Lat' columns and return distance between them
+
     return coord_dist.meters
 
-def user_distance():
+def user_distance():                            # convert distance to user's uinit of choice and display for them
     units = input("What unit would you like your distance represented in? ").lower()
     if units in ['m', 'meter', 'meters']:
         dist = round(cap_distance(), 2)
@@ -74,5 +77,5 @@ print(f"""
                      |   |             ~                 -~~-, /   _
                      | ,/'                                    ~    /
                      / ,'                                      
-                     ',|  ~""")
+                     ',|  ~""")     # Google search: 'ascii art world map'
 user_distance()
