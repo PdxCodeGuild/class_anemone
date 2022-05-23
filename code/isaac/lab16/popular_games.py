@@ -40,6 +40,6 @@ for result in game_results['results']:  # iterate through the data and display t
 plt.xlabel('Game Name', fontsize=10)  # set x label
 plt.ylabel('Game Rating', fontsize=10) # set y label
 plt.tick_params(axis='x', rotation=10)  # rotate x axis labels
-plt.title("Top 5 Games between 2020 and 2022", fontsize=20)  # title and size of title
+plt.title("Most Popular Games 2020-2022", fontsize=20)  # title and size of title
 plt.legend()  # create a legend of each game and the color associated
 plt.show()  # show the plot
