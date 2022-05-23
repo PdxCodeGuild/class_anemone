@@ -22,5 +22,6 @@ Dev-Notes:
     that I ignored a critical error coming from playsound for ~72 hours.
 - Switched to PyAudio for playing the audio files. Much more complicated, but in that sense more "robust" and friendly.
                 /PyAudio play() func takes in filepath to .wav file.
-                /Basically functions like a 'with open' with a mode that reads the binary structure of the wav file.
+                /Wave Module functions like a 'with open' with a mode that reads the binary structure of the wav file.
 - reperlib acts as repr() function but allows for limits on print outputs, just in case there's 5000 kick drum samples.
+- More to come. This is most likely an ongoing project as there are many possible features to learn how to add!
