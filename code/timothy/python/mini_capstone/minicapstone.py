@@ -5,7 +5,6 @@ import reprlib
 from array import array
 from struct import pack
 from pathlib import Path
-from playsound import playsound
 
 # C:/Users/johns/pdx_code_guild/class_anemone/code/timothy/python/mini_capstone/samples
 
