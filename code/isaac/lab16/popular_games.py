@@ -1,6 +1,5 @@
-'''Top 5 video games'''
-# Write a program that displays the data showing the top 5 most popular video games between the years of 2020 to 2022.
-import json
+'''Most Popular video games'''
+# Write a program that displays the data showing the most popular video games between the years of 2020 to 2022.
 import requests as req
 import pprint as pp
 import matplotlib.pyplot as plt
