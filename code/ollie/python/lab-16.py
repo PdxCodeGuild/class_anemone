@@ -5,14 +5,14 @@ any two country capitals in the world, in the user's unit of choice.
 
 If this became a larger capstone project I would include all cities with
 a population over 10,000 and allow more than two capitals and determine
-the quickest path that passes through all chosen capitals. """
+the shortest path through all chosen capitals. """
 
-from geopy import distance                                  # to calculate distance on the surface of the Earth
-import pandas as pd                                         # to load capital cities dataset
+from geopy import distance
+import pandas as pd
 
-data = pd.read_csv("concap.csv")                            # load dataframe with capitals' data
+data = pd.read_csv("concap.csv")
 
-data = data.rename(columns = {                              # renaming column titles to ones that read better
+data = data.rename(columns = {
     "CountryName": "COUNTRY",
     "CapitalName": "CAPITAL",
     "CapitalLatitude": "LAT",
@@ -20,9 +20,6 @@ data = data.rename(columns = {                              # renaming column ti
     "CountryCode": "CODE",
     "ContinentName": "CONTINENT"
     })
-
-# samp_cap = data.sample(5)
-# print(samp_cap)
 
 def cap_distance():
     cap1 = input("Enter a country's capital: ").title()
@@ -32,7 +29,7 @@ def cap_distance():
     return coord_dist.meters
 
 def user_distance():
-    units = input("What unit would you like your distance represented in?\n(m, cm, km, mi, yd, ft, in): ").lower()
+    units = input("What unit would you like your distance represented in? ").lower()
     if units in ['m', 'meter', 'meters']:
         dist = round(cap_distance(), 2)
         print(f"The distance between your two capitals is {dist} meters.")
@@ -57,7 +54,6 @@ def user_distance():
 
 print(f"""
                         ~~ Welcome to: CAP2CAP! ~~
-
                ,_   .  ._. _.  .
            , _- ','|~\~      ~/      ;-'_   _-'   __,;_;_,    ~~-
   /~~-\_/-'~'--' \~~| ',    ,'      /  / ~|-_\_/~/       ~~--~~~~'--_
@@ -78,6 +74,5 @@ print(f"""
                      |   |             ~                 -~~-, /   _
                      | ,/'                                    ~    /
                      / ,'                                      
-                     ',|  ~
-""")
+                     ',|  ~""")
 user_distance()
