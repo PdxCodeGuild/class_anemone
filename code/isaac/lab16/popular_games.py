@@ -5,9 +5,10 @@ import requests as req
 import pprint as pp
 import matplotlib.pyplot as plt
 
-
+# ask the user for the page and page size
+# show max 10 games per page
 page = int(input("Which page would you like to view? \n"))
-size = int(input("How many searches per page? (max 25 per page) \n"))
+size = int(input("How many searches per page? (max 10 per page) \n"))
     
 
 # create the request.get() function to gather the required data
