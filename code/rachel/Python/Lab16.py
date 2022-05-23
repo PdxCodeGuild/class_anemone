@@ -3,7 +3,6 @@
 import pygame
 from sys import exit
 import random
-import textwrap
 
 #Open prompts/blackcards csv file and convert into list of prompts
 with open ('CAH_Family_Edition-prompts.csv', encoding="utf-8-sig") as file:
@@ -84,7 +83,7 @@ while True:
         funniest_responses.pop()
         # print(funniest_card)
 
-        #Add 3 more whitecards/responses to funniest_responses list for card Czar to choose from (*posing as 3 other players*)
+        #Add 4 more whitecards/responses to funniest_responses list for card Czar to choose from (*posing as 4 other players*)
         #print ("\nThe whitecards chosen for this round are: ")
         for card in range(4):
             random_computer_responses = random.choice(whitecards)
@@ -150,6 +149,11 @@ header = header_font.render('Cards Against Humanity', True, 'white')
 prompt = card_font.render(random_prompt, True, 'white')
 winning_card = card_font.render(winning_card, True, 'black')
 player_score = score_font.render('Player Scores:', True, 'white')
+player_1 = card_font.render('1: ', True, 'black')
+player_2 = card_font.render('2: ', True, 'black')
+player_3 = card_font.render('3: ', True, 'black')
+player_4 = card_font.render('4: ', True, 'black')
+player_5 = card_font.render('5: ', True, 'black')
 
 #Button Setup
 new_game_img = pygame.image.load('new_game_img.png').convert_alpha()
@@ -267,8 +271,13 @@ class GamePlay ():
         screen.blit(top, (0,0))
         screen.blit(header, (290,20))
         screen.blit(prompt, (10, 185))
+        screen.blit(player_1, (20, 350))
+        screen.blit(player_2, (20, 390))
+        screen.blit(player_3, (20, 430))
+        screen.blit(player_4, (20, 470))
+        screen.blit(player_5, (20, 510))
 
-        x = 20
+        x = 75
         y = 350
         for funny_response in funniest_responses:
             funny_response_position = (x, y)
@@ -337,17 +346,18 @@ class GamePlay ():
 
 game_play = GamePlay()
 while True:
-    if game_play.play == 'intro':
-        game_play.intro()
-    if game_play.play == 'pick_card_page':
-        game_play.pick_card_page()
-    if game_play.play == 'funniest_card_page':
-        game_play.funniest_card_page()
-    if game_play.play == 'winning_card_page':
-        game_play.winning_card_page()
-    if game_play.play == 'next_round':
-        game_play.__init__()
 
-
+    while True:
+        if game_play.play == 'intro':
+            game_play.intro()
+        if game_play.play == 'pick_card_page':
+            game_play.pick_card_page()
+        if game_play.play == 'funniest_card_page':
+            game_play.funniest_card_page()
+        if game_play.play == 'winning_card_page':
+            game_play.winning_card_page()
+        if game_play.play == 'next_round':
+            break
+    game_play.__init__()
 
     clock.tick(60)
