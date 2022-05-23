@@ -1,117 +1,121 @@
-'''
-Tic Tac Toe is a game. Players take turns placing tokens (a 'O' or 'X') into a 3x3 grid. Whoever gets three in a row first wins.
-
-You will write a Player class and Game class to model Tic Tac Toe, and a function main that models gameplay taking in user inputs through REPL.
-
-The Player class has the following properties:
-
-name = player name
-token = 'X' or 'O'
-The Game class has the following properties:
-
-board = your representation of the board
-You can represent the board however you like, such as a 2D list, tuples, or dictionary.
-
-The Game class has the following methods:
-
-__repr__() Returns a pretty string representation of the game board
-
->>> print(board)
-print( Y             )
-print('0 |__|__|__|' )
-print('1 |__|__|__|' )
-print('2 |  |  |  |' )
-print('X  0   1  2  ')
-
-
-'''
-
-
-'''
-
-move(x, y, player)
-calc_winner()
-is_full()
-is_game_over()
-
-'''
-
-#submission time
 
 
 
-
-class Player:
-
-
-    def __init__(self, name, token):
-       self.name = name
-       self.token = token 
       
 
  
-
+#Creating the board display and list of positions for pieces
 
 class Board:
 
     def __init__(self):
-     #  self.board = [[" "for i in range(3)]for j in range(3)]
-      self.board = [[' ',' ',' '],
-                    [' ',' ',' '],
-                    [' ',' ',' ']]
+  
+      self.cells = [' ',' ',' ',
+                    ' ',' ',' ',
+                    ' ',' ',' ']
                
 
 
-
+#Board display and cell value assignment 
      
     def __repr__(self):
-        ret =""
-        for row in self.board:
-            ret += '|'.join(row)
-            ret += '\n'
-        return ret
+        print ("%s | %s | %s "%(self.cells[0], self.cells[1], self.cells[2]))
+        print("----------")
+        print ("%s | %s | %s "%(self.cells[3], self.cells[4], self.cells[5]))
+        print("----------")
+        print ("%s | %s | %s "%(self.cells[6], self.cells[7], self.cells[8]))
 
     
-
+    def update_cell(self, cell_no, player):
+        self.cells[cell_no] = player
  
-       
-    def move(self, x, y, token):
-    #    possible_moves = {1:(0,0), 2:(1,0),3:(2,0),4:(1,0),5:(1,1),6:(1,2),7:(2,0),8:(2,1),9:(2,2)}
-        if self.board[y][x] != " ":
-            return "This space is already taken"
-        else:
-            self.board[y][x] = token 
+
         
         
     def calc_winner(self, player):
-        
-        #for i in range(3):
-        #    row = self.board[i]
-        #    if all(item == row[0] and item != " " for item in row):
-        #        return 
-        if self.board[0][0] == self.board[1][0] == self.board[2][0]== player.token:
-            return player.token
-        elif self.board[0][0] == self.board[0][1] == self.board[0][2]== player.token:
-            return player.token
-        elif self.board[0][0] == self.board[1][1] == self.board[2][2]== player.token:
-            return player.token
-        elif self.board[1][0] == self.board[1][1] == self.board[1][2]== player.token:
-            return player.token
-        elif self.board[2][0] == self.board[2][1] == self.board[2][2]== player.token:
-            return player.token
-        elif self.board[2][0] == self.board[1][1] == self.board[0][2]== player.token:
-            return player.token
-        elif self.board[0][1] == self.board[1][1] == self.board[2][1]== player.token:
-            return player.token
-        elif self.board[0][2] == self.board[1][2] == self.board[2][2]== player.token:
-            return player.token
+        if self.cells[0]==player and self.cells[1]==player and self.cells[2]==player:
+            return True
+        if self.cells[3]==player and self.cells[4]==player and self.cells[5]==player:
+            return True
+        if self.cells[6]==player and self.cells[7]==player and self.cells[8]==player:
+            return True
+        if self.cells[0]==player and self.cells[4]==player and self.cells[8]==player:
+            return True
+        if self.cells[6]==player and self.cells[4]==player and self.cells[2]==player:
+            return True
+        if self.cells[0]==player and self.cells[3]==player and self.cells[6]==player:
+            return True
+        if self.cells[1]==player and self.cells[4]==player and self.cells[7]==player:
+            return True
+        if self.cells[2]==player and self.cells[5]==player and self.cells[8]==player:
+            return True
 
+    def game_over(self):
+        self.cells ==["","","",
+                      "","","",
+                      "","",""]
+
+        
 
 
     def is_full(self):
-        pass
-    def is_game_over(self):
-        pass
+        used_cells = 0
+        for cell in self.cells:
+            if cell !=" ":
+                used_cells += 1
+        if used_cells == 9:
+            return True
+        else:
+            return False
 
 board = Board()
-print(board)
+
+board.__repr__()
+
+while True: 
+    x_choice = int(input("\nX) Please choose a space 0-8: 0 is top left, 8 is bottom right "))
+
+    board.update_cell(x_choice, "X")
+    board.__repr__()
+
+    if board.calc_winner("X"):
+        print ("\n X Wins!!!\n")
+        play_again = input("Would you like to play again? Y/N? ").upper
+        if play_again == "Y":
+            board.is_full()
+            continue
+        else:
+            break
+
+    if board.is_game_over():
+        print ("Game over! It's a tie!")
+        play_again = input("Would you like to play again? Y/N? ").upper
+        if play_again == "Y":
+            board.is_full()
+            continue
+        else:
+            break
+
+
+    o_choice = int(input("\nO) Please choose a space 0-8: 0 is top left, 8 is bottom right"))
+
+    board.update_cell(o_choice, "O")
+    board.__repr__()
+
+    if board.calc_winner("O"):
+        print ("\n O Wins!!!\n")
+        play_again = input("Would you like to play again? Y/N? ").upper
+        if play_again == "Y":
+            board.is_full()
+            continue
+        else:
+            break
+
+    if board.is_game_over():
+        print ("Game over! It's a tie!")
+        play_again = input("Would you like to play again? Y/N? ").upper
+        if play_again == "Y":
+            board.is_full()
+            continue
+        else:
+            break
