@@ -208,6 +208,7 @@ while (True):
 
 
 
+# SCRAPPED
 
 # os.environ['SDL_VIDEO_CENTERED'] = '1'
 
