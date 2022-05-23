@@ -28,6 +28,7 @@ for result in game_results['results']:
     # print(prompt)
 
 # create visualization of data gathered
+plt.style.use('seaborn')
 fig, ax = plt.subplots()
 
 for result in game_results['results']:  # iterate through the data and display the data
