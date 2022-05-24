@@ -1,12 +1,17 @@
 <!-- Write up a short bio webpage for someone or something. It can be about a celebrity, a fictionary character, 
     a place, a species, etc. Check out the examples
+ -->
 
-Part 1
-A written introduction
-A link to a Wikipedia article
-A picture of them
-A list of places where they've lived
-A quote from them -->
+<!-- Center the entire content of the body
+Modify the padding and margins on your paragraphs to look better
+Use a custom font
+Add a background image
+
+Part 3
+Pick a color scheme and modify the background, body text, and link text color.
+Change the typeface of the quote.
+Add a rounded border to the picture.
+Change the bullet points on the list of places. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,23 +19,46 @@ A quote from them -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Short Bio Webpage</title>
+        <title>Andrew Shurka Bio</title>
+        <link rel="stylesheet" href="https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <img src="picture.png" alt="bio object"/>
-        <h1>Name of bio object</h1>
-        <hr>
-        <h2>Background information</h2>
-        <p>Here is a bio paragraph</p>
-        <h2>Interesting information</h2>
-        <p>Here is another paragraph
-            <br><a href="wikipedia.com">bio object wikipedia</a>
-        </p>
-        <ul>
-            <li>habitat found</li>
-            <li>habitat found</li>
-            <li>habitat found</li>
-        </ul>
-        <q>A famous quote about them</q>
+        <div class = background>
+            <h1>Andrew Skurka</h1>
+            <img src="http://1.bp.blogspot.com/-4tsAMChfRQQ/TdKdV059FzI/AAAAAAAAA1A/btmL1Sx9-yo/s1600/SkurkaProfileSmall.jpg" class = image alt="bio object">
+            <!-- need to resize smaller -->
+            <h4>Known as the 'Gen Y John Muir' Andrew Skurka is a hiking legend. He has hiked over 30,000 miles, and pioneered three 4000+ mile long distance routes.</h4>
+            <hr>
+            <h3>Overview</h3>
+            <p>Andrew Skurka is an American professional backpacker who is best known for his two long-distance hiking 
+                firsts—the 6,875-mile Great Western Loop and the 7,778-mile Sea-to-Sea Route. He was named the 2007 
+                "Adventurer of the Year" by National Geographic Adventure (which described him as "a Gen Y version of 
+                Henry David Thoreau or John Muir") and the 2005 "Person of the Year" by Backpacker magazine.</p>
+            <h2>Hiking Accomplishments</h2>
+            <p>In November 2007, Skurka completed the Great Western Loop, a 6,875-mile journey that links together 5 
+                long-distance hiking trails, 12 National Parks, and over 75 wilderness areas, which he hiked in 208 days, 
+                an average of 33 miles per day. In addition, in July 2005 Skurka completed the Sea-to-Sea Route, 
+                a transcontinental network of long-distance hiking trails from Quebec to Washington, which took him 11 months 
+                and which involved 1,400 miles of snowshoeing. Skurka's shorter hikes include the 1,700-mile California 
+                section of the Pacific Crest Trail (in 45 days), the 486-mile Colorado Trail (twice), the 2,170-mile Appalachian 
+                Trail (in 95 days), a 385-mile trek through northern Minnesota in January, and many week- and weekend-long trips 
+                in Colorado, Montana, and Wyoming. In 2010 he hiked a 4,679-mile route around Alaska, which took him 176 days.
+                <br>learn more at Andrew Skurka's <a href="https://en.wikipedia.org/wiki/Andrew_Skurka">wikipedia</a> page</p>
+            <hr>
+            <img src="https://photos.thetrek.co/wp-content/uploads/2020/11/17181629/gwl_map.jpg" class = image2 alt="bio object">
+            <h3>Pictured: The great western loop. Andrew's brain child, this route stitches together the PCT, NWT, CDT, AZT and a trek 
+                through the sonoran desert.<br><br>Andrew is one of only 2 people to have completed it.</h3>
+            <h3>Routes Pioneered</h3>
+            <ul>
+                <li>Western Loop - 6,875 miles</li>
+                <li>Sea-to-Sea - 7,778 miles</li>
+                <li>Alaska trek (not an offical route) - 4,679 miles</li>
+            </ul>
+            <p><q>After finding the migration trail of the Porcupine caribou, I began to cry uncontrollably, realizing that 
+                in this vast and untamed wilderness, I was like them: While being tortured by hellacious mosquitoes, soaked 
+                by torrential rains, and stalked by grizzlies and wolves, we were all trying to stay moving, and we slept 
+                and ate only to continue our forward progress.</q> - Andrew Skurka </p>
+        </div>
     </body>
 </html>
