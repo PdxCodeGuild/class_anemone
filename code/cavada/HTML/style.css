@@ -4,7 +4,7 @@ html {
 }
 body {
     background-color: rgba(0, 0, 0, 0.644);
-    background-image: url(pdx.jpg);
+    background-image: url(frog.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -63,6 +63,6 @@ nav a {
 .nounderline {
     text-decoration: none;
 }
-.maps {
+.video {
     padding-bottom: 5px;
 }

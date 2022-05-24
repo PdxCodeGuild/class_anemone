@@ -92,36 +92,36 @@ sys.stdout.close()
 # pprint.pprint(entire_bible)
 # sys.stdout.close()
 
-trip = True
-while trip == False:
-    books = {}
-    for i, book in enumerate(new_t):  # genesis, exodus, deuteronomy....
-        x = 1
-        chapters = {}
-        if book == new_t[i]:
-            verses = {}
-            # print(old_t[i])
-            for i in range(new_ch[i]):
-                url = f"https://bible-api.com/{book} {i+1}"
-                resp = requests.get(url)  
-                resp = resp.json()
-                time.sleep(.2) 
-                chap_verses_dict = resp['verses'] # verse_dict
-                for dict in chap_verses_dict:
-                    chap = dict['chapter']
-                    # print(dict)
-                    verse = dict['verse']
-                    text = dict['text']
-                    verses.update({verse:text})
-                    # print(text)
-                    # print(book,y,x,i)
-                print(book, chap)       
-                chapters.update({chap:verses}) 
-            # pprint.pprint(chapters)
-        books.update({book:chapters})
-    # pprint.pprint(books)
-    break
-entire_bible.update({'new testament':books})
+# trip = True
+# while trip == False:
+#     books = {}
+#     for i, book in enumerate(new_t):  # genesis, exodus, deuteronomy....
+#         x = 1
+#         chapters = {}
+#         if book == new_t[i]:
+#             verses = {}
+#             # print(old_t[i])
+#             for i in range(new_ch[i]):
+#                 url = f"https://bible-api.com/{book} {i+1}"
+#                 resp = requests.get(url)  
+#                 resp = resp.json()
+#                 time.sleep(.2) 
+#                 chap_verses_dict = resp['verses'] # verse_dict
+#                 for dict in chap_verses_dict:
+#                     chap = dict['chapter']
+#                     # print(dict)
+#                     verse = dict['verse']
+#                     text = dict['text']
+#                     verses.update({verse:text})
+#                     # print(text)
+#                     # print(book,y,x,i)
+#                 print(book, chap)       
+#                 chapters.update({chap:verses}) 
+#             # pprint.pprint(chapters)
+#         books.update({book:chapters})
+#     # pprint.pprint(books)
+#     break
+# entire_bible.update({'new testament':books})
 
 
 # sys.stdout = open('book.py', 'w', encoding = 'utf-8')
