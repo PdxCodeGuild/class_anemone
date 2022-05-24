@@ -1,25 +1,14 @@
 body {
     text-align: center;
-    background-color: black;
-}
-
-.backgroundimage {
-    background-image: url(https://wallpaperaccess.com/full/3389864.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.whitetext {
-    color: whitesmoke
-}
-
-
-h1 {
     font-family: 'Courier New', Courier, monospace;
+    background-image: url(https://i2.wp.com/files.123freevectors.com/wp-content/original/161175-grey-and-white-texture-background.jpg?w=800&q=95);
+    
 }
+
+
 
 p {
-    margin: 20px;
-    padding: 20px;
+    margin: 50px 700px 50px 700px;
+    padding: 10px;
+    background: whitesmoke;
 }
