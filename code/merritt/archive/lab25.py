@@ -30,7 +30,7 @@ class ATM:
     def print_transactions(self):
         print("\n".join(self.__transactions))
 
-account = ATM()
+atm = ATM()
 
 while True:
     print("What would you like to do ([d]eposit, [w]ithdraw, [c]heck balance, [h]istory, [q]uit)?")
@@ -39,19 +39,19 @@ while True:
     if user_input in ["deposit", "d"]:
         print("How much would you like to deposit?")
         user_amount = input()
-        account.deposit(float(user_amount))
+        atm.deposit(float(user_amount))
         # account.deposit(float(input("How much?")))
     elif user_input in ["withdrawl", "w"]:
         print("How much would you like to withdrawl?")
         user_amount = input()
         try:
-            account.withdrawl(float(user_amount))
+            atm.withdrawl(float(user_amount))
         except ValueError as e:
             print(e)
     elif user_input in ["check balance", "check", "balance", "c"]:
         print(f"Your account balance is: ${account.check_balance()}")
     elif user_input in ["history", "h"]:
-        account.print_transactions()
+        atm.print_transactions()
     elif user_input in ["quit", "exit", "q"]:
         break
     else:

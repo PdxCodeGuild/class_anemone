@@ -29,11 +29,11 @@ while change > 0:
         for i in range(10):
             if number[change - 2] == str(i):
                 word = doubles[i] + word
-    if change > 1:
+    if change > 2:
         for i in range(10):
             if number[change - 3] == str(i):
                 word = hundreds[i] + word
-
     change = change - 3
     increase += 1
+    
 print(word)

@@ -14,8 +14,11 @@ def encrypt(oscar, shift):
         if oscar[i] == ' ':                     # encorporating a space if clause to make spaces work
             cypher13 += ' '
         else:
-            num = index1[oscar[i]] + shift         # adding the shift by get the number from from index and adding 13
-            let = index2[num % 26]              # % 26 to remove anything above 26 and get the conversion letter
+            num = index1[oscar[i]] + shift     # adding the shift by get the number from from index and adding 13
+            num = num % 26                      # % 26 to remove anything above 26 and get the conversion letter
+            if num == 0:
+                num = 26
+            let = index2[num]              
             cypher13 += let
     return cypher13
 
