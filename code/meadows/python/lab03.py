@@ -100,10 +100,4 @@ while yes:
         break
 
 
-
-
-    
-
-
-
     

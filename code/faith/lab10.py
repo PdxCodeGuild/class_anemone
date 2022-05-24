@@ -85,4 +85,3 @@ while True:
 
     with open('contacts.csv' , 'w') as w:
         w.write(value_csv)
-

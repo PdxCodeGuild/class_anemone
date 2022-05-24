@@ -26,8 +26,7 @@ for files in os.listdir(books):
             num_letters = 0
             for word in words:
                 print('word', word)
-
-            num_letters += len(word)
+                num_letters += len(word)
 
 
 

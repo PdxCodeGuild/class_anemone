@@ -49,19 +49,19 @@ Presentation Day: August 5th, 2022
 | 04    | Vue Todos              | Mar 14th      | Mar 21st              | Mar 28th      |
 | 05    | Quotes in Vue          | Mar 16th      | Mar 21st              | Mar 20th      |
 | 06    | Mini-Capstone          | Mar 18th      | Mar 23rd              | Apr 1st       |
+-->
 
 ## HTML/CSS Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Bio                    | Feb 1st       | Feb 7th               | Feb 15th      |
-| 02    | Company Landing Page   | Feb 3rd       | Feb 7th               | Feb 17th      |
-| 03    | Blog                   | Feb 4th       | Feb 8th               | Feb 18th      |
-| 04    | Burrito Order Form     | Feb 8th       | Feb 14th              | Feb 22nd      |
-| Group | Flask Todos            | Feb 9th       | Feb 10th              | Feb 23rd      |
-| 05    | Flask Redo             | Feb 10th      | Feb 14th              | Feb 24rd      |
-| 06    | Personal Portfolio     | Feb 11th      | Feb 15th              | Feb 25th      |
--->
+| 01    | Bio                    | May 23rd      | May 31st              | Jun 6th       |
+| 02    | Company Landing Page   | May 25th      | May 31st              | Jun 8th       |
+| 03    | Blog                   | May 26th      | May 31st              | Jun 9th       |
+| 04    | Burrito Order Form     | May 31st      | Jun 6th               | Jun 14th      |
+| Group | Flask Todos            | Jun 1st       | Jun 1st               | Jun 15th      |
+| 05    | Flask Redo             | Jun 2nd       | Jun 6th               | Jun 16th      |
+| 06    | Personal Portfolio     | Jun 3rd       | Jun 7th               | Jun 17th      |
 
 ## Python Labs Assigned:
 
