@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    background-color: black;
+}
+
+.backgroundimage {
+    background-image: url(https://wallpaperaccess.com/full/3389864.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.whitetext {
+    color: whitesmoke
+}
+
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    margin: 20px;
+    padding: 20px;
+}
