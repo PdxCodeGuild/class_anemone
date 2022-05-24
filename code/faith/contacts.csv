@@ -1,3 +1,4 @@
-name : bill, fruit : apple, color : red
-name : mary , fruit : grapes , color : blue
-name : hellan , fruit : orange , color : orange
+name,fruit,color
+bill,apple,red
+mary,grapes,blue
+hellan,orange,orange
