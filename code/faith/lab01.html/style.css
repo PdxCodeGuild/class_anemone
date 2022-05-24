@@ -1,3 +1,22 @@
-p{
-    background-color: firebrick;
+
+html, body{
+    height: 100%;
+}
+html{
+    display: table;
+    margin: auto;
+}
+body{
+    display: table-cell;
+    vertical-align: middle;
+}
+body{
+    margin: auto;
+    background: rgb(153, 43, 50);
+    width: 100%;
+}
+
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
