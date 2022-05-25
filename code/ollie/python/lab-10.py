@@ -13,13 +13,11 @@ for i in range(1, len(lines)):                  # make list of dicts given data
     data = dict(zip(keys, value))
     contacts.append(data)
 
-# print(*contacts, sep = "\n")                    # test
+# print(*contacts, sep = "\n")                  # test
 
 ' ~~~ Version 2 ~~~ '
 
 # create functions that carry out each CRUD duty using data from user
-
-# crud_contacts = []
 
 def create(contact): 
     contact = {}
@@ -29,8 +27,8 @@ def create(contact):
     sport = input(f"{name.title()}'s favorite sport: ")
 
     contact['name'] = name
-    contact['home'] = home
-    contact['sport'] = sport
+    contact['lives in'] = home
+    contact['favorite sport'] = sport
 
     contacts.append(contact)
 
@@ -38,17 +36,22 @@ def retrieve(contact):
     search = input("Enter the name of the contact you are searching for: ")
     for i in contact:
         if i['name'] == search:
-            print(i)
+            return(i)
 
 def update(contact):
     choice = retrieve(contact)
-    key = input("What key's value would you like changed? (name, home, or sport?): ").lower()
+    key = input("What key's value would you like changed?\n('name', 'lives in', or 'favorite sport'): ").lower()
     value = input("What is the new value? ")
 
     choice[key] = value
 
-def delete():
-    pass
+def delete(contact):
+    choice = retrieve(contact)
+    print(choice)
+    proceed = input("Enter 'yes' to confirm contact deletion: ").lower()
+    if proceed == 'yes':
+        contact.remove(choice)
+
 
 while True:
     action = input("""
@@ -66,19 +69,24 @@ Action: """).lower()
     if action == 'x':
         break
     elif action == 'c':
-        contacts.append(create(contacts))
+        create(contacts)
     elif action == 'r':
-        retrieve(contacts)
+        print(retrieve(contacts))
     elif action == 'u':
         update(contacts)
     elif action == 'd':
-        delete()
+        delete(contacts)
     elif action == 'v':
         print(*contacts, sep = '\n')
     else:
         print("Invalid action, try again!")
 
-update_csv = []
-update_csv.append(keys)
+csv_info = []
+csv_info.append(keys)
 for contact in contacts:
-    update_csv.append(list(contact.value()))
+    csv_info.append(list(contact.values()))
+
+csv_info = "\n".join([",".join(row) for row in csv_info])
+
+with open('contacts.csv', 'w') as f:
+    f.write(csv_info)

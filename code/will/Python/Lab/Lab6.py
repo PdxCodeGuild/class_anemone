@@ -23,12 +23,13 @@ for i in range(len(nums)):
 
     
 
-print(nums)
+
 
 final = sum(nums)
+comparison = final %10
+print (comparison)
 
-
-
-
-print(final)
-print(check_number)
+if comparison == check_number:
+    print("You have a valid card!")
+elif comparison != check_number:
+    print("You have entered a bad card number")

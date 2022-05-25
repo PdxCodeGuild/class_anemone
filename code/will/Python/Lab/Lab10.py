@@ -21,7 +21,20 @@ for item in list_of_list:
    
 print(contacts)
 
+def create():
+    new_contact = input('Enter the name of the contact you would like to add')
+    create_output = contacts.append(new_contact)
+    return create_output
+    
 
+#def retrieve():
+    reference = input('Enter the name of the contact whose information you want to retrieve ')
+
+
+#def update():
+
+
+#def delete():
 
 
 #Here I am working on my REPL input command structure
@@ -31,10 +44,7 @@ def start_menu():
     print("Type r to Retrieve a contact")
     print("Type u to Update a contact")
     print("Type d to delete a contact")
-    print("Type s to Save your contacts for export")
-    print("Type o to open a contact")
-    print("Type 'Help' to see this lsit again")
-    print("Type 'Exit' to exit program")
+   
 
 
     while True:
@@ -45,20 +55,13 @@ def start_menu():
         elif user_input == 'help':
             start_menu()
 
-        elif user_input == 'o':
-            file_select = input('Enter the filepath you want to access')
-            contacts.load(file_select)
-        
-        elif user_input == "s" :
-            contacts.save(file_select)
-
+    
         elif user_input == "d" :
             name_delete = input('Enter the name of the contact you want to delete')
             contacts.delete(name_delete)
 
         elif user_input == "u" :
             contact_update = input('Enter the name of the contact you want to update')
-
 
 
         elif user_input == "r" : 
@@ -68,4 +71,3 @@ def start_menu():
         elif user_input == "c" :
             create_contact = input("Enter the name of the contact you would like to create")
 
-start_menu()

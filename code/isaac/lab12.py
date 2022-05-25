@@ -2,7 +2,7 @@
 
 # Create an ATM class representing an ATM
 class ATM:
-    def __init__(self, balance=0, interest_rate=0.1):  # balance is 0 and interest rate is a 1% rate
+    def __init__(self, balance=0, interest_rate=0.01):  # balance is 0 and interest rate is a 1% rate
         self.balance = balance
         self.interest_rate = interest_rate
         self.transaction = []
