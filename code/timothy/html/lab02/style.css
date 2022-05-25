@@ -1,0 +1,73 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    display:block;
+    max-width: 100%;
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+header {
+    text-align: center;
+    color: rgb(131, 219, 222);
+    background-color: black;
+    border-style:outset;
+    border-width: 1em;
+}
+
+header a {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+
+main {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/864/810/original/virtual-reality-technology-screen-abstract-hi-tech-background-futuristic-interface-geometric-hexagon-texture-vector.jpg);
+}
+
+main h3 {
+    text-align: center;
+}
+
+main h5 {
+    text-decoration: underline;
+}
+
+main p {
+	text-align: justify;
+    line-height: 1.25;
+}
+
+footer {
+    background-color:rgb(131, 219, 222)
+}
+
+footer h6 {
+    text-align: center;
+    padding: 0%;
+    background-color:rgb(131, 219, 222);
+}
+
+@media (min-width: 750px) {
+    nav {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .flex-class {
+        display: flex;
+    }
+
+}
