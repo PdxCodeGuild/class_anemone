@@ -1,28 +1,29 @@
-with open('code/faith/contacts.csv', 'r') as file:
+with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
     print(lines)
 
    
-list= []
+mylist= []
 for line in lines:
-    list.append(line.split(','))
+    mylist.append(line.split(','))
 
-key = list[0]
+key = mylist[0]
 
-contact = [dict(zip(key,values))for values in list[1::]]
-
-for values in list[1::]:
+# contact = [dict(zip(key,values))for values in mylist[1::]]
+contact = []
+for values in mylist[1::]:
     contact.append(dict(zip(key, values)))
 
+print(contact)
 
 def new_contacts(data, key):
     new_contacts = {}
     for x in key:
-        new_contacts[key] = input(f'What is the new contacts {x}?')
-        data.append(new_contacts) 
+        new_contacts[x] = input(f'What is the new contacts {x}?')
+    data.append(new_contacts) 
 
 def check_contact(data, key):
-    name = input('Whats the new name?: ')
+    name = input('What is the name?: ')
     for contact in data:
         if contact['name'] == name:
             for key in contact:
@@ -59,29 +60,30 @@ def delete_contact(data, keys):
     if check == 'yes':
         data.remove(result)
 
-data_results = check_contact(values, key)
+# data_results = check_contact(values, key)
 
 while True:
-    # print(contacts)
+    print(contact)
+    # contact = [dict(zip(key,values))for values in mylist[1::]]
     user_input = input("What would you like to do? (c)reate, (r)ead, (u)pdate, (d)elete, (q)uit ")
     if user_input.lower() in ['q', 'quit', 'exit', 'stop']:
         break
     elif user_input == 'c':
-        new_contacts(values, key)
+        new_contacts(contact, key)
     elif user_input == 'r':
-        check_contact(values, key)
+        check_contact(contact, key)
     elif user_input == 'u':
-        update_contact(values, key)
+        update_contact(contact, key)
     elif user_input == 'd':
-        delete_contact(values, key)
+        delete_contact(contact, key)
 
 
-    value_csv = []
-    value_csv.append(key)
-    for value in values:
-        value_csv.append(list(value.values()))
+value_csv = []
+value_csv.append(key)
+for value in contact:
+    value_csv.append(list(value.values()))
 
-    value_csv = "\n".join([",".join(row) for row in value_csv])
+value_csv = "\n".join([",".join(row) for row in value_csv])
 
-    with open('contacts.csv' , 'w') as w:
-        w.write(value_csv)
+with open('contacts.csv' , 'w') as w:
+    w.write(value_csv)
