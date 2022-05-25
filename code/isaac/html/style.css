@@ -1,0 +1,66 @@
+/*This is a comment*/ /*For future reference*/
+HTML, body {
+    background-color: rgb(46, 133, 255);
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    text-align: center;
+    background-image: url("night_ops_a.jpg");
+    background-repeat: no-repeat;
+    background-size: 2348px 2648px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: white;
+    margin: 26px 20em;
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 24px 2px blue;
+   
+}
+
+h2 {
+    color: white;
+    margin: 26px 44%;
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 24px 2px blue;
+}
+
+p {
+    color: white;
+    padding: 25px;
+    margin: 26px 35%;
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 6px;
+    
+}
+
+
+ul {
+    color: white;
+    background-color: blue;
+    margin: 25px 40%;
+    padding: 15px 35px;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-shadow: 0px 0px 24px 2px blue;
+}
+
+
+.pics {
+    height: 150px;
+    width: 130;
+    box-shadow: 0px 0px 24px 2px black;
+    border-radius: 5px;
+    display: inline;
+    
+}
+
+#wiki {
+    background-color: rgba(22, 67, 165, 0.5);
+    color: white;
+    margin: 12px 17%;
+}
