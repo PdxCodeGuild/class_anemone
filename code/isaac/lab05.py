@@ -20,14 +20,15 @@ def num_matches(winning, ticket):
 # assing pick6() to a variable.  Will be used in a for loop
 winning = pick6()
 expenses = 0
+earnings = 0
 
 for m in range(100_000): # loop 100,000 times
 
     ticket = pick6()
     # print(ticket)
-    expenses -= 2
-    earnings = num_matches(winning, ticket)
-    expenses += earnings
+    expenses += 2
+    earnings += num_matches(winning, ticket)
+    
 
 def return_on_investment(expenses, earnings):
     roi = (earnings - expenses) / expenses
