@@ -1,0 +1,38 @@
+/* https://static.wikia.nocookie.net/swordartonline/images/3/3e/Laughing_Coffin_Logo.png/revision/latest?cb=20130527204544 */
+html {
+    box-sizing: border-box;
+}
+header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3vw;
+    text-align: center;
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 4vw
+}
+
+
+@media (min-width: 750px) {
+    .member {
+
+    }
+    
+
+
+    
+}    
+
