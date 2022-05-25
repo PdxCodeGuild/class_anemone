@@ -60,13 +60,6 @@ class ATM:
      
 
     def calc_interest(self):
-        #self.interest = []
-        #self.interest_amount = 0.001
-        #self.calc_interest = (self.balance * self.interest_amount)
-       # print(f' Account interest equals {self.calc_interest}')
-        #self.interest.append(self.calc_interest)
-        #self.interest_final = sum(self.interest)
-        #self.deposit(self.interest_final)
         return self.balance * self.interest_amount
 
         
