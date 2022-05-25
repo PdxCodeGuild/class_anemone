@@ -51,13 +51,17 @@ main p {
 }
 
 footer {
-    background-color:rgb(131, 219, 222)
+    color: rgb(131, 219, 222);
+    background-color: black;
+    border-style:outset;
+    border-width: 10px;
+    
 }
 
 footer h6 {
     text-align: center;
     padding: 0%;
-    background-color:rgb(131, 219, 222);
+
 }
 
 @media (min-width: 750px) {
@@ -68,6 +72,7 @@ footer h6 {
 
     .flex-class {
         display: flex;
+        justify-content: space-around;
     }
 
 }
