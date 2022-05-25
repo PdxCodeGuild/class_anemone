@@ -15,11 +15,11 @@ class ATM:
 
 
 #Writing functions for each function referenced in the REPL
-    def __init__(self, balance,):
+    def __init__(self, balance=0,):
         self.balance = balance
         self.interest_amount = 0.001
         self.transactions = []
-        balance = 0
+     
         
     def print_transactions(self):
         self.Total_transactions = len(self.transactions)
@@ -67,7 +67,7 @@ class ATM:
         #self.interest.append(self.calc_interest)
         #self.interest_final = sum(self.interest)
         #self.deposit(self.interest_final)
-        return self.calc_interest
+        return self.balance * self.interest_amount
 
         
 
