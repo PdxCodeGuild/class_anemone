@@ -10,11 +10,6 @@ import math
 # f.close()
 
 '''Main program'''
-# Count the number of sentences, words and characters
-# store in variables and use in above equation
-# sentences = 0
-# words = 0
-# characters = 0
 
 with open('poem.txt', 'r') as poem:
     contents = poem.read()
@@ -26,12 +21,6 @@ words = len(contents.split(" "))
 print(words)
 characters = len(re.findall(r"[a-zA-Z]", contents))
 print(characters)
-    # for line in poem:
-    #     all = line.split()
-    #     sentences += line.count(".")
-    #     words += re.findall("poem.txt", line)
-    #     characters += len(line)
-# print(sentences, words, characters)
 
 # Scale chart for reference
 ari_scale = {
