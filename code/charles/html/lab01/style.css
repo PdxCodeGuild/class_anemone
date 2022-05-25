@@ -1,17 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
 header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: hsl(9, 56%, 69%);
     font-size: 2vw;
     text-align: center;
-    text-size-adjust: 70px;
+    text-size-adjust: 4vw;
     background-color: hsla(0, 0%, 50%, 50%);
 }
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-image: url("https://preview.redd.it/ykv87rdlu9pz.jpg?auto=webp&s=e9a011fc6b4e337b07d8c36bdad54c20224d1f51");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size:cover;
+    background-size: 100%;
     background-color: hsla(0, 0%, 50%, 50%);
 }
 
@@ -19,16 +24,18 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    max-width: 50%;
+    max-height: 50%;
     border-radius: 10vw
     
 }
 
 body p {
-    font-size: 1vw;
+    font-size: 1em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 1px 2vw 5px 2vw;
+    padding: 1vw;
     background-color: hsla(0, 0%, 50%, 50%);
+    margin: 1em;
 }
 
 a {
@@ -38,24 +45,37 @@ a {
 ul, ol {
     font-size: 1vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: left;
+    text-align: center;
     line-height: 1.6vw;
+    max-height: 75%;
+    max-width: 75%;
+
     
-    
-    padding: 0px 1vw 5px 2vw;
+    list-style-type:upper-roman;
+    list-style-position:outside;
+
+    padding: 1em;
     background-color: hsla(0, 0%, 50%, 50%);
     
     display: table;
     margin: 0 auto;
 }
 
-li {
+ ol li {
     list-style-type:upper-roman;
+    list-style-position:outside;
+    text-align: left;
 
+}
+
+pre {
+    font-size: 1.4vw;
 }
 
 .center {
     color: hsl(9, 56%, 69%);
     text-align: center;
     border: 0.1vw solid rgb(24, 9, 90);
+    max-width: 95%;
+    max-height: 2%;
 }
