@@ -15,58 +15,59 @@ class ATM:
 
 
 #Writing functions for each function referenced in the REPL
-    def __init__(Self, balance,):
-        Self.balance = balance
-        Self.interest_amount = 0.01
-        Self.transactions = []
+    def __init__(self, balance,):
+        self.balance = balance
+        self.interest_amount = 0.001
+        self.transactions = []
+        balance = 0
         
-    def print_transactions(Self):
-        Self.Total_transactions = len(Self.transactions)
-        print(f"You have engaged in {Self.Total_transactions} transactions")
+    def print_transactions(self):
+        self.Total_transactions = len(self.transactions)
+        print(f"You have engaged in {self.Total_transactions} transactions")
     
 
-    def check_balance(Self):
-        return Self.balance
+    def check_balance(self):
+        return self.balance
         
 
 
-    def deposit(Self, amount):
-        Self.balance += amount
+    def deposit(self, amount):
+        self.balance += amount
         if amount <= 0 :
             print('***You cannot deposit negative funds***')
-            Self.balance -= amount
-        Self.transactions.append(amount)
-        print (f' User added {amount} to their account. your account balance is {Self.balance}')
+            self.balance -= amount
+        self.transactions.append(amount)
+        print (f' User added {amount} to their account. your account balance is {self.balance}')
         
 
 
 
-    def check_withdrawal(Self, amount):
-        if amount <= Self.balance:
+    def check_withdrawal(self, amount):
+        if amount <= self.balance:
             return True
-        elif amount > Self.balance :
+        elif amount > self.balance :
             print ('Insufficent Funds ')
 
-    def withdraw(Self, amount):
-        Self.balance -= amount 
+    def withdraw(self, amount):
+        self.balance -= amount 
         if amount <= 0 :
             print('***You cannot withdraw negative funds***')
-            Self.balance += amount
+            self.balance += amount
     
 
-        Self.transactions.append(amount)
-        print(f' You withdrew {amount} - Your remaining balance is {Self.balance}')
+        self.transactions.append(amount)
+        print(f' You withdrew {amount} - Your remaining balance is {self.balance}')
      
 
-    def calc_interest(Self):
-        Self.interest = []
-        Self.interest_amount = 0.01
-        Self.calc_interest = (Self.balance * Self.interest_amount)
-        print(f' Account interest equals {Self.calc_interest}')
-        Self.interest.append(Self.calc_interest)
-        Self.interest_final = sum(Self.interest)
-        Self.deposit(Self.interest_final)
-        return Self.interest_final
+    def calc_interest(self):
+        #self.interest = []
+        self.interest_amount = 0.001
+        self.calc_interest = (self.balance * self.interest_amount)
+       # print(f' Account interest equals {self.calc_interest}')
+        #self.interest.append(self.calc_interest)
+        #self.interest_final = sum(self.interest)
+        #self.deposit(self.interest_final)
+        return self.calc_interest
 
         
 
