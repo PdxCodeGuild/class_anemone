@@ -1,0 +1,9 @@
+.Navigation{
+display: flex;
+justify-content:center;
+background-color:dimgray;
+color:beige;
+border:2px;
+margin:20px;
+padding:20px;
+}

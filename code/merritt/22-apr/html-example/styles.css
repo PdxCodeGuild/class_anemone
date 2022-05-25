@@ -1,3 +1,14 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* img {
+    display: block;
+} */
+
 p {
     background-color: red;
     text-align: justify;
@@ -32,6 +43,11 @@ ol li {
 }
 .warning div {
     font-size: 2em;
+}
+
+.fifty-percent {
+    width: 50%;
+    padding: 96px;
 }
 
 #cool-paragraph {
