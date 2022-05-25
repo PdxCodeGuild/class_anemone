@@ -12,11 +12,35 @@ body{
 }
 body{
     margin: auto;
-    background: rgb(153, 43, 50);
     width: 100%;
 }
 
 
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    
+}
+html{
+background-image: url("scenory.jpeg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+html{
+    color:rgb(0, 0, 0);
+}
+a{
+    color:blueviolet;
+}
+blockquote{
+    color: fuchsia;
+    font-family: cursive;
+}
+img{
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+  }
+  li::marker {
+	color: blueviolet;
 }
