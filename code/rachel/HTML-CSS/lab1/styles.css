@@ -1,0 +1,50 @@
+
+
+img {
+    max-width: 20%;
+    height: auto;
+    border-radius: 25px;
+    position: absolute;
+    top: 150px;
+    right: 400px;
+    border: 5px solid rgb(85, 98, 85);
+}
+.position1{
+    position: absolute;
+    top: 150px;
+    right: 400px;
+}
+.position2 {
+    position: absolute;
+    top: 220px;
+    left: 400px;
+}
+
+body {
+    text-align: center;
+    font-family: Zen Loop;
+    font-size: 150%;
+    background-image: url("outlander.jpeg");
+    background-size: cover;
+    padding: 25px
+}
+
+ul{
+    text-align: center;
+    list-style: inside circle;
+}
+
+q {
+    font-family: Tangerine;
+    font-size: 150%;
+    color: rgb(85, 98, 85);
+}
+
+.fontcolor{
+    color:rgb(85, 98, 85)
+}
+
+.layer {
+    background-color: rgb(170, 195, 170);
+    margin: 20px
+}
