@@ -1,34 +1,51 @@
+html {
+    box-sizing: border-box;
+}
+
 header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: hsl(9, 56%, 69%);
-    font-size: 2vw;
+    font-size: 5vw;
     text-align: center;
-    text-size-adjust: 70px;
+    
     background-color: hsla(0, 0%, 50%, 50%);
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-image: url("https://preview.redd.it/ykv87rdlu9pz.jpg?auto=webp&s=e9a011fc6b4e337b07d8c36bdad54c20224d1f51");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size:cover;
+    background-size: 100%;
     background-color: hsla(0, 0%, 50%, 50%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    max-width: 50%;
+    max-height: 50%;
     border-radius: 10vw
+
     
 }
 
 body p {
-    font-size: 1vw;
+    font-size: 3vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 1px 2vw 5px 2vw;
+    padding: 2vw;
     background-color: hsla(0, 0%, 50%, 50%);
+    margin: 1vw;
+    max-width: min-content;
+    max-height: 25%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a {
@@ -36,26 +53,51 @@ a {
 }
 
 ul, ol {
-    font-size: 1vw;
+    font-size: 3vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: left;
+    text-align: center;
     line-height: 1.6vw;
+    max-height: fit-content;
+    max-width: fit-content;
+
     
-    
-    padding: 0px 1vw 5px 2vw;
+    list-style-type:upper-roman;
+    list-style-position:outside;
+
+    padding: 1vw;
     background-color: hsla(0, 0%, 50%, 50%);
     
     display: table;
-    margin: 0 auto;
+    margin: auto;
 }
 
 li {
     list-style-type:upper-roman;
+    list-style-position:outside;
+    text-align: left;
+    line-height: 1.6vw;
+    
+}
 
+pre {
+    font-size: 1.4vw;
 }
 
 .center {
     color: hsl(9, 56%, 69%);
     text-align: center;
     border: 0.1vw solid rgb(24, 9, 90);
+    max-width: fit-content;
+    max-height: min-content;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: fit-content;
+    max-height: fit-content;
+    padding: 1vw;
+    margin: auto;
+    font-size: 5vw;
 }
