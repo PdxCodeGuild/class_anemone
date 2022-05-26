@@ -6,66 +6,93 @@ html {
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
-    /* display: flex; */
-    flex-direction: row
+    background-color: rgba(0, 0, 255, 0.466);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-main {
+body header {
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    height: 10%;
+    margin:.5em;
+    max-block-size: 100%;
+    font-size: 1em;
+    background-color: hsla(90, 100%, 50%, 0.466);
+}
+
+header h1 {
+    width: 100;
+    padding-left: 1em;
+    text-align: left;
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+footer p {
+    justify-content: space-around;
+    text-align: center;
+    background-color: rgba(0, 255, 255, 0.219);
+    padding-left: 1em;
+    padding-bottom: .5em;
+    font-size: .5em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.pot {
     display: flex;
 }
 
-
-img {
-    display: block;
-    max-width: 100%;
+nav {
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.267);
+    margin: .2em;
+    max-width: 10%;
+    font-size: .5em;
+    text-align: left;
+    border-color: black;
+    border-top: 1em;
+    justify-content:space-around;
+    display: flex;
+    flex-direction: column;
 }
 
-header, main, footer {
-    padding: 2em;
+section header {
+    font-size: 1em;
+    height: 5%;
+    margin: .5em;
+    padding: .5em;
+    justify-content: left;
+    text-align: left;
+
 }
 
-header {
+section h2 {
+    font-size: .5em;
+}
+
+.options {
+    justify-content:space-evenly;
+}
+
+article {
+    padding: .5em;
+    margin: .5em;
+    width: 100;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
     text-align: center;
-    background-color: rgba(0, 128, 21, 0.815);
-    color: whitesmoke;
+    justify-content: space-evenly
 }
 
-header a {
-    color: bisque;
+article h3,img,p,details {
+    font-size: .5em;
+    width: 20%;
+    text-align: left;
 }
-
-main p {
-    text-align: justify;
-    line-height: 1.25;
-}
-
-@media (min-width: 350px) {
-    nav {
-        display: flex;
-        justify-content: space-around;
-        
-    }
-    nav p {
-        margin: 1em;
-    }
-
-    header,main, footer {
-        padding: 2em;
-    }
-    .flex-gallery {
-        display: flex;
-        flex-wrap: wrap;
-        /* width: 20%; */
-        margin: 0 -1em;
-    }
-    .gallery-item{
-        width: 20%;
-        padding: 0 1em;
-    }
-
-}
-
 
 @media (min-width: 750px) {
 
