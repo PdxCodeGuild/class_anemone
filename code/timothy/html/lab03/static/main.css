@@ -13,7 +13,62 @@ img {
 }
 
 header, main, footer {
-	padding: 1em;
+	padding-left: 1em;
+    padding-right: 1em;
 }
 
 /* END NECESSITIES */
+
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2016/02/05/10/13/background-1180666_1280.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.blog-posts {
+    background-color: rgba(245, 245, 245, 0.353);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+#blog-title {
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 3px black;
+}
+
+.navi a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.titles h3 {
+    margin-bottom: 0px;
+}
+
+.authors h5 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.dates h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.bodies p {
+    margin-top: 10px;
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+}
+
+/* MAIN PHONE DESIGN DONE,
+    NEXT WORK ON IPAD STYLE
+        THEN DESKTOP */
