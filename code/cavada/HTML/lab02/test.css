@@ -7,65 +7,84 @@ html {
 }
 
 body {
+
     justify-content: left;
-    width: 100%;
-    margin:0 1em;
-    padding:0 1em;
-    background-color: rgba(37, 7, 9, 0.466);
+    width: 85%;
+    margin: .2em;
+    padding: .2em;
+    background-color: rgba(117, 30, 30, 0.397);
     display: flex;
     flex-direction: column;
 }
 
 body header {
-    margin:0 1em;
-    padding:0 1em;
+    margin: .2em;
+    padding: .2em;
     background-color: rgba(245, 245, 220, 0.199);
-    width: 100%;
+    width: 115%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
+main {
+    width:  80%;
+}
+h1 {
 
+    text-align: center;
+    font-size: 1em;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
 body header img {
-    margin: 1em;
+    margin: .2em;
     width: 20%;
 }
-
+p{
+    text-align: left;
+    font-size: .5em;
+}
 .tools {
-    margin:0 1em;
-    padding:0 1em;
+    margin: .2em;
+    padding: .2em;
     display: flex;
     background-color: rgba(137, 43, 226, 0.103);
 }
 
 nav {
-    margin: .1em;
-    padding: .1em;
+    font-size: .8em;
+    background-color: rgba(0, 255, 255, 0.192);
+    margin: .2em;
+    padding: .2em;
     text-align: left;
-    width: 10%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 nav a {
+    margin:.2em;
+    padding: .2em;
+    
+    font-size: .8em;
     text-align: left;
+    justify-content: baseline;
     background-color:rgba(245, 245, 220, 0.199)
 }
 
 section {
     justify-content: left;
     background-color: brown;
-    width: 100%;
-    padding: 0 1em;
-    margin: 0 1em;
+    width: 95%;
+    padding: .2em;
+    margin: .2em;
 }
 
 section header {
     justify-content: left;
     background-color:rgba(251, 255, 0, 0.301);
     font-size: 1em;
-    padding: 0 1em;
+    padding: .5em;
 }
 
 h2 {
@@ -79,18 +98,25 @@ h2 {
 }
 
 article {
-    background-color: rgba(0, 0, 0, 0.082);
-    margin: 1em;
-    border: 1px, black;
-    height: 100%;
-    width: 40%;
+    padding: .2em;
+    background-color: rgba(0, 0, 0, 0.192);
+    margin: .5em;
+    border: 1em, black;
+    height: 60%;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 
 article p {
+    text-align: center;
+    margin: .5em;
+    padding: .5em;
     font-size: .8em;
-    width: 100% 
+
+    border-width: .5em;
+    border: black;
+
 }
 
 aside {
@@ -99,8 +125,8 @@ aside {
 }
 
 aside img{
-    width: 70%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
 }
 
 @media (min-width: 750px) {
