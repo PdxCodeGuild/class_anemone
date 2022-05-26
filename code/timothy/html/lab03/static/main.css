@@ -1,0 +1,19 @@
+/* NECESSITIES */
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+header, main, footer {
+	padding: 1em;
+}
+
+/* END NECESSITIES */
