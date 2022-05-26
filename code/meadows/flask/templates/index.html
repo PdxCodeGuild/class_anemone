@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mad Onion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+</head>
+<body>
+    <header>THE FLYING BLOG</header>
+    <nav>
+        <hr>
+        <p><a href="#" style="color: aqua">Learn About Me</a></p>
+        <hr>
+    </nav>
+    <main>
+        {% for posts in post%}   
+            <h1><b>{{posts['title']}}</b></h1>
+            <p>{{posts['body']}}</p>
+            <ul>
+                <li>Author <q>{{posts['author']}}</q></li>
+
+                <li>Date Published: {{posts['date']}}</li>
+            </ul>
+        {%endfor%}
+        </main>
+
+    
+</body>
+</html>

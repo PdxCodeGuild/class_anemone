@@ -1,0 +1,53 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+li {
+    font-size: 1em;
+}
+body {
+    background-image: url(https://media1.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif?cid=ecf05e47z0flsxqecxfhzfblwq3jvzcr2vtya07ptmapj2wp&rid=giphy.gif&ct=g);
+    background-blend-mode:lighten;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:lightsteelblue;
+    padding-bottom: 2em;
+    padding-left: .7em;
+}
+header {
+    padding-bottom: .6em;
+    padding-left: .3em;
+    width: 2em;
+    font-size: 3em;
+    font-style: oblique;
+    color:lightsteelblue;
+}
+p{
+    text-align: justify;
+    padding-right: 2em;
+}
+hr {
+    width: 50%;
+    padding-left:3em;
+
+}
+main h1{
+    padding-right: 1em;
+    font-size:xx-large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+nav p{
+    text-align: center;
+    padding-left: 1.5em;
+}
+
+
+
+/*  */
