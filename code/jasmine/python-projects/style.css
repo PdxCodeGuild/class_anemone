@@ -1,0 +1,16 @@
+h1 {
+    font-family:"poppins", sans-serif;
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+}
+
+p {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #FF109A;
+    font-weight: 700;
+    font-style: italic;
+}
