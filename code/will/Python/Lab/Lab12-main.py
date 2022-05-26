@@ -19,7 +19,7 @@ class ATM:
         self.balance = balance
         self.interest_amount = 0.001
         self.transactions = []
-     
+      
         
     def print_transactions(self):
         self.Total_transactions = len(self.transactions)
@@ -60,7 +60,10 @@ class ATM:
      
 
     def calc_interest(self):
+<<<<<<< HEAD
        
+=======
+>>>>>>> 4557f2518b7c1ba9bbebdaa965412f7d74311197
         return self.balance * self.interest_amount
 
         
