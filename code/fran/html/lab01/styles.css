@@ -1,4 +1,61 @@
+/* Lab01: Bio
+Fran Kappes */
+
 body {
     text-align: center;
-    font-family: Arial;
+    font-family: Luminari;
+    background-image: url("psychedelic_mountain.jpg");
+    color: rgb(18, 18, 92);
 }
+
+body h1 {
+    background-color: rgb(187, 103, 212);
+    border: 5px solid rgb(89, 0, 255);
+    padding: 30px 10px;
+}
+
+body img {
+    padding: 10px;
+    border-radius: 20px;;
+}
+
+body div {
+    border: 5px solid rgb(89, 0, 255);
+    margin: 20px 400px 75px;
+    padding: 30px;
+    background-color: #c88dda;
+    width: 500px;
+    height: 340px;
+
+}
+
+body a {
+    color: rgb(4, 61, 21);
+}
+
+body q {
+    color: aliceblue;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    font-size: 20px
+}
+
+#lived {
+    text-align: center;
+    list-style-type: "\273D"
+    /* margin: 10px 150px; */
+    /* padding: 10px; */
+    /* border: 2px solid rgb(231, 22, 22); TEST */
+}
+
+#lived li {
+    text-align: center;
+    list-style-position: inside;
+}
+
+/* li:before { 
+    content: "\273D"; 
+    margin-left: -20px; 
+    margin-right: 10px; 
+    list-style-position: inside; 
+    text-align: center;
+}  */
