@@ -1,0 +1,11 @@
+--2022-05-26 11:58:00--  https://download.mozilla.org/?product=firefox-aurora-latest-ssl
+Resolving download.mozilla.org (download.mozilla.org)... 52.3.9.14, 54.85.211.187, 18.209.199.218
+Connecting to download.mozilla.org (download.mozilla.org)|52.3.9.14|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-aurora/firefox-54.0a2.en-US.win32.installer.exe [following]
+--2022-05-26 11:58:00--  https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-aurora/firefox-54.0a2.en-US.win32.installer.exe
+Resolving download-installer.cdn.mozilla.net (download-installer.cdn.mozilla.net)... 99.84.214.61, 2600:9000:2199:b000:e:19d6:1546:5981, 2600:9000:2199:b600:e:19d6:1546:5981, ...
+Connecting to download-installer.cdn.mozilla.net (download-installer.cdn.mozilla.net)|99.84.214.61|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2022-05-26 11:58:01 ERROR 404: Not Found.
+
