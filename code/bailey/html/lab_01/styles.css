@@ -1,0 +1,57 @@
+body {
+    text-align: center;
+    color:yellow;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url("https://images5.alphacoders.com/328/328534.jpg");
+}
+
+ul{
+    list-style-position: inside;
+    list-style-type: "✈";    
+    background-color: navy;
+    margin: 24px;
+}
+
+p{
+    margin: 24px;
+    background-color: navy;
+    display: table;
+}
+
+q{
+    font-style: italic;
+    font-family: monospace;
+    background-color: navy;
+}
+
+h1{
+    background-color: navy;
+    margin: 24px;
+}
+
+h2{
+    background-color: navy;
+    margin: 24px;
+}
+
+h3{
+    background-color: navy;
+    margin: 24px;
+}
+
+.maverick{
+    border-radius: 30px;
+    border: 5px solid yellow;
+}
+
+a:link{
+    color: blue;
+}
+
+a:visited{
+    color: limegreen;
+}
+
+a:hover{
+    color: red;
+}
