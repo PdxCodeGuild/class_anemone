@@ -104,7 +104,7 @@ for i in range(100000):
      
      
      if comparison(winning_set, player_set) >=1:
-          total_matches.append(comparison(winning_set, player_set))
+          total_matches.append(comparison(winning_set, player_set)
 
 
 print(expenses)
