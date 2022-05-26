@@ -1,0 +1,59 @@
+/* .image-container-men {
+    height: 5em;
+    width: 15em;
+    background-image: url(https://fwtmagazine.com/wp-content/uploads/2017/02/MEN-SS17-LOCATION-ELLIPSE-LS-HALF-ZIP-HOOD-103047403-LR-610x407.jpg);
+    color: whitesmoke
+}
+
+.image-container-women {
+    height: 5em;
+    width: 15em;
+    background-image: url(https://c.pxhere.com/photos/49/69/person_female_back_outdoor_forest_fashion_wear_clothing-1226514.jpg!d);
+    color: whitesmoke
+}
+
+.image-container-hiking {
+    height: 5em;
+    width: 15em;
+    background-image: url(https://c2.staticflickr.com/4/3327/4593576497_835bbd10cd_b.jpg);
+    color: whitesmoke
+}
+
+.image-container-winter {
+    height: 5em;
+    width: 15em;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/309/157/105/mountains-ski-ride-ride-wallpaper-preview.jpg);
+    color: whitesmoke
+}
+
+.image-container-bike {
+    height: 5em;
+    width: 15em;
+    background-image: url(https://get.pxhere.com/photo/outdoor-sand-sport-adventure-bicycle-bike-cyclist-vehicle-action-soil-extreme-sport-sports-equipment-mountain-bike-competition-bicyclist-sports-downhill-freeride-mountain-biking-off-road-cycle-sport-downhill-mountain-biking-bicycle-motocross-mountain-bike-racing-cross-country-cycling-mountain-biker-1037621.jpg);
+    color: whitesmoke;
+} */
+
+/* .image-button-container {
+    display: flex;
+    max-width: 100vw
+}
+
+.image-button {
+    justify-content: space-evenly;
+    height: 100%;
+    max-width: 100vw;
+    padding: 1em
+} */
+
+header {
+    background-color: rgb(97, 97, 141);
+}
+body {
+    align-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    line-height: 1.25em
+}
+footer {
+    background-color: green;
+}
