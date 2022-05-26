@@ -1,0 +1,50 @@
+#header_1{
+        text-align: center;
+        font-size: 45px
+        
+    }       
+#header_2{
+        text-align: center;
+}
+#header_3{
+    text-align: center;
+}
+body{
+    background-image: url('/sterling-archer-background-full-hd-87154.jpg')
+    
+    }
+#para1{
+    text-align: center;
+    font-size: 26px;
+    padding: large
+}
+#para2{
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#quote{
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+    margin: 10px;
+    padding: 2px;
+    color: black;
+    font-weight: bolder;
+}
+#list{
+    text-align: center;
+    list-style: circle;
+    font-size: 20px;
+    font: larger
+}
+#link{
+    text-align: center;
+    color:aqua
+}
+#image_one{
+    float:left
+}
+#imge_two{
+    position: absolute
+}
