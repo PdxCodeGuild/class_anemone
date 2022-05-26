@@ -8,61 +8,81 @@ HTML, body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+} 
+
 
 h1 {
     color: white;
-    margin: 0%;
-    border-radius: 4px;
-    box-shadow: inset 0px 0px 24px 2px blue;
+    padding: 3%;
+    background-color: rgb(25, 98, 157);
+    
    
 }
 
 h2 {
     color: white;
-    margin: 26px 44%;
-    border: 2px solid rgb(0, 0, 0);
+    margin: 2px 44%;
+    border: 2px solid rgb(25, 98, 157);
+    background-color: rgb(25, 98, 157);
     border-radius: 4px;
-    box-shadow: inset 0px 0px 24px 2px blue;
+    position: relative;
+    bottom: 490px;
+    left: 150px;
+    
 }
 
 p {
+    color: white;
+    background-color: rgb(25, 98, 157);
+    padding: 5px;
+    margin: 2px 30%;
+    position: relative;
+    bottom: 850px;
+    left: 250px;
+    border-radius: 5px;
+}
+
+.variant-p {
     display: flex;
     flex-direction: row;
     color: white;
-    padding: 25px;
-    margin: 26px 35%;
-    background-color: blue;
-    border: 2px solid black;
-    border-radius: 6px;
-    
+    background-color: rgb(25, 98, 157);
+    margin: 2px 35%;
+    padding: 25px 25px;
+    position: relative;
+    left: 320px;
+    bottom: 480px;
+    text-align: left;
+   
 }
 
 
 ul {
     color: white;
-    background-color: blue;
-    margin: 25px 40%;
+    background-color: rgb(25, 98, 157);
+    margin: 2px 40%;
     padding: 15px 35px;
-    border: 2px solid black;
+    border: 2px solid rgb(25, 98, 157);
     border-radius: 6px;
-    
+    position: relative;
+    bottom: 725px;
+    right: 700px;
 }
 
 
 .pics {
-    height: 150px;
-    width: 130;
-    box-shadow: 0px 0px 24px 2px black;
-    border-radius: 5px;
-    display: inline;
-    
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    position: relative;
+    left: 40px;   
 }
 
 #wiki {
-    padding: 5px 5px;
-    margin: 12px 12px;
-    background-color: rgba(22, 67, 165, 0.5);
     color: white;
-    position: relative;
-    top: 1em;
 }
