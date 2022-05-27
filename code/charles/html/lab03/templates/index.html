@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog Post</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    <body>
+        <div class="topbar">
+            <h1>Welcome to the Blog</h1><h1>Top Stories from Laughing Coffin</h1>
+        </div>
+        <div class="navbar">    
+            
+            <div class="leftlink"><nav><a href="https://www.reddit.com/">Reddit</a></nav><nav><a href="https://myanimelist.net/">MAL</a></nav>
+            <nav><a href="https://www.webtoons.com/en/">Webtoons</a></nav></div>   
+        </div>
+           
+            
+        </div> 
+        <div class="toppad">    
+            {% for post in posts %}
+            <div class="blog"> 
+                <div class="title">
+                    <h2>{{post['title']}}</h2></div>
+                <div class="author">
+                    <li>From {{post['author']}} on {{post['date']}}</li></div>
+                <div class="body">
+                    <li>{{post['body']}}</li></div>
+                </div>     
+            <hr>
+            {%endfor%}
+        </div>  
+        <footer>&copy;Copyright Laughing Coffin INC. 2032</footer>
+    </body>
+</html>
