@@ -5,17 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def invoke():
-    
-    # for i, post in enumerate(posts):
-    #     title = ''
-    #     author = ''
-    #     date =''
-    #     body = ""
-    #     for post in posts[i]:
-    #         title.
-
-
-    return render_template('index.html', posts = [
+    posts = [
         {
             'title': 'For the party',
             'author': 'PoH',
@@ -37,7 +27,17 @@ def invoke():
             'date': 'August 27, 2032',
             'body':  "Te salut, Don Corleone. What's the matter with you, huh? What am I going to do? Am I going to make that baby an orphan before he's born? Why did you go to the police? Why didn't you come to me first? Leave the gun. Take the cannoli. If anything in this life is certain, if history has taught us anything, it is that you can kill anyone."
         }
-    ])
+    ]
+    # for i, post in enumerate(posts):
+    #     title = ''
+    #     author = ''
+    #     date =''
+    #     body = ""
+    #     for post in posts[i]:
+    #         title.
+
+
+    return render_template('index.html', posts=posts)
     
 
 app.run(debug=True)
