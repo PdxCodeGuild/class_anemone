@@ -20,33 +20,60 @@ header, main, footer {
 /* END NECESSITIES */
 
 body {
-    background-image: url(https://cdn.pixabay.com/photo/2016/02/05/10/13/background-1180666_1280.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.blog-posts {
-    background-color: rgba(245, 245, 245, 0.353);
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    padding: 10px;
+    background-image: linear-gradient(to bottom, rgb(68, 128, 173), #447fad56);
+    line-height: 1.5em;
     
 }
 
 #blog-title {
-    font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 0px 0px 3px black;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+
+.blog-posts {
+    /* background-color: rgba(64, 55, 55, 0.353);
+    border-style: hidden;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px; */
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: #1b2226;
+    
+}
+
+.post {
+    background-color: #ffffff00;
+    border-style: hidden;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 0 .25em white;
+
+}
+
+#blog-title {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 .navi a {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: black;
+
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .titles h3 {
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 
@@ -62,13 +89,51 @@ body {
 
 .bodies p {
     margin-top: 10px;
-    text-align: justify;
+    text-align: left;
 }
 
 footer {
     text-align: center;
 }
 
-/* MAIN PHONE DESIGN DONE,
-    NEXT WORK ON IPAD STYLE
-        THEN DESKTOP */
+/* MEDIA QUERIES */
+
+@media (min-width: 750px) {
+    nav {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        
+    }
+
+    .post {
+        margin: 5%;
+        height: auto;
+    }
+
+    .bodies {
+        margin: auto;
+    }
+
+}
+@media (min-width: 1000px) {
+
+    main {
+        content: 10px 10px 10px 10px;
+    }
+
+    .blog-posts {
+        gap: 0%;
+    }
+
+    .post {
+        flex: 1 0 21%;
+    }
+
+}
