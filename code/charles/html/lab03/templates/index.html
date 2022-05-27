@@ -8,39 +8,31 @@
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
     </head>
-    
-
-    
-        
-    
-    <div class="navbar">      
-        <div class="center"><nav><a href="https://www.reddit.com/">Reddit</a></nav></div>
-        <div class="center"><nav><a href="https://myanimelist.net/">MAL</a></nav></div>
-        <div class="center"><nav><a href="https://www.webtoons.com/en/">Webtoons</a></nav></div>
-    
-    <header>Welcome to the Blog</header>
-        
-    <h1>Top Stories from Laughing Coffin</h1>
-    
-    </div> 
-    
-    <div class="toppad">
-        <body>
-              <div class="blog2"> 
-                {% for post in posts %}
-                  
-                    <div class="blog"> 
-                        <div class="title">
-                            <h2>{{post['title']}}</h2></div>
-                        <div class="author">
-                            <li>From {{post['author']}} on {{post['date']}}</li></div>
-                            
-                        <div class="body">
-                            <li>{{post['body']}}</li></div>
-                    </div>     
-                    <hr>
-                {%endfor%}
-                </div>  
-        </body>
-    </div>
+    <body>
+        <div class="topbar">
+            <h1>Welcome to the Blog</h1><h1>Top Stories from Laughing Coffin</h1>
+        </div>
+        <div class="navbar">    
+            
+            <div class="leftlink"><nav><a href="https://www.reddit.com/">Reddit</a></nav><nav><a href="https://myanimelist.net/">MAL</a></nav>
+            <nav><a href="https://www.webtoons.com/en/">Webtoons</a></nav></div>   
+        </div>
+           
+            
+        </div> 
+        <div class="toppad">    
+            {% for post in posts %}
+            <div class="blog"> 
+                <div class="title">
+                    <h2>{{post['title']}}</h2></div>
+                <div class="author">
+                    <li>From {{post['author']}} on {{post['date']}}</li></div>
+                <div class="body">
+                    <li>{{post['body']}}</li></div>
+                </div>     
+            <hr>
+            {%endfor%}
+        </div>  
+        <footer>&copy;Copyright Laughing Coffin INC. 2032</footer>
+    </body>
 </html>
