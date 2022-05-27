@@ -43,10 +43,28 @@ main h1{
     font-size:xx-large;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
-nav p{
+nav p {
     text-align: center;
     padding-left: 1.5em;
 }
+
+nav p a {
+    text-decoration: none;
+}
+
+nav p a:hover {
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    font-size: 1.5em;
+    box-sizing: .5em;
+    transition:all ease-in-out .195s;
+}
+
+/* nav p:hover{
+    text-shadow: 0 0 1em;
+    font-size: 2em;
+    box-sizing: .5em;
+    transition:all ease-in-out .195s;
+} */
 .footer-hr{
     padding-top: .2em;
 }
@@ -56,14 +74,19 @@ nav p{
     font-style: oblique;
 }
 .author-pic {
-    padding-left: 2.3em;
+    padding-right: 9em;
+    text-align: center;
 }
 .author {
     padding-top: 2em;
+    text-align:center
 
 }
 .name {
-    padding-left: 2.2em;
+    padding-right: 7.2em;
+}
+.author-name {
+    padding-left: 6.2em;
 }
 
 .author-quote {
