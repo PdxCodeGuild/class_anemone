@@ -25,12 +25,19 @@ body {
     
 }
 
+header {
+    background-color: #395b6f;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
 #blog-title {
     text-align: center;
 }
 
 nav {
     text-align: center;
+    
 }
 
 
@@ -135,5 +142,6 @@ footer {
     .post {
         flex: 1 0 21%;
     }
+
 
 }
