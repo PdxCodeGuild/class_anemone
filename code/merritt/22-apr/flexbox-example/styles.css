@@ -1,3 +1,9 @@
+/* #8C4842 dark red
+#BFB39B sand
+#72734F mustard
+#498C66 green
+#284B59 dark blue */
+
 html {
     box-sizing: border-box;
 }
@@ -6,7 +12,14 @@ html {
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    background-color: #BFB39B;
+    color: #284B59;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
 }
 
 img {
@@ -20,17 +33,39 @@ header, main, footer {
 
 header {
     text-align: center;
-    background-color: maroon;
-    color: whitesmoke;
+    background-color: #8C4842;
+    color: #BFB39B;
 }
 
+header h1 {
+    font-size: 2.75em;
+}
+
+header h1, header h3 {
+    margin: 0;
+}
+
+/* header p {
+    border: 1px solid #BFB39B;
+    border-radius: .5em;
+    padding: .25em;
+} */
+
 header a {
-    color: bisque;
+    color: #BFB39B;
+    transition: all ease-in-out 125ms;
+    /* text-decoration: none; */
+}
+
+header a:hover {
+    text-shadow: 0 0 .25em white;
+    transition: all ease-in-out 125ms;
 }
 
 main p {
     text-align: justify;
     line-height: 1.25;
+
 }
 
 @media (min-width: 750px) {
@@ -46,6 +81,10 @@ main p {
 
     header, main, footer {
         padding: 2em;
+    }
+
+    header {
+        padding-right: 1em;
     }
 
     .flex-gallery {
