@@ -1,0 +1,124 @@
+html{
+    background-color: gray;     color:aqua;
+    display:flex; 
+}
+
+header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 8vw;     text-align: center;  max-height: 10%;
+}
+
+nav {
+    display:inline-flex;   float:inline-start; position:sticky;
+    margin-right: 95%;  
+}
+
+a {
+    color: red;
+}
+
+.navbar{
+    overflow: hidden;   background-color: black;    position: fixed; 
+    top:0; display: flex;flex-wrap: column; padding-left: 1vw; padding-right: 1vw; 
+}
+
+.leftlink {
+    display:flex; flex-direction: column;    justify-content: center;  float:left; line-height: 5vw; font-size: 2vw;
+}
+
+.topbar {
+     text-align: center;  background-color:black;  position:fixed;  display: flex;  flex-wrap: wrap; 
+     justify-content: center;  margin: auto;  line-height: 1em;  width:100%;  max-height: fit-content;
+}
+
+li{
+    list-style: inside; list-style-type:armenian; padding-bottom: 1vw; position:left;
+}
+
+h1 {
+    font-size: 5vw;     font-family: 'Times New Roman', Times, serif;   text-align: center;
+}
+
+.fixed {
+    position: fixed
+}
+
+
+.title{
+    font-size: 5vw;     text-align: center;   justify-content: center;  margin: 0;
+    padding-bottom: 2vw; max-width: 100%; padding-right: 30vw
+}
+
+footer {
+    color:black
+}
+
+h2 {
+    margin: 3vw 1vw 1vw 1vw
+}
+
+
+.date, .author{
+    font-size: 4vw;     padding-bottom: 1vw; 
+}
+
+
+
+.body{
+    font-size:3vw;  text-align: justify;
+}
+
+.toppad {
+    padding-top: 10vh; margin:3vw
+}
+
+
+
+.blog2{
+    margin-left:10%;    margin-right:10%;
+}
+
+@media (min-width: 650px) {
+    .blog{
+        display: flex;  flex-wrap: wrap;
+    }
+    
+    .blog2{
+        width:40%;  padding: 1em; justify-content: center;   
+    }
+    
+    .leftlink {
+        font-size: 2vw;
+    }
+    .toppad {
+        padding-top: 20vh;
+    }
+}
+@media (min-width: 1200px) {
+    .blog2{
+        max-width:25%
+    }
+    .toppad {
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+    .title {
+        font-size: 4vw
+    }
+    .body {
+        font-size:2vw
+    }
+    .date, .author{
+        font-size: 3vw;     padding-bottom: 1vw; 
+    }
+    .blog  {
+    padding-top: 2vw; padding-bottom: 2vw; display:flex; flex-wrap: column;
+}
+}
+
+@media (min-width: 1900px) {
+    .leftlink {
+        line-height: 3vw;
+        font-size: 2vw
+    }
+}

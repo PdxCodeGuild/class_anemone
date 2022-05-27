@@ -40,17 +40,7 @@ tens = {
     90: 'ninety'
 }
 
-# ones_digit = user_input[] % 10
-# print(ones_digit)
-# tens_digit = (user_input // 10) * 10
-# print(tens_digit)
-# hundreds_digit = user_input // 100
-# print(hundreds_digit)
-# huns_tens_digit = ((user_input - (hundreds_digit * 100)) // 10) * 10
-# print(huns_tens_digit)
-# ones_digit = int(str(user_input)[-1])
-# tens_digit = int(str(user_input)[-2]) * 10
-# hundreds_digit = int(str(user_input)[-3])
+
 user_input = int(input("Enter a number (0-1000): "))
 
 if user_input < 100:
@@ -68,7 +58,7 @@ if user_input < 100:
  
         print(f"{tens[tens_digit]}-{ones[ones_digit]}".capitalize())
 
-if user_input <= 1000:        # print out numbers below 1000 in the hundreds
+elif user_input <= 1000:        # print out numbers below 1000 in the hundreds
     ones_digit = int(str(user_input)[-1])
     teens_digit = int(str(user_input)[1:])  
     tens_digit = int(str(user_input)[-2]) * 10
@@ -86,9 +76,4 @@ if user_input <= 1000:        # print out numbers below 1000 in the hundreds
     
 
 
-# testing print statements to check position
 
-# print(hundreds_digit) 
-# print(tens_digit) 
-# print(ones_digit)
-# print(teens_digit)
