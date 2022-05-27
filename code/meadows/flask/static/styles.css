@@ -18,7 +18,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color:lightsteelblue;
-    padding-bottom: 2em;
+    padding-bottom: .3em;
     padding-left: .7em;
 }
 header {
@@ -47,7 +47,141 @@ nav p{
     text-align: center;
     padding-left: 1.5em;
 }
+.footer-hr{
+    padding-top: .2em;
+}
+.footer-q{
+    text-align: center;
+    font-size:medium;
+    font-style: oblique;
+}
+.author-pic {
+    padding-left: 2.3em;
+}
+.author {
+    padding-top: 2em;
 
+}
+.name {
+    padding-left: 2.2em;
+}
 
+.author-quote {
+    padding-left: 1.3em;
+    text-align: left;
+}
 
-/*  */
+.author-nav {
+    padding-right: 10em;
+    display: none;
+}
+.main-txt {
+    padding-right: 0%;
+}
+@media (min-width: 500px) {
+    .flex-gallery {
+        display:flex;
+        flex-wrap:nowrap;
+    }
+
+    .gallery-item {
+        width:50%;
+        padding: .5em;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .the-head {
+        padding-left: 30%;
+    }
+}
+
+@media (min-width:900px) {
+    .gallery-item {
+        width: 50%;
+    }
+}
+
+@media (min-width:1020px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 2em;
+        padding-left:7em
+    
+    }
+}
+@media (min-width:1170px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 2em;
+        padding-left:11em
+    
+    }
+}
+@media (min-width:1170px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 3.5em;
+        padding-left:20em
+    
+    }
+    .main-txt {
+        padding-right: 5em;
+        font-size: larger;
+    }
+}
+@media (min-width:1800px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 5em;
+        padding-left:33em
+    
+    }
+    .main-txt {
+        padding-right: 15em;
+        font-size: larger;
+    }
+}
+@media (min-width:2200px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 15em;
+        display:block;
+    }
+    .author {
+        padding-top: 7em;
+        padding-left:44em
+    
+    }
+    .main-txt {
+        padding-right: 31em;
+        font-size: larger;
+    }
+}
