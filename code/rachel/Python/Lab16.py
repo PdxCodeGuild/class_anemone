@@ -153,7 +153,11 @@ player_1 = card_font.render('1: ', True, 'black')
 player_2 = card_font.render('2: ', True, 'black')
 player_3 = card_font.render('3: ', True, 'black')
 player_4 = card_font.render('4: ', True, 'black')
+<<<<<<< HEAD
 player_5 = card_font.render('Player 5: ', True, 'black')
+=======
+player_5 = card_font.render('5: ', True, 'black')
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
 
 #Button Setup
 new_game_img = pygame.image.load('new_game_img.png').convert_alpha()
@@ -277,7 +281,11 @@ class GamePlay ():
         screen.blit(player_4, (20, 470))
         screen.blit(player_5, (20, 510))
 
+<<<<<<< HEAD
         x = 150
+=======
+        x = 75
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
         y = 350
         for funny_response in funniest_responses:
             funny_response_position = (x, y)

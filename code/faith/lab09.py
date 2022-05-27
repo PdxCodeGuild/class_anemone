@@ -26,7 +26,10 @@ for files in os.listdir(books):
             num_letters = 0
             for word in words:
                 print('word', word)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
                 num_letters += len(word)
 
 

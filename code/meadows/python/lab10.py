@@ -3,6 +3,7 @@ import re
 #-------------------------------------------------VERSION 3 ---------------------------------------------------------------#
 contact = []
 
+<<<<<<< HEAD
 def csv_tansfer():                             # turning the CSV file into a list dict 
     with open('contact.csv', 'r') as f:
         contents = f.read().split('\n')
@@ -15,7 +16,15 @@ def csv_tansfer():                             # turning the CSV file into a lis
         contact.extend(book)
     return book
 csv_tansfer()  #using . extend to put the conact inside of the list without adding an entirely new list ontop of the list of lists
+=======
+with open('contact.csv', 'r') as f:
+    contents = f.read().split('\n')
+spots = contents[0].split(',')
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
 
+for i in range(1, len(contents)):
+    lists = contents[i].split(',')
+    contact.append(dict(zip(spots, lists)))
 
 
 def create(contact):             # making a new contact and turning it into a list then appending it to the list outside (contact)
@@ -34,7 +43,8 @@ def info(contact):
     for person in contact:
         if person['name'] == enter:
             print(f"\n Name: {person.get('name')}\n State: {person.get('state')}\n Number: {person.get('number')}")
-    return contact
+            print(person)
+            return person
 
 def update(contact):
     enter = input('\nEnter Name for contact "UPDATE": ')
@@ -54,28 +64,17 @@ def update(contact):
                 nm = input('update name: ')
                 person['name'] = nm
                 return contact
-# for x in no:
+
 def poof(contact):
-    del_enter = input('\nEnter contact to destroy: ')            # used to fully delete a contact if needed from the contact list
-    for person in contact:
-        if person['name'] == del_enter:
-            del person['name']
-            del person['state']
-            del person['number']
-            print('\nPOOF.. gone')
+    get = info(contact)
+    del_enter = input('\nEnter "yes" to destroy: ').lower()           # used to fully delete a contact if needed from the contact list
+    if del_enter == 'yes':
+            contact.remove(get)
             return contact
 
 
-def csv_upload(contact):                            # Created a Def to have my function continue to loop through until all things are fixed as needed for a CSV file 
-    csv_write = []
-    for items, lists in enumerate(contact):     # made this to get the first line ( keys ) only then break so it didn't continue adding it over and over since all of them have name, state, num
-        csv_write.append(list(lists.keys()))
-        break
-    for items, lists in enumerate(contact):    # a continue loop till all contacts have been fully changed over to a CSV format ..... # used enmurate since everything was already set as a list(dict) and it would pull the word and not just the range or length
-        csv_write.append(list(lists.values()))   
-    csv_write = '\n'.join([','.join(line) for line in csv_write])    
-    return csv_write
-# print(poof(update(info(create(contact)))))
+                          # Created a Def to have my function continue to loop through until all things are fixed as needed for a CSV file 
+
 play = True
 while play:
     phone = input('''
@@ -101,21 +100,13 @@ while play:
     else:
         print('\nfor english press the num..bb.rrrr.. for espon... SORRY! please enter a correct input!')
 
+csv_write = []
+csv_write.append(spots)
 
-list(filter(None, contact))
-print(csv_upload(contact))
+for c in contact:
+    csv_write.append(list(c.values()))
+csv_write = '\n'.join([','.join(line) for line in csv_write])
+print(csv_write)
+
 with open('contact.csv', 'w') as f:
-        f.write(csv_upload(contact))
-
-# csv_write.append(list(lists.keys()))
-# csv_upload(contact)
-# csv_write = []
-
-# for items, lists in enumerate(contact, 0):
-#     if items == 0:
-#         csv_write.append(list(lists.keys()))
-#         csv_write.append(list(lists.values()))
-    
-# csv_write = '\n'.join([','.join(line) for line in csv_write])
-# with open('contacts.csv', 'w') as f:
-#     f.write(csv_write)
+        f.write(csv_write)

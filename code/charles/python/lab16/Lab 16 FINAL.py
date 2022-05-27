@@ -14,17 +14,31 @@ class Screen():                                                 # sets base valu
         self.draw = False
         self.turn = 1
         self.pieces = 'x'
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
             
         pygame.init()
         self.fps = 60
         self.clock = pygame.time.Clock()
         self.screen = pygame.display.set_mode((self.width, self.height+100), 0, 32)
         pygame.display.set_caption('Tic Tac Toe Final')
+<<<<<<< HEAD
 
         self.opening = pygame.image.load('opening.jpg')
         self.ximg = pygame.image.load('x.jpg')
         self.oimg = pygame.image.load('o.jpg')
 
+=======
+        
+        # self.background = pygame.image.load('opening.jpg')
+        self.opening = pygame.image.load('charlotte 3.png')
+        self.ximg = pygame.image.load('x.jpg')
+        self.oimg = pygame.image.load('o.jpg')
+
+        # self.background = pygame.transform.scale(1080, 960)
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
         self.opening = pygame.transform.scale(self.opening, (self.width, self.height+100))
         self.ximg = pygame.transform.scale(self.ximg, (160, 160))
         self.oimg = pygame.transform.scale(self.oimg, (160, 160))
@@ -37,6 +51,10 @@ def loading():
     kren.screen.blit(kren.opening, (0, 0))              # loads the screen and displays the set picture during loading
     pygame.display.update()                             # calls the screen to update with new datat
     time.sleep(1)
+<<<<<<< HEAD
+=======
+    # kren.screen.blit(kren.background, (0,0))
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
     kren.screen.fill(kren.white)                        # fills the screen with a white background before the lines are called and pasted atop
 
     pygame.draw.line(kren.screen, kren.linered, (kren.width/3, 0), (kren.width/3, kren.height), 14)

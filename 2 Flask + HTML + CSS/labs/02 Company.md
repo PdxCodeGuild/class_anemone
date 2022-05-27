@@ -6,7 +6,11 @@ Pick an industry and create the landing page for a hypothetical company, filling
 
 ## Suggested Steps:
 
+<<<<<<< HEAD
 1. Create the HTML structure for your blog, with all content included.
+=======
+1. Create the HTML structure for your landing page, with all content included.
+>>>>>>> 0dcac4f9f250e1793785b869e1907f960be613e2
 2. Create your mobile version, using the styling of your choice.
 3. Use ```min-width``` media queries to add a tablet layout using flexbox. Customize your styling as needed. You probably want your breakpoint between phone and tablet widths to be somewhere around 640-768px.
 4. Finally, add your desktop layout. Customize styling as needed. A good breakpoint for desktop screen sizes is around 960-1100px.
