@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    text-align: center;
+    background-color: navy;
+    color: navy;
+}
+
+header a {
+    color: yellowgreen
+}
+
+footer a {
+    color:purple;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(141, 141, 150);
+    border-radius: 20px;
+    border-width: thick;
+}
+
+h3 a{
+    color: yellow;
+}
+
+@media (min-width: 750px) {
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1em;
+    }
+
+    .gallery-item {
+        width: 49%;
+        padding: 0 1em;
+    }
+}
+
+@media (min-width: 1100px) {
+    .gallery-item {
+        text-align: center;
+        width: 49%;
+    }
+    
+    .order{
+        display: flex;
+        justify-content: space-around;
+        margin: 5px;
+    }
+
+}
