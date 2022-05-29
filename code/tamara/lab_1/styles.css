@@ -8,29 +8,59 @@ body {
 }
 
 p { 
-    margin: 25px 250px;
-    padding: 25px;
-    border: 3px solid rgb(86, 83, 83);
-    background-color: rgb(255, 230, 0);
+    font-size: 1.1em;
+    margin: 10px 0px;
+    padding: 10px 30px;
+    border-top: 10px solid rgb(56, 68, 84);
+    border-bottom: 10px solid rgb(56, 68, 84);
+    border-right: 30px solid rgb(24, 183, 236);
+    border-left: 30px double rgb(213, 70, 70);
+    background-color: rgb(56, 68, 84);
+    color: whitesmoke;
 }
 
-/* .text {
-    border: 4px solid whitesmoke;
-    background-color: rgb(176, 176, 144);
-} */
-.background{
+hr {
+    border-top: 4px dashed rgb(213, 70, 70);
+}
+
+a {
+    color:rgb(255, 149, 149)
+}
+
+q {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    background-color:rgb(56, 68, 84);
+    padding: 10px;
+    color: whitesmoke;
+    font-size: 3em;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 1em;
+    margin: 0px;
+}
+
+.background {
     background-color:rgba(255, 255, 255, 0.89);
-    margin: 50px 200px;
-    border: 6px solid rgb(58, 96, 133);
+    margin: 10px 115px;
+    border: 10px solid rgb(24, 183, 236);
 }
 
 .image {
-    width: 90%;
-    height: 90%;
-    margin: 50px 0px 15px 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px 10px 0px;
 }
 
 .image2 {
+    border-top: 10px solid rgb(56, 68, 84);
+    border-bottom: 10px solid rgb(56, 68, 84);
+    border-radius: 100px;
     width: 50%;
-    height: 50%
+    height: 50%;
+    margin: 10px 0px;
 }
