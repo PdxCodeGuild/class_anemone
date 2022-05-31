@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>Barrito</title>
+</head>
+<header>
+    Big Bold Borrito's
+</header>
+<body>
+    <form action="https://webhook.site/a29a635e-e6fa-42f1-b4c3-39aaf608ed52" methond="post">
+        <div class="user">
+            <input type="text" name="name" id="order name" placeholder="Required" required><br>
+            <label id="order name">Name of the Order</label><br>
+        
+            <input type="text" name="password" id="password" placeholder="Required" required><br>
+            <label id="password">Enter your Password</label><br>
+        </div>
+        
+        <div class="items">
+            <label id="tortilla">Tortilla Type</label><br>
+            <input type="radio" name="tortilla" id="tortilla" value="White Flour">White Flour<br>
+            <input type="radio" name="tortilla" id="tortilla" value="Wheat Flour">Wheat Flour<br>
+            <input type="radio" name="tortilla" id="tortilla" value="Spinach">Spinach<br>
+            <input type="radio" name="tortilla" id="tortilla" value="Corn">Corn<br>
+        </div>
+        
+        <div class="items">
+            <label id="rice">Rice</label><br>
+            <input type="radio" name="rice" id="rice" value="White Rice">White Rice<br>
+            <input type="radio" name="rice" id="rice" value="Brown Rice">Brown Rice<br>
+        </div>
+        
+        <div class="items">
+            <label id="beans">Beans</label><br>
+            <input type="radio" name="beans" id="beans" value="Black Beans">Black Beans<br>
+            <input type="radio" name="beans" id="beans" value="Pinto Beans">Pinto Beans<br>
+        </div>
+        
+        <div class="items">
+            <label id="protein">Protein</label><br>
+            <input type="radio" name="protein" value="Carnitas">Carnitas<br>
+            <input type="radio" name="protein" value="Chicken">Chicken<br>
+            <input type="radio" name="protein" value="Sofritas">Sofritas<br>
+            <input type="radio" name="protein" value="None">None<br>
+        </div>
+        
+        <div class="items">
+            <label id="add">Additional Ingredients</label><br>
+            <input type="radio" name="add" value="Cheese">Cheese<br>
+            <input type="radio" name="add" value="Sour Cream">Sour Cream<br>
+        </div>
+        
+        <div class="adds">
+            <input type="textarea" name="other" id="other" placeholder="Other order request from menu."><br>
+            <label id="other">Additional Request</label><br>
+        </div>
+        
+        <div class="del">
+            <input type="textarea" name="delivery" id="delivery" placeholder="Specific insturctions"><br>
+            <label id="delivery">Delivery Instructions</label>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
