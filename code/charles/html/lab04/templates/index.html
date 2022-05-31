@@ -14,11 +14,91 @@
 <body>
     <form action="https://webhook.site/a29a635e-e6fa-42f1-b4c3-39aaf608ed52" methond="post">
         <div class="user">
-            <input type="text" name="name" id="order name" placeholder="Required" required><br>
-            <label id="order name">Name of the Order</label><br>
-        
-            <input type="text" name="password" id="password" placeholder="Required" required><br>
+            <input type="text" pattern="[a-zA-Z]{6,16}" id="ordername" title="Username must be between 6 and 16 charaters of numbers and letters." placeholder="Required" required><br>
+            <label id="ordername">Username</label><br>
+        </div><div class="user">
+            <input type="text" pattern="[a-zA-Z]{6,16}" id="password" title="Password must be between 6 and 16 charaters of numbers and letters." placeholder="Required" required><br>
             <label id="password">Enter your Password</label><br>
+        </div><div class="user">   
+            <input type="text" pattern="[a-zA-Z]{3,}[ ][a-zA-Z]{3,}" id="Name" title="Requires two words with a minimum of 3 characters each." placeholder="Required" required><br>
+            <label id="Name">First and Last Name</label><br>
+        </div><div class="user">    
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" title="Enter a Valid Email Address" placeholder="Required" required><br>
+            <label id="email">Enter your Email</label><br>
+        </div><div class="user">    
+            <input type="text" pattern="{3}-{3}-{4}" id="phone" title="Phone Number format must be: XXX-XXX-XXXX" placeholder="Required" required><br>
+            <label id="phone">Enter your Phone Number</label><br>
+        </div><div class="user">   
+            <input type="date"  id="DOB" title="Select your DOB" placeholder="Required" required><br>
+            <label id="DOB">Enter your DOB</label><br>
+        </div><div class="user">   
+            <input type="text" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" id="SSN" title="Enter your SSN in XXX-XX-XXXX format." placeholder="Required" required><br>
+            <label id="SSN">Enter your Social Security Number</label><br>
+        </div><div class="user">   
+            <input type="text" pattern="[0-9]{1,}[ ][a-zA-Z0-9.-# ]{1,}[ ][0-9.-,]{1,}" id="street" title="Address # Street (ex. Apt or door #) Street" placeholder="Required" required><br>
+            <label id="street">Enter your Street Address</label><br>
+        </div><div class="user">
+            <input type="text" pattern="[a-zA-Z-']{1,}" id="password" title="Enter your City." placeholder="Required" required><br>
+            <label id="password">Enter your City</label><br>
+        </div><div class="user">
+            <select name="state" id="state" required>
+                <option value="None">UwU</option>
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AR">AR</option>	
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>	
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>	
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>	
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>			
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>	
+                <option value="WV">WV</option>
+                <option value="WY">WY</option>
+            </select>
+            <label id="state">Select your State</label>
+        </div><div class="user">
+            <input type="text" pattern="[0-9]{5}-[0-9]{0,4}" id="ZIP" title="Enter your zip code" placeholder="Required" required><br>
+            <label id="ZIP">Enter your Zip Code</label><br>
         </div>
         
         <div class="items">

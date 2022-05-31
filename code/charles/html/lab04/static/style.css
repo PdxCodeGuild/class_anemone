@@ -9,19 +9,30 @@ header {
     font-size: 2em;
     background-color: teal;
     color:wheat;
+    padding: 1vh;
 }
 
 .user {
+    display:inline-flex;
+    flex-wrap:wrap;
     box-sizing: content-box;
     border: 2px black;
     border-style: solid;
     content: center;
-    margin: 1vh 5vw;
-    padding: 6px
+    margin: 1vh 3vw;
+    padding: 1vw;
+    max-width:40vw;
+    max-height: 9vh
+}
+
+#ordername, #state, #ZIP, #street, #SSN, #DOB, #password, #Name, #email, #phone{
+    width: 35vw;
+    height: 1.2em;
 }
 
 .user label {
-    margin-bottom: 20em;
+    margin-bottom: 4vh;
+    font-size: .9em;
 }
 
 .items {
@@ -33,9 +44,9 @@ header {
     font-weight: 700;
 }
 
-.items input[type="radio"]:hover {
+#radio:hover {
     padding-bottom: 2vh;
-    box-shadow: 0 0 5px;
+    box-shadow: 0 0 10px;
 }
 
 .adds {
@@ -55,6 +66,7 @@ header {
 
 .del input:hover, .adds input:hover{
     box-shadow: 0 0 2px;
+    background-color: grey;
 }
 
 .del input:active, .adds input:active {
