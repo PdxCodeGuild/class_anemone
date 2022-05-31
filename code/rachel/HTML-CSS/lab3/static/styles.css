@@ -39,7 +39,7 @@ main {
     text-align: justify;
     line-height: 1.25;
     background-color: rgb(121, 70, 80, 0.4);
-    /*border: 2px solid blue;*/
+    padding: 20px
 }
 
 footer {
