@@ -15,14 +15,14 @@ while True:
         while True:
 
             
-            quoteoutput = requests.get('https://favqs.com/api/qotd', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}, params = {'page': page, 'filter': keyword})
+            quoteoutput = requests.get('https://favqs.com/api/quotes', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}, params = {'page': page, 'filter': keyword})
             dict = quoteoutput.json()
-            quotes = dict['quote']
+            quotes = dict['quotes']
 
            
             for quote in quotes:
-                body = quotes['body']
-                author = quotes['author']
+                body = quote['body']
+                author = quote['author']
                 print(f"\n\"{body}\" -{author}\n")
             
            
