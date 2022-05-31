@@ -38,10 +38,10 @@ def del_contacts(data, name):
 def update_contacts(data,csv_data,name):
     for i in range(len(data)):
         if name == data[i].get('name'):
-            csv_data.pop(i)
+            csv_data.pop(i+1)
             data[i]['favorite fruit'] = input(f"Enter { name }'s favorite fruit: ")
             data[i]['favorite color'] = input(f"Enter { name }'s favorite color: ")
-            csv_data[i] = [data[i]['name'], data[i]['favorite fruit'], data[i]['favorite color']]
+            csv_data.append([data[i]['name'], data[i]['favorite fruit'], data[i]['favorite color']])
             name =""
     return data, csv_data
             
