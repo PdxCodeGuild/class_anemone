@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -9,41 +9,93 @@ body {
   background-image: url(../media/bg.jpg);
 }
 
-/* HEADER */
-
-header {
-  padding: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  background-color: #000000;
-  color: red;
+a {
+    text-decoration: none;
+    color: #d9dcd6;
+}
+.flex-container {
+    display: flex;
 }
 
-header h1 {
-  display: inline-block;
-  font-size: 48px;
+/* Header and NavBar */
+
+header {
+    flex-direction: column;
+    background: #000;
+    color:rgb(231, 143, 143);
+    justify-content:space-around;
+    padding: 1em;
 }
 
 header nav {
-  padding-top: 15px;
-  margin-right: 20px;
-  float: right;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px;
+    flex-direction: row;
+    margin: 10px;
+    
 }
 
-header nav ul {
-    list-style-type: none;
+nav .item {
+    border-radius:.5em;
+    background: rgb(44, 41, 41);
+    padding: .5em;
+    margin: 10px;
+    flex-grow: 1;
 }
 
-header nav ul li {
-    display: inline-block;
-    margin-left: 25px;
+/* Main */
+
+main {
+    flex-direction: column;
+    
+}
+.card {
+    flex-grow: 1;
+    background: #ffff;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    border-radius: 1em;
+    margin: 1em;
+    padding: 1em;
+}
+.card img {
+    align-self: flex-start;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 1em;
 }
 
-/* TEXT STYLE */
-a {
+.text {
+
+    flex-flow: column;
+    padding: 1em;
+    align-items: center;
+
+    
+}
+.text h4 {
     color: red;
-    text-decoration: none;
-    hover:
 }
+.text p {
+    padding: 0.5em;
+}
+
+#card-2 img {
+    align-self: center;
+    order: 2;
+}
+
+#card-3 img {
+    align-self: flex-end;
+}
+
+/* Tablet */
+@media screen and (min-width:640px) {
+    main {
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-direction: row;
+    }
+}
+
+/* Desktop */
