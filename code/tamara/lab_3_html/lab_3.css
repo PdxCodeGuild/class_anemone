@@ -3,51 +3,69 @@ main {
     display: none;
 }
 
-/* body{
-    display: flex;
-    flex-direction: column;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* get custom font */
-    /* justify-content: center; */
-    /* align-content: center; */
-
-/* The guys idea about automatically picking a couple colors from a photo would be really cool 
-then when a blog post is clicked and loaded into main the photo for it will apear and the colors would automatically change to match the photo
-this could be done manually to of course but less cool  */
-
 a {
     color: #731728;
 }
 body {
     background-color: #1C1C24;
     color: #f0dacd;
-    font-family: sans-serif;
-}
-header, footer {
-    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5em;
+    margin: 0em;
     padding: 0em;
-    text-align: center;
-}
-
-footer {
-    background-color: rgba(255, 212, 72, 0.829);
 }
 
 nav {
     order: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    padding: 1em;
 }
 footer {
-    width: 100vw;
+    width: 100%;
     max-width: 1210px;
+    color:#1C1C24;
+    background-color: rgba(255, 212, 72, 0.829);
+    text-align: center;
+    margin: 0em;
+    padding: 1em 0em;
+}
+
+footer a {
+    padding: .25em;
 }
 
 header {
+    margin: 0;
+    padding: 0em;
     display: flex;
     flex-flow: column nowrap;
     align-items: space-around;
     margin: 0;
     padding: 0;
     width: fit-content;
+    text-align: center;
+}
+
+.title, h2 {
+    color:#ba2742;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h3 {
+    color:rgba(255, 212, 72, 0.829);
+    text-align: end;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+a {
+    font-weight: 500;
 }
 
 header h3 {
@@ -56,26 +74,24 @@ header h3 {
 }
 
 nav p {
-    width: 50%;
+    width: 33.33%;
     padding: .5em 0em;
-    background-color: #731728;
     margin: 0em
 }
 
 nav a {
-    text-decoration: none;
     color:rgba(255, 212, 72, 0.829);
+    margin: 0em;
+    padding: .5em;
 }
 
 .main-image {
     order:2;
     max-width: 100%;
-}
-
-.nav-link-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
+    /* outline: solid .5em #1C1C24;
+    outline-offset: -.5em; 
+    can just replace this with .5em padding if you want 
+    will change spacing slightly*/
 }
 
 .title {
@@ -83,22 +99,40 @@ nav a {
     flex-flow: column nowrap;
     order: 1;
     margin: 0em;
+    background-color:rgba(255, 212, 72, 0.829);
     /* consider changing this for larger screen sizes and putting the title on upper left hand corner of image */
 }
 
 .blog-preview {
     text-align: center;
-    padding: .5em;
 }
 
 .blog-preview p {
-    text-align: left;
+    text-align: justify;
+    line-height: 1.25em;
+    padding: 1em;
+}
+
+.blog-preview h3 {
+    border-bottom: #731728 solid .5em;
+}
+
+.preview-1-title {
+    margin: 0em;
+    padding: .25em .5em;
+    border-left: rgba(255, 212, 72, 0.829) solid .5em;
+    border-right: rgba(255, 212, 72, 0.829) solid .5em;
 }
 .main-container {
     width: 100%;
-    background-color: beige;
+    max-width: 1210px;
+    margin: 0em;
+    padding: 0em;
 }
 
-.main-post {
-    display: none;
+.preview-title {
+    background-color:rgba(255, 212, 72, 0.829);
+    text-align: end;
+    margin: 0em;
+    padding: .05em 1em;
 }
