@@ -19,6 +19,10 @@
         {
             "priority": "low",
             "text": "get a dog"
+        },
+        {
+            "priority": "low",
+            "text": "finish lab"
         }
     ]
 }
