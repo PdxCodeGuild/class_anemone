@@ -11,52 +11,21 @@ db.save()
 '''
 
 
-import json
 
+from flask import Flask, render_template, request, redirect
+import nosj
 
-class JsonDB:
-    def __init__(self, path='db.json'):
-        self.path = path
-        self.data = None
-    
-    def load(self):
-        with open(self.path, 'r') as file:
-            self.data = json.loads(file.read())
-    
-    def save(self):
-        with open(self.path, 'w') as file:
-            file.write(json.dumps(self.data, indent=4, sort_keys=True))
-    
-    def __getitem__(self, key):
-        return self.data[key]
-    
-    def __setitem__(self, key, value):
-        self.data[key] = value
-    
-    def __delitem__(self, key):
-        del self.data[key]
-
-    def get(self, key, default=None):
-        return self.data.get(key, default)
-
-    def set(self, key, value):
-        self.data[key] = value
-    
-    def clear(self, key=None):
-        if key is not None:
-            del self.data[key]
-        else:
-            self.data = {}
-
-js = JsonDB()
+# load, save, __getitem__, __setitem__, __delitem__, get, set, clear,
+# print(nosj.__getitem__("todos"))
+js = nosj.JsonDB()
 jsdb = js.load()
-todos = js.get("todos")
+todos = js.__getitem__("todos")
+for i in enumerate(todos):
+    print(i)
 
-print(js)
-print(jsdb)
-print(todos)
-
-# from flask import Flask, render_template, request, redirect
+# print(js)
+# print(jsdb)
+# print(todos)
 
 # app = Flask(__name__)
 
