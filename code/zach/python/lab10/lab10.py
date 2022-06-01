@@ -28,11 +28,12 @@ def add_contacts(data, name, fav_fruit, fav_color):
     return data
 
 
-def del_contacts(data, name):
+def del_contacts(data, csv_data, name):
     for i in range(len(data)):
         if name == data[i].get('name'):
+            csv_data.remove(csv_data[i+1])
             data.remove(data[i])
-            return data
+            return data, csv_data
     return print(f'{ name.capitalize() } not found in contacts')
 
 def update_contacts(data,csv_data,name):
@@ -76,7 +77,7 @@ def main():
             csv_list.append([name, fruit, color])
         elif user_input == 'remove':
             name = input('Enter name of contact you wish to remove\nName: ')
-            del_contacts(contact_list, name)
+            del_contacts(contact_list, csv_list, name)
         elif user_input == 'edit':
             print('Enter Name of Contact you wish to edit.')
             name = input('Name:').lower().strip()
