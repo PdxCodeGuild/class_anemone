@@ -4,159 +4,167 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
   </head>
   <body>
-    <form action="">
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="required"
-        required
-      />
-      <label for="name">Name</label><br />
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="required"
-        required
-      />
-      <label for="password">Password</label><br />
-      <input
-        type="radio"
-        name="tortilla"
-        id="white_tortilla"
-        placeholder="required"
-        required
-      />
-      <label for="white_tortilla">White Flour</label>
-      <input
-        type="radio"
-        name="tortilla"
-        id="wheat_tortilla"
-        placeholder="required"
-        required
-      />
-      <label for="wheat_tortilla">Wheat Tortilla</label>
-      <input
-        type="radio"
-        name="tortilla"
-        id="spinach"
-        placeholder="required"
-        required
-      />
-      <label for="spinach">Spinach</label>
-      <input
-        type="radio"
-        name="tortilla"
-        id="corn"
-        placeholder="required"
-        required
-      />
-      <label for="corn">Corn</label><br />
-      <input
-        type="radio"
-        name="rice"
-        id="white_rice"
-        placeholder="required"
-        required
-      />
-      <label for="white_rice">White Rice</label>
-      <input
-        type="Radio"
-        name="rice"
-        id="brown_rice"
-        placeholder="required"
-        required
-      />
-      <label for="brown_rice">Brown Rice</label><br />
-      <input
-        type="radio"
-        name="beans"
-        id="black_beans"
-        placeholder="required"
-        required
-      />
-      <label for="black_beans">Black Beans</label>
-      <input
-        type="Radio"
-        name="beans"
-        id="pinto_beans"
-        placeholder="required"
-        required
-      />
-      <label for="pinto_beans">Pinto Beans</label><br />
-      <input
-        type="radio"
-        name="protein"
-        id="carnitas"
-        placeholder="required"
-        required
-      />
-      <label for="carnitas">Carnitas</label>
-      <input
-        type="radio"
-        name="protein"
-        id="chicken"
-        placeholder="required"
-        required
-      />
-      <label for="chicken">Chicken</label>
-      <input
-        type="radio"
-        name="protein"
-        id="sofritas"
-        placeholder="required"
-        required
-      />
-      <label for="sofritas">Sofritas</label>
-      <input
-        type="radio"
-        name="protein"
-        id="none"
-        placeholder="required"
-        required
-      />
-      <label for="none">None</label><br />
-      <input
-        type="radio"
-        name="protein"
-        id="sofritas"
-        placeholder="required"
-        required
-      />
-      <label for="sofritas">Sofritas</label>
-      <input
-        type="radio"
-        name="protein"
-        id="none"
-        placeholder="required"
-        required
-      />
-      <label for="none">None</label><br />
-      <input
-        type="checkbox"
-        name="additional"
-        id="cheese"
-        placeholder="required"
-      />
-      <label for="cheese">Cheese</label>
-      <input
-        type="checkbox"
-        name="additional"
-        id="sour_cream"
-        placeholder="required"
-      />
-      <label for="sour_cream">Sour Cream</label><br />
-      <input
-        type="text"
-        name="instructions"
-        id="sour_cream"
-        placeholder="Delivery Instructions"
-      />
-      <label for="sour_cream">Delivery Instructions</label><br />
-    </form>
+    <div class="flex_box">
+      <div class="content_card">
+        <img
+          src="./assets/media/img1.jpg"
+          alt="welcome to good burrito home of the good burrito can I Take your order?"
+        />
+        <h2>Good Burrito</h2>
+      </div>
+      <form action="https://webhook.site/1c9fb4da-a965-47ba-b9cc-72b519a1eade" method="post">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="required"
+          required
+        />
+        <label for="name">Name</label><br />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="required"
+          required
+        />
+        <label for="password">Password</label><br />
+        <input
+          type="radio"
+          name="tortilla"
+          id="white_tortilla"
+          placeholder="required"
+          required
+        />
+        <label for="white_tortilla">White Flour</label>
+        <input
+          type="radio"
+          name="tortilla"
+          id="wheat_tortilla"
+          value="wheat_tortilla"
+          placeholder="required"
+          required
+        />
+        <label for="wheat_tortilla">Wheat Tortilla</label>
+        <input
+          type="radio"
+          name="tortilla"
+          id="spinach"
+          value="spinach"
+          placeholder="required"
+          required
+        />
+        <label for="spinach">Spinach</label>
+        <input
+          type="radio"
+          name="tortilla"
+          id="corn"
+          value="corn"
+          placeholder="required"
+          required
+        />
+        <label for="corn">Corn</label><br />
+        <input
+          type="radio"
+          name="rice"
+          id="white_rice"
+          value="white_rice"
+          placeholder="required"
+          required
+        />
+        <label for="white_rice">White Rice</label>
+        <input
+          type="Radio"
+          name="rice"
+          id="brown_rice"
+          value="brown_rice"
+          placeholder="required"
+          required
+        />
+        <label for="brown_rice">Brown Rice</label><br />
+        <input
+          type="radio"
+          name="beans"
+          id="black_beans"
+          value="black_beans"
+          placeholder="required"
+          required
+        />
+        <label for="black_beans">Black Beans</label>
+        <input
+          type="Radio"
+          name="beans"
+          id="pinto_beans"
+          value="pinto_beans"
+          placeholder="required"
+          required
+        />
+        <label for="pinto_beans">Pinto Beans</label><br />
+        <input
+          type="radio"
+          name="protein"
+          id="carnitas"
+          value="carnitas"
+          placeholder="required"
+          required
+        />
+        <label for="carnitas">Carnitas</label>
+        <input
+          type="radio"
+          name="protein"
+          id="chicken"
+          value="chicken"
+          placeholder="required"
+          required
+        />
+        <label for="chicken">Chicken</label>
+        <input
+          type="radio"
+          name="protein"
+          id="sofritas"
+          value="sofritas"
+          placeholder="required"
+          required
+        />
+        <label for="sofritas">Sofritas</label>
+        <input
+          type="radio"
+          name="protein"
+          id="none"
+          value="none"
+          placeholder="required"
+          required
+        />
+        <label for="none">None</label><br />
+        <input
+          type="checkbox"
+          name="additional"
+          id="cheese"
+          placeholder="required"
+          value="cheese"
+        />
+        <label for="cheese">Cheese</label>
+        <input
+          type="checkbox"
+          name="additional"
+          id="sour_cream"
+          placeholder="required"
+          value="sour_cream"
+        />
+        <label for="sour_cream">Sour Cream</label><br />
+        <input
+          type="text"
+          name="instructions"
+          id="instructions"
+          placeholder="Delivery Instructions"
+        />
+        <label for="instructions">Delivery Instructions</label><br />
+        <button type="submit">submit</button>
+      </form>
+    </div>
   </body>
 </html>
