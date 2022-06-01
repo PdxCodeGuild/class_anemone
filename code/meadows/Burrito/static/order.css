@@ -6,101 +6,43 @@ html {
     box-sizing: inherit;
 }
 
-li {
-    font-size: 1em;
-}
-body {
-    background-image: url(https://media1.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif?cid=ecf05e47z0flsxqecxfhzfblwq3jvzcr2vtya07ptmapj2wp&rid=giphy.gif&ct=g);
+header {
+    background-image: url(https://d39l2hkdp2esp1.cloudfront.net/img/photo/126792/126792_00_2x.jpg);
     background-blend-mode:lighten;
-    height: 100%;
-    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color:lightsteelblue;
-    padding-bottom: .3em;
-    padding-left: .7em;
+    height: 525px;
+    width: auto;
+    margin: -.6em;
+    margin-top: -3em;
 }
-header {
-    padding-bottom: .6em;
-    padding-left: .3em;
-    width: 2em;
-    font-size: 3em;
-    font-style: oblique;
-    color:lightsteelblue;
-}
-p{
-    text-align: justify;
-    padding-right: 2em;
-}
-hr {
-    width: 50%;
-    padding-left:3em;
-
-}
-main h1{
-    padding-right: 1em;
-    font-size:xx-large;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-nav p {
-    text-align: center;
-    padding-left: 1.5em;
-}
-
-nav p a {
-    text-decoration: none;
-}
-
-nav p a:hover {
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-    font-size: 1.5em;
-    box-sizing: .5em;
-    transition:all ease-in-out .195s;
-}
-
-/* nav p:hover{
-    text-shadow: 0 0 1em;
+.title {
+    color:rgba(255, 235, 205, 0.767);
     font-size: 2em;
-    box-sizing: .5em;
-    transition:all ease-in-out .195s;
-} */
-.footer-hr{
-    padding-top: .2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-weight: 250;
+    padding: .27em;
+    padding-top: 9em;
 }
-.footer-q{
-    text-align: center;
-    font-size:medium;
-    font-style: oblique;
+body {
+    background-image: url(https://www.timberlinehouston.com/wp-content/uploads/2018/03/black-natural-stone-bg.jpg);
+    background-blend-mode:lighten;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgba(255, 235, 205, 0.767);
 }
-.author-pic {
-    padding-right: 9em;
-    text-align: center;
-}
-.author {
-    padding-top: 2em;
-    text-align:center
-
-}
-.name {
-    padding-right: 7.2em;
-}
-.author-name {
-    padding-left: 6.2em;
+.break {
+    width: 100%;
+    background-color: rgb(5, 11, 32);
 }
 
-.author-quote {
-    padding-left: 1.3em;
-    text-align: left;
-}
 
-.author-nav {
-    padding-right: 10em;
-    display: none;
-}
-.main-txt {
-    padding-right: 0%;
-}
+/* was goingn to do more ( took the sizes from other lab to edit my boxes and make prettier but havn't got there fully ) */
+
+
 @media (min-width: 500px) {
     .flex-gallery {
         display:flex;
