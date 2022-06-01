@@ -7,6 +7,8 @@
     <title>order - Guac & Roll Buritos</title>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Thasadith&display=swap" rel="stylesheet">
 
 </head>
@@ -17,12 +19,12 @@
     <main>
         <div>
             <h3>LOGIN TO USE REWARDS!</h3>
-            <input type="text" name="Username" id="Username">
             <label for="Username">Username</label>
-            <input type="text" name="Password" id="Password">
+            <input type="text" name="Username" id="Username"><br>
             <label for="Password">Password</label>
+            <input type="text" name="Password" id="Password">
         </div>
-        <div class="shadow">
+        <div class="shadow burritopick">
             <!-- burrito photo -->
             <div class="center">
                 <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/D17CF0E1-E0C1-465F-899A-EA24A362392D/Derivates/dbb1e5eb-fcf1-44e0-9d1b-c573608c1ad4.jpg" alt="burito">
@@ -33,7 +35,7 @@
         <div>
             <!-- burrito customization -->
             <h2>Customize Your Burrito</h2>
-            <h3 class="shadow">Your Burrito's Details</h3>
+            <h3 class="shadow burritopick">Your Burrito's Details</h3>
             <p class="padding"><b>Included in your $6:</b></p>
             <hr>
             <p><b>Tortilla:</b></p>
@@ -73,9 +75,8 @@
             </div>
             <hr>
             <div>
-                <p><b>Order Comments:</b></p>
+                <label for="Comments">Comments</label><br>
                 <input type="text" name="Comments" id="Comments">
-                <label for="Comments">Comments</label>
             </div>
             <div>
                 <!-- Submit Button -->
