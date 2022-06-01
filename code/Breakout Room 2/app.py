@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, request
-import json
 from jsondb import JsonDB
 
 
@@ -13,10 +12,15 @@ db.set('x', x)
 db.save()
 """
 
+app = Flask(__name__)
+db = JsonDB('db.json')
+db.load()
 
 @app.route('/', methods=['GET', 'POST'])
 
 def index():
+    to_do = db.get('todos')
+    return render_template("index.html", to_do = to_do)
 
-    return render_template("index.html")
+app.run(debug=True)
 

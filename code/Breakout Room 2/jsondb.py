@@ -1,3 +1,5 @@
+import json
+
 class JsonDB:
     def __init__(self, path='db.json'):
         self.path = path
