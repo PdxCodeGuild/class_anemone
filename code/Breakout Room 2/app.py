@@ -22,7 +22,11 @@ def index():
     to_do = db.get('todos')
     if request.method == 'POST':
         new_task = request.form['input_text']
-        db.set("todos", new_task)
+        priority = request.form['button']
+        print(priority, new_task)
+        task_dict = {'text': new_task, 'priority': priority}
+        to_do.append(task_dict)
+        db.set("todos", to_do)
         db.save()
         return redirect('/')
     return render_template("index.html", to_do = to_do)
