@@ -13,6 +13,7 @@ def index():
     if request.method == 'POST':
         todo = {'text': request.form['todo item'], 'priority': request.form['priority']}
         todos.append(todo)
+        db.set('todos', todos)
         db.save()
         return redirect('/')
     return render_template('index.html',todos=todos)
