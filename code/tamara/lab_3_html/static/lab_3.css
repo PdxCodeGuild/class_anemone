@@ -1,3 +1,10 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 main {
     padding: 1em;
     display: none;
@@ -5,6 +12,10 @@ main {
 
 a {
     color: #731728;
+}
+
+a:hover {
+    color: #3B9ABF;
 }
 body {
     background-color: #1C1C24;
@@ -30,6 +41,7 @@ footer {
     text-align: center;
     margin: 0em;
     padding: 1em 0em;
+    border: solid #3B9ABF .5em;
 }
 
 footer a {
@@ -46,10 +58,6 @@ header {
     padding: 0;
     width: fit-content;
     text-align: center;
-}
-
-.title, h2 {
-    color:#ba2742;
 }
 
 h1 {
@@ -88,10 +96,7 @@ nav a {
 .main-image {
     order:2;
     max-width: 100%;
-    /* outline: solid .5em #1C1C24;
-    outline-offset: -.5em; 
-    can just replace this with .5em padding if you want 
-    will change spacing slightly*/
+    border: solid .5em #1C1C24;
 }
 
 .title {
@@ -99,7 +104,9 @@ nav a {
     flex-flow: column nowrap;
     order: 1;
     margin: 0em;
-    background-color:rgba(255, 212, 72, 0.829);
+    background-color: #3B9ABF;
+    color:#1C1C24;
+    border:rgba(255, 212, 72, 0.829) solid .5em;
     /* consider changing this for larger screen sizes and putting the title on upper left hand corner of image */
 }
 
@@ -115,14 +122,10 @@ nav a {
 
 .blog-preview h3 {
     border-bottom: #731728 solid .5em;
+    padding: 0em .5em;
+    margin: .5em 0em 0em 0em;
 }
 
-.preview-1-title {
-    margin: 0em;
-    padding: .25em .5em;
-    border-left: rgba(255, 212, 72, 0.829) solid .5em;
-    border-right: rgba(255, 212, 72, 0.829) solid .5em;
-}
 .main-container {
     width: 100%;
     max-width: 1210px;
@@ -131,8 +134,23 @@ nav a {
 }
 
 .preview-title {
-    background-color:rgba(255, 212, 72, 0.829);
-    text-align: end;
+    text-align: center;
     margin: 0em;
     padding: .05em 1em;
+    color: #3B9ABF;
+}
+
+.author-date p{
+    text-align:end;
+    font-size: .75em;
+    margin: 0em;
+    padding: .15em .5em;
+    background-color: #3B9ABF;
+    color: #1C1C24;
+}
+
+@media (max-width: 349px) {
+    h1 {
+        font-size: 2em;
+    }
 }

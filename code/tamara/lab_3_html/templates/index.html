@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dog Powered Travel Blog</title>
-        <link rel="stylesheet" type="text/css" href="https://github.com/csstools/normalize.css.git" media="screen">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="lab_3.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lab_3.css') }}"/>
     </head>
     <body>
         <!-- body contains:
@@ -54,18 +54,15 @@
                         Recent Posts
                     </h2>
                 </div>
-                <h3 class="preview-1-title">
-                    Blog Post 1
-                </h3>
-                <p>
-                    The Alaskan husky is not an officially recognized breed by any kennel club, nor does it have a formal breed standard. Unlike breeds developed for the show-ring, the Alaskan husky is instead a product of careful selection for desirable sled dog traits from various other breeds, such as aptitude for pulling, endurance, speed, intelligence, appetite, and tolerance of extreme weather.[6][7] As a result of this specific and mindful performance-only based breeding, DNA studies show that Alaskan Huskies share a genetic signature and indeed can be identified accurately on DNA breed tests.[8]
-                </p>
-                <h3>
-                    Blog Post 2
-                </h3>
-                <p>
-                    The Alaskan husky is not an officially recognized breed by any kennel club, nor does it have a formal breed standard. Unlike breeds developed for the show-ring, the Alaskan husky is instead a product of careful selection for desirable sled dog traits from various other breeds, such as aptitude for pulling, endurance, speed, intelligence, appetite, and tolerance of extreme weather.[6][7] As a result of this specific and mindful performance-only based breeding, DNA studies show that Alaskan Huskies share a genetic signature and indeed can be identified accurately on DNA breed tests.[8]
-                </p>
+                {% for dictionary in posts %}
+                <div class="blog-post">
+                    <h3>{{dictionary['title']}}</h3>
+                    <div class="author-date">
+                        <p> Author: {{dictionary['author']}} // Date-Posted: {{dictionary['date']}} </p>
+                    </div>
+                    <p>{{dictionary['body']}}</p>
+                </div>
+                {% endfor %}
             </div>
             <footer>
                 <!-- at bottom of page used to contain links -->
