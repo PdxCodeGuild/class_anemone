@@ -14,7 +14,11 @@ def index():
         print(request.form)
         text = request.form['todo_text']
         priority = request.form['todo_priority']
-        db_in = {text, priority}
+        db_in = {'text': text, 'priority': priority}
+        todo.append(db_in)
+        db.set('todo', todo)
+        db.save
+        return redirect('/')
     return render_template("index.html", todo=todo)
 
 
