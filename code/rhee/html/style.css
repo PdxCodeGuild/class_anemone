@@ -1,22 +1,27 @@
 #header_1{
-        text-align: center;
-        font-size: 45px
+    text-align: center;
+    font-size: 45px
         
     }       
 #header_2{
-        text-align: center;
+    text-align: center;
 }
 #header_3{
     text-align: center;
 }
+#link{
+    text-align: center;
+    color:rgb(68, 117, 117);
+
+}
 body{
-    background-image: url('/sterling-archer-background-full-hd-87154.jpg')
-    
-    }
+    background-image: url('sterling-archer-background-full-hd-87154.jpg');
+    background-repeat: no-repeat;
+}
 #para1{
     text-align: center;
     font-size: 26px;
-    padding: large
+    padding: large;
 }
 #para2{
     text-align: center;
@@ -36,15 +41,12 @@ body{
     text-align: center;
     list-style: circle;
     font-size: 20px;
-    font: larger
-}
-#link{
-    text-align: center;
-    color:aqua
+    font: larger;
 }
 #image_one{
-    float:left
+    float:left;
+    border-radius: 8%;
 }
 #imge_two{
-    position: absolute
+    position: absolute; 
 }

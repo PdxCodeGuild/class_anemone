@@ -46,5 +46,12 @@ img{
 	color: blueviolet;
 }
 body{
-    background-color: blueviolet;
+   text-align: center; 
+    padding: 2em;
+}
+p{
+    background-color: rgba(137, 43, 226, 0.731);
+}
+div{
+    background-color: rgba(137, 43, 226, 0.807);
 }
