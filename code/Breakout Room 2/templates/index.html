@@ -15,8 +15,8 @@
         <ul class="to_do_list">
         {% for task in to_do %}
             <li>Task: {{task['text']}} // Priority: {{task['priority']}}</li>
-        </ul>
         {% endfor %}
+        </ul>
         
         <form action="" method="post">
             <input type="text" name="input_text" placeholder="enter some text"/><br>
