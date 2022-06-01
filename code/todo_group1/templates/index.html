@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do list</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>To Do List</h1>
+        </header>
+        <main>
+            <ul>
+            {% for task in tasks %}
+            <li>
+                <br>
+                <p>{{post['title']}}</p>
+                <p>by {{post['author']}}</p>
+                <p>{{post['date']}}</p>
+                <p>{{post['body']}}</p>
+
+            
+            </li>  
+            </ul>
+        </main>
+    </body>
+
+
+</html>
