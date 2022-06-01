@@ -24,11 +24,7 @@ def index():
         new_task = request.form['input_text']
         db.set("todos", new_task)
         db.save()
-        
         return redirect('/')
-    
-        
-    
     return render_template("index.html", to_do = to_do)
 
 
