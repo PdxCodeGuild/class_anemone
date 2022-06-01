@@ -14,14 +14,19 @@
             <ul>
             {% for task in tasks %}
             <li>
-                <p>{{post['title']}}</p>
-                <p>by {{post['author']}}</p>
-                <p>{{post['date']}}</p>
-                <p>{{post['body']}}</p>
-
+                {{task.priority}} {{task.text}}
             </li>  
-            {% end for %}
+            {% endfor %}
             </ul>
+            <form action="" method="post">
+                <input type="text" name="input_text">
+                <select name="priority">
+                     <option value="low">Low</option>
+                     <option value="medium">Medium</option>
+                     <option value="high">High</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
         </main>
     </body>
 

@@ -14,16 +14,17 @@ tasks = db.get('todos')
 @app.route('/', methods=['GET', 'POST'])
 def index():
     tasks = db.get('todos')
-    # if request.method == 'POST':
-    #     task = request.form['input_text'], request.form['priority']
-    #     print(task)
+    if request.method == 'POST':
+        task = request.form['input_text'], request.form['priority']
+        print(task)
         
-    #     # Add new task to task dictionary
-    #     tasks.append(task)
+        # Add new task to task dictionary
+        tasks.append(task)
 
-    #     print(tasks)
+        print(tasks)
 
-    #     return redirect('/')
+        return redirect('/')
     return render_template('index.html',tasks=tasks)
 
+app.run(debug=True)
 
