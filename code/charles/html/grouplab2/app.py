@@ -11,13 +11,10 @@ db.load()
 def index():
     todos = db.get("todos")
     if request.method == 'POST':
+        todo = {'text': request.form['todo item'], 'priority': request.form['priority']}
+        todos.append(todo)
+        db.save()
         return redirect('/')
     return render_template('index.html',todos=todos)
-
-
-@app.route('/cat/')
-
-def house():
-    pass
 
 app.run(debug=True)

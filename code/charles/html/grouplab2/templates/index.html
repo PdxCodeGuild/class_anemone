@@ -5,13 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>Your To DO List</title>
 </head>
 <body>
-    <ul>
-        {%for i in todos%}
-            <li>{{i["text"]}} ({{i["priority"]}})</li>
-        {%endfor%}
-    </ul>
+    <header><h1>What is your Priority</h1></header>
+    <hr></hr>
+    <main>
+        <ul>
+            {%for i in todos%}
+                <li>{{i["text"]}} ({{i["priority"]}})</li><br>
+            {%endfor%}
+        </ul>
+        <!-- <button type="submit">Submit Form</button> -->
+        <form action="" method="post">
+            <input type="text" name="todo item" placeholder="todo item"/>
+            <select name="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button type="submit">submit</button>
+        </form>
+    </main>
 </body>
 </html>
