@@ -15,16 +15,18 @@ tasks = db.get('todos')
 def index():
     tasks = db.get('todos')
     if request.method == 'POST':
-        task = request.form['input_text'], request.form['priority']
+        task = {'text': request.form['input_text'], 'priority': request.form['priority']}
         print(task)
         
         # Add new task to task dictionary
         tasks.append(task)
 
         print(tasks)
-
+        db.save()
         return redirect('/')
     return render_template('index.html',tasks=tasks)
+
+
 
 app.run(debug=True)
 
