@@ -1,0 +1,127 @@
+html {
+    width: 100%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    flex-basis: auto;
+    background-color: bisque;
+    /* width:100vh; */
+    display:flex;
+    flex-direction: column;
+
+}
+
+h1 {
+
+    font-size: 3em;
+}
+
+h2 {
+    margin: 1em;
+    font-size: 2em;
+}
+
+h4 {
+    display: block;
+    text-transform: uppercase;
+    background-color: brown;
+    margin:1em;
+}
+
+aside img {
+    width: 10vh;
+}
+
+header {
+    border: .15em solid black;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header main {
+    flex-direction: column;
+}
+main {
+    border: .15em solid black;
+    text-align: center;
+    /* width: 50vh; */
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* gap:1em; */
+    align-items: center;
+
+}
+
+nav {
+    background-color: rgba(100, 72, 35, 0.401);
+    padding: .5em;
+    border: .15em solid black;
+
+    margin: .5em;
+    /* height: 20vh; */
+    font-size: 1em;
+    flex-direction: row;
+    /* flex-grow:2; */
+    /* width:  100vh; */
+}
+
+nav a {
+    margin-top:1em;
+    /* height: 10vh; */
+    border: .15em solid black;
+}
+
+header img {
+    display: block;
+    /* box-sizing: .1em; */
+    width: 10em;
+    height: 10em;
+    border: .1em solid black;
+    align-items: center;
+}
+
+div {
+    background-color: rgba(51, 58, 13, 0.656);
+    /* width:100vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+aside {
+    padding: 1em;
+    /* align-items: baseline; */
+}
+
+aside img { 
+    width: 40vh;
+    height: 45vh;
+}
+
+main {
+    border: .15em solid black;
+}
+
+article {
+    border: .15em solid black;
+}
+
+
+
+@media (min-width: 750px) {
+
+}
+
+@media (min-width: 1100px) {
+    
+}
+
+@media (min-width: 1900px) {
+
+}
