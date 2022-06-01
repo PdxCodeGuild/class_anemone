@@ -20,8 +20,13 @@ import nosj
 js = nosj.JsonDB()
 jsdb = js.load()
 todos = js.__getitem__("todos")
-for i in enumerate(todos):
-    print(i)
+
+x= js.get('x', 0)
+print(x)
+
+# for i, text in enumerate(todos):
+#     for x in text:
+#         print(x.value())
 
 # print(js)
 # print(jsdb)
