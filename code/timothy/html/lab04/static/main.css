@@ -62,8 +62,14 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    padding-top: 9.5em;
+    /* padding-top: 9.5em; */
     background-color: wheat;
+}
+
+#gigante {
+    font-family: 'Bungee', Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 3.05em;
 }
 
 #links {
