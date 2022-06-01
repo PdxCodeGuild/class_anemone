@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order a Burrito!</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"/>
+</head>
+    <body>
+        <!-- body contains:
+        .title class
+        .form-img-container class 
+        
+        stack these on top of each other as a column-->
+        <h1 class = "title">
+            Order your burrito!!
+        </h1>
+        <div class="form-img-container">
+            <!-- class .form-img-container has:
+            .main-img 
+            main (which will have order form) -->
+
+            <!-- NOTE MAKE SURE TO MAKE USERNAME AND PASSWORD MANDITORY -->
+            <img src = "borritto url here" class ="main-img">
+            <main>
+                <form action="myurl" method="post">
+                    <h2>Username:</h2>
+                    <input type="text" name="username"/><br>
+                    <h2>Password:</h2>
+                    <input type="password" name="user_password"/><br>
+                    <h2>Tortilla:</h2>
+                    <input type="radio" name="tortilla" value="white" checked>White<br>
+                    <input type="radio" name="tortilla" value="wheat">Wheat<br>
+                    <input type="radio" name="tortilla" value="spinach">Spinach<br>
+                    <input type="radio" name="tortilla" value="corn">Corn<br>
+                    <h2>Rice:</h2>
+                    <input type="radio" name="rice" value="white" checked>White<br>
+                    <input type="radio" name="rice" value="brown">Brown<br>
+                    <h2>Beans:</h2>
+                    <input type="radio" name="beans" value="black" checked>Black<br>
+                    <input type="radio" name="beans" value="pinto">Pinto<br>
+                    <h2>Protein:</h2>
+                    <input type="radio" name="protein" value="carnitas" checked>Carnitas<br>
+                    <input type="radio" name="protein" value="chicken">Chicken<br>
+                    <input type="radio" name="protein" value="sofritas">Sofritas<br>
+                    <input type="radio" name="protein" value="none">None<br>
+                    <input type="submit" value="submit your order">
+                </form>
+            </main>
+        </div>
+    </body>
+</html>
