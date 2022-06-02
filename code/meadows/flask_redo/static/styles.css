@@ -1,0 +1,53 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+background-color: azure;
+}
+body {
+    margin: 40%;
+    font-size: 2em;
+}
+main{
+    width: 315px;
+    height: 300px;
+    border: 8px solid azure;
+    box-sizing: border-box;
+    text-align: center;
+    float:right;
+}
+
+main:hover{
+    box-shadow:0 0 11px brown;
+}
+
+@media (min-width: 500px) {
+    .flex-gallery {
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+    .gallery-item {
+        justify-content: center;
+    }
+}
+
+@media (min-width:900px) {
+    .gallery-item {
+        justify-content: center;
+    }
+}
+
+@media (min-width:1080px) {
+    .gallery-item {
+        justify-content: center;
+    }
+}
+@media (min-width: 1440px) {
+    .gallery-item {
+        justify-content: center;
+    }
+}
