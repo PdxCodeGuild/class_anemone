@@ -64,8 +64,15 @@ h2 {
     
 }
 
+img {
+    display: block;
+    max-width: 50%;
+}
+
 
 ul {
+    display: block;
+    max-width: 20%;
     color: whitesmoke;
     margin: 5em 40em;
     background-color: rgba(0, 0, 0, 0.75);
@@ -89,27 +96,9 @@ footer {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.crew {
-    display: block;
-    max-width: 25%;
-    max-height: 25%;
-    position: relative;
-    left: 40em;
-    top: 4.5em;
-    
-}
 
-.exploration {
-    display: block;
-    max-width: 25%;
-    max-height: 25%;
-    position: relative;
-    left: 72em;
-    top: -12.3em;
-    
-}
 
-@media (min-width: 320px) {
+@media (min-width: 640px) {
     nav {
         display: flex;
         justify-content: center;
@@ -137,3 +126,19 @@ footer {
     }
 }
 
+
+
+@media (min-width: 960px) {
+    body {
+        margin: 1em;
+    }
+    .p1, .p2 {
+        margin: 1em;
+    }
+    header, footer {
+        margin: 1em;
+    }
+    .services {
+        margin: 1em;
+    }
+}
