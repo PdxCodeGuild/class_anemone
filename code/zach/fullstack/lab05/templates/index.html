@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+    <title>unit-converter</title>
+  </head>
+  <body>
+    <main>
+        <div class="flex_card">
+            <h3>Unit-Converter</h3>
+            <div class="flex">            
+              <form class="flex" action="" method="POST">
+                <input type="number" name="val_in" required/>
+                <label for="unit_in">Unit:</label>
+                <select name="unit_in" id="unit_in">
+                    <option value="m">m</option>
+                    <option value="km">km</option>
+                    <option value="in">in</option>
+                    <option value="ft">ft</option>
+                    <option value="yd">yd</option>
+                    <option value="mi">mi</option>
+                </select>
+                <img src="{{ url_for('static', filename='icons8-arrow-80.png') }}" alt="arrow"/>
+                <label for="unit_out">Unit:</label>
+                <select name="unit_out" id="unit_in">
+                    <option value="m">m</option>
+                    <option value="km">km</option>
+                    <option value="in">in</option>
+                    <option value="ft">ft</option>
+                    <option value="yd">yd</option>
+                    <option value="mi">mi</option>
+                </select><br>
+                <button type="submit">submit</button>
+
+              </form>
+            </div>
+        </div>
+      <div class="flex_card"><h3>Output</h3>{{c_val}} {{unit_out}}</div>
+    </main>
+    <footer>
+        <a target="_blank" href="https://icons8.com/icon/42492/arrow">Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    </footer>
+  </body>
+</html>

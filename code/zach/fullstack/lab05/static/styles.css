@@ -1,0 +1,13 @@
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.flex_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blueviolet;
+    max-width: 50%;
+    border-style: groove;
+}
