@@ -1,0 +1,17 @@
+* {
+    background-color: black;
+    color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    font-size: 75px;
+    font-family: "American Typewriter";
+    font-weight: 100;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
