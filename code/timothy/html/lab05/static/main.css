@@ -26,12 +26,15 @@ header, main, footer {
 }
 
 #numchars {
-    /* display: flex; */
-    width: 50%;
-    /* justify-content: space-between; */
-    /* text-align: justify; */
-    /* justify-content: space-between; */
+    display: flex;
+    justify-content: center;
     
+}
 
-    
+#nc1 {
+    padding: 1em;
+}
+
+#nc2 {
+    padding: 1em;
 }

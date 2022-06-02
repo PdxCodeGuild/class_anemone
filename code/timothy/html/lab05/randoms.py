@@ -12,10 +12,10 @@ class Randoms:
             output += char
         return output
 
-    def random_password(self, lowers, uppers, nums, special):
+    def random_password(self, uppers, lowers, nums, special):
         output = ''
-        output += self.random_characters(lowers, string.ascii_lowercase)
         output += self.random_characters(uppers, string.ascii_uppercase)
+        output += self.random_characters(lowers, string.ascii_lowercase)
         output += self.random_characters(nums, string.digits)
         output += self.random_characters(special, string.punctuation)
         output = list(output)

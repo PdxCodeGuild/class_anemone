@@ -16,22 +16,26 @@
     </header>
     <main>
         <div id="numform">
-            <form action="" method="post">
-                <label for="checks">NUMBER OF CHARACTERS</label><br>
+            <form action="" id="formid" method="post">
+                <h3>NUMBER OF CHARACTERS</h3>
                 <div id="numchars">
-                    <label class="labels" for="uppercase">Uppercase</label>
-                    <input type="text" name="uppercase" id="uppercase" size="3" placeholder="###" maxlength="3">
-                    <label class="labels" for="lowercase">Lowercase</label>
-                    <input type="text" name="lowercase" id="lowercase" size="3" placeholder="###" maxlength="3">
-                
-                    <label class="labels" for="numbers">Numbers</label>
-                    <input type="text" name="numbers" id="numbers" size="3" placeholder="###" maxlength="3">
-                    <label class="labels" for="special">Special</label>
-                    <input type="text" name="special" id="special" size="3" placeholder="###" maxlength="3">
+                    <div id="nc1">
+                        <label class="labels" for="uppercase">Uppercase</label>
+                        <input type="text" name="uppercase" id="uppercase" size="3" placeholder="###" maxlength="3">
+                        <label class="labels" for="lowercase">Lowercase</label>
+                        <input type="text" name="lowercase" id="lowercase" size="3" placeholder="###" maxlength="3">
+                    </div>
+                    <div id="nc2">
+                        <label class="labels" for="numbers">Numbers</label>
+                        <input type="text" name="numbers" id="numbers" size="3" placeholder="###" maxlength="3">
+                        <label class="labels" for="special">Special</label>
+                        <input type="text" name="special" id="special" size="3" placeholder="###" maxlength="3">
+                    </div>
                 </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
+        
     </main>
 </body>
 </html>
