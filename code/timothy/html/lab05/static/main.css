@@ -4,3 +4,34 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
+header, main, footer {
+	padding: 1em;
+    text-align: center;
+    
+}
+
+.labels {
+    display: block;
+}
+
+
+#numform {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex:content; */
+    justify-content: center;
+    /* text-align: center; */
+    
+}
+
+#numchars {
+    /* display: flex; */
+    width: 50%;
+    /* justify-content: space-between; */
+    /* text-align: justify; */
+    /* justify-content: space-between; */
+    
+
+    
+}

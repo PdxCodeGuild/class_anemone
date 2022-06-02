@@ -15,7 +15,23 @@
         </div>
     </header>
     <main>
-        
+        <div id="numform">
+            <form action="" method="post">
+                <label for="checks">NUMBER OF CHARACTERS</label><br>
+                <div id="numchars">
+                    <label class="labels" for="uppercase">Uppercase</label>
+                    <input type="text" name="uppercase" id="uppercase" size="3" placeholder="###" maxlength="3">
+                    <label class="labels" for="lowercase">Lowercase</label>
+                    <input type="text" name="lowercase" id="lowercase" size="3" placeholder="###" maxlength="3">
+                
+                    <label class="labels" for="numbers">Numbers</label>
+                    <input type="text" name="numbers" id="numbers" size="3" placeholder="###" maxlength="3">
+                    <label class="labels" for="special">Special</label>
+                    <input type="text" name="special" id="special" size="3" placeholder="###" maxlength="3">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
