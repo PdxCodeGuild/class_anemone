@@ -14,4 +14,4 @@ def unit_converter(distance, original_unit, conversion_unit):
 
     print(
         f'\n    => { distance } { original_unit } is { conversion } { conversion_unit }')
-    return conversion
+    return conversion, conversion_unit

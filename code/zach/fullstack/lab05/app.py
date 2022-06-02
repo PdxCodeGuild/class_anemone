@@ -10,14 +10,14 @@ def index():
     c_val = 0
     if request.method == 'POST':
         print(request.form)
-        val_in = request.form['val_in']
-        unit_in = request.form['unit_in']
-        unit_out = request.form['unit_out']
+        v_in = request.form['val_in']
+        u_in = request.form['unit_in']
+        u_out = request.form['unit_out']
 
-        c_val = unit_converter(val_in,unit_in,unit_out)
-        print(c_val)
+        c_val, c_unit= unit_converter(v_in,u_in,u_out)
+        print(c_val, c_unit)
     
     
-    return render_template('index.html', c_val=c_val, unit_out=unit_out)
+    return render_template('index.html', c_val=c_val, c_unit=c_unit)
 
 app.run(use_reloader=True, debug=True)
