@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrito Order Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Honking Huge Burritos Order Form</h1>
+        </div>
+    </header>
+    <main>
+        <div class="flex-container">
+            <div class="image-container">
+                <img src="https://www.nicepng.com/png/detail/33-339561_carne-asada-burrito-mission-burrito.png" alt="Burrito">            
+            </div>    
+            <div class="order-form">
+                <h2>Customize Your Burrito!</h2>
+                <h4>Choose your tortilla, choose your fillings. Make it your own masterpiece.</h4>
+                <form action="" method="post">
+                    <ul>
+                        <li>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="user_name">
+                        </li>
+                        <li>
+                            <label for="mail">Password:</label>
+                            <input type="text" id="password" name="user_password">
+                        </li>
+                        <br><hr><br>
+                        <li class="tortilla">
+                            <label for="tortilla">Tortilla:</label>
+                            <input type="radio" id="wf-tortilla" name="user_tortilla" value="wf-tortilla">
+                            <label for="wf-tortilla">White Flour</label>
+                            <input type="radio" id="ww-tortilla" name="user_tortilla" value="ww-tortilla">
+                            <label for="ww-tortilla">Whole Wheat</label>                        
+                            <input type="radio" id="s-tortilla" name="user_tortilla" value="s-tortilla">
+                            <label for="s-tortilla">Spinach</label>                        
+                            <input type="radio" id="c-tortilla" name="user_tortilla" value="c-tortilla">
+                            <label for="c-tortilla">Corn</label>                        
+                        </li>
+                        <li class="protein">
+                            <label for="meat">Protein:</label>
+                            <input type="radio" id="carnitas" name="user_meat" value="carnitas">
+                            <label for="carnitas">Carnitas</label>
+                            <input type="radio" id="chicken" name="user_meat" value="chicken">
+                            <label for="chicken">Chicken</label>                        
+                            <input type="radio" id="sofritas" name="user_meat" value="sofritas">
+                            <label for="sofritas">Sofritas</label>                        
+                            <input type="radio" id="none-protein" name="user_meat" value="none-protein">
+                            <label for="none-protein">None</label>                        
+                        </li>
+                        <li>
+                            <label for="msg">Special Instructions:</label>
+                            <textarea id="msg" name="user_message"></textarea>
+                        </li>
+                        <br><hr><br>
+                        <li class="button">
+                            <button type="submit">Submit Order</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <p>Thank you!</p>
+</footer>
