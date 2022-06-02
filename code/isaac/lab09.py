@@ -1,5 +1,7 @@
 '''ARI Lab''' # formula for reference
 # 4.71 * (characters/word) + 0.5 * (words/sentences) - 21.43
+import re
+import math
 
 '''First comment here was used as a test file open and close'''
 # f = open('poem.txt')
@@ -8,19 +10,17 @@
 # f.close()
 
 '''Main program'''
-# Count the number of sentences, words and characters
-# store in variables and use in above equation
-sentences = 0
-words = 0
-characters = 0
 
 with open('poem.txt', 'r') as poem:
-    for line in poem:
-        all = line.split()
-        sentences += line.count(".")
-        words += len(all)
-        characters += len(line)
-# print(sentences, words, characters)
+    contents = poem.read()
+
+# print(contents)
+sentences = len(contents.split(".")) - 1
+print(sentences)
+words = len(contents.split(" "))
+print(words)
+characters = len(re.findall(r"[a-zA-Z]", contents))
+print(characters)
 
 # Scale chart for reference
 ari_scale = {
@@ -42,18 +42,18 @@ ari_scale = {
 
 
 # Gather data from file and compare with chart
-# 4.71 * (characters/word) + 0.5 * (words/sentences) - 21.43
+4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43
 
 data = 4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43
 
 # Loop through ari_scale to find the corresponding data
 # round the data gathered above
 for score in range(len(ari_scale)):
-    gathered_data = ari_scale[round(data)]
+    gathered_data = ari_scale[math.ceil(data)]
 
 # Display message containing all data
 message = f'''
-The ARI for the poem.txt is {round(data)}
+The ARI for the poem.txt is {math.ceil(data)}
 This corresponds to a {gathered_data['grade_level']} difficulty level
 that is suitable for an average person ages {gathered_data['ages']}
 '''

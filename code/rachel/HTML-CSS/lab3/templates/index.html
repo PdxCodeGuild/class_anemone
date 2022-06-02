@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cali's Blog</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Thasadith&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+        <h1>Cali's Pawsome Blog</h1>
+            <nav>
+                <div><a href="#">Home</a></div>
+                <div><a href="#">Pawpular Posts</a></div>
+                <div><a href="#">Links to Treats and Things</a></div>
+                <div><a href="#">About The Author</a></div> 
+            </nav>
+        </div>
+    </header>
+    <main>
+        {% for post in posts %}
+            <div>
+                <h2>{{post['title']}}</h2>
+                <div>Posted by: {{post['author']}}<br/>Date: {{post['date']}}</div>
+                <div>{{post['body']}}</div>
+            </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <div>Copyright 2022</dvi>
+    </footer>
+</body>
+</html>

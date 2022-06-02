@@ -2,11 +2,7 @@
 import time
 import json
 import pprint
-import requests
-x = 0
-while x < 10:
-    x += 1
-    
+
 
     page = 1
     search = input("\nsearch for quotes by keyword?? ")

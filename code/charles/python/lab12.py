@@ -1,51 +1,52 @@
 class ATM():
-    balance = 0                                                 # set a base balance in the ATM class and a list to be appended with changes    
-    account_changes = []
+      
     
-    
-    def __init__(self):
+
+    def __init__(self, balance = 0, interest = 0.001):
+        self.balance = balance
+        self.interest = interest
+        self.changes =  []
         pass 
     
 
     def check_balance(self):
-        balance = ATM.balance                                   # checks what the ATM balance is showing and inports it to the def to be returned
-        ATM.account_changes.append('User checked balance.')     # appends the list with the account interaction
-        return balance
+        self.changes.append('User checked balance.')     # appends the list with the account interaction
+        return self.balance                                     # return ATM self.balance
     
 
     def check_withdrawal(self, amount):
-        if ATM.balance - amount < 0:                            # checks whether user has sufficent funds
-            ATM.account_changes.append('User had insufficent funds.')   # appends the list with the account interaction
+        if self.balance < amount:                            # checks whether user has sufficent funds
+            self.changes.append('User had insufficent funds.')   # appends the list with the account interaction
             return 
-        elif ATM.balance - amount > 0:                          # returns True if so to be passed into withdraw function
+        elif self.balance > amount:                          # returns True if balance is greater than requested amount
             return True
     
     
     def withdraw(self, amount):
-        if ATM.check_withdrawal(self, amount) == None:              # pulls in None or True form check withdrawl
+        if self.check_withdrawal(amount) == None:              # pulls in None or True form check withdrawl
             return                                                  # returns None if inported None
-        elif ATM.balance - amount > 0:
-            ATM.account_changes.append(f'User withdrew {amount}.')  # appends the list with the account interaction
-            ATM.balance -= amount                                   # modifys the ATM balance with the amount withdrawn
-            return ATM.balance
+        elif self.check_withdrawal(amount) == True:
+            self.changes.append(f'User withdrew {amount}.')  # appends the list with the account interaction
+            self.balance -= amount                                   # modifys the ATM balance with the amount withdrawn
+            return self.balance
     
     
     def deposit(self, amount):
-        ATM.account_changes.append(f'User deposited {amount}.')     # appends the list with the account interaction
-        ATM.balance += amount                                       # modifys the ATM balance with the amount deposited
-        return ATM.balance
+        self.changes.append(f'User deposited {amount}.')     # appends the list with the account interaction
+        self.balance += amount                                       # modifys the ATM balance with the amount deposited
+        return self.balance
     
     
     def calc_interest(self):
-        interest = ATM.balance * .0001                              # calculates interest earned of .01%
+        accum = self.balance * self.interest
         # ATM.balance += interest  and now i understand the deposit in the loop # modifys the ATM balance with the amount of interest earned
-        ATM.account_changes.append(f'User acummilated {interest}.') # appends the list with the account interaction
-        return interest
+        self.changes.append(f'User acummilated {accum} in interest.') # appends the list with the account interaction
+        return accum
     
 
     def transactions(self):
-        ATM.account_changes.append(f'User requested list of account transactions.') # appends the list with the account interaction
-        transactions = '\n'.join(ATM.account_changes)                               # splits the list into new lines for easier reading
+        self.changes.append(f'User requested list of account transactions.') # appends the list with the account interaction
+        transactions = '\n'.join(self.changes)                               # splits the list into new lines for easier reading
         return transactions
 
 

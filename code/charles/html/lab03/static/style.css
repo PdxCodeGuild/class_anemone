@@ -1,0 +1,147 @@
+html{
+    background-color: gray;     color:aqua;
+    display:flex;  
+}
+
+header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4vh;     text-align: center;  max-height: 10vh; 
+}
+
+.topbar {
+     text-align: center;  background-color:black;  position:fixed;  display: flex;  
+     flex-wrap: wrap; justify-content: center;  margin: auto;  
+     line-height: 2vh;  width:100%;  max-height: fit-content; max-height: 15vh;
+}
+
+.sidebar {
+    overflow: hidden;   background-color: black;    position: fixed; 
+    top:0; display: flex;flex-wrap: column; padding-left: 1vw; padding-right: 1vw;
+}
+
+nav {
+    display:inline-flex;   float:inline-start;  position:sticky; 
+    margin-right: 95%;  
+}
+
+.topnav {
+    top:0;  display:flex;  flex:content;  justify-content: center;  float:center; 
+    line-height: 2vh; font-size: 2vw; margin-bottom:0; padding-top: 1vh;
+}
+
+.ttpad {
+    padding-top: 2vh;
+    width: 90%
+}
+
+.leftlink {
+    top:2vh; display:flex; flex-direction: column;    justify-content: center;  
+    float:left; line-height: 5vw; font-size: 2vw;
+}
+
+
+
+a {
+    color: red;
+}
+
+
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    margin: top 2px;
+}
+
+h1, h3 {
+    font-size: 5vw;  font-family: 'Times New Roman', Times, serif;  text-align: center;
+}
+
+.fixed {
+    position: fixed
+}
+
+
+
+
+.title{
+    font-size: 5vw;     text-align: center;   justify-content: center;  margin: 0;
+    padding-bottom: 2vw; max-width: 100%; 
+}
+
+footer {
+    color:black
+}
+
+h2 {
+    margin: 3vw 1vw 1vw 1vw
+}
+
+
+.date, .author{
+    font-size: 4vw;     padding-bottom: 1vw; 
+}
+
+
+
+.body{
+    font-size:3vw;  text-align: justify;
+}
+
+.toppad {
+    padding-top: 10vh; margin:5vw
+}
+
+.blog2{
+    margin-left:10%;    margin-right:10%;
+}
+
+@media (max-height: 600) {
+    .topbar {
+        max-height: 30vh
+    }
+}
+
+
+@media (min-width: 650px) {
+    .topbar {
+        max-height: 20vh
+    }
+       
+    .leftlink {
+        font-size: 2vw;
+    }
+    .toppad {
+        padding-top: 15vh;
+    }
+}
+@media (min-width: 1200px) {
+    .topbar {
+        max-height: 30vh
+    }
+}
+
+@media (min-width: 1900px) {
+    .leftlink {
+        line-height: 3vw;
+        font-size: 2vw
+    }
+}
+
+@media (width: 1024px) and (height: 600px) {
+    .topbar {
+        max-height: 30vh
+    }
+    
+    h1 {
+        margin: top 30px;
+    }
+    
+    .toppad {
+        padding-top: 20vh;
+    }
+}

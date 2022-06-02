@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pele's Blog</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}"/>
+</head>
+<body>
+    <header>
+        <h1>Pele Mcgregor</h1>
+        <h3>Billionare & Philanthropist</h3>
+        <nav>
+        <a href = "#">home</a>
+        <a href = "#">about me</a>
+        <a href = "#">contact</a>
+        </nav>
+    </header>
+    <main>
+        {% for post in posts %}
+            <div class = "gallery-item">
+                <h2>{{post['title']}}</h2>
+                <h4>Posted on: {{post['date']}} Written by: {{post['author']}}</h4>
+                <p>{{post['body']}}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    </main>
+    <footer>© Pele Mcgregor 2022</footer>
+</body>
+</html>

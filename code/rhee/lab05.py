@@ -25,7 +25,7 @@ def num_matches(winner: list, ticket: list) -> int:
             winners.append(winner[i])
             match_count += 1
             winnings = jackpot.get(str(len(winners)))
-            balances = balance + winnings
+            balance = balance + winnings
 
     return balance
 

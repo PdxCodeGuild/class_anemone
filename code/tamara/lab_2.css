@@ -1,0 +1,115 @@
+
+body, header {
+    margin:0;
+    padding:1em;
+}
+
+a {
+    color:blanchedalmond;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body {
+    align-content: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    line-height: 1.25em;
+    background-color:rgb(185, 174, 163);
+}
+header {
+    background-color: rgb(73, 109, 92);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border-top: solid rgb(35, 37, 34);
+    border-left: solid rgb(35, 37, 34);
+    border-right: solid rgb(35, 37, 34);
+}
+
+footer {
+    background-color: rgb(73, 109, 92);
+    border: solid rgb(35, 37, 34);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0em 0em 2em 0em;
+    padding: .5em;
+    background-color: rgb(55, 77, 37);
+    border-bottom: solid rgb(35, 37, 34);
+    border-left: solid rgb(35, 37, 34);
+    border-right: solid rgb(35, 37, 34);
+}
+
+nav a {
+    padding: .15em;
+    margin: .15em;
+    border: rgb(35, 37, 34) solid;
+}
+h1 {
+    line-height: 1.25em
+}
+
+main img{
+    max-width: 100%;
+    border: solid blanchedalmond;
+    border-radius: 3em;
+}
+.image-button {
+    max-width: 100%;
+    display:block;
+}
+
+.main-photo {
+    display: none;
+}
+
+@media (min-width: 650px) {
+    .image-button-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 94%;
+        margin: 1em 0;
+    }
+
+    .image-button {
+        align-content: center;
+        align-self: center;
+        max-width: 50%;
+        display: inline;
+    }
+
+    main img {
+        min-width: 100%;
+        max-height: 410px;
+        padding: .5em;
+        border: double 1em
+    }
+    nav {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1100px) {
+    .image-button{
+        max-width: 20%;
+    }
+
+    .main-photo{
+        display:block;
+        width: 100%;
+        border-radius: 0;
+        border: solid rgb(35, 37, 34);
+        margin: 1em 0;
+        max-height: 100%;
+        padding: 0;
+    }
+
+    .image-button-container {
+        max-width: 97.5%;
+        margin: 2em 0 4em 0;
+    }
+}

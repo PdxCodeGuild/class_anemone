@@ -1,10 +1,12 @@
 #! write_f() will rewrite entire .csv file
 def write_f(data_list):  # TODO: Figure out a use for this
+    f_out = []
+    for row in data_list:
+        f_out.append(list(row))
+    f_out = [','.join(item) for item in f_out]
+    f_out = '\n'.join(f_out)
     with open('contacts.csv', 'w') as f:
-        for row in data_list:
-            for item in row:
-                f.writelines(f'{ item },')
-            f.writelines('\n')
+        f.write(f_out)
         f.close()
     return
 
@@ -26,12 +28,25 @@ def add_contacts(data, name, fav_fruit, fav_color):
     return data
 
 
-def del_contacts(data, name):
+def del_contacts(data, csv_data, name):
     for i in range(len(data)):
         if name == data[i].get('name'):
+            csv_data.remove(csv_data[i+1])
             data.remove(data[i])
-            return data
+            return data, csv_data
     return print(f'{ name.capitalize() } not found in contacts')
+
+def update_contacts(data,csv_data,name):
+    for i in range(len(data)):
+        if name == data[i].get('name'):
+            csv_data.pop(i+1)
+            data[i]['favorite fruit'] = input(f"Enter { name }'s favorite fruit: ")
+            data[i]['favorite color'] = input(f"Enter { name }'s favorite color: ")
+            csv_data.append([data[i]['name'], data[i]['favorite fruit'], data[i]['favorite color']])
+            name =""
+    return data, csv_data
+            
+    
 
 
 def main():
@@ -39,8 +54,9 @@ def main():
 
     csv_list, contact_list = init_contacts()
     while True:
-        user_input = input('User Enter: read, add, remove, or quit: ')
+        user_input = input('User Enter: read, add, edit, remove, or quit: ')
         if user_input == 'quit':
+            write_f(csv_list)
             break
         elif user_input == 'read':
             name = str(input('enter contact name: '))
@@ -61,11 +77,15 @@ def main():
             csv_list.append([name, fruit, color])
         elif user_input == 'remove':
             name = input('Enter name of contact you wish to remove\nName: ')
-            del_contacts(contact_list, name)
+            del_contacts(contact_list, csv_list, name)
+        elif user_input == 'edit':
+            print('Enter Name of Contact you wish to edit.')
+            name = input('Name:').lower().strip()
+            update_contacts(contact_list,csv_list, name)
         else:
             print('input not recognized... \n')
 
-    write_f(csv_list)
+    
 
     return
 

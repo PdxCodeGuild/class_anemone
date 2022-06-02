@@ -1,7 +1,7 @@
 class ATM:
     def __init__(self):
         self.balance = 0
-        self.interest = 0.01
+        self.interest = 0.001
         self.transactions = []
 
     def check_balance(self):

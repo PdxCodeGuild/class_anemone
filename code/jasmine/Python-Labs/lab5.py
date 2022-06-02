@@ -1,25 +1,32 @@
-
-
-
 import random
 
-nums = []
+
 
 ## pick6 function to create random lottery ticket nums
 
-def pick6(nums):
+def pick6():
+    nums = []
     for i in range(6):
         lott_nums = random.randint(0,99)
         nums.append(lott_nums)
 
     return(nums)
 
-ticket = pick6(nums)
-print(ticket)
+# ticket = pick6(nums)
+# print(ticket)
 
+# fucntion to determine number of winning tickets 
 
+def num_matches(winning,ticket):
+    matches = 0
+    for i in range (6):
+        if winning[i] == ticket[i]:
+            matches += 1
+    return(matches)
+# winners = num_matches(winning,ticket)
+# print(winners)
 
-winning = {
+winnings = {
     0:0,
     1:4,
     2:7,
@@ -27,46 +34,51 @@ winning = {
     4:50000,
     5:100000,
     6:25000000,
-
 }
-# fucntion to determine number of winning tickets 
-
-def num_matches(winning,ticket):
-    matches = 0
-    for i in range(6):
-        if winning[i] == ticket[i]:
-            matches += 1
-    return(matches)
-
-winners = num_matches(winning,ticket)
-print(winners)
 
 balance = 0
-
+expenses = 0
 winning_ticket = 0
 
+winning = pick6()
+
 for i in range(100000):
-    balance = balance - 2
+    # print(ticket)
+    ticket = pick6()
+   
+    balance -= 2
     #print(balance)
+    expenses += 2
 
-    if winners == 1:
-        winning_ticket += ticket[winners]
+    matches = num_matches(winning,ticket)
 
-    elif winners == 2:
-        winning_ticket += ticket[winners]
+    if matches == 1:
+        winning_ticket += winnings[matches]
 
-    elif winners == 3:
-        winning_ticket += ticket[winners]
+    elif matches == 2:
+        winning_ticket += winnings[matches]
 
-    elif winners == 4:
-        winning_ticket += ticket[winners]
+    elif matches == 3:
+        winning_ticket += winnings[matches]
 
-    elif winners == 5:
-        winning_ticket += ticket[winners]
+    elif matches == 4:
+        winning_ticket += winnings[matches]
 
-    elif winners == 6:
-        winning_ticket += ticket[winners]
+    elif matches == 5:
+        winning_ticket += winnings[matches]
+
+    elif matches == 6:
+        winning_ticket += winnings[matches]
 
 total_loss = balance + winning_ticket
+print(total_loss)
 
-print(f'Your have won {winners} and you have {total_loss} $ left to spend')
+
+##ROI 
+ROI = (winning_ticket - expenses) / expenses
+print(ROI)
+
+print(f'Your total loss is {total_loss} and the RoI is {ROI}')
+
+
+

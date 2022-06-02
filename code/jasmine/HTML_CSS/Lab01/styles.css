@@ -1,0 +1,51 @@
+body { 
+  
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    background-image:url(https://tse1.mm.bing.net/th?id=OIP.tiP2dbEK8XSQ5IJJ0IjtlQHaEK&pid=Api&P=0&w=290&h=163);
+    background-size: contain;
+}
+
+.intro h1{
+   
+    text-align: center;
+    width: 200px;
+    margin: 50px;
+    padding: 10px;
+    
+}
+.intro h2{
+    
+    font-size: 10px;
+    text-align: center;
+    width: 200px;
+    margin: 50px;
+    padding: 10px;
+    
+}
+
+a {
+    color:chocolate
+}
+
+img {
+    border: 20px ;
+    border-color: black;
+    border-radius: 50px;
+}
+
+ul {
+    
+    list-style-type:square;
+    padding: 10px 500px;
+    margin: 10px;
+
+ }
+
+.footer {
+    font-style: italic;
+    color: red;
+    font-size: 30px;
+     
+}

@@ -50,7 +50,7 @@ def delete(new_list, headers):
 
 # Make the REPL for the program and write to the CSV file.
 while True:
-    user_input = input("(C)reate, (R)etrieve, (U)pdate or (D)elete. \n")
+    user_input = input("(C)reate, (R)etrieve, (U)pdate, (D)elete or (Q)uit to quit. \n".lower())
     if user_input == 'q':
         break
     elif user_input == 'c':
