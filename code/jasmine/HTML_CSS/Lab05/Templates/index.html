@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+ 
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Unit Converter</h1>
+        </div>
+        <div class="row">
+            <form action="" method="post" class="col s12">
+                <div class="row">
+                    <div class="input-field col s9">
+                        <input id="distance_amount" type="text" name="distance_amount">
+                        <label for="distance_amount">Enter a distance amount</label>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <input id="units" type="text" name="units">
+                            <label for="units">Enter a the units</label>
+                        </div>
+                    <div class="col s3">
+                        <button type="submit" class="btn">submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% if meters != ''%}
+        <div class="row">
+            <h2>Unit Converted Results</h2>
+            <ul>
+                <li>{{meters}} meters</li>
+                <li>{{feet}} feet</li>
+                <li>{{miles}} milles</li>
+                <li>{{kilometers}} kilometers</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    
+</body>
+
+</html>
