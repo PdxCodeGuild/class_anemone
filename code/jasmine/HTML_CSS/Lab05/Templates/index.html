@@ -17,32 +17,44 @@
             <form action="" method="post" class="col s12">
                 <div class="row">
                     <div class="input-field col s9">
-                        <input id="distance_amount" type="text" name="distance_amount">
+                        <input id="distance_amount" type="number" name="distance_amount">
                         <label for="distance_amount">Enter a distance amount</label>
                         
                     </div>
                     <div class="row">
-                        <div class="input-field col s9">
-                            <input id="units" type="text" name="units">
-                            <label for="units">Enter a the units</label>
-                        </div>
+                        <label for="input_units">Choose Units</label>
+                        <select name="input_units" id="input_units">
+                            <option value="meters">Meters</option>
+                            <option value="feet">Feet</option>
+                            <option value="miles">Miles</option>
+                            <option value="kilometers">Kilometers</option>
+                            <option value="inches">Inches</option>
+                            <option value="yards">Yards</option>
+                        </select>
+
+                        <label for="output_units">Choose Units</label>
+                        <select name="output_units" id="output_units">
+                            <option value="meters">Meters</option>
+                            <option value="feet">Feet</option>
+                            <option value="miles">Miles</option>
+                            <option value="kilometers">Kilometers</option>
+                            <option value="inches">Inches</option>
+                            <option value="yards">Yards</option>
+                        </select>
+
+
                     <div class="col s3">
                         <button type="submit" class="btn">submit</button>
                     </div>
                 </div>
             </form>
         </div>
-        {% if meters != ''%}
+      
         <div class="row">
             <h2>Unit Converted Results</h2>
-            <ul>
-                <li>{{meters}} meters</li>
-                <li>{{feet}} feet</li>
-                <li>{{miles}} milles</li>
-                <li>{{kilometers}} kilometers</li>
-            </ul>
+                <!-- <p>Coverted Result is {{distance_amount}} {{units}} is {{result}} {{output_units}}</p> -->
         </div>
-        {% endif %}
+      
     </div>
     
 </body>
