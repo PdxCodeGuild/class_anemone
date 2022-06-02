@@ -9,13 +9,55 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{password}}</p>
-    <form>
+    <header>Welcome to the Janky Password Meme</header>
+   
+    <form action="" method="post">
+        <label id="letters">Number of Letters:</label>
+        <select name="letters" id="letters">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br>
+        <label id="numbers">Number of Numbers:</label>  
+        <select name="numbers" id="numbers">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br>
+        <label id="characters">Number of Special Characters:</label>
+        <select name="characters" id="characters">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br>        
+           
         
-        <input type="number" name="letters" id="letters"><label id="letters">Number of Letters</label><hr>
-        <input type="number" name="numbers" id="numbers"><label id="numbers">Number of Numbers</label><hr>
-        <input type="number" name="characters" id="characters"><label id="characters">Number of Special Characters</label>
         <button type="submit">Submit</button>
     </form>
+    <p>Your Janky Password is: {{password}}</p> 
 </body>
 </html>

@@ -12,6 +12,10 @@ class Paw2():
         self.special_charc = string.punctuation
         
     def gen(self, let, num, char):
+        self.letters.clear()
+        self.numbers.clear()
+        self.characters.clear()
+        
         for x in range(let):
             str(self.letters.append(random.choice(self.letter)))
         for x in range(num):
@@ -21,9 +25,9 @@ class Paw2():
         
         password = self.letters + self.numbers + self.characters
         random.shuffle(password)
-        passwordr = (''.join(password))
+        password = (''.join(password))
         
-        return passwordr
+        return password
     
     
 
