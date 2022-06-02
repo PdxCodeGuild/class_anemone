@@ -82,7 +82,7 @@ for i in range(100000):
      newset()
      player_set.clear()
      player_set.extend(newset())
-     print(f' Your new numbers are {player_set}')
+     #print(f' Your new numbers are {player_set}')
      nummatch = comparison(winning_set, player_set)
      if nummatch == 1:
           earnings += 4 
@@ -96,24 +96,24 @@ for i in range(100000):
           earnings += 1000000
      elif nummatch == 6:
           earnings += 25000000
-     expenses -= 2 
-     print(comparison(winning_set, player_set))
+     expenses += 2 
+     #print(comparison(winning_set, player_set))
      counter()
      player_cash.append(counter())
      running_total = sum(player_cash)
      
      
      if comparison(winning_set, player_set) >=1:
-          total_matches.append(comparison(winning_set, player_set)
+          total_matches.append(comparison(winning_set, player_set))
 
 
-print(expenses)
-print(earnings)
+print(f'Your expenses were {expenses}')
+print(f'Your earnings were {earnings}')
 matches_sum = sum(total_matches)
-print(running_total)
-print(matches_sum)
-print(total_matches)
+print(f'your running total was {running_total}')
+print(f'You had {matches_sum} mathces')
+#print(total_matches)
 
 roi = (earnings - expenses) / expenses
 
-print (roi)
+print (f' Your return on investment was {roi}')
