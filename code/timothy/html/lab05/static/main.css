@@ -8,11 +8,26 @@ html {
 header, main, footer {
 	padding: 1em;
     text-align: center;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    text-align:center;
+    background-color: black;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding:3em;
+
     
+}
+
+h2:active {
+    background-color: white;
 }
 
 .labels {
     display: block;
+    padding-top: 1em;
 }
 
 
@@ -28,6 +43,7 @@ header, main, footer {
 #numchars {
     display: flex;
     justify-content: center;
+    font-size:xx-large;
     
 }
 
