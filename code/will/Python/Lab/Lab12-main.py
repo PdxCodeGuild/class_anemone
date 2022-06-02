@@ -60,6 +60,10 @@ class ATM:
      
 
     def calc_interest(self):
+<<<<<<< HEAD
+       
+=======
+>>>>>>> 4557f2518b7c1ba9bbebdaa965412f7d74311197
         return self.balance * self.interest_amount
 
         
