@@ -25,18 +25,17 @@
             <div class="order-form">
                 <h2>Customize Your Burrito!</h2>
                 <h4>Choose your tortilla, choose your fillings. Make it your own masterpiece.</h4>
-                <form action="" method="post">
-                    <ul>
-                        <li>
+                    <!-- <form action="" method="post"> -->
+                    <form action="https://webhook.site/8bea0623-b139-4c39-8db1-618fa6274306" method="post">
+                        <div>
+                        <div class="user-info">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="user_name">
-                        </li>
-                        <li>
                             <label for="mail">Password:</label>
                             <input type="text" id="password" name="user_password">
-                        </li>
+                        </div>
                         <br><hr><br>
-                        <li class="tortilla">
+                        <div class="card">
                             <label for="tortilla">Tortilla:</label>
                             <input type="radio" id="wf-tortilla" name="user_tortilla" value="wf-tortilla">
                             <label for="wf-tortilla">White Flour</label>
@@ -46,8 +45,22 @@
                             <label for="s-tortilla">Spinach</label>                        
                             <input type="radio" id="c-tortilla" name="user_tortilla" value="c-tortilla">
                             <label for="c-tortilla">Corn</label>                        
-                        </li>
-                        <li class="protein">
+                        </div>
+                        <div class="card">
+                            <label for="meat">Rice:</label>
+                            <input type="radio" id="white-rice" name="user_rice" value="white-rice">
+                            <label for="white-rice">White Rice</label>
+                            <input type="radio" id="brown-rice" name="user_rice" value="brown-rice">
+                            <label for="brown-rice">Brown Rice</label>
+                        </div>
+                        <div class="card">
+                            <label for="meat">Beans:</label>
+                            <input type="radio" id="black-beans" name="user_beans" value="black-beans">
+                            <label for="black-beans">Black Beans</label>
+                            <input type="radio" id="pinto-beans" name="user_beans" value="pinto-beans">
+                            <label for="pinto-beans">Pinto Beans</label>
+                        </div>
+                        <div class="card">
                             <label for="meat">Protein:</label>
                             <input type="radio" id="carnitas" name="user_meat" value="carnitas">
                             <label for="carnitas">Carnitas</label>
@@ -57,20 +70,27 @@
                             <label for="sofritas">Sofritas</label>                        
                             <input type="radio" id="none-protein" name="user_meat" value="none-protein">
                             <label for="none-protein">None</label>                        
-                        </li>
-                        <li>
-                            <label for="msg">Special Instructions:</label>
+                        </div>
+                        <div class="card">
+                            <label for="meat">Additional Ingredients:</label>
+                            <input type="checkbox" id="cheese" name="user_add_ingred" value="cheese">
+                            <label for="cheese">Cheese</label>
+                            <input type="checkbox" id="sour-cream" name="user_add_ingred" value="sour-cream">
+                            <label for="sour-cream">Sour Cream</label>
+                        </div>
+                        <div class="card">
+                            <label for="msg">Delivery Instructions:</label>
                             <textarea id="msg" name="user_message"></textarea>
-                        </li>
+                        </div>
                         <br><hr><br>
-                        <li class="button">
-                            <button type="submit">Submit Order</button>
-                        </li>
-                    </ul>
+                        <div class="button">
+                            <button type="submit" color="#E0762D">Submit Order</button>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="order-summary">
-                <h3>Order Summary</h3>
+            <div class="order-summary">  
+                <!-- <h3>Order Summary</h3> FUTURE DEVELOPMENT-->  
             </div>
         </div>
     </main>
