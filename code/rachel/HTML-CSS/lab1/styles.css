@@ -22,7 +22,7 @@ img {
 
 body {
     text-align: center;
-    font-family: Zen Loop;
+    font-family: 'Zen Loop', cursive;
     font-size: 150%;
     background-image: url("outlander.jpeg");
     background-size: cover;
@@ -35,7 +35,7 @@ ul{
 }
 
 q {
-    font-family: Tangerine;
+    font-family: 'Tangerine', cursive;
     font-size: 150%;
     color: rgb(85, 98, 85);
 }
