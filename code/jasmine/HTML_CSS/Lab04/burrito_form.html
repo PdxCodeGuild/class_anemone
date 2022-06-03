@@ -1,66 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Burrrito Form</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+  <head>
+    <title>Burrrito Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 </html>
 
-<h1>Burrito King</h1>
-<nav>
+<header>
+  <h1>Burrito King</h1>
+  <nav>
     <ul>
-        <a href="#"><li>Home</li></a>
-        <a href="#"><li>About</li></a>
-        <a href="#"><li>Contact</li></a>
+      <a href="#"><li>Home</li></a>
+      <a href="#"><li>About</li></a>
+      <a href="#"><li>Contact</li></a>
     </ul>
-</nav>
+  </nav>
+</header>
 
-<form action="https://webhook.site/ae212066-5150-4f9d-b870-8dc85d4aa77c" method="post">
-    <div class="burrito">
+<form
+  action="https://webhook.site/ae212066-5150-4f9d-b870-8dc85d4aa77c"
+  method="post"
+>
+  <div class="burrito">
     <h2>Let's make an order</h2>
-        <img src="https://tse3.mm.bing.net/th?id=OIP.fl0oSJR7uPp2Lp1eqHWhmQHaE8&pid=Api&P=0&w=297&h=198">
-            <label for="inputName">Name</label>
-            <input type="text" name="inputName" id="inputName" placeholder="Full Name">
-            <label for="inputPassword4">Password</label>     
-            <input type="password" name="inputPassword4" id="inputPassword4" placeholder="Password">
-            <label for="flour">Flour</label>
-            <select name="flour" id="flour" required>
-                <option value="" selected disabled>Select Flour </option>
-                <option value="White">White Flour</option>
-                <option value="Wheat">Wheat Flour</option>
-                <option value="Spinach">Spinach</option>
-                <option value="Corn">Corn</option>
-            </select>
-            <label for="rice">Rice</label>
-            <select name="rice" id="rice" required>
-                <option value="" selected disabled>Select Rice</option>
-                <option value="white-rice">White Rice</option>
-                <option value="brown-rice">Brown Rice</option>
-            </select>
-            <label for="beans">Beans</label>
-            <select name="beans" id="beans" required>
-                <option value="" selected disabled>Select Beans</option>
-                <option value="black-beans">Black beans</option>
-                <option value="pinto-beans">Pinto Beans</option>
-            </select>
-            <label for="protein">Protein</label>
-            <select name="Protein" id="protein" required>
-                <option value="" selected disabled>Select Protein </option>
-                <option value="carnitas">carnitas</option>
-                <option value="Chicken">Chicken</option>
-                <option value="Sofritas">Sofritas</option>
-                <option value="None">None</option>
-            </select>
-            <label for="add">Additional Ingredients</label>
-            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
-            <label class="form-check-label">Cheese</label>
-            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+    <br />
+    <img
+      src="https://tse3.mm.bing.net/th?id=OIP.fl0oSJR7uPp2Lp1eqHWhmQHaE8&pid=Api&P=0&w=297&h=198"
+    />
 
-            <label class="form-check-label">Sour Cream</label>
-            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
-
-            <label class="form-check-label">Advocado</label>            
-
-            <input type="submit" value="Submit">
     </div>
+
+    <br />
+
+   
+    <label for="inputName">Name</label>
+    <input
+      type="text"
+      name="inputName"
+      id="inputName"
+      placeholder="Enter Name"
+    />
+    <label for="inputPassword4">Password</label>
+    <input
+      type="password"
+      name="inputPassword4"
+      id="inputPassword4"
+      placeholder="Enter Password"
+    />
+    <br />
+
+    <label for="flour">Flour</label>
+    <select name="flour" id="flour" required>
+      <option value="" selected disabled>Select Flour</option>
+      <option value="White">White Flour</option>
+      <option value="Wheat">Wheat Flour</option>
+      <option value="Spinach">Spinach</option>
+      <option value="Corn">Corn</option>
+    </select>
+
+    <label for="rice">Rice</label>
+    <select name="rice" id="rice" required>
+      <option value="" selected disabled>Select Rice</option>
+      <option value="white-rice">White Rice</option>
+      <option value="brown-rice">Brown Rice</option>
+    </select>
+
+    <label for="beans">Beans</label>
+    <select name="beans" id="beans" required>
+      <option value="" selected disabled>Select Beans</option>
+      <option value="black-beans">Black beans</option>
+      <option value="pinto-beans">Pinto Beans</option>
+    </select>
+
+    <label for="protein">Protein</label>
+    <select name="Protein" id="protein" required>
+      <option value="" selected disabled>Select Protein</option>
+      <option value="carnitas">carnitas</option>
+      <option value="Chicken">Chicken</option>
+      <option value="Sofritas">Sofritas</option>
+      <option value="None">None</option>
+    </select>
+
+    <br />
+    <label for="add">Additional Ingredients</label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="check1"
+      name="option1"
+      value="something"
+    />
+
+    <label class="form-check-label">Cheese</label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="check1"
+      name="option1"
+      value="something"
+    />
+
+    <label class="form-check-label">Sour Cream</label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="check1"
+      name="option1"
+      value="something"
+    />
+
+    <label class="form-check-label">Advocado</label>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="check1"
+      name="option1"
+      value="something"
+    />
+
+    <br />
+    <label for="comment">Delivery Instructions:</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
+
+    <input type="submit" value="Submit" />
+    
+  </div>
 </form>

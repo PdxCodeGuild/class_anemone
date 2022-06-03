@@ -42,7 +42,19 @@ h2 {
 
 .burrito {
     display:grid;
-    place-items:center;
-    width: 50%;
+    place-items: center;
+    margin: 1em;
+    width: 20%;
     padding: 0 1em;
 }
+
+
+
+
+.submit {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
+}
+
+
