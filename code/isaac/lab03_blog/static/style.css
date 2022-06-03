@@ -49,6 +49,8 @@ header, footer {
     main {
         width: 100%;
         font-size: small;
+        position: relative;
+        left: 20%;
     }
     
 }
