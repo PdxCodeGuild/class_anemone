@@ -1,8 +1,8 @@
 {"burrito order form": {
         "customer info": {
-            "name": "text",
-            "password": "text",
-            "delivery": "text"
+            "name": "",
+            "password": "",
+            "delivery": ""
         },
         "order info": {
             "tortilla": {
