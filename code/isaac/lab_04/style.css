@@ -42,12 +42,16 @@ input {
     position: relative;
     left: 10%;
     background-color: rgb(177, 40, 40);
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 6px;
     width: 50%;
 }
 
-
+#submit {
+    position: relative;
+    left: 12%;
+    margin: 2em;
+}
 
 #first-last {
     position: relative;
