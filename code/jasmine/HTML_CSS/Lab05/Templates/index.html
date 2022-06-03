@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unit Converter</title>
- 
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="row">
-            <h1>Unit Converter</h1>
-        </div>
-        <div class="row">
-            <form action="" method="post" class="col s12">
-                <div class="row">
-                    <div class="input-field col s9">
-                        <input id="distance_amount" type="number" name="distance_amount">
-                        <label for="distance_amount">Enter a distance amount</label>
-                        
-                    </div>
-                    <div class="row">
-                        <label for="input_units">Choose Units</label>
-                        <select name="input_units" id="input_units">
-                            <option value="meters">Meters</option>
-                            <option value="feet">Feet</option>
-                            <option value="miles">Miles</option>
-                            <option value="kilometers">Kilometers</option>
-                            <option value="inches">Inches</option>
-                            <option value="yards">Yards</option>
-                        </select>
+      <div class="row">
+        <h1>Unit Converter</h1>
+      </div>
+      <div class="row">
+        <form action="" method="post" class="col s12">
+          <div class="row">
+            <div class="input-field col s9">
+              <input
+                id="distance_amount"
+                type="number"
+                name="distance_amount"
+              />
+              <label for="distance_amount">Enter a distance amount</label>
+            </div>
+            <div class="row">
+              <label for="input_units">Choose Units</label>
+              <select name="input_units" id="input_units">
+                <option value="meters">Meters</option>
+                <option value="feet">Feet</option>
+                <option value="miles">Miles</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="inches">Inches</option>
+                <option value="yards">Yards</option>
+              </select>
 
-                        <label for="output_units">Choose Units</label>
-                        <select name="output_units" id="output_units">
-                            <option value="meters">Meters</option>
-                            <option value="feet">Feet</option>
-                            <option value="miles">Miles</option>
-                            <option value="kilometers">Kilometers</option>
-                            <option value="inches">Inches</option>
-                            <option value="yards">Yards</option>
-                        </select>
-                        </div>
+              <label for="output_units">Choose Units</label>
+              <select name="output_units" id="output_units">
+                <option value="meters">Meters</option>
+                <option value="feet">Feet</option>
+                <option value="miles">Miles</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="inches">Inches</option>
+                <option value="yards">Yards</option>
+              </select>
+            </div>
 
+            <div class="col s3">
+              <button type="submit" class="btn">submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
 
-                    <div class="col s3">
-                        <button type="submit" class="btn">submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-      
-        <div class="row">
-            <h2>Unit Converted Results</h2>
-                <!-- <p>Coverted Result is {{distance_amount}} {{units}} is {{result}} {{output_units}}</p> -->
-        </div>
-      
+      <div class="row">
+        <h2>Unit Converted Results</h2>
+        <p>
+          Coverted Result is {{distance_amount}} {{old_units}} is {{result}}
+          {{new_units}}
+        </p>
+      </div>
     </div>
-    
-</body>
-
+  </body>
 </html>

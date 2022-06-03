@@ -43,7 +43,7 @@ def index():
         new_units = request.form['output_units']
         meters_convert = distance_amount * unit_convert[old_units]
         # meters_convert = float(meters_convert)
-        new_convert = round(meters_convert / distance_amount[new_units], 3)
+        new_convert = round(meters_convert / unit_convert[new_units], 3)
         return render_template('index.html', distance_amount=distance_amount, old_units=old_units,new_units=new_units, result=new_convert)
    
 
