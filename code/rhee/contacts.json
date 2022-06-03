@@ -1,0 +1,40 @@
+{
+  "contacts": [
+    {
+      "First Name": "Daniel",
+      "Last Name": "Blue",
+      "Phone_number": "718-729-4762",
+      "Address": "1215 Hotel Rd "
+    },
+    {
+      "First Name": "Donald",
+      "Last Name": "Machina",
+      "Phone_number": "629-485-7412",
+      "Address": "1011 queens highway"
+    },
+    {
+      "First Name": "Joshua",
+      "Last Name": "Abe",
+      "Phone_number": "401-462-2638",
+      "Address": "1723 Benito drive"
+    },
+    {
+      "First Name": "Michael",
+      "Last Name": "Jordan",
+      "Phone_number": "405-480-5621",
+      "Address": "9128 Modesto way"
+    },
+    {
+      "First Name": "Emmit",
+      "Last Name": "Smith",
+      "Phone_number": "236-548-7859",
+      "Address": "816 Johnston Drive"
+    },
+    {
+      "First Name": "Joe",
+      "Last Name": "Smith",
+      "Phone_number": "800-425-8263",
+      "Address": "1645 Love Highway"
+    }
+  ]
+}

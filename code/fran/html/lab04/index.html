@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrito Order Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Honking Huge Burritos Order Form</h1>
+        </div>
+    </header>
+    <main>
+        <div class="flex-container">
+            <div class="image-container">
+                <img src="https://www.nicepng.com/png/detail/33-339561_carne-asada-burrito-mission-burrito.png" alt="Burrito">            
+            </div>    
+            <div class="order-form">
+                <h2>Customize Your Burrito!</h2>
+                <h4>Choose your tortilla, choose your fillings. Make it your own masterpiece.</h4>
+                    <!-- <form action="" method="post"> -->
+                    <form action="https://webhook.site/8bea0623-b139-4c39-8db1-618fa6274306" method="post">
+                        <div>
+                        <div class="user-info">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="user_name">
+                            <label for="mail">Password:</label>
+                            <input type="text" id="password" name="user_password">
+                        </div>
+                        <br><hr><br>
+                        <div class="card">
+                            <label for="tortilla">Tortilla:</label>
+                            <input type="radio" id="wf-tortilla" name="user_tortilla" value="wf-tortilla">
+                            <label for="wf-tortilla">White Flour</label>
+                            <input type="radio" id="ww-tortilla" name="user_tortilla" value="ww-tortilla">
+                            <label for="ww-tortilla">Whole Wheat</label>                        
+                            <input type="radio" id="s-tortilla" name="user_tortilla" value="s-tortilla">
+                            <label for="s-tortilla">Spinach</label>                        
+                            <input type="radio" id="c-tortilla" name="user_tortilla" value="c-tortilla">
+                            <label for="c-tortilla">Corn</label>                        
+                        </div>
+                        <div class="card">
+                            <label for="meat">Rice:</label>
+                            <input type="radio" id="white-rice" name="user_rice" value="white-rice">
+                            <label for="white-rice">White Rice</label>
+                            <input type="radio" id="brown-rice" name="user_rice" value="brown-rice">
+                            <label for="brown-rice">Brown Rice</label>
+                        </div>
+                        <div class="card">
+                            <label for="meat">Beans:</label>
+                            <input type="radio" id="black-beans" name="user_beans" value="black-beans">
+                            <label for="black-beans">Black Beans</label>
+                            <input type="radio" id="pinto-beans" name="user_beans" value="pinto-beans">
+                            <label for="pinto-beans">Pinto Beans</label>
+                        </div>
+                        <div class="card">
+                            <label for="meat">Protein:</label>
+                            <input type="radio" id="carnitas" name="user_meat" value="carnitas">
+                            <label for="carnitas">Carnitas</label>
+                            <input type="radio" id="chicken" name="user_meat" value="chicken">
+                            <label for="chicken">Chicken</label>                        
+                            <input type="radio" id="sofritas" name="user_meat" value="sofritas">
+                            <label for="sofritas">Sofritas</label>                        
+                            <input type="radio" id="none-protein" name="user_meat" value="none-protein">
+                            <label for="none-protein">None</label>                        
+                        </div>
+                        <div class="card">
+                            <label for="meat">Additional Ingredients:</label>
+                            <input type="checkbox" id="cheese" name="user_add_ingred" value="cheese">
+                            <label for="cheese">Cheese</label>
+                            <input type="checkbox" id="sour-cream" name="user_add_ingred" value="sour-cream">
+                            <label for="sour-cream">Sour Cream</label>
+                        </div>
+                        <div class="card">
+                            <label for="msg">Delivery Instructions:</label>
+                            <textarea id="msg" name="user_message"></textarea>
+                        </div>
+                        <br><hr><br>
+                        <div class="button">
+                            <button type="submit" color="#E0762D">Submit Order</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="order-summary">  
+                <!-- <h3>Order Summary</h3> FUTURE DEVELOPMENT-->  
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <p>Thank you!</p>
+</footer>
