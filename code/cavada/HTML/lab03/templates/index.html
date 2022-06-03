@@ -50,20 +50,20 @@
         </div> 
     </div>
     
-    <header><h1> New Testament Pyble Reader</h1>
-        <p>I turned the Bible into a Python dictionary list and you can access it here in my blog!</p>
-        </header>
+    
     <div class="options">
         
-
+        <header><h1> New Testament Pyble Reader</h1>
+            <p>I turned the Bible into a Python dictionary list and you can access it here in my blog!</p>
+            </header>
     </div>
     <div class="form">
         
-        <p>Check one box only (bug needs to be fixed): </p>
+        <p>Check one box only: </p>
         <form action="" method="post">
             
             {% for option in book_options %}
-            <input type="radio" name = "book" value="{{option}}"> {{option[1]}}<br>
+            <input type="radio" name = "book" value="{{option}}"> {{option[1]}}
             {% endfor %}
             <input type="text" name="chapter" placeholder="chapter number">
             <button type="submit">update scripture below</button>

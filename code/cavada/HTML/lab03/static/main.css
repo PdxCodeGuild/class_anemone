@@ -125,9 +125,9 @@ i:hover {
 }
 
 .form {
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
     /* background-color:bisque; */
-    height: 50vh;
+    /* height: 50vh; */
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
