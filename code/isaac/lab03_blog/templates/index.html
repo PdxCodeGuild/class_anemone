@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac's Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h1>Isaac's Blog</h1>
+        </div>
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+    </header>
+    <main>
+        {% for post in posts %}
+        <div class="blog">
+            <h2>{{post['title']}}</h2>
+            <p>Posted by: {{post['author']}} - Date: {{post['date']}}</p>
+            <p>{{post['body']}}</p>
+        </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <p>&copy; Copyright 2022</p>
+    </footer>
+</body>
+</html>

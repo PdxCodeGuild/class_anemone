@@ -1,0 +1,65 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: blanchedalmond;
+    display: flex;
+    font-family: 'Outfit', sans-serif;
+}
+
+.title-main-container {
+    width: 60%;
+    background-color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5em;
+}
+
+.title {
+    display:block;
+    width: 100%;
+    font-family: 'Fredoka', sans-serif;
+    text-align: center;
+    padding: .5em;
+    
+}
+
+.img-user-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: .5em;
+    background-color: brown;
+}
+
+.user-info-container {
+    width: 50%;
+    order: 1;
+}
+.main-img {
+    width: 50%;
+    border: solid .5em maroon;
+    margin-left: auto;
+    order: 2;
+}
+
+.main-img img {
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 1em;
+}
+
+textarea {
+    width: 50%;
+    border: solid black .25em;
+}

@@ -1,0 +1,39 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, header {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+    color: rgb(85, 83, 83);
+    padding: 1em;
+}
+
+header {
+    padding: 30px;
+    /* text-align: center; */
+    background-color: darkgray;
+    color: black;
+}
+
+form {
+    padding: 1em;
+    margin-bottom: 10px;
+}
+
+button {
+    color: black;
+    background-color: #E0C525;
+    font-weight: 600;
+}
+
+#conversion-result {
+    color: blue;
+}
