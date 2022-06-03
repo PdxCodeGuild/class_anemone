@@ -29,7 +29,7 @@ header, footer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 30%;
+    width: 50%;
     align-content: space-between;
     align-self: center;
     padding: 2em;
@@ -48,9 +48,16 @@ header, footer {
     }
     main {
         width: 100%;
-        font-size: small;
-        position: relative;
-        left: 20%;
+    }
+    
+}
+
+@media screen and (min-width: 960px) {
+    header {
+        width: 50%;
+    }
+    main {
+        width: 100%;
     }
     
 }
