@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unit Converter</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">   
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+    </head>
+    <body>
+        <header>
+            <h1>Unit Converter</h1>
+        </header>
+        <main>
+            <form action="" method="post">
+                <label for="user_distance">Distance:</label>
+                <input type="text" id="user_distance" name="user_distance">
+                <br><br>
+                <label for="user_input_units">Convert from:</label>
+                <select name="user_input_units" id="user_input_units">
+                    <option value=""></option>
+                    <option value="ft">ft</option>
+                    <option value="mi">mi</option>
+                    <option value="m">m</option>
+                    <option value="km">km</option>
+                    <option value="yd">yd</option>
+                    <option value="in">in</option>
+                </select>
+                <br><br>
+                <label for="user_output_units">Convert to:</label>
+                <select name="user_output_units" id="user_output_units">
+                    <option value=""></option>
+                    <option value="ft">ft</option>
+                    <option value="mi">mi</option>
+                    <option value="m">m</option>
+                    <option value="km">km</option>
+                    <option value="yd">yd</option>
+                    <option value="in">in</option>
+               </select>
+               <br><br><br>
+               <button type="submit">Convert</button>
+            </form>
+            <div id="conversion-result">
+                {% if results %}
+                <hr><br>
+                    {{results.user_distance}} {{results.user_input_units}} converts to {{results.output_distance}} {{results.user_output_units}}
+                {% endif %}
+            </div>
+        </main>
+    </body>
+
+
+</html>
