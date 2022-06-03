@@ -114,13 +114,13 @@ i:hover {
 }
 
 .options, .form, .form p {
-    font-size: 1.53vh;
+    font-size: 2.2vh;
     text-align: left;
     text-shadow: 0 0 10vh rgb(249, 233, 233);
 }   
 
 .blog-posting {
-    font-size: 1.8vh;
+    font-size: 2.2vh;
     text-align: left;
 }
 
