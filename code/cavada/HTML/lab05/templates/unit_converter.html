@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert-o-Bot</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+
+
+</head>
+<body>
+    <a href="/">Reset Values</a>
+    <div class="form">
+        <h1>CONVERSION INPUT TABLE</h1>
+        
+        <form action = "" method = "post">
+            <h2>Select Unit to Convert From:</h2>
+            
+                <input type="radio" name="orig" value="inch">inch
+                <input type="radio" name="orig" value="foot">foot
+                <input type="radio" name="orig" value="yard">yard
+                <input type="radio" name="orig" value="meter">meter
+                <input type="radio" name="orig" value="kilometer">kilometer
+                <input type="radio" name="orig" value="mile">mile <br>  
+           
+            <h2>Enter Distance:</h2>
+            <input type="text" name="dist" placeholder= "distance to convert" required>  <br>
+
+            <h2>Select Unit to Convert to:</h2>
+           
+                <input type="radio" name="end" value="inch">inch
+                <input type="radio" name="end" value="foot">foot
+                <input type="radio" name="end" value="yard">yard
+                <input type="radio" name="end" value="meter">meter
+                <input type="radio" name="end" value="kilometer">kilometer
+                <input type="radio" name="end" value="mile">mile<br>   
+            
+            <button>Convert</button>
+        </form>
+    
+    </div> 
+    <div class="display">
+        <h1>CONVERSION DISPLAY TABLE</h1>
+        <h2>Unit to Convert from: {{orig}} </h2>
+        <h2>distance to convert: {{dist}} </h2>
+        <p>unit to convert to: {{end}} </p>
+        <h2>conversion: {{conv}} {{end}}</h2>
+    </div>
+
+</body>
+</html>

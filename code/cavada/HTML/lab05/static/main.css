@@ -1,0 +1,48 @@
+html {
+    width: 100%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+a { 
+    top:0;
+    position: fixed;
+    background-color:rgba(0, 0, 255, 0.359);
+    margin: 2vh;
+    border: .2vh solid black;
+    padding: 2vh;
+    /* text-transform: uppercase; */
+}
+
+body {
+    font-size:2vh;
+    background-image: url("image.jpg");
+    background-repeat: repeat;
+    text-align: center;
+    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+}
+.form, .display {
+    background-color:rgba(240, 255, 255, 0.667);
+    margin: 2vh;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    background-color:rgba(255, 235, 205, 0.582);
+}
+button {
+    margin: 1vh;
+    padding: .5vh;
+}
+input {
+    margin-left: 1vh;
+    margin-bottom: 1vh;
+}
+h1 {
+    background-color:rgba(141, 94, 23, 0.582)
+}
