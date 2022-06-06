@@ -4,10 +4,17 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
     background-image:url(https://tse1.mm.bing.net/th?id=OIP.tiP2dbEK8XSQ5IJJ0IjtlQHaEK&pid=Api&P=0&w=290&h=163);
-    background-size: contain;
+    background-size: cover;
+}
+
+p {
+    background-color: rgba(255,255,255,0.5);
+    margin: 50px;
+    padding: 10px;
 }
 
 .intro h1{
+   
    
     text-align: center;
     width: 200px;
@@ -16,7 +23,7 @@ body {
     
 }
 .intro h2{
-    
+  
     font-size: 10px;
     text-align: center;
     width: 200px;
@@ -37,15 +44,19 @@ img {
 
 ul {
     
+    text-align: left;
     list-style-type:square;
+    display: inline-block;
     padding: 10px 500px;
-    margin: 10px;
+    margin: 5px;
 
  }
 
 .footer {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: italic;
     color: red;
     font-size: 30px;
+    padding: 20px;
      
 }
