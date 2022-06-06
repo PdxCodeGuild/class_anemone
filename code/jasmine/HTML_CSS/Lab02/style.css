@@ -134,23 +134,28 @@ header,main {
     padding-bottom: 1em;
 }
 
+@media (min-width: 640px) {
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav p {
+        padding: 1em;
+    }
+}
+
+
 @media (min-width: 1280px) {
-    .gallery-item {
-        width: 50%;
-    }
-
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-    }
-
-    body {
-
-        display: flex;
-        justify-content: space-between;
-
+    .welcom {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right:auto;
     }
 
 
