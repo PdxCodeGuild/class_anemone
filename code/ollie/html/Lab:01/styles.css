@@ -15,3 +15,25 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+p {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+h3 {
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+ul {
+    text-align: center;
+    list-style-position: inside;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#quote {
+    text-align: center;
+    font-family: 'American Typewriter';
+    font-size: 32px;
+}
