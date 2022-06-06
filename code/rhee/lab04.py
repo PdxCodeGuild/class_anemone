@@ -45,7 +45,10 @@ def game():
     player_hand = dealer(deck)
     print(f"The dealer is showing a {dealer_hand[0]}.")
     print(f"You have a {player_hand} for a total of {total(player_hand)}.")
+    if total(player_hand) >= 17:
+        print(f"You have {total(player_hand)}, you should consider 'stay'. ")
     choice = input("Do you want to 'Stay' or get another card 'Hit'?: ").lower()
+
     if choice == 'stay':
         while True:
             total(dealer_hand) < 17
@@ -61,10 +64,12 @@ def game():
 
     if choice == 'hit':
         while True:
-            total(player_hand) < 21
+            total(player_hand) < 17
             cards_to_hit(player_hand)
             print(player_hand)
             print(f"Your have {total(player_hand)}.")
+            if 17 <= total(player_hand) < 21:
+                print(f"You have {total(player_hand)}, you should consider 'stay'. ")
             if total(player_hand) > 21:
                 print("YOU BUST! ")
                 break

@@ -14,20 +14,20 @@ def read():                                                                     
     keys = info[0].split(',')                                                   # takes inputs from 0th line and creates a list of keys 
     for i in range(1, len(info)):
         pinfo = info[i].split(',')                                              # creates two list with contact info
-        contacts.append(dict(zip(keys, pinfo)))                                 # combines key and info into tuples to be put into a dict
+        contact = dict(zip(keys, pinfo))
+        contacts.append(contact)                                                # combines key and info into tuples to be put into a dict
     return contacts, keys                                                       # returns contacts listdict and keys
-contacts, keys = read()                                                         # opens the contacts and keys to be edited globally... but not the actual global just like everything access global
 
-def search():
+def search(contacts):
     search = input('Who are you looking for? ').lower()                         # takes input from user and process through each contact til match
     for i, contact in enumerate(contacts):                                      # and returns the list[int] dict to user
         if contact['name'] == search:
             return contacts[i]
-        else:
-           return 'Contact not in list'
+    else:
+        return 'Contact not in list'
 
 
-def delete():
+def delete(contacts):
     remove = input('What contact would you like to get rid of? ').lower()       # same as search just with the del function
     for i, contact in enumerate(contacts):
         if contact['name'] == remove:
@@ -37,11 +37,11 @@ def delete():
             return print('Person not in list or spelling incorrect.')
 
 
-def update():
+def update(contacts, keys):
     replace = input('What contact would you like to change? ').lower()                          # same as search/del at first
     for i, contact in enumerate(contacts):                                                      # repleaces information based of user input and would 
         if contact['name'] == replace:                                                          # have to be accessed again for additional
-            name                                                                                # while loop would fix
+                                                                                                # while loop would fix
             key = input(f'What would you like to change about {replace}\n{keys}: ').lower()
             if key in name:
                 val = input('What will be the new name? ').lower()
@@ -56,13 +56,13 @@ def update():
                 contacts[i]['favorite color'] = val
                 return contacts
             return contacts 
-        else:
-            return 'Contact not in list'
-    return contacts, 
+    else:
+        return 'Contact not in list'
+    
          
 
 
-def create():                                                                                   # creates new contact to be appended to the list
+def create(keys):                                                                                   # creates new contact to be appended to the list
     contact = {}    
     for key in keys:
         value = input(f'{key}: ').title()                                                       # rotates through each key to be printed and input for
@@ -74,10 +74,8 @@ def create():                                                                   
 
 def save(contacts, keys):                                                           # inports updated contacts and keys to be saved into new file
     nf = [','.join(keys)]                                                           # joins the keys back to the base of name,favorite,favorite
-    for contact in contacts:                                                        
-        contact = contact.values()                                                  # process through each contact dict to join values like keys
-        contact = [','.join(contact)]   
-        # contact = ['\n'.join(contact)]
+    for contact in contacts:
+        contact = [','.join(contact.values())]                                        # process through each contact dict to join values like keys
         nf.extend(contact)                                                          # adds each listed contact to the nf variable to be save
     nf = '\n'.join(nf)
     
@@ -87,32 +85,35 @@ def save(contacts, keys):                                                       
 
 def sys():
     phone_book = True
+    contacts, keys = read()
+                                                             # opens the contacts and keys to be edited globally... but not the actual global just like everything access global
     while phone_book:
         print('Welcome to your Off-brand phone book.')
         direct = input(f"{', '.join(commands)}"'\n What is it that you would like to do? ').lower()
-        
+        print(contacts)
         if direct in commands:
             if direct == 'list':                                                    # if/elifs to run through each command based on user input
                 direct = None
                 print(contacts)
             elif direct == 'new':
                 direct = None
-                contact = create()
+                contact = create(keys)
                 contacts.append(contact)
             elif direct == 'update':
                 direct == None
-                contact = update()
+                contact = update(contacts, keys)
                 if contact == 'Contact not in list':
                     print(contact)  
                     print(contacts)
                     pass
                 contacts.append(contact)
+                contacts.pop(-1)    
             elif direct == 'search':
                 direct == None
-                print(search())
+                print(search(contacts))
             elif direct == 'delete':
                 direct == None
-                delete()
+                delete(contacts)
                 print(contacts)
      
         redo = input('Is there more you would like to do? Y/N: ').lower()                   # user can loop to modify the file to liking
@@ -121,6 +122,7 @@ def sys():
         elif redo in no:
             phone_book = False
             print('Goodbye')
+        
     save(contacts, keys)  
 
 

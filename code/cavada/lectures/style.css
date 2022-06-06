@@ -1,0 +1,68 @@
+
+html {
+    height: 100%
+}
+body {
+    background-color: rgba(0, 0, 0, 0.644);
+    background-image: url(pdx.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+}
+header {
+    background-color: rgba(0, 0, 255, 0.295);
+    width: 1024px;
+    background-position: center;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+main {
+    height: 250px;
+    text-align: center;
+    padding-top: 80px;
+    padding-left: 240px;
+    padding-right: 240px;
+}
+footer {
+    background-color: rgba(0,0,0,0.5);
+    height: 100px;
+    font-size: 25px;
+    color: whitesmoke;
+    text-align: center;
+}
+h1 {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+    font-size: 18px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    /* text decoration: none */
+}
+nav a {
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.nounderline {
+    text-decoration: none;
+}
+.maps {
+    padding-bottom: 5px;
+}

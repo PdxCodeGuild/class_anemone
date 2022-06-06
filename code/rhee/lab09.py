@@ -1,12 +1,10 @@
+import re
 # ARI scale
 # open txt file with open('passage.txt', 'r')
 # The score is computed by multiplying the number of characters divided by the number of words by 4.71, adding the
 # number of words divided by the number of sentences multiplied by 0.5, and subtracting 21.43. If the result is a
 # decimal, always round up. Scores greater than 14 should be presented as having the same age and grade level as
 # scores of 14.
-sentences = 0
-words = 0
-characters = 0
 
 ari_scale = {
     1: {'ages': '5-6', 'grade_level': 'Kindergarten'},
@@ -25,21 +23,26 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level': 'College'}
 }
 
-with open('passage.txt') as passage:
-    for character in passage:
-        # print(len(character))
-        total = character.split()
-        sentences += character.count(".")
-        words += len(total)
-        characters += len(character)
+with open("passage.txt", 'r') as passage:
+    passage = passage.read()
+
+list_sentences = re.split('[.?!]', passage)
+list_words = passage.split(' ')
+list_characters = re.findall(r'[A-Za-z0-9]', passage)
+
+sentences = len(list_sentences)
+words = len(list_words)
+characters = len(list_characters)
 
 # Do a word count
 print("Shows how many words are present: ", words)
-# Do a character count
+# # Do a character count
 print("Shows how many characters are present: ", characters)
+#  Do a sentence count
+print("Shows how many sentences in file: ", sentences)
 
-ari_score = round(4.71 * (characters / words) + 0.5 * (words / sentences) - 21.43)
-print(f"Your ARI score is {round(ari_score)}.")
+ari_score = round((4.71 * (characters / words) + 0.5 * (words / sentences) - 21.43), 0)
+print(f"Your ARI score is {ari_score}.")
 
 print(f"The poem 'Do Not Go Gentle Into That Good Night' has an ARI score of {ari_score} making it suitable for "
       f"students in {ari_scale[ari_score]['grade_level']} and people between the ages {ari_scale[ari_score]['ages']}.")

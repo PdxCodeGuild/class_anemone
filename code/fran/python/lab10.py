@@ -106,7 +106,8 @@ while True:
         
         found_contact = retrieve_contact(user_name, contacts)
 
-        #print(f"found contact: {found_contact}")   ### TEST
+        for key, value in found_contact.items():
+            print(key,': ',value)
 
     elif user_action == 'u':
         # Prompt user for contact info to search on and update

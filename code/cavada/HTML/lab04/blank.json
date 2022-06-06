@@ -1,0 +1,34 @@
+{"burrito order form": {
+        "customer info": {
+            "name": "",
+            "password": "",
+            "delivery": ""
+        },
+        "order info": {
+            "tortilla": {
+                "corn": 0,
+                "spinach": 0,
+                "wheat-flour": 0,
+                "white-flour": 0
+            },
+            "rice": {
+                "brown-rice": 0,
+                "white-rice": 0
+            },
+            "beans": {
+                "black-beans": 0,
+                "pinto-beans": 0
+            },
+            "protein": {
+                "carnitas": 0,
+                "chicken": 0,
+                "none": 0,
+                "sofritas": 0
+            },
+            "additional ingredients": {
+                "cheese": 0,
+                "sour-cream": 0
+            }
+        }
+    }
+}

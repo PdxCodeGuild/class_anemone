@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+
+</head>
+<body>
+        
+        <div class="header">
+            <header>
+                <p>503-553-3335</p>
+                <h1>T a c o - D e - P a n c h o</h1>
+                <p>Newberg, OR 97132</p>    
+
+            </header>
+        </div>
+        
+        <div class="left_nav">
+            
+            <div class="cart">
+                <h1>CURRENT ORDER: </h1>
+                <hr>
+                <h2>$6 burrito meal</h2>
+                <hr>
+                {% for info in customer_info %}
+
+
+                    {% if info == 'delivery' %}
+                    <h2>{{info}} instructions: </h2>{{customer_info[info]}}<br>    
+                    {% endif %}
+
+                    {% if info != 'password' and info != 'delivery'%}
+                    <h2>{{info}}: </h2>{{customer_info[info]}}<br>
+                    {% endif %}
+
+                {% endfor %}
+                
+                    
+                    {% for key in order_info %}
+
+                    <h2>{{key}}:</h2>
+                        {% for class in order_info[key] %}
+                            <p>{{class}} : {{order_info[key][class]}}</p>
+                            
+                        {% endfor %}                            
+                        {% endfor %}
+            </div>
+            
+            <div class="order-form">
+                <a class="refresh" href="/">RESET FORM</a>
+
+                <h1>Ordenate un Burrito Cabron!</h1>
+                <hr>
+                {% for info in customer_info %}
+                <div class="form"><br>
+                    <h1>{{info}}</h1>
+                    <form action="" method="post">
+                        {% if info == 'password' %}
+                    <input type="password" name = {{info}} value = {{info}} placeholder={{info}} required> 
+                        {% endif %}
+                        {% if info != 'password' and info != 'delivery'%}
+                    <input type="text" name = {{info}} value = {{info}} placeholder={{info}} required> 
+        
+                        {% endif %}
+                        {% if info == 'delivery' %}
+                    <input type="text" name = {{info}} value = '{{info}} instructions here' placeholder='{{info}} instructions here' required> 
+        
+                        {% endif %}    
+
+                    {% endfor %}
+                    {% for info in order_info %}
+                    <h1>{{info}}</h1>
+                    {% for key in order_info[info] %}
+                        
+                    
+
+                    {% if info == 'additional ingredients' %}
+                    <input  type="checkbox" name= {{key}} value = '1' checked >{{key}}  <br>            
+                    {% endif %}  
+                    {% if info != 'additional ingredients' %}
+                        
+                         
+                    <input type="radio" selected name= {{info}} value = {{key}} required checked>{{key}}<br>
+                    {% endif %}    
+                        
+
+                    {% endfor %}  
+                    {% endfor %} 
+                    <button> Submit</button>  
+                    </form>
+                </div>
+                
+            </div>
+            
+        </div>
+        <footer> Copyright Taco de Pancho</footer>
+</body>
+</html>

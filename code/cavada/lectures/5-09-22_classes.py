@@ -1,5 +1,5 @@
 import math
-
+from re import A
 # import random
 class Point:
     def  __helper_function(self):
@@ -64,9 +64,9 @@ class Snake(Animal):
 
 s = Squirrel("Clarence", "nuts") # (name, food)
 print(f"\nanimal: {s.animal}\nname: {s.name}\nfood: {s.fav_food}\nlegs: {s.legs}")           
-
+shell = []
 a = Anteater("Jimmy", "ants")
-
+shell +=s,a
 print(f"\nanimal: {a.animal}\nname: {a.name}\nfood: {a.fav_food}\nlegs: {a.legs}")  
 print(repr(Animal))
 

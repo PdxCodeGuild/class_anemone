@@ -1,77 +1,35 @@
 
-x = input('Enter your number. 0-999 supported: ')
-final_digit = int(x)//100
-tens_digit = int(x)%100//10
-ones_digit = int(x)%10
 
 
-tens = ['oh', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+x = int(input('Enter your number. 0-999 supported: '))
 
-ones = ['oh', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+hundreds_digit = x // 100
+tens_digit = x % 100 // 10
+ones_digit = x % 10
 
+hundreds = {1:'hundred', 2:'two hundred', 3:'three hundred', 4:'four hundred', 5:'five hundred', 6:'six hundred', 7:'seven hundred', 8:'eight hundred', 9:'nine hundred', }
 
-if final_digit <  1: 
-    print (tens[0])
-elif final_digit < 2 :
-    print (tens[1])
-elif final_digit < 3:
-    print (tens[2])
-elif final_digit < 4:
-    print (tens[3])
-elif final_digit < 5:
-    print (tens[4])
-elif final_digit < 6:
-    print (tens[5])
-elif final_digit < 7:
-    print (tens[6])
-elif final_digit < 8:
-    print (tens[7])
-elif final_digit < 9 :
-    print (tens[8])
-elif final_digit < 10:
-    print (tens[9])
+tens = {0:' ',1:'ten', 2:'twenty', 3:'thirty', 4:'fourty', 5:'fifty', 6:'sixty', 7:'seventy', 8:'eighty', 9:'ninety'}
 
-if tens_digit <  1: 
-    print (tens[0])
-elif tens_digit < 2 :
-    print (tens[1])
-elif tens_digit < 3:
-    print (tens[2])
-elif tens_digit < 4:
-    print (tens[3])
-elif tens_digit < 5:
-    print (tens[4])
-elif tens_digit < 6:
-    print (tens[5])
-elif tens_digit < 7:
-    print (tens[6])
-elif tens_digit < 8:
-    print (tens[7])
-elif tens_digit < 9 :
-    print (tens[8])
-elif tens_digit < 10:
-    print (tens[9])
+ones_2 = {10:'ten', 11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'nineteen'}
+
+ones = {0:' ', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six', 7:'seven', 8:'eight', 9:'nine'}
+
+if x == 0:
+    print('Zero')
+elif x <= 9:
+    print(ones[x])
+elif x <= 19:
+    print(ones_2[x])
+elif x <= 99:
+    print(tens[tens_digit]+ ' ' + ones[ones_digit])
+elif x <= 999 and tens_digit == 1:
+    print(hundreds[hundreds_digit] + ' ' + ones_2[x - (hundreds_digit *100)])
+elif x <= 999 and tens_digit != 1:
+    print(hundreds[hundreds_digit] + ' ' + tens[tens_digit] + ' ' + ones[ones_digit])
 
 
 
-if ones_digit <  1: 
-    print (tens[0])
-elif ones_digit < 2 :
-    print (tens[1])
-elif ones_digit < 3:
-    print (tens[2])
-elif ones_digit < 4:
-    print (tens[3])
-elif ones_digit < 5:
-    print (tens[4])
-elif ones_digit < 6:
-    print (tens[5])
-elif ones_digit < 7:
-    print (tens[6])
-elif ones_digit < 8:
-    print (tens[7])
-elif ones_digit < 9 :
-    print (tens[8])
-elif ones_digit < 10:
-    print (tens[9])
 
+
+#I think this is complete.

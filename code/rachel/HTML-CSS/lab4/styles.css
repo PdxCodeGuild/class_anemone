@@ -1,0 +1,103 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.flexgallery{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1em;
+    align-items: center;
+}
+
+header {
+    font-family: 'Englebert', sans-serif;
+    text-align: center;
+    background-color: rgb(0, 100, 0);
+    color: rgb(98, 185, 98);
+    text-shadow: black 1px 0 10px;
+}
+
+main {
+    padding: 10px;
+    background-color: rgb(222, 225, 173);
+}
+
+h1 {
+    margin: 0;
+    padding: 3px;
+    padding-top:12px;
+}
+
+img {
+    max-width: 80%;
+    border-radius: 10%;
+    padding-top: 10px;
+}
+
+.shadow {
+    box-shadow: black 1px 0 10px;
+    max-width: 80%;
+    text-align: center;
+    /* margin-left: 40px; */
+    margin-top: 20px;
+    background-color: white;
+}
+
+p{
+    margin: 0;
+    padding: 5px;
+}
+
+h2, h3{
+    text-align: center;
+}
+
+.indent{
+    padding-left: 15px;
+}
+
+.center{
+    align-content: center;
+}
+
+footer{
+    text-align: center;
+    background-color: rgb(0, 100, 0);
+    color: white;
+}
+
+.burritopick {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 1100px){
+    h1 {
+        font-size: 700%;
+    } 
+    
+    h2{
+        font-size: 200%;
+    }
+    
+    h3{
+        font-size: 150%;
+    }
+
+    main{
+        font-size: 200%;
+    }
+
+    .padding {
+        padding: 10px;
+    }
+
+    .space {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

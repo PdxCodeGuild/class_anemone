@@ -26,7 +26,7 @@ tickets = 0   #keeping track of tickets to create the while loop below so it wil
 while tickets <= 100000: 
 
     player = loto_num() # second variable from lotto_num() to use for the def lottery() later
-    money -= 2 # subtract 2 from money every loop
+    money += 2 # subtract 2 from money every loop
     tickets += 1   # add 1 ticket every loop so while knows when tickets is <=100000     
     matchs = lottery(winner, player) #used to create a varible to check how many matches a ticket has and then add the m += amount to m
 
@@ -53,7 +53,8 @@ while tickets <= 100000:
 roi = (m - money)/money # giving the % of return on investment
 print(f'\nYour Return on investment is {round(roi, 2)} %') # using round to get rid of needles decimal points
 print(f'\n YOU bought $200,000 worth of ticket AND won a TOTAL of ${m}\n')
-=======
+
+
 def loto_num(num):
     loto_num = []
     for nums in range(6):

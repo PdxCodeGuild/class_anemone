@@ -1,0 +1,50 @@
+header, footer {
+    grid-column: 1 / 4;
+  }
+  
+
+
+.top{
+    margin: 20px;
+    padding: 20px;
+}
+
+.grid {
+    
+    display: grid;
+    grid-template-columns: 150px auto 150px;
+    grid-gap: 1em;
+  }
+  
+  body {
+    margin: 0 auto;
+    max-width: 56em;
+    padding: 1em 0;
+  }
+  
+  header,
+  aside,
+  article,
+  footer {
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+  }
+
+  header {
+    background: url("https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2022/01/11/Food/Images/v-dinmin-chowmein0001.jpg?t=20170517")
+}
+ 
+
+  @media (max-width: 700px) {
+    aside,
+    article {
+      grid-column: 1 / 4;
+    }
+  }
+  
+  /* Demo Specific Styles */
+
+

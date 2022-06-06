@@ -1,0 +1,80 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+	display: block;
+	max-width: 100%;
+}
+
+.refresh {
+    padding: 1vh;
+    text-shadow: 0 0 1vh black;
+    font-family:'Courier New', Courier, monospace;
+    color: rgba(0, 0, 255, 0.339);
+    font-size: 5vh;
+    width: 100vh;
+}
+
+body {
+    margin: 2vh;
+    background-image: url(pancho.png);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-size: 1.5vh;
+    border: .2vh dotted black;
+    border-radius: 2.5vh;
+    /* text-transform: uppercase;  */
+    text-shadow: .5vh .5vh .8vh pink;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: baseline;
+    background-color:aliceblue;
+    justify-content: space-around;
+}
+
+.left_nav {
+    font-size: 2.2vh;
+    background-color: rgba(245, 245, 245, 0.742) ;
+    margin: 1vh;
+    padding: 1vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart {
+    padding-left: 2vh;
+    padding-top: 10vh;
+    background-color:blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart h1 {
+    text-align: center;
+}
+
+.order-form {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-items: center;
+}
+.right_bar, .left_bar {
+    background-color: rgba(255, 192, 203, 0.385);
+}
+input, .form {
+    background-color:rgba(255, 192, 203, 0.385);
+}
+footer {
+    position: fixed;
+}

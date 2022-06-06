@@ -1,16 +1,14 @@
 
 
+ft = 0.3048
+mi = 1609.34
+m = 1
+km = 1000
+yd = 0.9144
+inch = 0.0254
 
 
 
-program_units = {
-    'ft': .3048,
-    'miles': 1609.34,
-    'meters': 1,
-    'km' : 1000,
-    'yards' : .9144,
-    'inches' : .0254
-}
 
 user_units = input('Please enter which unit you wish to convert from. Supported Units: ft / miles / meters / km / yards / inches ')
 
@@ -18,34 +16,36 @@ user_output = input(' Please enter which unit you wish to convert to. Supported 
 
 user_value = input(' Please enter the distance value for conversion  ')
 
-if user_units ==  user_output:
-    solution = "You have selected the same units!"
-elif user_units == 'ft':
-    solution = int(user_value) * .3048 
+
+if user_units == 'ft':
+    intermediate = int(user_value) * ft
 elif user_units == 'miles':
-    solution = int(user_value) * 1609.34
+    intermediate = int(user_value) * mi
 elif user_units == 'meters':
-    solution = int(user_value) * 1 
+    intermediate = int(user_value) * m
 elif user_units == "km":
-    solution = int(user_value) * 1000
+    intermediate = int(user_value) * km
 elif user_units == 'yards':
-    solution = int(user_value) * .9144
+    intermediate = int(user_value) * yd
 elif user_value == 'inches':
-    solution = int(user_value) *.0254
+    intermediate = int(user_value) * inch
 
 
-if user_output == "ft":
-    final = int(solution) / 0.3048
-elif user_output == 'miles':
-    final = int(solution) / 1609.34
-elif user_output == 'meters':
-    final = int(solution) / 1 
-elif user_output == 'km' :
-    final = int(solution) / 1000
-elif user_output == 'yards':
-    final = int(solution) / .9144
-elif user_output == 'inches':
-    final = int(solution) / .0254
+if user_output == user_units:
+    final = user_value
+else:
+    if user_output == 'ft':
+        final = int(intermediate) / 0.3048
+    elif user_output == 'miles':
+        final = int(intermediate) / 1609.34
+    elif user_output == 'meters':
+        final = int(intermediate) / 1 
+    elif user_output == 'km' :
+        final = int(intermediate) / 1000
+    elif user_output == 'yards':
+        final = int(intermediate) / .9144
+    elif user_output == 'inches':
+        final = int(intermediate) / .0254
 
 print(f'Your final value is {final} and the units are {user_output}')
 
