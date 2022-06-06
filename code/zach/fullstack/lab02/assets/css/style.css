@@ -96,6 +96,14 @@ main {
         flex-grow: 1;
         flex-direction: row;
     }
+    header {
+        flex-direction: row;
+    }
 }
 
 /* Desktop */
+@media screen and (min-width:940px) {
+        header {
+        flex-direction: row;
+    }
+}
