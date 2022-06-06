@@ -1,0 +1,27 @@
+html {
+    width: 100%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 10em;
+}
+
+.fun {
+    gap:1em;
+    border: .5em solid black;
+    background-color: rgba(0, 255, 255, 0.202);
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

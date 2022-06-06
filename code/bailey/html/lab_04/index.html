@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Burrito Order</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header><h1>Burritos R Us</h1></header>
+        <div class = 'flex-gallery'>
+            <div class = 'gallery-item'>
+                <h3>Make Your Own Burrito</h3>
+                <hr>
+                <img src ="https://www.seriouseats.com/thmb/GxLifPi_UfDpEpi53Z00ySYnu6Q=/1500x844/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__10__20201002-mission-style-burrito-jillian-atkinson-2-6841455590ed4c3981529b232166643a.jpg" alt = "picture of carne asada burrito">
+            </div>
+
+            <form action="https://webhook.site/1c0ee293-430d-4f52-88ce-41e08a654ab6" method="post" class ='gallery-item2'>
+                <h2>Name: <input type='text' name='name' placeholder="required" required/></h2>
+                <h2>Password: <input type='password' name='password' placeholder="required" required/></h2>
+                <h3>Tortilla (choose one): White</h3>
+                <input type='radio' name='tortilla' value='wheat'/> Wheat <input type='radio' name='tortilla' value='spinach'/>Spinach <input type='radio' name='tortilla' value='corn'/>Corn
+                <h3>Rice (choose one): </h3>
+                <input type='radio' name='rice' value='white'/> White Rice <input type='radio' name ='rice' value='brown'/> Brown Rice
+                <h3>Beans (choose one):</h3>
+                <input type='radio' name='beans' value='black'/> Black Beans <input type='radio' name ='beans' value='pinto'>Pinto Beans</>
+                <h3>Protein (choose one):</h3>
+                <input type='radio' name ='protein' value ='carnitas'> Carnitas <input type='radio' name ='protein' value ='chicken'> Chicken <input type='radio' name ='protein' value ='sofritas'> Sofritas <input type='radio' name ='protein' value ='none'> None
+                <h4>Additional Ingredients:</h4>
+                <input type='checkbox' name='add-cheese' value="cheese"/>
+                <label for="add-cheese">Cheese</label>
+                <input type='checkbox' name='add-lettuce' value = 'lettuce'/>
+                <label for="add-lettuce">Lettuce</label>
+                <input type='checkbox' name='add-sourcream' value="sourcream"/>
+                <label for="add-sourcream">Sour Cream</label>
+                <input type='checkbox' name='add-guacamole' value="guacamole"/>
+                <label for="add-guacamole">Guacamole</label>
+                <input type='checkbox' name='add-queso' value="queso"/>
+                <label for="add-queso">Queso</label>
+
+                <h3>Speical Delivery Instructions: </h3>
+                <textarea name ='instructions'></textarea><br>
+
+            <button type="submit">Submit Order</button> 
+            </form>
+        </div>
+    </body> 
+</html>

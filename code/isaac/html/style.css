@@ -1,6 +1,8 @@
 /*This is a comment*/ /*For future reference*/
-HTML, body {
+body {
     background-color: rgb(142, 154, 170);
+    background-image: url('sky.jpg');
+    background-size: cover;
     margin: 0px;
     padding: 0px;
     border: 0px;
@@ -62,9 +64,11 @@ p {
 }
 
 
+
 ul {
     color: white;
     background-color: rgb(25, 98, 157);
+    list-style-type: lower-roman;
     margin: 2px 40%;
     padding: 15px 35px;
     border: 2px solid rgb(25, 98, 157);
@@ -76,13 +80,14 @@ ul {
 
 
 .pics {
-    display: flex;
-    flex-direction: row;
+    display: block;
     border-radius: 50px;
     position: relative;
     left: 40px;   
 }
 
 #wiki {
-    color: white;
+    color: rgb(255, 255, 0);
+    background-color: rgb(25, 98, 157);
+    border-radius: 3px;
 }

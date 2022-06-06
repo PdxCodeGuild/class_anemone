@@ -1,0 +1,59 @@
+html {
+    display: block;
+    background-color: rgb(41, 41, 41);
+    color: rgb(206, 206, 206);
+    margin:0
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+    text-align: center;
+}
+
+.topbar {
+    text-align: center;  background-color:black;  position:fixed;  display: flex;  flex-wrap: wrap; 
+    justify-content: center;  margin: auto;  line-height: 1em;  width:100%;  max-height: fit-content; top:0;
+    overflow:scroll; 
+}
+
+h1 {
+    margin-right:5%;
+    margin-left: 5%;
+    line-height: fit-content;
+    padding-bottom: .3em
+}
+
+h3 {
+    line-height:fit-content;
+}
+
+.sidebar{
+    overflow: hidden;   background-color: black;    position: fixed; 
+    top:0; display: flex;flex-wrap: column; padding-left: 1vw; padding-right: 1vw; 
+}
+.leftlink {
+    top:2vh; display:flex; flex-direction: column;    justify-content: center;  float:left; line-height: 5vw; font-size: 2vw;
+}
+
+.toppad {
+    padding-top: 20vh;
+}
+.topnav {
+    top:0; display:flex; flex:content;    justify-content: center;  float:center; line-height: 5vw; font-size: 2vw; margin-bottom:1vh;
+}
+
+.ttpad {
+    padding-top: 2vh;
+    width: 90%
+}
+
+.rightimg {
+    float:right;
+    overflow: hidden;
+    position: fixed; 
+    top:0;
+    display: flex;
+    padding-right: 1vw;
+    
+}
