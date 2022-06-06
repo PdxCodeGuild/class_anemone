@@ -62,12 +62,12 @@ img {
   div{
       /* width: 115%; */
       background-size: auto;
-      flex-direction: column;
+      /* flex-direction: column;
       display: inline-flex;
       align-items: flex-start;
-      justify-content: flex-start;
-      /* border: 1px solid black; */
-      flex-basis: content;
+      justify-content: flex-start; */
+      border: 1px solid black;
+      /* flex-basis: content; */
       padding: 1em;
       
   }
