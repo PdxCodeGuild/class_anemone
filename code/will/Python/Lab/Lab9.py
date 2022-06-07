@@ -24,18 +24,18 @@ with open('./filename.txt', 'r') as f:
 
 
 
-words = int(len(re.findall(r'\w+', contents)))
+characters = re.findall(r"[a-zA-Z0-9]", contents)
+num_characters = len(characters)
 
-sentences = int(len(re.split('[.?!]+', contents)))
-
+words = contents.split()
+num_words = len(words)
+sentences = re.findall('[!.?]', contents)
+num_sentences = len(sentences)
 total_letters = int(len(contents))
 
+ari_computation = 4.71 * (num_characters/num_words) + 0.5 * (num_words/num_sentences) - 21.43
 
-print(str(words))
-print(str(sentences))
-print(str(total_letters))
-
-ari_computation = (4 + (71/100)) *(total_letters / words) + ((1/2)*(words/sentences)) - (2143/100)
+final_tally = round(ari_computation)
 
 
 
@@ -43,3 +43,4 @@ ari_computation = (4 + (71/100)) *(total_letters / words) + ((1/2)*(words/senten
 print (ari_computation) 
 
 print(ari_scale[math.ceil(ari_computation)])
+

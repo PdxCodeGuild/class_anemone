@@ -13,25 +13,27 @@
 </head>
 <body>
     <header>
+        <div>
         <h1>Cali's Pawsome Blog</h1>
-        <nav>
-            <div><a href="#">Home</a></div>
-            <div><a href="#">Pawpular Posts</a></div>
-            <div><a href="#">Links to Treats and Things</a></div>
-            <div><a href="#">About The Author</a></div> 
-        </nav>
+            <nav>
+                <div><a href="#">Home</a></div>
+                <div><a href="#">Pawpular Posts</a></div>
+                <div><a href="#">Links to Treats and Things</a></div>
+                <div><a href="#">About The Author</a></div> 
+            </nav>
+        </div>
     </header>
     <main>
         {% for post in posts %}
             <div>
                 <h2>{{post['title']}}</h2>
-                <p>Posted by: {{post['author']}}<br/>Date: {{post['date']}}</p>
-                <p>{{post['body']}}</p>
+                <div>Posted by: {{post['author']}}<br/>Date: {{post['date']}}</div>
+                <div>{{post['body']}}</div>
             </div>
         {% endfor %}
     </main>
     <footer>
-        <p>Copyright 2022</p>
+        <div>Copyright 2022</dvi>
     </footer>
 </body>
 </html>
