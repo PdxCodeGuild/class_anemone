@@ -1,0 +1,36 @@
+</head>
+<body>
+
+    <header>
+        <nav>
+            <p><a href="#">Home</a></p>
+            <p><a href="#">About</a></p>
+            <p><a href="#">Contact Us</a></p>
+
+        </nav> 
+        <h1>The Blog</h1>
+        <img src="https://cdn.pixabay.com/photo/2017/05/09/03/46/alberta-2297204_960_720.jpg">
+
+    </header>
+
+    
+    <main>
+        {% for post in posts %}
+    <div class="blog-container">
+        <div class="blog-card">
+
+        </div>
+        <div class="text">
+        <h2>{{post['title']}}</h2>
+        <h3>{{post['author']}} on {{post['date']}}</h3>
+        <p>{{post['body']}}</div>
+        </div>
+    </div>
+    {% endfor %}
+
+</main>
+<footer>
+    <div> Copyright The Random Bloggers June 2022</div>
+</footer>
+</body>
+</html>
