@@ -14,7 +14,7 @@ class Game:
         spaces = ([space for space in b])
         # print(win,spaces)
         if win == []:
-            print("pass")
+            # print("pass")
             return False    
         else:
             # print("win!") 
@@ -26,7 +26,12 @@ class Game:
             inst = ''
             session = ''
             return self.score        
-
+    def check_tie(self,used):
+        self.used = used
+        if len(self.used) == 9:
+            return True
+        else: 
+            return False
 
 class Player:
     def __init__(self, tokens = {0:'-',1:'-'}):
@@ -50,15 +55,13 @@ class Player:
             else:
                 return False
   
-        
-
 
 #=================================================================================
 
 play = 0
 inst = Game()
 session = Player() # initializes game, prints board
-print(session)
+# print(session)
 # assigns 1st play
 # er as x or o from user input, then assigns the 2nd player the other option
 turn = 1 # counter for 9 turns, if necessary
@@ -69,7 +72,7 @@ b = ''
 while len(inst.used) < 9 and inst.check(inst.b) == False : # while the number of spaces that have been used are less than 9 (0-8)
     i = 0
     
-    print(f'beginning of game')
+    # print(f'beginning of game')
     if b == None:
         b = ''
         
@@ -77,16 +80,16 @@ while len(inst.used) < 9 and inst.check(inst.b) == False : # while the number of
         # secsondary counter for 9 turns
         if inst.check(inst.b) == True or b == None:
             break
-        print(f"player:{session.tokens[token]}, spaces used: {(([inst.used[g] for g in inst.used]))}")
+        # print(f"player:{session.tokens[token]}, spaces used: {(([inst.used[g] for g in inst.used]))}")
         b=''
-        print(inst.b)
-        while inst.check(inst.b) == False and b == '': # should capture win between for loop
-            print(f'1st while loop - turn {turn} - token {session.tokens[token]}')
-            print(session.tokens)
-            print(inst.check(inst.b))
+        # print(inst.b)
+        while inst.check(inst.b) == False and b == '' and len(inst.used) < 9: # should capture win between for loop
+            # print(f'1st while loop - turn {turn} - token {session.tokens[token]}')
+            # print(session.tokens)
+            # print(inst.check(inst.b))
             if session.move != None and inst.check(inst.b) == False and b != None: # makes sure space is available before assignment
                 
-                print(inst.b)
+                # print(inst.b)
                 choice = (input(f"""
                 
                 {inst.b[7]} | {inst.b[8]} | {inst.b[9]}
@@ -94,7 +97,8 @@ while len(inst.used) < 9 and inst.check(inst.b) == False : # while the number of
                 {inst.b[4]} | {inst.b[5]} | {inst.b[6]}
                 ----------          turn: {turn} - enter place:
                 {inst.b[1]} | {inst.b[2]} | {inst.b[3]}        
-                                                    """))
+    _____________________________________________________
+                                                          """))
                 t = session.tokens[token]
                 b = session.move(choice,t)
                 # print(b)
@@ -102,13 +106,13 @@ while len(inst.used) < 9 and inst.check(inst.b) == False : # while the number of
 
                     continue
                 else:
-                    print(b)
+                    # print(b)
                     turn +=1
                     break
 
-        while inst.used == 9 and inst.check(inst.b) == False and session.move(inst.b) != False:
-            print(f'2nd while loop - turn {turn}')
-            if inst.check(inst.b) == False:
+        while len(inst.used) == 9 and inst.check(inst.b) == False:
+            # print(f'2nd while loop - turn {turn}')
+            if inst.check_tie(inst.used) == True:
                 # print("tie! ")
                 print(f"""
 
@@ -117,13 +121,12 @@ while len(inst.used) < 9 and inst.check(inst.b) == False : # while the number of
                 {inst.b[4]} | {inst.b[5]} | {inst.b[6]}
                 ----------          turn: {turn-1}
                 {inst.b[1]} | {inst.b[2]} | {inst.b[3]}        
-                                                    """)
+    _____________________________________________________""")
                 break           
-            else:
-                print()
+           
         while inst.check(inst.b) == True: 
-            print(f'3rd while loop - turn {turn}')
-            print(inst.b,inst.used)
+            # print(f'3rd while loop - turn {turn}')
+            # print(inst.b,inst.used)
             print(f"{t} wins!")
             print(f"""
 

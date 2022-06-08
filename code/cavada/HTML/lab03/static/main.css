@@ -1,0 +1,157 @@
+html {
+    width: 100%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color:rgba(171, 168, 214, 0.43);
+    padding-top: 1vh;
+    padding-left: 2.5vh;
+    padding-right: 2.5vh;
+    /* width: 100vh; */
+    text-align: center;
+}
+
+nav {
+    margin: 1vw;
+    font-size: 1.8vw;
+    text-transform: uppercase;
+}
+
+nav a {
+    box-shadow: .5vh .51vh .5vh rgba(0, 0, 0, 0.317);
+    text-shadow: .5vh .51vh .5vh rgba(0, 0, 0, 0.317);
+    border-radius: 5vh;
+    padding: 1vh;
+    background-color: rgba(234, 148, 44, 0.268);
+    font-family: Arial, Helvetica, sans-serif;
+    color:blue;
+    font-size: 1.56vh;
+    margin: 1vh;
+}
+
+nav a:hover {
+    /* color:rgba(197, 12, 12, 0.969); */
+    padding:1.5vh;
+    text-shadow: 0 0 1vh pink;
+    box-shadow: 0 0 1vh pink;
+}
+.social-media {
+    gap:1%;
+    margin-right: 5vh;
+    margin-top: 2.5vh;
+    justify-content: center;
+    /* text-align:left; */
+    /* align-items: center; */
+    display:flex;
+    flex-direction: row;
+}
+
+.social-media i {
+    box-shadow: .5vh .51vh .5vh rgba(0, 0, 0, 0.211);
+
+    background-color:rgba(171, 112, 39, 0.483);
+    padding: 1vh;
+    margin: 2vh;
+    border-radius: 15vh;
+    border: .1vh solid black;
+    font-size:4vh;
+}
+
+i:hover {
+    /* padding:1.5vh; */
+    text-shadow: 0 0 1vh pink;
+    box-shadow: 0 0 1vh pink;
+}
+
+.social-media li {
+    list-style: none;
+}
+
+.about-banner {
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+    margin-bottom: 1vh;
+    padding-bottom: 1vh;
+    /* height: 80vh; */
+    /* transform-style: ; */
+    /* background-image: conic-gradient( grey,rgba(0, 0, 0, 0.367),rgba(0, 98, 255, 0.376), rgba(0, 0, 0, 0.197),grey, white, white rgba(0, 0, 0, 0.256), grey, white, rgba(0, 0, 0, 0.528), rgba(0, 0, 0, 0.328), white, white, grey, grey) */
+}
+
+.picture img{
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 10vh rgb(75, 28, 28);
+    margin-top: 3.5vh;
+    margin-bottom: .51vh;
+    padding: .5vh;
+    height: 25vh;
+    width: 25vh;
+    border-radius:15vh;
+
+}
+
+.about-banner h1 {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    color: rgba(25, 14, 150, 0.564);
+    text-shadow:0vh 0vh 5vhrgba(0, 0, 0, 0.995);
+    font-size: 5vh;
+}
+.about-banner h2 {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:monospace;
+    color: rgba(0, 0, 0, 0.353);
+    text-shadow:.1vh .1vh rgb(192, 112, 20);
+    font-size: 2.5vh;
+    padding-bottom: 2vh;
+}
+
+.options, .form, .form p {
+    font-size: 2.2vh;
+    text-align: left;
+    text-shadow: 0 0 10vh rgb(249, 233, 233);
+}   
+
+.blog-posting {
+    font-size: 2.2vh;
+    text-align: left;
+}
+
+.form {
+    margin-bottom: 5vh;
+    /* background-color:bisque; */
+    /* height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: left;
+}
+
+h1 {
+    font-size: 5vh;
+}
+footer p{
+    font-size: .5vh;
+}
+@media (min-width: 750px) {
+    .form {
+        margin-bottom: 5vh;
+    }
+
+}
+
+@media (min-width: 1100px) {
+
+
+}
+
+@media (min-width: 1900px) {
+
+}

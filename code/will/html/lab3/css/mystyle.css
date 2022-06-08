@@ -1,0 +1,65 @@
+header, footer {
+    grid-column: 1 / 4;
+  }
+  
+
+
+.top{
+    margin: 20px;
+    padding: 20px;
+}
+
+.grid {
+    
+    display: grid;
+    grid-template-columns: 150px auto 150px;
+    grid-gap: 1em;
+  }
+  
+  body {
+    margin: 0 auto;
+    max-width: 56em;
+    padding: 1em 0;
+  }
+  
+  header,
+  aside,
+  article,
+  footer {
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+  }
+
+  header {
+    background: url("https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2022/01/11/Food/Images/v-dinmin-chowmein0001.jpg?t=20170517")
+}
+  article {
+background: url("https://purewows3.imgix.net/images/articles/2021_12/traditional-chinese-food-mapo-tofu.jpg?auto=format,compress&cs=strip");
+    }
+
+.sidebar-left {
+     background: url("https://purewows3.imgix.net/images/articles/2021_12/traditional-chinese-food-FB.jpg?auto=format,compress&cs=strip")
+    }
+
+.sidebar-right {
+background: url("https://intothemiddlekingdom.files.wordpress.com/2013/01/20120225-dsc_7054.jpg?w=584&h=387")
+
+    }
+
+
+    footer {
+        background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Crystal128-mail-generic.svg/2048px-Crystal128-mail-generic.svg.png")
+    }
+  @media (max-width: 700px) {
+    aside,
+    article {
+      grid-column: 1 / 4;
+    }
+  }
+  
+  /* Demo Specific Styles */
+
+

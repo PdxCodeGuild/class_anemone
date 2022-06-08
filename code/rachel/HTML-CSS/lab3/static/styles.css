@@ -1,0 +1,96 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Thasadith', sans-serif;
+    color: rgb(64, 64, 64);
+}
+
+header {
+    background-color: rgb(229, 220, 215);
+    color: rgb(173, 108, 119);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Englebert', sans-serif;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+header a {
+    color:rgb(173, 108, 119);
+    transition: all ease-in-out 125ms;
+}
+header a:hover {
+    text-shadow: 0 0 .25em white;
+    line-height: 1.25;
+}
+
+main {
+    text-align: justify;
+    line-height: 1.25;
+    background-color: rgb(121, 70, 80, 0.4);
+    padding: 20px
+}
+
+footer {
+    background-color: rgb(229, 220, 215);
+}
+
+.flexgallery{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1 em
+}
+
+@media (min-width: 750px) {
+    h1 {
+        font-size: 300%;
+        padding: 20px;
+    }
+
+    nav {
+        padding-bottom: 20px;
+        font-size: 125%;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    footer p {
+        margin: 0;
+    }
+}
+
+@media (min-width: 1100px) {
+    h1 {
+        font-size: 400%;
+        padding: 20px;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 20px;
+        font-size: 150%;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+}

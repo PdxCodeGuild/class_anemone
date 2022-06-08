@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cavada Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+</head>
+<body>
+
+   
+    <div class="about-banner"> 
+        <div class="picture">
+            <img src="{{ url_for('static', filename='head_shot_cropped.jpg') }}">
+        </div>
+        <h1> Jonathon Cavada </h1>
+        <h2> Linguist - Developer - Bassist</h2>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/'>About</a>
+            <a href='/'>Blogs Themes</a>
+
+        </nav>
+        <div class="social-media">
+            <div class="linkedin">
+                <a class="linkedin" href="https://www.linkedin.com/in/cavada-jonathon" target="_blank">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </div>
+            <div class="twitter">
+                <a class="twitter" href="https://twitter.com/CavadaJonathon" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </div>
+            <div class="github">
+                <a class="github" href="https://github.com/avocado-jc" target="_blank">
+                    <i class="fa fa-github"></i>
+                  </a>
+                </div>
+        </div> 
+    </div>
+    
+    
+    <div class="options">
+        
+        <header><h1> New Testament Pyble Reader</h1>
+            <p>I turned the Bible into a Python dictionary list and you can access it here in my blog!</p>
+            </header>
+    </div>
+    <div class="form">
+        
+        <p>Select the book and then enter the chapter number: </p>
+        <form action="" method="post">
+            
+            {% for option in book_options %}
+            <input type="radio" name = "book" value="{{option}}"> {{option[1]}}
+            {% endfor %}
+            <br><input type="text" name="chapter" placeholder="chapter number">
+            <button type="submit">update scripture below</button>
+        </form> 
+    </div> 
+    <div class="blog-posting">
+        <h1>{{dict_list['book'].upper()}} : {{dict_list['chapter']}}</h1>
+        {% for line in text %}
+        <p>{{line}}) {{text[line]}}</p>    
+        {% endfor %} 
+    </div>
+    <div class="raw python">
+        <details>
+            <summary>
+                Raw Python
+            </summary>
+            <p>{{dict_list['text']}}</p>
+        </details>
+    <hr>
+    <footer>
+        <p>- Powered by Python -</p>
+    </footer>    
+</body>
+</html>

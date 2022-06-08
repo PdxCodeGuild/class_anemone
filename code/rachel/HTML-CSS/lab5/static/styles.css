@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(236, 227, 217);
+}
+
+header {
+    background-color: rgb(169, 90, 104);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 7em;
+    margin: 0;
+}
+
+main {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 250%;
+    text-align: center;
+}
+
+p {
+    text-shadow: rgb(169, 90, 104) 1px 0 10px;
+}

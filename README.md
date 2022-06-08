@@ -8,6 +8,7 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 - May 30th (Memorial Day)
+- June 7th (Merritt has Covid)
 - July 4th (Independence Day)
 - TBD
 

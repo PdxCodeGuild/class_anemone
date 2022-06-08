@@ -1,0 +1,50 @@
+html {
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightsalmon;
+    box-sizing: border-box;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+
+header {
+    font-size: 4vh;
+    text-align: center;
+    margin: 1vh auto;
+}
+form {
+    display:table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh
+}
+
+label {
+    font-size: 3vh;
+    margin: 3vh auto;
+    padding-top: 10px;
+    display: table-row;
+    text-align: center;
+    
+}
+
+select {
+    margin: 2vh auto;
+    float:inline-start;
+    display: table-cell;
+}
+
+button {
+    margin-top: .6vh;
+    font-size: 3vh;
+}
+
+p {
+    text-align: center;
+    font-size: 3vh;
+}
+
+

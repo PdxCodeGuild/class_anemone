@@ -1,0 +1,152 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header {
+    background-image: url(https://d39l2hkdp2esp1.cloudfront.net/img/photo/126792/126792_00_2x.jpg);
+    background-blend-mode:lighten;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 525px;
+    width: auto;
+    margin: -.6em;
+    margin-top: -3em;
+}
+.title {
+    color:rgba(255, 235, 205, 0.767);
+    font-size: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-weight: 250;
+    padding: .27em;
+    padding-top: 9em;
+}
+body {
+    background-image: url(https://www.timberlinehouston.com/wp-content/uploads/2018/03/black-natural-stone-bg.jpg);
+    background-blend-mode:lighten;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgba(255, 235, 205, 0.767);
+}
+.break {
+    width: 100%;
+    background-color: rgb(5, 11, 32);
+}
+
+
+/* was goingn to do more ( took the sizes from other lab to edit my boxes and make prettier but havn't got there fully ) */
+
+
+@media (min-width: 500px) {
+    .flex-gallery {
+        display:flex;
+        flex-wrap:nowrap;
+    }
+
+    .gallery-item {
+        width:50%;
+        padding: .5em;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .the-head {
+        padding-left: 30%;
+    }
+}
+
+@media (min-width:900px) {
+    .gallery-item {
+        width: 50%;
+    }
+}
+
+@media (min-width:1020px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 2em;
+        padding-left:7em
+    
+    }
+}
+@media (min-width:1170px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 2em;
+        padding-left:11em
+    
+    }
+}
+@media (min-width:1170px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 3.5em;
+        padding-left:20em
+    
+    }
+    .main-txt {
+        padding-right: 5em;
+        font-size: larger;
+    }
+}
+@media (min-width:1800px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 10em;
+        display:block;
+    }
+    .author {
+        padding-top: 5em;
+        padding-left:33em
+    
+    }
+    .main-txt {
+        padding-right: 15em;
+        font-size: larger;
+    }
+}
+@media (min-width:2200px) {
+    .gallery-item {
+        width:50%;
+    }
+    .author-nav {
+        padding-right: 15em;
+        display:block;
+    }
+    .author {
+        padding-top: 7em;
+        padding-left:44em
+    
+    }
+    .main-txt {
+        padding-right: 31em;
+        font-size: larger;
+    }
+}

@@ -1,0 +1,104 @@
+html {
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightsalmon;
+}
+
+header {
+    text-align: center;
+    font-size: 2em;
+    background-color: teal;
+    color:wheat;
+    padding: 1vh;
+}
+
+.user {
+    display:inline-flex;
+    flex-wrap:wrap;
+    box-sizing: content-box;
+    border: 2px black;
+    border-style: solid;
+    content: center;
+    margin: 1vh 3vw;
+    padding: 1vw;
+    max-width:40vw;
+    max-height: 9vh
+}
+
+#ordername, #state, #ZIP, #street, #SSN, #DOB, #City, #password, #Name, #email, #phone{
+    width: 35vw;
+    height: 1.2em;
+}
+h2 {
+    margin-bottom:2px;
+}
+
+.user label {
+    margin-bottom: 4vh;
+    font-size: .9em;
+}
+
+.items {
+    margin: 0 5vw 3vh 5vw; 
+}
+
+.items label {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+#radio:hover {
+    padding-bottom: 2vh;
+    box-shadow: 0 0 10px;
+}
+
+.adds {
+   box-sizing: content-box;
+   padding-left: 5vw;
+   padding-right: 5vw;
+   padding-bottom: 2vh;
+   
+}
+
+.del {
+    box-sizing: content-box;
+   padding-left: 5vw;
+   padding-right: 5vw;
+   padding-bottom: 2vh;
+}
+
+.adds h2, .del h2 {
+    margin:0
+}
+
+.del input:hover, .adds input:hover{
+    box-shadow: 0 0 2px;
+    background-color: grey;
+}
+
+.del input:active, .adds input:active {
+    background-color: grey;
+}
+
+.adds input, .del input{
+    font-size: 2vh;
+    box-sizing: border-box;
+    width: 50vw;
+    height: 3.5vh;
+}
+
+.adds label, .del label {
+    font-size: 1.5em
+}
+
+button {
+    border-radius: 2em;
+    border-width: 3px;
+    font-size: 1.3em;
+    margin-left: 5vw;
+    margin-bottom: 2vh;  
+}
+
+button:hover {
+    box-shadow: 0 0 10px black;
+}

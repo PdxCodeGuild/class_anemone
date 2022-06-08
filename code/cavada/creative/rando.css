@@ -1,0 +1,138 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/* this is used to make the proportions more accurate */
+
+img {
+    display: block;
+}
+
+body {
+    background-color:rgba(245, 233, 233, 0.315);
+    margin: 1em;
+    padding: 1em;
+    background-image: url(image.jpg);
+    /* display: flex; */
+    max-width: 100%;
+    border: 1em black
+    
+}
+
+div {
+    padding: 1em;
+    margin: 1em;
+    display:flex;
+    border: 1em black;
+    background-color: hsla(0, 0%, 0%, 0.171);
+}
+
+.container1 {
+    margin: 1em;
+    border: 1em black;
+    padding: 1em;
+    background-color: hsla(189, 75%, 49%, 0.644);
+
+}
+.container2 {
+    margin: 1em;
+    padding: 1em;
+    border: 1em black;
+    background-color: hsla(103, 100%, 50%, 0.753);
+
+}
+
+
+header {
+    margin: 1em;
+
+    border: 1em black;
+    background-color: hsla(113, 29%, 42%, 0.575);
+    padding: 2em;
+    text-align: center;
+    color: hsl(0, 0%, 96%)
+}
+
+nav {
+    margin: 1em;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1em black;
+    background-color: hsla(295, 64%, 59%, 0.575);
+    padding: 1em;
+    text-align: center;
+    color: hsla(0, 0%, 96%,1)
+}
+
+base {
+    display: flex;
+}
+
+nav a {
+    max-height:100%;
+    margin: 1em;
+    border: 1em black;
+    padding: 1em;
+    color: hsla(240, 100%, 50%,1);
+    font-size: 1em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif 
+}
+
+nav p {
+    border: 1em black;
+    padding: 1em;
+    color: hsl(0, 0%, 0%,1);
+    font-size: 1em;
+    margin: 1em;
+
+}
+
+main {
+    border: 1em black;
+    padding: 1em;
+    margin: 1em;
+    background-color: hsla(15, 100%, 50%, 0.534);
+}
+
+main p {
+    margin: 1em;
+    border: 1em black;
+    padding: 1em;
+    font-size: 1em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: justify
+}
+
+section {
+    margin: 1em;
+    padding: 1em;
+    background-color: hsla(30, 100%, 50%, 0.534);
+}
+
+article {
+    margin: 1em;
+    padding: 1em;
+    background-color: hsla(65, 100%, 50%, 0.534);
+}
+
+aside {
+    margin: 1em;
+    padding: 1em;
+    background-color: hsla(65, 100%, 61%, 0.918);
+}
+
+footer {
+    margin: 1em;
+    padding: 1em;
+    background-color: hsla(300, 100%, 50%, 0.534);
+}
+
+
+details {
+    margin: 1em;
+    padding: 1em;
+    background-color: hsla(249, 100%, 50%, 0.753);
+}
+

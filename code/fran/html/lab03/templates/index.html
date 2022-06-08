@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>The Dog Blog!</h1>
+            <p>Hi! This is a blog about the daily observations of my dogs.</p>    
+        </div>
+        <nav>
+            <div><a href="#">About us</a></div>
+            <div><a href="#">Why us</a></div>
+            <div><a href="#">Contact us</a></div>
+        </nav>
+    </header>
+    <main>
+        <div class="flex-container">
+            <div class="side-nav">
+                <nav>
+                    <p><a href="#">Archive</a></p>
+                    <p><a href="#">More dog stuff</a></p>
+                    <p><a href="#">Cat stuff</a></p>
+                </nav>
+            </div>    
+            <div class="blog">
+                {% for post in posts %}
+                <br>
+                <p><h3 id="title">{{post['title']}}</h3></p>
+                <p>by {{post['author']}}</p>
+                <p>{{post['date']}}</p>
+                <p>{{post['body']}}</p>
+                <br><hr>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <p>Good sit!</p>
+</footer>

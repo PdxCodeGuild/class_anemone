@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order - Guac & Roll Buritos</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Thasadith&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Guac & Roll Burritos</h1>
+    </header>
+    <main>
+        <div class="shadow burritopick">
+            <!-- burrito photo -->
+            <div class="center">
+                <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/D17CF0E1-E0C1-465F-899A-EA24A362392D/Derivates/dbb1e5eb-fcf1-44e0-9d1b-c573608c1ad4.jpg" alt="burito">
+            </div>
+            <p>Would you like to add chips with that?</p>
+
+        </div>
+        <div>
+            <!-- burrito customization -->
+            <h2>Customize Your Burrito</h2>
+            <h3 class="shadow burritopick">Your Burrito's Details</h3>
+            <p class="padding"><b>Included in your $6:</b></p>
+            <hr>
+            <form action="https://webhook.site/fa103ddb-3336-4561-99f7-b7c89f6ba910" method="POST">
+                <p><b>Tortilla:</b></p>
+                <div class="indent">
+                    <input type="radio" name="tortilla" value="White Flour"> White Flour<br>
+                    <input type="radio" name="tortilla" value="Wheat Flour"> Wheat Flour<br>
+                    <input type="radio" name="tortilla" value="Spinach"> Spinach<br>
+                    <input type="radio" name="tortilla" value="Corn"> Corn (gluten free)
+                </div>
+                <p><b>Rice:</b></p>
+                <div class="indent">
+                    <input type="radio" name="rice" value="White Rice"> White Rice<br>
+                    <input type="radio" name="rice" value="Brown Rice"> Brown Rice
+                </div>
+                <p><b>Beans:</b></p>
+                <div class="indent">
+                    <input type="radio" name="beans" value="Black Beans"> Black Beans<br>
+                    <input type="radio" name="beans" value="Pinto Beans"> Pinto Beans
+                </div>
+                <p><b>Meat:</b></p>
+                <div class="indent">
+                    <input type="radio" name="meat" value="Chicken"> Chicken<br>
+                    <input type="radio" name="meat" value="Steak"> Steak<br>
+                    <input type="radio" name="meat" value="Carnitas"> Carnitas<br>
+                    <input type="radio" name="meat" value="Sofritas"> Sofritas (tofu)<br>
+                    <input type="radio" name="meat" value="None"> None
+                </div>
+                <p><b>Additional Toppings:</b></p>
+                <div class="indent">
+                    <input type="checkbox" name="extra" value="Cheese"> Cheese<br>
+                    <input type="checkbox" name="extra" value="Corn"> Corn<br>
+                    <input type="checkbox" name="extra" value="Onions"> Onions<br>
+                    <input type="checkbox" name="extra" value="Peppers"> Peppers<br>
+                    <input type="checkbox" name="extra" value="Lettuce"> Lettuce<br>
+                    <input type="checkbox" name="extra" value="Salsa"> Salsa<br>
+                    <input type="checkbox" name="extra" value="Sour Cream"> Sour Cream
+                </div>
+                <hr>
+                <div>
+                    <label for="Comments">Comments</label><br>
+                    <input type="text" name="Comments" id="Comments">
+                </div>
+                <div>
+                    <h3>LOGIN TO USE REWARDS!</h3>
+                    <label for="Username">Username</label>
+                    <input type="text" name="Username" id="Username"><br>
+                    <label for="Password">Password</label>
+                    <input type="text" name="Password" id="Password">
+                </div>
+                <div>
+                    <!-- Submit Button -->
+                    <button type="submit">Place Order</button>
+                </div>
+            </form>
+    </main>
+    <footer>
+        <p>Copyright 2022</p>
+    </footer>
+</body>
+</html>
