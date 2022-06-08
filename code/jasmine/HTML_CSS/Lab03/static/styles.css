@@ -1,0 +1,138 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+    box-sizing: border-box;
+
+}
+
+body {
+    margin:0px;
+    padding: 0px;
+    font-family: poppins;
+}
+
+header {
+    text-align: center;
+    color: white;
+}
+
+header image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vh;
+    height: 10px;
+}
+
+nav {
+    text-align: center;
+    
+}
+
+nav a{
+    color: blue;
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    padding: 12px 15px;
+    border-radius: 2px;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+nav a:hover{
+    background-color: white;
+    color: white;
+}
+
+main {
+    padding: 20px;
+    font-family: poppins;
+}
+
+.blog-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    border-bottom: 1px solid black ;
+}
+
+.blog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+
+}
+.blog-card {
+    width: 350px;
+    background-color: white;
+    border: 1px solid whitesmoke;
+    margin: 20px;
+}
+
+.text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text h2 {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.text h3 {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: small;
+}
+
+.text p {
+    color: palevioletred;
+    font-size: 1em;
+}
+
+footer {
+    text-align: center;
+ 
+
+}
+
+@media (min-width: 640px) {
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav p {
+        padding: 1em;
+    }
+}
+
+
+@media (min-width: 1280px) {
+    header {
+     text-align: center;
+    }
+
+    body {
+        text-align: center;
+    }
+
+
+
+}
