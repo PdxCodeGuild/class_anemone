@@ -83,7 +83,7 @@ main {
 }
 
 .text h2 {
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: center;
 }
@@ -99,7 +99,8 @@ main {
 
 .text p {
     color: black;
-    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
 }
 
 footer {
