@@ -14,7 +14,7 @@ body{
 .container {
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    text-align: center;
     align-items: center;
 }
 .content {
@@ -27,6 +27,9 @@ body{
     color: goldenrod
 }
 
+.content li {
+    list-style:none;
+}
 img {
     border-radius: 100%;
     height: 600px;
