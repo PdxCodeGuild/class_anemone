@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+# import models that we want to register
+from .models import Question, Choice
+
+# register the models in the admin panel
+admin.site.register([Question, Choice])
