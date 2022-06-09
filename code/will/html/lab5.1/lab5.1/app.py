@@ -21,25 +21,24 @@ db.load()
 
 def index():
     if request.method == 'POST':
-        print(request.form)
+        print('request.form;',request.form)
         text = request.form['input_text']
-        print(text)
+        print('test text',text)
         # do whatever with the text
-        redirect('/')
-        alphabet = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation + string.whitespace
-        output = ''
+        #redirect('/')
+ 
+        Dictionary = {'a':'n', 'b':'o', 'c':'p', 'd':'q', 'e':'r', 'f':'s', 'g':'t', 'h':'u', 'i':'v', 'j':'w', 'k':'x', 'l':'y', 'm':'z', 'n':'a', 'o':'b', 'p':'c', 'q':'d', 'r':'e', 's':'f', 't':'g', 'u':'h', 'v':'i', 'w':'j', 'x':'k', 'y':'l', 'z':'m', }
+        result = ''
         for char in text:
-            index = alphabet.find(char)
-            if index == -1:
-                output += char
-        else:
-                
-                index %= len(alphabet)
-                output += alphabet[index]
-        return output
+            if char in Dictionary.keys():
+                result += Dictionary[char]
+        
+        output = result
+       
+        return render_template('index.html',output=output)
      
-        return redirect('/')
-    return render_template("index.html", to_do = to_do)
+       # return redirect('/')
+    return render_template("index.html")
 
 
 
