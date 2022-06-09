@@ -1,7 +1,21 @@
 from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+
+from .models import Question
 
 def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {
+        'latest_question_list': latest_question_list
+    }
+    return render(request, 'polls/index.html', context)
 
-    # questions = Question.objects.all()
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
 
-    return HttpResponse("Hello world!")
+def results(request, question_id):
+    return HttpResponse(f"This is the results of question number {question_id}.")
+
+def vote(request, question_id):
+    return HttpResponse(f"You are voting on question number {question_id}.")
