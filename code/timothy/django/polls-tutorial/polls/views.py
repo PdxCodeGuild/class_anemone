@@ -18,4 +18,7 @@ def results(request, question_id):
     return HttpResponse(f"This is the result of question number {question_id}.")
 
 def vote(request, question_id):
-    return HttpResponse(f"You are voting on question number {question_id}.")
+    question = get_object_or_404(Question, pk=question_id)
+    selected_choice = question.choices.get(pk=request.POST['choice'])
+    selected_choice.votes += 1
+    selected_choice.save()
