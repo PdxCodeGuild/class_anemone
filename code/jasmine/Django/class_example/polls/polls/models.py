@@ -7,7 +7,7 @@ class Question(models.Model):
     #dateTimeField combines a date and a time
     pub_date = models.DateTimeField(verbose_name='date published')
 
-    def _str_(self):
+    def __str__(self):
         return self.question_text
 
 class Choice(models.Model):
@@ -19,5 +19,5 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=255)
     votes = models.IntegerField(default=0)
 
-    def _str_(self):
+    def __str__(self):
         return self.question.question_text + ' - ' + self.choice_text
