@@ -8,6 +8,7 @@ class Question(models.Model):
     # DateTimeField combines a date and a time
     pub_date = models.DateTimeField(verbose_name='date published')
 
+    # choices = the list of choices
 
     # customize the string representation for a Question object
     def __str__(self):
