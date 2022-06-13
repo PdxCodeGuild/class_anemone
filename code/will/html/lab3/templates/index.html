@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>My Videogame Blog!</title>
+</head>
+<body>
+  
+
+{% for post in posts %}
+
+      <span class="card-title">{{post.title}}</span>
+      
+  <img src = "{{post.image}}">"
+      <p>{{ post.content }} </p>
+      
+   
+
+      {% endfor %}
+  <div id="navigation">
+    <p><strong>Navigation Here</strong></p>
+    <ul>
+      <li><a href="http://127.0.0.1:5000/">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/blog">My Videogame Blog</a></li>
+    </ul>
+  </div>
+  <div id="extra">
+   
+  </div>
+  <div id="footer">
+   
+  </div>
+</div>
+
+</body>
+</html>
