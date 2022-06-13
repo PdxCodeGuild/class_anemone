@@ -131,24 +131,24 @@ active,a:hover{
     display: none;
 
 }
-@media (min-width: 750px) {
+@media (min-width: 450px) {
     label.logo{
         font-size: 25px;
         padding-left: 40px;
     }
 }
-@media (max-width: 960px){
+@media (max-width: 600px){
     label.logo{
         font-size: 30px;
         padding-left: 50px;
 
     }
     nav ul li a{
-        font-size: 16px;
+        font-size: 14px;
 
     }
 }
-@media (max-width: 858px){
+@media (max-width: 700px){
     .checkbtn{
         display: block;
     }
@@ -168,7 +168,7 @@ active,a:hover{
         line-height: 30px;
     }
     nav ul li a{
-        font-size: 20px;
+        font-size: 14px;
     }
     a:hover,a.active{
         background: none;
@@ -178,13 +178,41 @@ active,a:hover{
     #check:checked ~ ul{
         left: 0;
     }
-}   
+    p {
+        font-size: 10px;
 
+    }
+    .item {
+        font-size: 10px;
+        text-align: left;
+    }
+}   
+@media (max-width: 800px){
+    p   {
+        font-size: 12px;
+    }
+    .item {
+        font-size: 12px;
+    }
+}
+@media (max-width: 960px){
+    .nav ul li a {
+        color:white;
+        font-size: 15px;
+        padding: 7px 13px;
+        border-radius: 5px;
+        text-transform: uppercase;
+    }
+    p li {
+        font-size:10px;
+    }
+}
 .item {
     margin: 8px;
     padding: 8px;
     list-style: none;
     text-indent: 5px;
     text-align: left;
+
 
 }
