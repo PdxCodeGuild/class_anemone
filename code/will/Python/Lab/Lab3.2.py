@@ -1,89 +1,35 @@
 
 
 
-x = input('Enter your number. 0-999 supported: ')
+x = int(input('Enter your number. 0-999 supported: '))
 
-hundreds_digit = int(x)//100
-tens_digit = (int(x)//10)%10
-ones_digit = int(x)%10
+hundreds_digit = x // 100
+tens_digit = x % 100 // 10
+ones_digit = x % 10
 
-hundreds = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+hundreds = {1:'hundred', 2:'two hundred', 3:'three hundred', 4:'four hundred', 5:'five hundred', 6:'six hundred', 7:'seven hundred', 8:'eight hundred', 9:'nine hundred', }
 
-tens = ['oh', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+tens = {0:' ',1:'ten', 2:'twenty', 3:'thirty', 4:'fourty', 5:'fifty', 6:'sixty', 7:'seventy', 8:'eighty', 9:'ninety'}
 
-ones = ['oh', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+ones_2 = {10:'ten', 11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'nineteen'}
 
-phrase = []
+ones = {0:' ', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six', 7:'seven', 8:'eight', 9:'nine'}
 
-if hundreds_digit <  1: 
-     phrase.append(hundreds[0])
-elif hundreds_digit < 2 :
-    phrase.append(hundreds[1])
-elif hundreds_digit < 3:
-    phrase.append(hundreds[2])
-elif hundreds_digit < 4:
-    phrase.append(hundreds[3])
-elif hundreds_digit < 5:
-    phrase.append(hundreds[4])
-elif hundreds_digit < 6:
-    phrase.append(hundreds[5])
-elif hundreds_digit < 7:
-    phrase.append(hundreds[6])
-elif hundreds_digit < 8:
-    phrase.append(hundreds[7])
-elif hundreds_digit < 9 :
-    phrase.append(hundreds[8])
-elif hundreds_digit < 10:
-    phrase.append(hundreds[9])
+if x == 0:
+    print('Zero')
+elif x <= 9:
+    print(ones[x])
+elif x <= 19:
+    print(ones_2[x])
+elif x <= 99:
+    print(tens[tens_digit]+ ' ' + ones[ones_digit])
+elif x <= 999 and tens_digit == 1:
+    print(hundreds[hundreds_digit] + ' ' + ones_2[x - (hundreds_digit *100)])
+elif x <= 999 and tens_digit != 1:
+    print(hundreds[hundreds_digit] + ' ' + tens[tens_digit] + ' ' + ones[ones_digit])
 
 
 
 
-if tens_digit <  1: 
-     phrase.append(tens[0])
-elif tens_digit < 2 :
-    phrase.append(tens[1])
-elif tens_digit < 3:
-    phrase.append(tens[2])
-elif tens_digit < 4:
-    phrase.append(tens[3])
-elif tens_digit < 5:
-    phrase.append(tens[4])
-elif tens_digit < 6:
-    phrase.append(tens[5])
-elif tens_digit < 7:
-    phrase.append(tens[6])
-elif tens_digit < 8:
-    phrase.append(tens[7])
-elif tens_digit < 9 :
-    phrase.append(tens[8])
-elif tens_digit < 10:
-    phrase.append(tens[9])
 
-
-if ones_digit <  1: 
-     phrase.append(ones[0])
-elif ones_digit < 2 :
-    phrase.append(ones[1])
-elif ones_digit < 3:
-    phrase.append(ones[2])
-elif ones_digit < 4:
-    phrase.append(ones[3])
-elif ones_digit < 5:
-    phrase.append(ones[4])
-elif ones_digit < 6:
-    phrase.append(ones[5])
-elif ones_digit < 7:
-    phrase.append(ones[6])
-elif ones_digit < 8:
-    phrase.append(ones[7])
-elif ones_digit < 9 :
-    phrase.append(ones[8])
-elif ones_digit < 10:
-    phrase.append(ones[9])
-
-
-
-
-print(phrase)
 #I think this is complete.

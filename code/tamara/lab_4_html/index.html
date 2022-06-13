@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order a Burrito!</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+    <body>
+        <!-- body contains:
+        .title-main-container-->
+        <div class="title-main-container">
+            <!-- title-main-container has:
+                .title 
+                .img-user-container 
+                main (contains ingredients part of form) -->
+            <h1 class = "title">
+                Order your burrito!!
+            </h1>
+            <div class="img-user-container">
+                <!-- img-user-container has:
+                    .main-img 
+                    .user-info-container -->
+                <img src = "Burrito.JPG" class ="main-img">
+                <form action="https://webhook.site/3c51ac7a-36e1-4a53-b54d-8aecb2463b4e" method="post">
+                    <div class="user-info-container">
+                        <h2>Username:</h2>
+                        <input type="text" name="username"/><br>
+                        <h2>Password:</h2>
+                        <input type="password" name="user_password"/>
+                    </div>
+            </div>
+                    <main>
+                        <h2>Tortilla:</h2>
+                        <input type="radio" name="tortilla" id="white" value="white" checked><label for="white">White</label>
+                        <input type="radio" name="tortilla" id="wheat" value="wheat"><label for="wheat">Wheat</label>
+                        <input type="radio" name="tortilla" id="spinach" value="spinach"><label for="spinach">Spinach</label>
+                        <input type="radio" name="tortilla" id="corn" value="corn"><label for="corn">Corn</label><br>
+                        <h2>Rice:</h2>
+                        <input type="radio" name="rice" id="white-rice" value="white" checked><label for="white-rice">White</label>
+                        <input type="radio" name="rice" id="brown" value="brown"><label for="brown">Brown</label><br>
+                        <h2>Beans:</h2>
+                        <input type="radio" name="beans" id="black" value="black" checked><label for="black">Black</label>
+                        <input type="radio" name="beans" id="pinto" value="pinto"><label for="pinto">Pinto</label><br>
+                        <h2>Protein:</h2>
+                        <input type="radio" name="protein" id="carnitas" value="carnitas" checked><label for="carnitas">Carnitas</label>
+                        <input type="radio" name="protein" id="chicken" value="chicken"><label for="chicken">Chicken</label>
+                        <input type="radio" name="protein" id="sofritas" value="sofritas"><label for="sofritas">Sofritas</label>
+                        <input type="radio" name="protein" id="none" value="none"><label for="none">None</label><br>
+                        <h2>Additional Ingredients:</h2>
+                        <input type="checkbox" name="sour_cream" id="sour_cream" value="sour_cream"><label for="sour_cream">Sour Cream</label>
+                        <input type="checkbox" name="cheese" id="cheese" value="cheese"><label for="cheese">Cheese</label><br>
+                        <h2>Delivery Instructions</h2>
+                        <textarea name="instructions"></textarea><br><br>
+                        <input type="submit" value="submit your order">
+                    </main>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

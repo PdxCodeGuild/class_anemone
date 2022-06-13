@@ -1,24 +1,14 @@
-import pyble
-pyble = Pyble()
-cont = ''
-while True and not cont in ['no','n', 'exit', 'quit', 'e','done']:
-    command= input("""
-    Pyble Reader:
-        -(s)earch for passages by phrase or keyword:
-        -(r)ead a passage:
-    
-    """)
-    if command=='s':
-        pyble.phrase()
-    elif command=='r':
-        pyble.read()
-    else:
-        cont=input("cont? ")
-        if cont in ['no','n', 'exit', 'quit', 'e','done']:
-            break
+from pyble import bible
+import pprint
 
+text = bible.get_chapter()
+# print(text)
 
-        """this is a """
+import sys
+
+sys.stdout = open("dump.txt","w", encoding= 'utf-8')
+print(text)
+sys.stdout.close()
 # bibby =  [[{
 #             'ot': [{
 #                 'b1': {

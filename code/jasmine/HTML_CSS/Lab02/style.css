@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dancing+Script:wght@500&family=Raleway:wght@100&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box ;
+}
+
+
+
+
+
+body {
+    height: 100vh;
+    background-color: black;
+    /* background-image: url(https://i.pinimg.com/originals/1e/52/bd/1e52bd5e606c30a599cf8c97a7768596.jpg); */
+    background-position: center;
+    background-size: cover;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+header,main {
+    padding: 1em;
+}
+
+.container {
+    max-width: 1300px;
+    padding:20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 35px;
+    color: white;
+}
+
+.menu a{
+    color:white;
+    font-size: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    padding: 12px 15px;
+    border-radius: 2px;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    background-color: white;
+    color: white;
+}
+
+.welcome{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    padding:0 70px;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome h2{
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 100;
+    color: white;
+    letter-spacing: 2px;
+    line-height: 50px;
+}
+
+
+.welcome h1{
+    font-size: 20px;
+    font-family: 'Raleway ', sans-serif;
+    font-weight: 100;
+    letter-spacing: 5px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.welcome p{
+    font-size: 14px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 100;
+    color: black;
+    letter-spacing: 2px;
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+
+.welcome button {
+    font-size: 6px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: tan;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    border: 1px solid white;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+
+}
+.welcome button.hover {
+    background: white;
+    color: black;
+}
+
+header,main {
+    padding: 5em;
+}
+
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin:0 -1em;
+}
+
+.gallery-item {
+    width: 50%;
+    padding:0 1em;
+    padding-bottom: 1em;
+}
+
+@media (min-width: 640px) {
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav p {
+        padding: 1em;
+    }
+}
+
+
+@media (min-width: 1280px) {
+    .welcome {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right:auto;
+    }
+
+
+
+}

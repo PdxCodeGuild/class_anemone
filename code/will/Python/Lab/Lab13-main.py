@@ -81,7 +81,7 @@ while True:
         else:
             break
 
-    if board.is_game_over():
+    if board.game_over():
         print ("Game over! It's a tie!")
         play_again = input("Would you like to play again? Y/N? ").upper
         if play_again == "Y":
@@ -105,7 +105,7 @@ while True:
         else:
             break
 
-    if board.is_game_over():
+    if board.game_over():
         print ("Game over! It's a tie!")
         play_again = input("Would you like to play again? Y/N? ").upper
         if play_again == "Y":

@@ -1,0 +1,45 @@
+.gallery-item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 25%;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 10px;
+    font-family: cursive; 
+    margin-bottom: 200px;
+    background-color: seagreen;
+}
+.gallery-item2{
+    display: block;
+    flex-direction: column;
+    text-align: center;
+    background-color: seagreen;
+    max-width: 35%;
+    justify-content: center;
+    border-radius: 10px;
+    border: 5px solid black;
+}
+.flex-gallery{
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+header{
+    text-align: center;
+    padding: 2em;
+    background-color: blanchedalmond;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-image: url("https://wallpapercave.com/wp/wp3708214.jpg");
+}
+
+
+
+
