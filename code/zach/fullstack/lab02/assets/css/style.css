@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #d9dcd6;
+  background-image: url(../media/bg.jpg);
+}
+
+a {
+    text-decoration: none;
+    color: #d9dcd6;
+}
+.flex-container {
+    display: flex;
+}
+
+/* Header and NavBar */
+
+header {
+    flex-direction: column;
+    background: #000;
+    color:rgb(231, 143, 143);
+    justify-content:space-around;
+    padding: 1em;
+}
+
+header nav {
+    flex-direction: row;
+    margin: 10px;
+    
+}
+
+nav .item {
+    border-radius:.5em;
+    background: rgb(44, 41, 41);
+    padding: .5em;
+    margin: 10px;
+    flex-grow: 1;
+}
+
+/* Main */
+
+main {
+    flex-direction: column;
+    
+}
+.card {
+    flex-grow: 1;
+    background: #ffff;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    border-radius: 1em;
+    margin: 1em;
+    padding: 1em;
+}
+.card img {
+    align-self: flex-start;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 1em;
+}
+
+.text {
+
+    flex-flow: column;
+    padding: 1em;
+    align-items: center;
+
+    
+}
+.text h4 {
+    color: red;
+}
+.text p {
+    padding: 0.5em;
+}
+
+#card-2 img {
+    align-self: center;
+    order: 2;
+}
+
+#card-3 img {
+    align-self: flex-end;
+}
+
+/* Tablet */
+@media screen and (min-width:640px) {
+    main {
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-direction: row;
+    }
+    header {
+        flex-direction: row;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width:940px) {
+        header {
+        flex-direction: row;
+    }
+}

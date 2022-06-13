@@ -1,11 +1,21 @@
+from pyble import bible
+
+
+
+text = bible.get_chapter()
+
+print(text)
+
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    name = 'Jack'
-    temperature = 67
-    nums = [1, 2, 3]  
-    return render_template('index.html', name=name, temperature=temperature, nums=nums)
+def index(text):
+    book= text
+    # name = 'Jack'
+    # temperature = 67
+     
+    return render_template('index.html', book=book)
 
 app.run(debug=True)

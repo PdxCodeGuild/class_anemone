@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>FORMS</h1>
+    <div class="fun">
+        <form action="https://webhook.site/e07aeaf8-fcd9-4a17-867c-9bc09ffc2058" method="post">
+            
+            <!-- a simple text input -->
+            <input type="text"placeholder="required"/> text<br>
+            <!-- just like text input, but the text is hidden -->
+            <input type="text" pattern="[a-z]{1,15}" title="username must be between 1 and 15 characters, all lowercase" required/> password<br>
+            
+            <!-- enter a number -->
+            <input type="number"placeholder="required"/> number<br>
+            <!-- a slider -->
+            <input type="range"><br>
+
+            <!-- enter a date -->
+            <input type="date"><br>
+            <!-- enter a date and time -->
+            <input type="datetime-local"><br>
+
+            <!-- enter a color -->
+            <input type="color"/><br>
+
+            <!-- radio buttons, functionally the same as select elements -->
+            <input type="radio"/><br>
+
+            <!-- checkbox -->
+            <input type="checkbox"/><br>
+            <input type="radio" name="gender" value="male" checked> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br>
+            <input type="radio" name="gender" value="other"> Other<br>
+            <textarea>hello world!</textarea><br>
+            <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+            <select>
+                <input type="text" name="zip" id="zip">
+                <label></label>
+            </select>
+            <input type="search" name="myname"/><br>
+            <button type="submit">search</button><br>
+        </form>
+        
+    </div>   
+</body>
+</html>

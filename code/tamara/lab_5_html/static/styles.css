@@ -1,0 +1,19 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    font-family: 'outfit', sans-serif;
+    background-color: azure;
+}
+
+main {
+    margin: auto;
+    border: solid .5em blue;
+    background-color: aquamarine;
+    padding: .5em;
+}

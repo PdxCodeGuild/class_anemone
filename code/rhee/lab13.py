@@ -1,146 +1,141 @@
-import random
+class Player:
+    def __init__(self, name, token):
+        self.name = name
+        self.token = token
 
-# print the game board
-# tic-tac-toe board design
-
-board = ["_", "_", "_",
-         "_", "_", "_",
-         "_", "_", "_"
-         ]
-player_one = "O"
-current_player = "X"
-winner = None
-game_running = True
+    def __repr__(self):
+        return self.name
 
 
-def print_board(board):
-    print(board[0] + " | " + board[1] + " | " + board[2])
-    print("_________")
-    print(board[3] + " | " + board[4] + " | " + board[5])
-    print("_________")
-    print(board[6] + " | " + board[7] + " | " + board[8])
+class Game:
+    def __init__(self):
+        self.board = {"1": " ", "4": " ", "7": " ",
+                      "2": " ", "5": " ", "8": " ",
+                      "3": " ", "6": " ", "9": " "
+                      }
 
+    def __repr__(self):
+        print(self.board["1"] + "|" + self.board["4"] + "|" + self.board["7"])
+        print("-----")
+        print(self.board["2"] + "|" + self.board["5"] + "|" + self.board["8"])
+        print("-----")
+        print(self.board["3"] + "|" + self.board["6"] + "|" + self.board["9"])
 
-print_board(board)
+    def board_spot(self, player):
+        while True:
+            print("1|4|7")
+            print("2|5|8")
+            print("3|6|9")
+            number = input("Choose a spot: ")
+            if self.board[number] != " ":
+                print("Spot taken! Select another spot! ")
+                continue
+            else:
+                self.board[number] = player.token
+                break
 
+    def check_winner(self):
 
-# takes the player input
-def player_input(board, player_one=None):
-    user_input = int(input("Select a board spot 1-9: "))
-    if board[user_input - 1] == "_":
-        board[user_input - 1] = current_player
-    else:
-        print("Board spot already taken, please choose another spot.")
-    if current_player != "X" and player_one != "O":
-        print("that is not a valid space.")
-    elif current_player == "X":
-        player_one = "O"
-    else:
-        player_one = "X"
+        # Check board horizontal
+        if self.board["1"] == self.board["4"] == self.board["7"] != " ":
+            return self.board["1"]
+        elif self.board["2"] == self.board["5"] == self.board["8"] != " ":
+            return self.board["2"]
+        elif self.board["3"] == self.board["6"] == self.board["9"] != " ":
+            return self.board["3"]
 
+        # Check board vertical
+        elif self.board["1"] == self.board["2"] == self.board["3"] != " ":
+            return self.board["1"]
+        elif self.board["4"] == self.board["5"] == self.board["6"] != " ":
+            return self.board["4"]
+        elif self.board["7"] == self.board["8"] == self.board["9"] != " ":
+            return self.board["7"]
 
-# checks horizontal
-def check_horizontal(board):
-    global winner
-    if board[0] == board[1] == board[2] and board[0] != "_":
-        winner = board[0]
-        return True
-    elif board[3] == board[4] == board[5] and board[3] != "_":
-        winner = board[3]
-        return True
-    elif board[6] == board[7] == board[8] and board[6] != "_":
-        winner = board[6]
-        return True
-    else:
-        return False
-
-
-# check vertical
-def check_vertical(board):
-    global winner
-    if board[0] == board[3] == board[6] and board[0] != "_":
-        winner = board[0]
-        return True
-    elif board[1] == board[4] == board[7] and board[1] != "_":
-        winner = board[1]
-        return True
-    elif board[2] == board[5] == board[8] and board[2] != "_":
-        winner = board[2]
-        return True
-    else:
-        return False
-
-
-# check diagonal
-def check_diagonal(board):
-    global winner
-    if board[0] == board[4] == board[8] and board[0] != "_":
-        winner = board[0]
-        return True
-    elif board[2] == board[4] == board[6] and board[2] != "_":
-        winner = board[2]
-        return True
-    else:
-        return False
-
-
-def check_win(board):
-    global game_running
-    if check_horizontal(board):
-        print_board(board)
-        print(f"The winner is {winner}!")
-        game_running = False
-
-    elif check_vertical(board):
-        print_board(board)
-        print(f"The winner is {winner}!")
-        game_running = False
-
-    elif check_diagonal(board):
-        print_board(board)
-        print(f"The winner is {winner}!")
-        game_running = False
-
-
-def check_tie(board):
-    global game_running
-    if "_" not in board:
-        print_board(board)
-        print("It is a tie!")
-        game_running = False
-    if "_" == board:
-        print("Check board again.")
-
-
-# switching players
-def switch_player():
-    global current_player
-    if current_player == "X":
-        current_player = "O"
-    else:
-        current_player = "X"
-    if current_player != player_one:
-        print("Undefined players: Pick either 'X' or 'O'. ")
-
-
-def computer(board):
-    while current_player == "O":
-        position = random.randint(0, 8)
-        if board[position] == "_":
-            board[position] = "O"
-            switch_player()
-        if player_one == "X":
-            position = random.randint(0, 8)
+        # check board diagonal
+        elif self.board["1"] == self.board["5"] == self.board["9"] != " ":
+            return self.board["1"]
+        elif self.board["3"] == self.board["5"] == self.board["7"] != " ":
+            return self.board["3"]
         else:
-            return False
+            return None
+
+    # Check game board
+    def board_full(self):
+        game_full = 0
+        if game_full == "1":
+            print("Game board is full.")
+        if game_full == "0":
+            print("Game board is not full.")
+        for i in self.board:
+            if self.board[i] == ' ':
+                return False
+        return True
+
+    # Checks winner or if any spots open
+    def end_game(self):
+        winner = self.check_winner()
+        full = self.board_full()
+        if winner or full:
+            return True
 
 
-while game_running:
-    print_board(board)
-    player_input(board)
-    check_win(board)
-    check_tie(board)
-    switch_player()
-    computer(board)
-    check_win(board)
-    check_tie(board)
+
+# Player 2 selection.
+def selection_2():
+    if selection_1 == "X":
+        return "O"
+    elif selection_1 == "O":
+        return "X"
+
+
+
+while True:
+    game = Game()
+    selection = input("Do you want to play? Y or N: ").upper()
+    if selection == "Y":
+        user_1 = input("Enter a name for Player 1: ")
+        while True:
+            selection_1 = input("Please select 'X' or 'O':\n").upper()
+            if selection_1 == "X":
+                print("You selected 'X'!")
+                print("Player 2 will be 'O'.\n")
+            elif selection_1 == "O":
+                print("You selected 'O'!")
+                print("Player 2 will be 'X'.\n")
+            if selection_1 != "X" and selection_1 != "O":
+                print("Please select again.\n")
+            elif selection_1 == "X" or selection_1 == "O":
+                break
+            else:
+                continue
+
+        user_2 = input("Enter a name for Player 2: ")
+        selection_2 = selection_2()
+
+        player1 = Player(user_1, selection_1)
+        player2 = Player(user_2, selection_2)
+        turn = 0
+
+        for i in range(10):
+            turn += 1
+            game.__repr__()
+
+            if turn % 2 == 1:
+                print("Player 1 turn")
+                game.board_spot(player1)
+                game_player = user_1
+
+            else:
+                print("Player 2 turn")
+                game.board_spot(player2)
+                game_player = user_2
+
+            if game.end_game():
+                game.__repr__()
+                print(f"{game.check_winner()} wins!")
+                break
+
+    else:
+        print("Goodbye!")
+        break

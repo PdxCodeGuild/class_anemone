@@ -13,7 +13,7 @@ tens = {0:' ',1:'ten', 2:'twenty', 3:'thirty', 4:'fourty', 5:'fifty', 6:'sixty',
 
 ones_2 = {10:'ten', 11:'eleven',12:'twelve',13:'thirteen',14:'fourteen',15:'fifteen',16:'sixteen',17:'seventeen',18:'eighteen',19:'nineteen'}
 
-ones = {0:'oh', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six', 7:'seven', 8:'eight', 9:'nine'}
+ones = {0:' ', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six', 7:'seven', 8:'eight', 9:'nine'}
 
 if x == 0:
     print('Zero')
@@ -24,7 +24,7 @@ elif x <= 19:
 elif x <= 99:
     print(tens[tens_digit]+ ' ' + ones[ones_digit])
 elif x <= 999 and tens_digit == 1:
-    print(hundreds[hundreds_digit] + ' ' + ones_2[ones_digit])
+    print(hundreds[hundreds_digit] + ' ' + ones_2[x - (hundreds_digit *100)])
 elif x <= 999 and tens_digit != 1:
     print(hundreds[hundreds_digit] + ' ' + tens[tens_digit] + ' ' + ones[ones_digit])
 
