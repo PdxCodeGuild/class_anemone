@@ -6,18 +6,85 @@
     box-sizing: border-box;
 
 }
-.container{
-    height: 100%;
+
+.supra {
+    margin-top: 1rem;
+}
+
+.supra img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     
 }
+.engine {
+    margin: auto;
+    border-width: 1px;
+    text-align: left;
+}
+
+.engine img {
+    display: block;
+    float: left;
+
+}
+.suspension {
+    margin: auto;
+    border-width: 1px;
+    text-align: left;
+}
+.suspension img {
+    display: block;
+    float: left;
+}
+
+.drivetrain {
+    margin: auto;
+    border-width: 1px;
+    text-align: left;
+}
+.drivetrain img {
+    display: block;
+    float: left;
+}
+
+.wheels {
+    border-width: 1px;
+    text-align: left;
+}
+.wheels img {
+    display: block;
+    float: left;
+}
+
+.contact {
+    font-size: 16px;
+    font-family: Karla,sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    margin: auto;
+    border-width: 1px;
+    text-align: center;
+}
+
+.contact img {
+    min-width: 100px;
+    border: 5px double gray;
+    border-radius: 50%;
+}
+
 body{
     font-family: montserrat;
-    }
+    background-color: rgb(135, 180, 238);
+}
+
 nav{
     background: rgb(48, 55, 148);
     height: 80px;
     width: 100%;
 }
+
 label.logo{
     color:white;
     font-size: 35px;
@@ -25,16 +92,18 @@ label.logo{
     padding: 0 100px;
     font-weight: bold;
 }
+
 nav ul{
     float: right;
     margin-right: 20px;
-
 }
+
 nav ul li{
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
+
 nav ul li a{
     color:white;
     font-size: 17px;
@@ -42,11 +111,12 @@ nav ul li a{
     border-radius: 3px;
     text-transform: uppercase;
 }
+
 active,a:hover{
     background: #1b9bff;
     transition: .5s;
-
 }
+
 .checkbtn{
     font-size: 30px;
     color: white;
@@ -89,7 +159,7 @@ active,a:hover{
         background: #2c3e50;
         top: 80px;
         left: -100;
-        text-align: center;
+        text-align: left;
         transition: all .5s;
     }
     nav ul li{
@@ -109,8 +179,12 @@ active,a:hover{
         left: 0;
     }
 }   
-section{
-    background: url(supra_1.jpg) no-repeat;
-    background-size: cover;
-    height: calc(100vh - 80px);
+
+.item {
+    margin: 8px;
+    padding: 8px;
+    list-style: none;
+    text-indent: 5px;
+    text-align: left;
+
 }
