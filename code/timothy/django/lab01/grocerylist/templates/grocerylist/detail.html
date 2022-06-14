@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item</title>
+</head>
+<body>
+    <form action="{% url 'grocerylist:index' %}" method="post">
+        {% csrf_token %}
+        <h3>{{ grocery_item.description }}</h3>
+        <h6>DATE CREATED - {{ grocery_item.date_created }}</h6>
+        <label for="grocery item{{ id }}">Acquired</label>
+        <input type="checkbox" name="{{ grocery_item }}" id="grocery item{{ id }}" value="{{ grocery_item_id }}">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

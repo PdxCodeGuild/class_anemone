@@ -14,11 +14,47 @@
         <h1>Grocery List</h1>
     </div>
     <div>
+        
         <ul>
-            {% for item in latest_grocerylist %}
-                <li>{{ item }}</li>
+            {% for grocery_item in not_complete %}
+                <li>{{ grocery_item }}</li>
+                <form action="{% url 'grocerylist:complete' grocery_item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark Complete">
+                </form>
+                <form action="{% url 'grocerylist:delete' grocery_item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
             {% endfor %}
         </ul>
+      
+    </div>
+    <div>
+        <h3>Complete</h3>
+            
+        <ul>
+            {% for grocery_item in complete %}
+                <li>{{ grocery_item }}</li>
+                <form action="{% url 'grocerylist:complete' grocery_item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark Incomplete">
+                </form>
+                <form action="{% url 'grocerylist:delete' grocery_item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+
+        <form action="{% url 'grocerylist:create' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" value="New Item">
+
+        </form>
+
     </div>
 
     
