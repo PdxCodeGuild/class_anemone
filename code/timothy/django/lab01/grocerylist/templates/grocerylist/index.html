@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="{% static 'grocerylist/main.css' %}">
 </head>
 <body>
-    <h1>Grocery List</h1>
+    <div>
+        <h1>Grocery List</h1>
+    </div>
+    <div>
+        <ul>
+            {% for item in latest_grocerylist %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    
 </body>
 </html>
