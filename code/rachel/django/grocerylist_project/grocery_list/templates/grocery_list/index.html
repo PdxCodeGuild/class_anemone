@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Grocery List</h1>
+    </header>
+    <main>
+        <h3>Items To Buy:</h3>
+        <form action="" method="post">
+            {% for item in latest_grocery_list %}
+            <input type="checkbox" name="item" value={{item.item_text}}>{{item.item_text}}
+            <label for="item">{{GroceryItem}}</label><br>
+            {% endfor %}<br>
+            <label for="additem">Add Item:</label>
+            <input type="text" name="additem" value={{item.item_text}}>
+            <button type="submit">Add</button>
+        </form>
+        <h3>Completed Items:</h3>
+        {% for item in latest_grocery_list %}
+            {% if item == False %}
+            <li>{{item.item_text}}</li>
+            {% endif %}
+        {% endfor %}
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
