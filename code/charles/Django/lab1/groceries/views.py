@@ -1,53 +1,67 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Glist, Gitem
+from .models import Gitem
 
 def index(request):
-    recent_list = Glist.objects.order_by('-date to be completed')[:6]
+    recent_item = Gitem.objects.order_by('-comdate')
     context = {
-        'recent_list':recent_list
+        'recent_item':recent_item
     }
     return render(request, 'groceries/index.html', context)
 
-def detail(request, glist_id):
-    glist = get_object_or_404(Glist, pk=glist_id)
-    return render(request, 'groceries/list.html', {'glist':glist})
+# def detail(request, gitem_id):
+#     gitem = get_object_or_404(Gitem, pk=gitem_id)
+#     recent_item = Gitem.objects.all()
+#     context = {
+#         'recent_item':recent_item
+#     }
+#     return render(request, 'groceries/index.html', {'gitem':gitem})
 
-def remove(request, glist_id):
-    glist = get_object_or_404(Glist, pk=glist_id)
-    selected = glist.items.get(pk=request.POST['item'])
-    try:
-        for item in selected:
-            Gitem.objects.filter(id=id).delete(item)    
+# def remove(request, gitem_id):
+#     gitem = get_object_or_404(Gitem, pk=gitem_id)
+#     selected = Gitem.items.get(pk=request.POST['item'])
+#     try:
+#         for item in selected:
+#             Gitem.objects.filter(id=id).delete(item)    
 
-    except (KeyError, Gitem.DoesNotExist):
-        return render(request, 'groceries/list.html', {
-            'glist':glist,
-            'error_message': "Please select an item or home"
-        })
+#     except (KeyError, Gitem.DoesNotExist):
+#         return render(request, 'groceries/list.html', {
+#             'gitem':gitem,
+#             'error_message': "Please select an item or home"
+#         })
     
-    Gitem.save()
-    return render()
+#     Gitem.save()
+#     return render()
+#  <form action="{% url 'groceries:createitem'%}" method="post">
+#         {% csrf_token %}
+#         <h1>New item</h1>
+#         <input type="text" name="item_text" id="item_text" value=""><label for="gitem_text">Item Name</label><br>
+#         <input type="text" name="item_num" id="item_num" value=""><label for="item_num">Item number</label><br>
+#         <input type="date" name="cdate" id="cdate"><label for="cdate">Create Date</label><br>
+#         <input type="date" name="comdate" id="comdate"><label for="comdate">Complete Date</label><br>
+#         <input type="submit" value="create">
+#     </form> 
 
-def createlist(request):
-    glist = Glist()
-    glist.glist_text = request.form['glist']
-    glist.cdate = request.form['cdate']
-    glist.comdate = request.form['comdate']
-    glist.save()
-    return HttpResponseRedirect('groceries:index.html')
+# def createlist(request):
+#     gitem= Gitem.objects.all()
+#     gitem_text = request.POST['Gitem_text']
+#     cdate = request.POST['cdate']
+#     comdate = request.POST['comdate']
+#     data = gitem_text, cdate, comdate
+#     Gitem.save(data)
+#     return index()
 
-def createitem(request, glist_id):
-    gitem = Gitem()
-    gitem.glist = glist_id
-    gitem.item_text = request.form['item_text']
-    gitem.item_num = request.form['item_num']
-    gitem.save()
-    return HttpResponseRedirect('groceries:list.html')
+def createitem(request, ):
+    gitem = Gitem.objects.create(request.P, created_date= timezone.now())
+    nitem_text = request.POST['item_text']
+    nitem_num = request.POST['item_num']
+    new_item=Gitem.items.create(Gitem, item_text= nitem_text, item_num=nitem_num, status = 'No')
+    Gitem().save(new_item)
+    return HttpResponseRedirect(reverse('groceries/list.html', args=(gitem.id,)))
 
-def compelted(request, glist_id):
-    return
+# def compelted(request, Gitem_id):
+#     return
 
     
 
@@ -58,4 +72,4 @@ def compelted(request, glist_id):
 
 
 
-# Create your views here.
+# # Create your views here.

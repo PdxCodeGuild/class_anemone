@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'groceries/style.css'%}">
+<body>
+    {% if recent_item %}
+        <ul>
+            {% for gitem in recent_item %}
+            <li>{{gitem.item_text}}&nbsp;-&nbsp;{{gitem.item_num}}&nbsp;-&nbsp;{{gitem.cdate}}&nbsp;-&nbsp;{{gitem.comdate}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No item available.</p>
+    {%endif%}
+    <form action="{% url 'groceries:createitem'%}" method="post">
+                {% csrf_token %}
+                <h1>New item</h1>
+                <label for="gitem_text">Item Name</label><input type="text" name="item_text" id="item_text" value=""><br>
+                <label for="item_num">Item number</label><input type="text" name="item_num" id="item_num" value=""><br>
+                <input type="submit" value="create">
+            </form> 
+    
+</body>

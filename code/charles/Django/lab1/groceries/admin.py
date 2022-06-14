@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Glist, Gitem
+from .models import Gitem
+from secrets import choice
 
-admin.site.register([Glist, Gitem])
+admin.site.register(Gitem)
 
 # Register your models here.
