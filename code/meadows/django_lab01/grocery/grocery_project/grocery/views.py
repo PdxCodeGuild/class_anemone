@@ -14,6 +14,5 @@ def index(request):
 
 def detail(request, grocery_item):
     if request.method=='POST':
-        list = get_object_or_404(ItemChoice, pk=grocery_item.id)
-        print('apples')
-    return render(request, 'grocery/detail.html', {'groceryitem': list})
+        grocery_item = get_object_or_404(ItemChoice, pk=grocery_item.id)
+    return render(request, 'grocery/detail.html', {'grocery_item': grocery_item})

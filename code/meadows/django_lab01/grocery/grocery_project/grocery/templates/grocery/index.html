@@ -2,7 +2,8 @@
 
 <link rel="stylesheet" href="{% static 'grocery/main.css' %}">
 
-<form action"{% url 'grocery:detail'%}" method="post">
+<form method="POST" action="detail">
+{% comment %} <form action"{% url 'grocery:detail'%}" method="post"> {% endcomment %}
     {% csrf_token %}
     <fieldset>
         <h1> MY Grocery List </h1>
