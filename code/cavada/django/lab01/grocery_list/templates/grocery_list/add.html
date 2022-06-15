@@ -61,9 +61,9 @@
                         {% else %}
                         <span class="material-symbols-outlined" style="background-color:rgba(0, 128, 0, 0.467)">Check_Circle</span>
                         {% endif %}  {{item}} </p></legend>
-                        <p class="create"><h1 style="font-size:1.2vh">Posted:</h1> {{item.date_created}}</p>   
+                        <p class="create" style="font-size:1.5vh"><h1 style="font-size:1.2vh">Posted:</h1> {{item.date_created}}</p>   
                         {% if item.date_fulfilled != None %}
-                        <p class="fulfilled"><h1 style="font-size:1.2vh">Done:</h1>{{item.date_fulfilled}}</p> 
+                        <p class="fulfilled" style="font-size:1.5vh"><h1 style="font-size:1.2vh">Done:</h1>{{item.date_fulfilled}}</p> 
                         {% endif %}
                         
                         <div class="blurb">
