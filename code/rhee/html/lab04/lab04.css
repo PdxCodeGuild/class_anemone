@@ -1,0 +1,99 @@
+header  {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    justify-content: center;
+    background-color: rgb(160, 100, 73);
+}
+main {
+    background-image: url('burrito.png');
+    background-repeat: no-repeat;
+}
+main img {
+    float: right;
+
+}
+nav {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+nav p   {
+    margin: 30px;
+    
+}
+.id {
+    font-size: 40px;
+
+}
+.account    {
+    font-size: 25px;
+    flex-wrap: wrap;
+}
+a   {
+    color: white;
+}
+main    {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("");
+    background-repeat: no-repeat;
+
+}
+
+.menu   {
+    margin: 25px;
+    
+}
+.account    {
+    width: 500px;
+    margin: 24px;
+   
+}
+
+
+.tortilla   {
+    width: 200;
+    margin: 24px;
+    font-size: 20px;
+    height: 150px;
+
+}
+.rice   {
+    width: 250px;
+    height: 100px;
+    margin: 24px;
+    font-size: 20px;
+    flex-wrap: wrap;
+}
+.beans  {
+    width: 250px;
+    height: 100px;
+    margin: 24px;
+    font-size: 20px;
+    flex-wrap: wrap;
+}
+
+.meat   {
+    width: 300px;
+    margin: 24px;
+    font-size: 20px;
+    flex-wrap: wrap;
+}
+.addons {
+    width: 200px;
+    height: 117px;
+    margin: 24px;
+    font-size: 20px;
+    text-align: left;
+
+}
+.instructions {
+    width: 150px;
+    height: 115px;
+    margin: 20px;
+    font-size: 20px;
+}
+.h9 {
+    font-size: 24px;
+
+}

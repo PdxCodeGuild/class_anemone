@@ -1,4 +1,4 @@
-import pyble
+import creative.pyble as pyble
 pyble = Pyble()
 cont = ''
 while True and not cont in ['no','n', 'exit', 'quit', 'e','done']:

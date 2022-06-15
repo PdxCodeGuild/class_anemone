@@ -9,8 +9,9 @@ M-F 9:30 am – 4:30 pm
 
 - May 30th (Memorial Day)
 - June 7th (Merritt has Covid)
+- June 20th (Juneteenth)
 - July 4th (Independence Day)
-- TBD
+- July 29th (Independent Study Day, subject to change)
 
 ### Staff
 
@@ -27,18 +28,18 @@ M-F 9:30 am – 4:30 pm
 Capstone proposal due: TBD  
 Presentation Day: August 5th, 2022  
 
-<!--
+
 ## Django Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 00    | Polls                  | Feb 15th      | Feb 18th              |               |
-| 01    | Todo List              | Feb 22nd      | Feb 28th              | Mar 8th       |
-| 02    | URL Shortener          | Feb 24th      | Feb 28th              | Mar 10th      |
-| 03    | Chirp                  | Mar 1st       | Mar 4th               | Mar 15th      |
-| 04    | Students API           | Mar 23rd      | Mar 28th              | Apr 6th       |
-| 05    | Pokedex                | Mar 24th      | Mar 28th              | Apr 7th       |
-
+| 00    | Polls                  | Jun 8th       | Jun 13th              |               |
+| 01    | Todo List              | Jun 13th      | Jun 20th              | Jun 27th      |
+| 02    | URL Shortener          | Jun 15th      | Jun 20th              | Jun 27th      |
+| 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
+| 04    | Students API           | ---           | ---                   | ---           |
+| 05    | Pokedex                | ---           | ---                   | ---           |
+<!--
 ## JavaScript Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
