@@ -9,8 +9,9 @@ M-F 9:30 am – 4:30 pm
 
 - May 30th (Memorial Day)
 - June 7th (Merritt has Covid)
+- June 20th (Juneteenth)
 - July 4th (Independence Day)
-- TBD
+- July 29th (Independent Study Day, subject to change)
 
 ### Staff
 
@@ -35,7 +36,7 @@ Presentation Day: August 5th, 2022
 | 00    | Polls                  | Jun 8th       | Jun 13th              |               |
 | 01    | Todo List              | Jun 13th      | Jun 20th              | Jun 27th      |
 | 02    | URL Shortener          | Jun 15th      | Jun 20th              | Jun 27th      |
-| 03    | Chirp                  | Jun 20th      | Jun 24th              | Jul 4th       |
+| 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
 | 04    | Students API           | ---           | ---                   | ---           |
 | 05    | Pokedex                | ---           | ---                   | ---           |
 <!--
