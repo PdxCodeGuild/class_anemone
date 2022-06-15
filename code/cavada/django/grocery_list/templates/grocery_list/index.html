@@ -1,0 +1,103 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{% static 'grocery_list/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+</head>
+<body>
+    
+    <div class="add">
+        <h1 style="font-size:3vh">GROCERY LIST</h1>
+        <form action="{% url 'grocery_list:index' %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend><p>{{item}}</p></legend>
+                
+                <p>{{context}}</p>
+                <input type="text" name="new" autofocus="autofocus" placeholder="grocery item to add"><br>
+                <button> ADD </button>
+            
+            </fieldset>
+            <h1 style="font-size:2vh">Quick Access:</h1>
+            <nav>
+            {% for item in grocery_list %}
+                
+                <div class="nav_item">
+                    {% if item.status == False%}
+                    <span class="material-symbols-outlined" style="background-color:rgba(255, 0, 0, 0.508)">circle</span>
+                    {% else %}
+                    <span class="material-symbols-outlined" style="background-color:rgba(0, 128, 0, 0.467)">Check_Circle</span>
+                    {% endif %}  
+                <a href="#{{item}}"><p style="font-size:2vh">{{item}}</p></a>
+                    
+                  
+                </div>    
+            
+            
+            {% endfor %}
+            </nav>
+            
+
+        </form>
+        
+    </div>
+    <h1 class="list_area_h1" style="font-size:2.8vh">Grocery Items:</h1>
+    <div class="list_area">
+        
+        {% if grocery_list %}
+        {% for item in grocery_list %}
+        <div class="item">
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+            <form id = "{{item}}" action="{% url 'grocery_list:index' %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend><p>{{item}} {% if item.status == False%}
+                        <span class="material-symbols-outlined" style="background-color:rgba(255, 0, 0, 0.507)">circle</span>
+                        {% else %}
+                        <span class="material-symbols-outlined" style="background-color:rgba(0, 128, 0, 0.467)">Check_Circle</span>
+                        {% endif %}   </p></legend>
+                        <p class="create">Posted: {{item.date_created}}</p>   
+                        {% if item.date_fulfilled != None %}
+                        <p class="fulfilled">Fufilled: {{item.date_fulfilled}}</p> 
+                        {% endif %}
+                        
+                        <div class="blurb">
+                        
+                        </div>   
+                    <input type="hidden" name= "item" id="item{{ forloop.counter }}" value="{{ item.id }}"><br>
+                        <button>Fulfilled</button>
+                        
+                </fieldset>
+            </form>   
+
+            <form action="{% url 'grocery_list:index' %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <input type="hidden" name= "delete" id="item{{ forloop.counter }}" value="{{ item.id }}">
+                    <button>Delete</button> <br>
+                </fieldset>
+            </form>
+            {% endfor %}
+            
+            {% else %}
+            <p class="no-list"> Add an item to the left!</p>
+        </div> 
+        {% endif %}
+    </div>   
+    
+    
+
+    
+
+
+    
+</body>
+</html>
