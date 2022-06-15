@@ -40,8 +40,6 @@ def index(request):
             context = {
                 'grocery_list': grocery_list
             }
-
-        g.date_fulfilled=timezone.now()
         g.save()
         grocery_list= GroceryItem.objects.all()
         context = {
