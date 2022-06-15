@@ -17,11 +17,7 @@ def index(request):
     return render(request, 'grocerylist/index.html', context)
 
 def create(request):
-    context = {}
-    form = GroceryItem(request.POST or None)
-    if form.is_valid():
-        form.save
-    context['form'] = form
+    GroceryItem(description = request.POST['description']).save()
     return HttpResponseRedirect(reverse('grocerylist:index'))
 
 def complete(request, grocery_item_id):

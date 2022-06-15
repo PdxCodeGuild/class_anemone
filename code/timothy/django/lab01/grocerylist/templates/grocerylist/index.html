@@ -51,8 +51,8 @@
 
         <form action="{% url 'grocerylist:create' %}" method="POST">
             {% csrf_token %}
-            <input type="text" value="New Item">
-
+            <input type="text" name="description" placeholder="New Item">
+            <input type="submit" value="Enter">
         </form>
 
     </div>

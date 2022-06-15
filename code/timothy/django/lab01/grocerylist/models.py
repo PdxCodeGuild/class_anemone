@@ -4,7 +4,7 @@ class GroceryItem(models.Model):
 
     description = models.CharField(max_length=255)
 
-    date_created = models.DateTimeField(verbose_name= 'created')
+    date_created = models.DateTimeField(verbose_name= 'created', auto_now_add=True)
 
     date_completed = models.DateTimeField(verbose_name= 'completed', null=True, blank=True)
 
