@@ -30,7 +30,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
-    padding-left: 50vw;
+    padding-left: 55vw;
 }
 
 fieldset {
@@ -63,7 +63,7 @@ nav {
     display: flex;
     flex-direction: row;
 }
-span {
+.nav_item span {
     border-radius: 2vh;
     font-size: 2vh;
 }

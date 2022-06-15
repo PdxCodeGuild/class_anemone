@@ -30,7 +30,7 @@ def index(request):
         context = {
             'grocery_list': grocery_list
         }
-    else:
+    elif 'delete' in request.POST:
         id = request.POST['delete']
         print(id)
         g = GroceryItem.objects.get(pk=id)
