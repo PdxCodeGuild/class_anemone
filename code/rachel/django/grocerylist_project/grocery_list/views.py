@@ -1,6 +1,6 @@
-from multiprocessing import context
+from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from .models import GroceryItem
 
@@ -16,13 +16,21 @@ def index (request):
 
     return render(request, 'grocery_list/index.html', context)
 
-# def create (request):
-#     redirect
-#     .objects.create()
+def create (request):
+    new_item = request.POST['additem']
+    GroceryItem.objects.create(item_text=new_item, create_date=timezone.now())
+    return HttpResponseRedirect(reverse('grocery_list:index'))
 
-# def markcomplete (request):
-#     if else statement
-#     redirect
+def markcomplete (request, item_id):
+    item = get_object_or_404(GroceryItem, pk=item_id)
+    if item.is_completed == True:
+        item.is_completed = False
+    else:
+        item.is_completed = True
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
 
-# def delete (request):
-#     redirect
+def delete (request, item_id):
+    item = get_object_or_404(GroceryItem, pk=item_id)
+    item.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
