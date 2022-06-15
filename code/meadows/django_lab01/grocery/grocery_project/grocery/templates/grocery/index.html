@@ -1,0 +1,31 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'grocery/main.css' %}">
+
+<form action"{% url 'grocery:detail'%}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <h1> MY Grocery List </h1>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% if latest_grocery_list %}
+            {% for item in latest_grocery_list %}
+                <input type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ item }}</label><br>
+            {% endfor %}
+        {% endif %}
+    </fieldset>
+    <input type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import List, Choice
+from .models import GroceryItem
 
-admin.site.register([List, Choice])
+admin.site.register([GroceryItem])
