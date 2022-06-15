@@ -12,7 +12,9 @@
     
 </head>
 <body>
-    
+    {% if message %}
+        <h1>{{message}}</h1>
+            {% endif %}
     <div class="add">
         <h1 style="font-size:3vw">GROCERY LIST</h1>
         <form action="{% url 'grocery_list:add' %}" method="post">
@@ -21,15 +23,13 @@
                 <legend><p style="font-size:2vw">{{item}}</p></legend>
                 
                 
-                <input type="text" name="new" autofocus="autofocus" placeholder="grocery item to add" style="font-size:1.8vh"><br>
+                <input type="text" name="new" autofocus="autofocus" placeholder="grocery item to add" style="font-size:1.8vh" required><br>
                 <button style="font-size:1.5vw"> <p>ADD</p> </button>
             
             </fieldset>
             <h1 style="font-size:2vw">Quick Access:</h1>
-
-
             <nav class="quick">
-            {% for item in grocery_list %}
+            {% for item in incomplete %}
                 <div class="nav_item">
                     {% if item.status == False%}
                     <span class="material-symbols-outlined" style="background-color:rgba(255, 0, 0, 0.508)">circle</span>
