@@ -1,4 +1,4 @@
-from pyble import bible
+from creative.pyble import bible
 
 
 

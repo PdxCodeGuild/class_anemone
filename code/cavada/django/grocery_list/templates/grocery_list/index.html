@@ -1,0 +1,105 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{% static 'grocery_list/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+</head>
+<body>
+    
+    <div class="add">
+        <h1 style="font-size:3vw">GROCERY LIST</h1>
+        <form action="{% url 'grocery_list:index' %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend><p style="font-size:2vw">{{item}}</p></legend>
+                
+                
+                <input type="text" name="new" autofocus="autofocus" placeholder="grocery item to add" style="font-size:1.8vh"><br>
+                <button style="font-size:1.5vw"> <p>ADD</p> </button>
+            
+            </fieldset>
+            <h1 style="font-size:2vw">Quick Access:</h1>
+
+
+            <nav class="quick">
+            {% for item in grocery_list %}
+                <div class="nav_item">
+                    {% if item.status == False%}
+                    <span class="material-symbols-outlined" style="background-color:rgba(255, 0, 0, 0.508)">circle</span>
+                    {% else %}
+                    <span class="material-symbols-outlined" style="background-color:rgba(0, 128, 0, 0.467)">Check_Circle</span>
+                    {% endif %}  
+                    <a href="#{{item}}"><p style="font-size:2vh">{{item}}</p></a>
+                </div>    
+            {% endfor %}
+            </nav>
+            
+
+        </form>
+        
+    </div>
+    <h1 class="list_area_h1" style="font-size:2.8vh">Grocery Items:</h1>
+    <div class="list_area">
+        
+        {% if grocery_list %}
+        {% for item in grocery_list %}
+        <div class="item">
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+            <form id = "{{item}}" action="{% url 'grocery_list:index' %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend><p> {% if item.status == False%}
+                        <span class="material-symbols-outlined" style="background-color:rgba(255, 0, 0, 0.507)">circle</span>
+                        {% else %}
+                        <span class="material-symbols-outlined" style="background-color:rgba(0, 128, 0, 0.467)">Check_Circle</span>
+                        {% endif %}  {{item}} </p></legend>
+                        <p class="create"><h1 style="font-size:1.2vh">Posted:</h1> {{item.date_created}}</p>   
+                        {% if item.date_fulfilled != None %}
+                        <p class="fulfilled"><h1 style="font-size:1.2vh">Done:</h1>{{item.date_fulfilled}}</p> 
+                        {% endif %}
+                        
+                        <div class="blurb">
+                        
+                        </div>   
+                    <input type="hidden" name= "item" id="item{{ forloop.counter }}" value="{{ item.id }}"><br>
+                        {% if item.status != False %}
+                        <button style="font-size:1.5vw">Reset</button>  
+                        {% else %}
+                        <button style="font-size:1.5vw">Mark Fulfilled</button>
+                        {% endif %}
+                        
+                        
+                </fieldset>
+            </form>   
+
+            <form action="{% url 'grocery_list:index' %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <input type="hidden" name= "delete" id="item{{ forloop.counter }}" value="{{ item.id }}">
+                    <button style="font-size:1.5vw">Delete</button> <br>
+                </fieldset>
+            </form>
+            {% endfor %}
+            
+            {% else %}
+            <p class="no-list"> Add an item to the left!</p>
+        </div> 
+        {% endif %}
+    </div>   
+    
+    
+
+    
+
+
+    
+</body>
+</html>
