@@ -20,7 +20,6 @@ def add(request):
     g = GroceryItem(desc=new_item,date_created = timezone.now(),status=False, date_fulfilled = None)
     g.save()
     grocery_list= GroceryItem.objects.all()
-
     context = {
         'grocery_list': grocery_list
     }
