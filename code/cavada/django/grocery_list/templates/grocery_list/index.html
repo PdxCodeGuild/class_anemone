@@ -73,7 +73,12 @@
                         
                         </div>   
                     <input type="hidden" name= "item" id="item{{ forloop.counter }}" value="{{ item.id }}"><br>
-                        <button style="font-size:1.5vw">Fulfilled</button>
+                        {% if item.status != False %}
+                        <button style="font-size:1.5vw">Reset</button>  
+                        {% else %}
+                        <button style="font-size:1.5vw">Mark Fulfilled</button>
+                        {% endif %}
+                        
                         
                 </fieldset>
             </form>   

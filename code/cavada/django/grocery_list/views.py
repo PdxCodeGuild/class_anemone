@@ -23,7 +23,24 @@ def index(request):
         id = request.POST['item']
         print(id)
         g = GroceryItem.objects.get(pk=id)
-        g.status=True
+        if g.status==False:
+            g.status=True
+            g.date_fulfilled=timezone.now()
+            g.save()
+            grocery_list= GroceryItem.objects.all()
+            context = {
+                'grocery_list': grocery_list
+            }
+
+        else:
+            g.status=False
+            g.date_fulfilled=None
+            g.save()
+            grocery_list= GroceryItem.objects.all()
+            context = {
+                'grocery_list': grocery_list
+            }
+
         g.date_fulfilled=timezone.now()
         g.save()
         grocery_list= GroceryItem.objects.all()
