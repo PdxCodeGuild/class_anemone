@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import URLPattern, path
 from . import views
 
 app_name = 'short_url'
 
-urlpatterns = [
+urlpatterns =  [
     path('', views.index, name='index')
 ]

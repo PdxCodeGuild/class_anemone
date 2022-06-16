@@ -1,11 +1,10 @@
 from django.db import models
 
-class URLShortener(models.Model):
+class ShortURL(models.Model):
 
-    taken_url = models.URLField(max_length=500)
+    long_url = models.URLField()
 
-    given_url = models.CharField(max_length=15, unique=True, blank=True)
+    short_url = models.CharField(max_length=10, unique=True, blank=True)
 
     def __str__(self):
-        return f'{self.taken_url} to {self.given_url}'
-
+        return self.long_url, self.short_url
