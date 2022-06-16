@@ -1,0 +1,18 @@
+body{
+    background-image: url("https://wallpaperaccess.com/full/818402.jpg");
+    background-size: auto;
+    font-family: 'Shadows Into Light Two', cursive;
+    padding-left: 1em;;
+}
+
+button{
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+h1{
+    font-size: 5em;
+}
+
+main {
+    font-size: 2em;
+}
