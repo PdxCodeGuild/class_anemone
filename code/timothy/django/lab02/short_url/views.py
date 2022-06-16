@@ -7,8 +7,8 @@ from random import choice
 from string import ascii_letters, digits
 
 def index(request):
-    taken_url = get_object_or_404(URLShortener)
-    given_url = get_object_or_404(URLShortener)
+    taken_url = get_object_or_404(URLShortener, pk=pk)
+    given_url = get_object_or_404(URLShortener, pk=pk)
     context = {
        'taken_url': taken_url,
        'given_url': given_url,
@@ -20,11 +20,11 @@ def randomgen():
     x = ''.join([choice(chars) for _ in range(6)])
     return x
 
-def randomurl(model_instance):
+def randomurl(exist_check):
     random_url = randomgen()
-    model_class = model_instance.__class__
+    model_class = exist_check.__class__
 
     if model_class.objects.filter(given_url=random_url).exists():
-        return random_url(model_instance)
-        
+        return random_url(exist_check)
+
     return random_url
