@@ -7,4 +7,4 @@ class ShortURL(models.Model):
     short_url = models.CharField(max_length=10, unique=True, blank=True)
 
     def __str__(self):
-        return self.long_url, self.short_url
+        return f'{self.long_url} - {self.short_url}'
