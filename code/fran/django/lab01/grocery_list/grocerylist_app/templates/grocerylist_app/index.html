@@ -1,0 +1,55 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'grocerylist_app/main.css' %}">
+
+<form action="{% url 'grocerylist_app:add' %}" method="post">
+    {% csrf_token %}
+        <legend><h3>Add Item To List</h3></legend>
+        <label for="grocery_item_name">Item Name</label>
+        <input type="text" name="grocery_item_name" id="grocery_item_name"/><br>
+        <label for="completed">Completed</label>
+        <input type="checkbox" name="completed" id="completed"/><br>
+        <label for="completed_date">Completed Date</label>
+        <input type="datetime-local" name="completed_date" id="completed_date"/><br>
+        <label for="create_date">Create Date</label>
+        <input type="datetime-local" name="create_date" id="create_date"/><br>
+        <input type="submit" value="Add">
+</form>
+
+<hr>
+
+{% if grocery_list %}
+    <h1>Grocery List</h1>
+        <h3>Need to get:</h3>
+
+        {% for item in incomplete_items %}
+            {% comment %} <p>{{ item.grocery_item_name }}  {{ item.create_date }}</p> {% endcomment %}
+            <p>{{ item.grocery_item_name }}</p>
+            <form action="{% url 'grocerylist_app:update' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Got it!">
+            </form>
+            {% comment %} Make a form with button for "mark complete"
+            Make a form with button for "delete" {% endcomment %}
+
+            {% comment %} <li><a href="{% url 'polls:detail' item.id %}">{{ item.grocery_item_name }}</a></li> {% endcomment %}
+        {% endfor %}
+
+        <br>
+        
+        <h3>Already got:</h3>
+
+        {% for item in completed_items %}
+            {% comment %} <p>{{ item.grocery_item_name }}  {{ item.completed_date }}</p> {% endcomment %}
+            <p>{{ item.grocery_item_name }}  ({{ item.completed_date }})</p>
+
+            {% comment %} Make a form with button for "mark complete"
+            Make a form with button for "delete" {% endcomment %}
+
+            {% comment %} <li><a href="{% url 'polls:detail' item.id %}">{{ item.grocery_item_name }}</a></li> {% endcomment %}
+
+        {% endfor %}
+{% else %}
+    <p>Your grocery list is empty.</p>
+{% endif %}
+
