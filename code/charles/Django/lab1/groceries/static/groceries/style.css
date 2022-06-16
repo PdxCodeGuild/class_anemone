@@ -1,0 +1,32 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(207, 207, 207);
+
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+
+table {
+    padding: 2px;
+    margin: 2px;
+    border:2px;
+    border-color:aliceblue;
+    border-radius: 2px;
+}
+tr {
+    padding-top: 1vh;
+}
+
+th, h1 {
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+form label, form input{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+
