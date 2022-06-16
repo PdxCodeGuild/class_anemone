@@ -1,4 +1,9 @@
-h1,h2,h3 {
+body {
     font-family: Helvetica, Arial, sans-serif;
     color: darkblue;
+    background-color: cornsilk;
+}
+
+li {
+    display: flex;
 }
