@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'grocery_list.apps.GroceryListConfig'
+    # add the app here (grocery_list)
+    'grocery_list.apps.GroceryListConfig',
 ]
 
 MIDDLEWARE = [

@@ -6,7 +6,7 @@ app_name = 'grocery_list'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('', views.create, name='create'),
-    path('', views.complete, name='complete'),
-    path('', views.delete, name='delete')
+    path('create', views.create, name='create'),
+    path('complete/<int:pk>/', views.complete, name='complete'),
+    path('delete/<int:pk>/', views.delete, name='delete')
 ]
