@@ -6,6 +6,37 @@ html {
     box-sizing: inherit;
 }
 
+header {
+    margin-left: 30%;
+}
+fieldset {
+    flex: auto;
+    display: block;
+    width: 25em;
+    margin-left: 30%;
+}
+legend {
+    flex: auto;
+    margin-left: 30%;
+}
+ul {
+    flex: auto;
+    margin-left: 30%;
+    padding: 1em;
+}
+.form {
+    display: flex;
+}
+hr {
+    position: absolute;
+    width: 32em;
+    margin-right: 30%;
+    height: .6em;
+    background-color: black;
+}
+
+
+
 body {
-    background-color: rgb(190, 154, 7);
+    background-color: rgb(192, 182, 142);
 }

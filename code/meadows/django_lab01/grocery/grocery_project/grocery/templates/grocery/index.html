@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% comment %} <link rel="stylesheet" href="{% static 'grocery/styles.css' %}> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'grocery/styles.css' %}"/>
         <title>MY Grocery List</title>
     </head>
     <body>
@@ -22,7 +22,7 @@
                     <option value='True'>I Have</option>
                 </select>
                 <input type="submit" value="Add Item">
-                {% if error_message %}<p><strong>{{ error_message }}</stong></p>{% endif %}
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
             </form>
         </fieldset>
         <legend><h1>Grocerys You Already Have.</h1></legend>
@@ -32,27 +32,28 @@
                         <li><b><p>ITEM: </b>{{ new.created_item }}</p>
                             <b><p>Date Created: </b>{{ new.created_date }}</p>
                             <b><p>Acquired date: </b>{{ new.date_complete }}</p><br>
-                            <form action="{% url 'grocery:complete' new.pk %}" method="post">
-                                {% csrf_token %}
-                                <input type="submit" value="Add to Need">
-                            </form>
-                            <form action="{% url 'grocery:delete' new.pk %}" method="post">
-                                {% csrf_token %}
-                                <input type="submit" value="Delete">
-                            </form>
+                            <div class = 'forms'>
+                                <form action="{% url 'grocery:complete' new.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Add to Need">
+                                </form>
+                                <form action="{% url 'grocery:delete' new.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </div>
                         </li>
-                        <hr>
                     {% endfor %}
                 {% else %}
                 <p>Nothing in your Have List</p>
                 {% endif %}
+                <hr>
             </ul>
-
         <legend><h1>Grocerys You NEED!</h1></legend>
             <ul>
                 {% if need %}
                     {% for new in need %}
-                        <li><b><p>ITEM: </b>{{ new.created_item }}</p>
+                        <li><b><p>ITEM: </b>{{ new.created_item }}</b></p>
                             <b><p>Date Created: </b>{{ new.created_date }}</p>
                             <form action="{% url 'grocery:complete' new.pk %}" method="post">
                                 {% csrf_token %}
@@ -63,7 +64,6 @@
                                 <input type="submit" value="Delete">
                             </form>
                         </li>
-                        <hr>
                     {% endfor %}
                 {% else %}
                 <p>Nothing in your Need List</p>
