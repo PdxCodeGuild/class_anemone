@@ -1,5 +1,5 @@
 from django.db import models
-from utils import shortener
+from func import shortener
 
 class Shortener(models.Model):
 
