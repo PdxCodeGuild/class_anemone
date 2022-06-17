@@ -1,32 +1,62 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'grocery/main.css' %}">
-
-<form method="POST" action="detail">
-{% comment %} <form action"{% url 'grocery:detail'%}" method="post"> {% endcomment %}
-    {% csrf_token %}
-    <fieldset>
-        <h1> MY Grocery List </h1>
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-        {% if latest_grocery_list %}
-            {% for item in latest_grocery_list %}
-                <input type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-                <label for="choice{{ forloop.counter }}">{{ item }}</label><br>
-            {% endfor %}
-        {% endif %}
-    </fieldset>
-    <input type="submit" value="Submit">
-</form>
 
 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MY Grocery List</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <header><h1>Your Little Grocery List</h1></header>
+    <body>
+        <fieldset>
+            <legend><h2>Need to add something?</h2></legend>
+            <form action="{% url 'grocery:add' %}" method='post'>
+                {% csrf_token %}
+                <input type="text" name="created_item" placeholder="add item" maxlength="100">
+                <input type="submit" value="Add Item">
+            </form>
+        </fieldset>
+        <legend><h1>Grocerys I Already Have.</h1></legend>
+            <ul>    
+                {% for new in have %}
+                    <li><b><p>ITEM: </b>{{ new.created_item }}</p>
+                        <b><p>Date Created: </b>{{ new.created_date }}</p>
+                        <b><p>Acquired date: </b>{{ new.date_complete }}</p><br>
+                        <form action="{% url 'grocery:complete' new.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="I Need">
+                        </form>
+                        <form action="{% url 'grocery:delete' new.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete">
+                        </form>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+
+        <legend><h1>Grocerys I NEED!</h1></legend>
+            <ul>
+                {% for new in need %}
+                    <li><b><p>ITEM: </b>{{ new.created_item }}</p>
+                        <b><p>Date Created: </b>{{ new.created_date }}</p>
+                        <form action="{% url 'grocery:complete' new.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="I Have">
+                        </form>
+                        <form action="{% url 'grocery:delete' new.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete">
+                        </form>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
 
 
-
-
-
-
-
-
-
-
-
+    </body>
