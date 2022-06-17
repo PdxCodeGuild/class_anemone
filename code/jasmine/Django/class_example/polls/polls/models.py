@@ -1,4 +1,8 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
+
 
 # Create your models here.
 class Question(models.Model):
@@ -6,6 +10,12 @@ class Question(models.Model):
 
     #dateTimeField combines a date and a time
     pub_date = models.DateTimeField(verbose_name='date published')
+
+    #function if question was posted recently
+    def was_published_recently(self):
+        return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+
 
     def __str__(self):
         return self.question_text
