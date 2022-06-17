@@ -16,7 +16,7 @@ def index(request):
 
 def add(request):
     created_item = request.POST['created_item']
-    GroceryList.objects.create(created_item=created_item, created_date=timezone.now(), created_complete=False)
+    GroceryList.objects.create(created_item=created_item, created_date=timezone.now(), created_complete=request.POST['created_complete'])
     return HttpResponseRedirect(reverse('grocery:index'))
 
 def complete(request, pk):
