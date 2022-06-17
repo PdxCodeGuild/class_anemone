@@ -1,5 +1,7 @@
-from django.db import models
+import datetime
 
+from django.db import models
+from django.utils import timezone
 
 class Question(models.Model):
     # CharField is for text
@@ -9,6 +11,9 @@ class Question(models.Model):
     pub_date = models.DateTimeField(verbose_name='date published')
 
     # choices = the list of choices
+
+    def was_published_recently(self):
+        return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)   # is publication date within the last day
 
     # customize the string representation for a Question object
     def __str__(self):
