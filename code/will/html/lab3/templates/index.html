@@ -12,23 +12,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <header>
         <div>
-            <h1>Willoughby Myers</h1>
+            <h1>Video Game blog!</h1>
             <h3>Project Portfolio: </h3>
         </div>
         <nav>
             <p><a href="#">Home</a></p>
-            <p><a href="#">Projects</a></p>
+            <p><a href="#">About</a></p>
             <p><a href="#">Contact Me</a></p>
         </nav>
     </header>
     <main>
-        <h2>These are some of the projects I have worked on previously:</h2>
+        <h2>Here are my posts!:</h2>
         <p></p>
-        <div class="container">  
+        <div class="container-md">  
             <div class="gallery-item">
                 {% for post in posts %}
 
-             <span class="card-title">{{post.title}}</span>
+             <div class="card-title">{{post.title}}
+                </div>
           
              <img src = "{{post.image}}">"
              <p>{{ post.content }} </p>
