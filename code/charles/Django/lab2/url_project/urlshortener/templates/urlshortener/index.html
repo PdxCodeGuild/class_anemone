@@ -9,20 +9,31 @@
     <title>Url Shorts</title>
 </head>
 <body>
-    <form action='' method='POST'>
-    {%if urllist %}
+    <p>    
+    
         <table>
             <tr>
                 <th>Short Url</th>
                 <th>Actual Url</th>
                 <th>Click Amount</th>
             </tr>
-            {%for url in urllist %}
+            {% for url in url_list %}
             <tr>
-                <td>{{urlshort.surl}}</td>
-                <td>{{urlshort.ourl}}</td>
-                <td>{{urlshort.num_clicked}}</td>
+                <td>{{url.surl}}</td>
+                <td>{{url.ourl}}</td>
+                <td>{{url.num_clicked}}</td>
             </tr>
+            {% endfor %}
         </table>
+    </p>
+    <h1>New Short Url</h1>
+    <form action="{% url 'urlshortener:newurl' %}" method='POST'>
+        {% csrf_token %}
+        <input type='text' name='ourl' id='ourl' placeholder='Orginal Url Here'><label for='ourl'>Orignal Url</label>
+        <input type='submit' value='Submit'>
+    </form>
+    
+    
+    <p>something</p>
 </body>
 </html>

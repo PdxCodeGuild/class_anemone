@@ -17,21 +17,22 @@ class Paw2():
         self.numbers.clear()
         self.characters.clear()
         
-        for x in random.choice(0,15):
+        for x in range(0, 15):
             str(self.letters.append(random.choice(self.letter)))
-        for x in random.choice(0.15):
+        for x in range(0, 15):
             str(self.numbers.append(random.choice(self.number)))
-        for x in random.choice(0, 18):
+        for x in range(0, 18):
             str(self.characters.append(random.choice(self.special_charc)))
         
         url = self.letters + self.numbers + self.characters
         random.shuffle(url)
-        surl = (''.join(url))
+        pawurl = (''.join(url))
         
-        return surl
+        return pawurl
 
-    def redo(self, surl):
-        if surl in Urlshort.surl:
+    def redo(self, pawurl):
+        surls= Urlshort.objects.all()
+        if pawurl in surls:
             Paw2.gen()
         else:
-            return surl
+            return pawurl
