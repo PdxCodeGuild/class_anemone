@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short URL Code</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{% static 'short_url/main.css' %}">
+</head>
+<body>
+    <form action="{% url 'short_url:add' %}" method="post">
+        {% csrf_token %}
+            <legend><h2>Generate Short URL Code</h2></legend>
+            <p>Enter a URL then click the "Generate Code" button. 
+                Your new code will be displayed below, along with the url you entered.
+            </p>
+            <label for="url">Long URL</label>
+            <input type="text" name="url" id="url"/><br>
+            <input type="submit" value="Generate Code">
+    </form>
+    
+    <br>
+    <hr>
+
+    {% if url_info %}
+        <h2>Short URL Codes</h2>
+            <ul>
+                {% for item in url_info %}
+                    {% comment %} <p>{{ item.grocery_item_name }}</p> {% endcomment %}
+                    <li>Code: <strong>{{ item.code }}</strong></li>
+                    <li>({{ item.url }})</li>
+                    <br>
+                {% endfor %}
+            </ul>
+            <br>
+            
+    {% else %}
+        <p>You have no short url codes.</p>
+    {% endif %}
+
+    <br>
+    <hr>
+
+    <form action="{% url 'short_url:redirect' code %}" method="post">
+        {% csrf_token %}
+            <legend><h2>Enter Code to go to a website:</h2></legend>
+            <label for="code">Code</label>
+            <input type="text" name="code" id="code"/><br>
+            <input type="submit" value="Go!">
+    </form>
+</body>
