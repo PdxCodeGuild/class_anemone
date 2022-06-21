@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Shorten Your URL {% endblock %}
+{% block content %}
+<h3>Enter URL to Shorten:</h3></br></br>
+<div class='form-group'>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ f.as_p }}
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+</div>
+
+{% for item in data %}
+<p>
+    {{ item }}
+</p>
+{% endfor %}
+{% endblock %}
