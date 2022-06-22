@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import ShortUrl
 import random, string
 
@@ -7,8 +9,31 @@ def index(request):
     # still need to figure out how to make the code randomly generated
     # url needs to be user input
     url_items = ShortUrl.objects.all()
-    return render(request, 'short_url/index.html', url_items)
+    context = {'url_items':url_items}
+    return render(request, 'short_url/index.html', context)
 
-def code(request, pk):
-    url_characters = string.ascii_letters + string.digits
+# create view to take in a url and create a code associated with it
+def code(request):
+    url = request.POST['url']
+    code_characters = string.ascii_letters + string.digits
+    code_list = []
+    while 6 > len(code_list):
+        code_list.append(random.choice(code_characters))
+        if 6 == len(code_list):
+            code = ''.join(code_list)
+    url_item = ShortUrl(url=url, code=code)
+    url_item.save()
+    return HttpResponseRedirect(reverse('short_url:index'))
+
+# create a view to redirect a user to a url associated with a short code
+def redirect(request):
+    code = request.POST['code']
+    url_items = ShortUrl.objects.all()
+    # url = url_items.code
+
+    ## START HERE
+        ## need to get this redirect working
+        ## need to display the codes and urls in a table
+    return HttpResponseRedirect(reverse('url'))
+
     

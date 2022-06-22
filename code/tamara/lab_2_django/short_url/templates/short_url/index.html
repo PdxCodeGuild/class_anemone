@@ -7,6 +7,22 @@
     <title>Short Url</title>
 </head>
 <body>
+    <header>
+        <h1>URL Shortener</h1> 
+    </header>
+    <main>
+        <form action="{% url 'short_url:code' %}" method="post">
+            {% csrf_token %}
+            <input type="url" name="url" placeholder="enter a url here">
+            <input type="submit" value="generate code">
+        </form>
+    
+        <form action="{% url 'short_url:redirect' %}" method="post">
+            {% csrf_token %}
+            <input type="code" name="code" placeholder="enter 6 digit code here">
+            <input type="submit" value="redirect me!">
+        </form>
+    </main>
     
 </body>
 </html>
