@@ -5,7 +5,7 @@ class Gitem(models.Model):
     item_num = models.IntegerField()
     cdate = models.DateField('date created')
     comdate = models.DateField(null=True, blank=True)
-    status = models.BooleanField()
+    cstatus = models.BooleanField()
 
     def __str__(self):
         return self.item_text + ' - ' + str(self.item_num)
