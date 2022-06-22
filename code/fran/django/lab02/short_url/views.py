@@ -36,12 +36,12 @@ def add(request):
 
 def redirect(request, code):
     url = get_object_or_404(ShortUrlCode, code=code)
-    try:
-        entered_code = url.get(code=request.POST['code'])
-    except (KeyError, ShortUrlCode.DoesNotExist):
-        return render(request, 'short_url/index.html', {
-            'code': code,
-            'error_message': "Code not found. Please enter a valid short URL code from the above list."
-        })
-    return HttpResponseRedirect(url)
+    # try:
+    #     entered_code = url.get(code=request.POST['code'])
+    # except (KeyError, ShortUrlCode.DoesNotExist):
+    #     return render(request, 'short_url/index.html', {
+    #         'code': code,
+    #         'error_message': "Code not found. Please enter a valid short URL code from the above list."
+    #     })
+    return HttpResponseRedirect(url.url)
 

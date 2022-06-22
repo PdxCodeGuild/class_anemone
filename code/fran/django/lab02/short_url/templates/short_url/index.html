@@ -28,8 +28,7 @@
         <h2>Short URL Codes</h2>
             <ul>
                 {% for item in url_info %}
-                    {% comment %} <p>{{ item.grocery_item_name }}</p> {% endcomment %}
-                    <li>Code: <strong>{{ item.code }}</strong></li>
+                    <li><a href="{% url 'short_url:redirect' item.code %}">{{ item.code }}</a></li>   
                     <li>({{ item.url }})</li>
                     <br>
                 {% endfor %}
@@ -43,11 +42,11 @@
     <br>
     <hr>
 
-    <form action="{% url 'short_url:redirect' code %}" method="post">
+    {% comment %} <form action="{% url 'short_url:redirect' code %}" method="post">
         {% csrf_token %}
             <legend><h2>Enter Code to go to a website:</h2></legend>
             <label for="code">Code</label>
             <input type="text" name="code" id="code"/><br>
             <input type="submit" value="Go!">
-    </form>
+    </form> {% endcomment %}
 </body>
