@@ -8,11 +8,12 @@ paw = Paw2()
 
 def index(request):
     urls = Urlshort.objects.order_by('num_clicked')
-    url_list = {
+    stupid = {
         'urls': urls
     }
-    print(Urlshort.objects.order_by('num_clicked'))
-    return render(request, 'urlshortener/index.html', url_list)
+    for x in Urlshort.objects.order_by('num_clicked'):
+        print(x.ourl, x.surl, x.num_clicked)
+    return render(request, 'urlshortener/index.html', stupid)
 
 def newurl(request):
     print(request.POST)
@@ -21,7 +22,7 @@ def newurl(request):
     Urlshort.objects.create(ourl=request.POST['ourl'], surl=nsurl)
     return HttpResponseRedirect(reverse('urlshortener:index'))
 
-def redirect(request, surl_id):
+def redirect(request):
     naddress = get_object_or_404(Urlshort, pk=request.POST[''])
 
 # Create your views here.

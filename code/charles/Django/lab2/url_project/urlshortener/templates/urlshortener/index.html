@@ -1,31 +1,24 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'groceries/style.css'%}">
-    <title>Url Shorts</title>
-</head>
+
+<link rel="stylesheet" href="{% static 'urlshortener/style.css'%}">
+   
 <body>
-    <p>    
-    
-        <table>
-            <tr>
-                <th>Short Url</th>
-                <th>Actual Url</th>
-                <th>Click Amount</th>
-            </tr>
-            {% for url in url_list %}
-            <tr>
-                <td>{{url.surl}}</td>
-                <td>{{url.ourl}}</td>
-                <td>{{url.num_clicked}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </p>
+    {%if stupid %}
+    <table>
+        <tr>
+            <th>Short Url</th>
+            <th>Actual Url</th>
+            <th>Click Amount</th>
+        </tr>
+        {% for urlshort in stupid %}
+        <tr>
+            <td>{{urlshort.surl}}
+            <td>{{urlshort.ourl}}
+            <td>{{urlshort.num_clicked}}
+        </tr>
+        {% endfor %}
+    </table>
+    {%endif%}
     <h1>New Short Url</h1>
     <form action="{% url 'urlshortener:newurl' %}" method='POST'>
         {% csrf_token %}
@@ -36,4 +29,3 @@
     
     <p>something</p>
 </body>
-</html>
