@@ -1,13 +1,16 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .models import Post
 
 class BlogListView(ListView):
     model = Post
     template_name = 'home.html'
+
+    # def get_queryset(self):
+    #     return Post.objects.order_by('-created')
 
 class BlogDetailView(DetailView):
     model = Post
@@ -22,12 +25,20 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-class BlogEditView(LoginRequiredMixin, UpdateView):
+class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'body']
 
-class BlogDeleteView(LoginRequiredMixin, DeleteView):
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
+class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('posts:home')
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
