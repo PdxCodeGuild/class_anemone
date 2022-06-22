@@ -4,7 +4,7 @@ class Gitem(models.Model):
     item_text = models.CharField(max_length=50)
     item_num = models.IntegerField()
     cdate = models.DateField('date created')
-    comdate = models.DateField('date to be completed')
+    comdate = models.DateField(null=True, blank=True)
     status = models.BooleanField()
 
     def __str__(self):
