@@ -5,34 +5,43 @@ header  {
     justify-content: center;
     background-color: rgb(160, 100, 73);
 }
+
 main {
     background-image: url('burrito.png');
     background-repeat: no-repeat;
 }
+
 main img {
     float: right;
 
 }
+
 nav {
     display: flex;
     justify-content: center;
     font-size: 30px;
 }
+
 nav p   {
     margin: 30px;
     
 }
+
 .id {
     font-size: 40px;
 
 }
 .account    {
-    font-size: 25px;
-    flex-wrap: wrap;
+    flex-wrap: flex;
+    width: 500px;
+    margin: 24px;
+    font-size: 18px;
 }
+
 a   {
     color: white;
 }
+
 main    {
     font-family: 'Times New Roman', Times, serif;
     background-image: url("");
@@ -44,30 +53,30 @@ main    {
     margin: 25px;
     
 }
-.account    {
-    width: 500px;
-    margin: 24px;
-   
-}
 
+h3 {
+    font-size: 25px;
+}
 
 .tortilla   {
     width: 200;
     margin: 24px;
     font-size: 20px;
-    height: 150px;
+    height: 100px;
 
 }
+
 .rice   {
     width: 250px;
-    height: 100px;
+    height: 60px;
     margin: 24px;
     font-size: 20px;
     flex-wrap: wrap;
 }
+
 .beans  {
     width: 250px;
-    height: 100px;
+    height: 65px;
     margin: 24px;
     font-size: 20px;
     flex-wrap: wrap;
@@ -79,6 +88,7 @@ main    {
     font-size: 20px;
     flex-wrap: wrap;
 }
+
 .addons {
     width: 200px;
     height: 117px;
@@ -87,13 +97,27 @@ main    {
     text-align: left;
 
 }
+
 .instructions {
     width: 150px;
     height: 115px;
     margin: 20px;
     font-size: 20px;
 }
+
 .h9 {
     font-size: 24px;
 
+}
+
+.buttons {
+    background-color: blue;
+    color: white;
+    border: 0;
+    padding: 0.5rem 0.7rem;
+    border-radius: 5px;
+}
+
+.line {
+    font-size: 18px;
 }
