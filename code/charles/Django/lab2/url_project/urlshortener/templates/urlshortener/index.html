@@ -1,20 +1,26 @@
 {% load static %}
-
-<link rel="stylesheet" href="{% static 'urlshortener/style.css'%}">
-   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'urlshortener/style.css'%}">
+    <title>UrlShortener</title>
+</head>   
 <body>
-    {%if stupid %}
+    {% if urls %}
     <table>
         <tr>
             <th>Short Url</th>
             <th>Actual Url</th>
             <th>Click Amount</th>
         </tr>
-        {% for urlshort in stupid %}
+        {% for url in urls %}
         <tr>
-            <td>{{urlshort.surl}}
-            <td>{{urlshort.ourl}}
-            <td>{{urlshort.num_clicked}}
+            <td>{{url.surl}}
+            <td><a href="{{url.ourl}}">{{url.ourl}}</a>
+            <td>{{url.num_clicked}}
         </tr>
         {% endfor %}
     </table>
@@ -23,9 +29,8 @@
     <form action="{% url 'urlshortener:newurl' %}" method='POST'>
         {% csrf_token %}
         <input type='text' name='ourl' id='ourl' placeholder='Orginal Url Here'><label for='ourl'>Orignal Url</label>
-        <input type='submit' value='Submit'>
+        <br><input type='submit' value='Submit'>
     </form>
-    
-    
-    <p>something</p>
+
 </body>
+</html>
