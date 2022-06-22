@@ -54,21 +54,21 @@
             <div class="order-form">
                 <a class="refresh" href="/">RESET FORM</a>
 
-                <h1>Ordenate un Burrito Cabron!</h1>
+                <h1>Ordenate un Burrito Amigo!</h1>
                 <hr>
                 {% for info in customer_info %}
                 <div class="form"><br>
                     <h1>{{info}}</h1>
                     <form action="" method="post">
                         {% if info == 'password' %}
-                    <input type="password" name = {{info}} value = {{info}} placeholder={{info}} required> 
+                    <input type="password" name = {{info}} placeholder={{info}} required> 
                         {% endif %}
                         {% if info != 'password' and info != 'delivery'%}
-                    <input type="text" name = {{info}} value = {{info}} placeholder={{info}} required> 
+                    <input type="text" name = {{info}} placeholder={{info}} required> 
         
                         {% endif %}
                         {% if info == 'delivery' %}
-                    <input type="text" name = {{info}} value = '{{info}} instructions here' placeholder='{{info}} instructions here' required> 
+                    <input type="text" name = {{info}}  placeholder='{{info}} instructions here' required> 
         
                         {% endif %}    
 
@@ -80,12 +80,14 @@
                     
 
                     {% if info == 'additional ingredients' %}
-                    <input  type="checkbox" name= {{key}} value = '1' checked >{{key}}  <br>            
+                    <input id={{key}} type="checkbox" name= {{key}} value = '1' >  
+                    <label for={{key}}>{{key}}</label><br>            
                     {% endif %}  
                     {% if info != 'additional ingredients' %}
                         
                          
-                    <input type="radio" selected name= {{info}} value = {{key}} required checked>{{key}}<br>
+                    <input type="radio" id={{key}} name= {{info}} value = {{key}} required>
+                    <label for={{key}}>{{key}}</label><br> 
                     {% endif %}    
                         
 
