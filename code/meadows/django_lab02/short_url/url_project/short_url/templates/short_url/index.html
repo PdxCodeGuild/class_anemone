@@ -1,0 +1,9 @@
+<a href="urlcreated" style="font-size: 25px; ">View Url</a>
+    <h1 align="center">URL Shortner</h1>
+    <form action="createurl" method="POST">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                <tr>
+                    <td><label>URL</label></td>
+                    <td><input type="text" name="url"></td>
