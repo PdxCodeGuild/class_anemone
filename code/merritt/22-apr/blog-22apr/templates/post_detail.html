@@ -10,4 +10,9 @@
         <p>{{ post.body|linebreaksbr }}</p>
     </div>
 
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'posts:edit' post.pk %}">+ Edit Blog Post</a></p>
+        <p><a href="{% url 'posts:delete' post.pk %}">+ Delete Blog Post</a></p>
+    {% endif %}
+
 {% endblock content %}
