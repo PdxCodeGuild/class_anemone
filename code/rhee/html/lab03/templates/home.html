@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article>
+          <div>
+            <div >
+                <h2><a class="blogs" href="#">{{ post.title }}</a></h2>    
+                <a class="author" href="mailto:info@info.eu">{{ post.author }}</a><small class="blog-date"> on: {{ post.date_posted }}</small>          
+            </div>
+            <p class="blog-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
