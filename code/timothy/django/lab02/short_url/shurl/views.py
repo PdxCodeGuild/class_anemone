@@ -22,5 +22,6 @@ def shortened(request):
         'short_url':short_url,
         'long_url':long_url,
     }
+    # return HttpResponseRedirect(reverse('shurl:index'), context)
     return render(request, 'shurl/shortened.html', context)
 

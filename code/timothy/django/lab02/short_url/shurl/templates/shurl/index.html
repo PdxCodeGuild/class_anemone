@@ -14,5 +14,8 @@
         <input type="url" name="long_url" id="long_url">
         <input type="submit" value="Shorten">
     </form>
+    {% if request.method == 'POST' %}
+        <h3><a href="{{ long_url }}">{{ short_url }}</a></h3>
+    {% endif %}
 </body>
 </html>
