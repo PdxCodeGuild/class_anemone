@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import ShortUrl
@@ -27,13 +27,7 @@ def code(request):
 
 # create a view to redirect a user to a url associated with a short code
 def redirect(request):
-    code = request.POST['code']
-    url_items = ShortUrl.objects.all()
-    # url = url_items.code
-
-    ## START HERE
-        ## need to get this redirect working
-        ## need to display the codes and urls in a table
-    return HttpResponseRedirect(reverse('url'))
+    url = get_object_or_404(ShortUrl, code=code)
+    return HttpResponseRedirect(url.url)
 
     

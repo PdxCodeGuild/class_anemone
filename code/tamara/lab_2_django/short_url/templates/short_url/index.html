@@ -11,6 +11,18 @@
         <h1>URL Shortener</h1> 
     </header>
     <main>
+        {% for item in url_items %}
+            <table>
+                <tr>
+                    <th>URL</th>
+                    <th>Short Code</th>
+                </tr>
+                <tr>
+                    <td>{{ item.url }}</td>
+                    <td>{{ item.code }}</td>
+                </tr>
+            </table>
+        {% endfor %}
         <form action="{% url 'short_url:code' %}" method="post">
             {% csrf_token %}
             <input type="url" name="url" placeholder="enter a url here">
