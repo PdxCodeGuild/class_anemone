@@ -7,15 +7,24 @@ from django.utils import timezone
 from .models import GroceryItem
 
 def index(request):
-    grocery_list= GroceryItem.objects.all()
+    grocery_list= GroceryItem.objects.all().order_by("-date_created")
+    completed = grocery_list.filter(status=True)
+    incomplete = grocery_list.filter(status=False)
     print("index",grocery_list)
     context = {
-        'grocery_list': grocery_list
+        'grocery_list': grocery_list,
+        'completed': completed,
+        'incomplete':incomplete
     }
     return render (request, 'grocery_list/index.html', context)
 
 def add(request):
     new_item = request.POST['new']
+    if new_item == '':
+        message= "please enter a valid input"
+        context={"message":message}
+        return HttpResponseRedirect (reverse("grocery_list:index"),context)
+    
     print("add",new_item)
     g = GroceryItem(desc=new_item,date_created = timezone.now(),status=False, date_fulfilled = None)
     g.save()

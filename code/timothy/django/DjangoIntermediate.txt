@@ -1,0 +1,108 @@
+Tuesday, 6/21/22
+
+            Django Intermediate Lesson
+
+Many to One Relationship (ForeignKey)
+    ex: lots of posts - one author
+
+class Post(models.Model):
+    title = models.Charfield(max_length=200)
+    author = models.ForeignKey('auth.User', related_name="posts", on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    body = models.Textfield()
+    def __str__(self):
+        return self.title
+    ***
+        CASCADE - if the user gets deleted, also delete the posts for that user
+        auto_now_add - automatically sets created date and time to the date and time of the post
+        auto_now - changes to current date/time anytime anything is changed
+        Textfield - allows users to type as much as they want
+    
+
+-------------------------------------------
+
+URL's can be done last, they will error without views or templates anyway.
+
+app_name = 'posts'
+
+urlpatterns = [
+    path('', views.BlogListView.as_view(), name='home'),
+    path('post/<int:pk>/', views.BlogDetailView.as_view(), name='detail'),
+]
+    ***
+        Pascal case for Class based views.
+
+-------------------------------------------
+
+Class Based Views - can utilize inheritance
+
+Delete render function import, there are django CRUDL views.
+
+from django.views.generic import ListView
+from .models import Post
+
+class BlogListView(ListView):
+    model = Post
+    template_name = 'home.html'
+    
+
+    ***
+        ListView takes a model/queryset/list from the database and render to a template, code is built-in, 
+        just needs variables for the model and template.
+
+        model = Post will simply list all the posts
+
+        If a view needs a lot of customizability/control, you may as well write your own function based view. 
+        Class based views are convenient. Nothing wrong with mixing and matching styles.
+
+class BlogDetailView(ListView):
+    model = Post
+    tempalte_name = 'post_detail.html'
+
+class BlogCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    template_name = 'post_new.html'
+    fields = ['title', 'body']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+--------------------------------------------
+
+You can put your templates folder outside of the app folder. In  settings.py APP_DIRS: True makes templates in the app folder work.
+
+If you have a global templates folder:
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+[BASE_DIR / 'templates']
+
+templates ->
+-base.html
+-home.html
+
+-------------------------------------------
+
+You can also have a global static css folder. If you need modular encapsulation a global css folder is not ideal.
+
+STATICFILES_DIRS = [BASE_DIR / 'static'] needs to be added to settings.
+
+{% laod static %}
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+-------------------------------------------
+
+auth_user
+
+in settings
+LOGIN_REIDIRECT_URL = 'posts:home'
+LOGOUT_REIDIRECT_URL = 'posts:home'
+
+LOGIN_URL = 'login'
+
+-------------------------------------------
+
+

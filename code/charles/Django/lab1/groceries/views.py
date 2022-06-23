@@ -5,21 +5,23 @@ from .models import Gitem
 import datetime
 
 def index(request):
-    recent_item = Gitem.objects.order_by('status','comdate')
+    nitem = Gitem.objects.filter(cstatus=False).order_by('cstatus','comdate')
+    citem = Gitem.objects.filter(cstatus=True).order_by('cstatus','comdate')
     context = {
-        'recent_item':recent_item
+        'nitem':nitem,
+        'citem':citem
     }
     return render(request, 'groceries/index.html', context)
 
 
 def createitem(request):
     if request.method == 'POST':
-        newitem = Gitem.objects.create(item_text = request.POST['item_text'], item_num = request.POST['item_num'], cdate= datetime.datetime.now(), comdate= request.POST['comdate'], status= False)
+        newitem = Gitem.objects.create(item_text = request.POST['item_text'], item_num = request.POST['item_num'], cdate= datetime.datetime.now(), comdate= request.POST['comdate'], cstatus= False)
         return HttpResponseRedirect(reverse('groceries:index'))
 
 
 def delete(request):
-    recent_item = Gitem.objects.order_by('status','comdate')
+    recent_item = Gitem.objects.order_by('cstatus','comdate')
     context = {
         'recent_item':recent_item
     }
@@ -36,7 +38,7 @@ def deleteitem(request):
             return HttpResponseRedirect(reverse('groceries:delete'))
 
 def status(request):
-    recent_item = Gitem.objects.order_by('status','comdate')
+    recent_item = Gitem.objects.order_by('cstatus','comdate')
     context = {
         'recent_item':recent_item
     }
@@ -48,15 +50,15 @@ def statusupdate(request):
     if request.method == 'POST':
         for item in request.POST:
             d = get_object_or_404(Gitem, pk=request.POST['check'])
-            print(d.status)
-            if d.status == False:
-                d.status = True
+            print(d.cstatus)
+            if d.cstatus == False:
+                d.cstatus = True
                 d.save()
-                print(d.status)
-            elif d.status == True:
-                d.status = False
+                print(d.cstatus)
+            elif d.cstatus == True:
+                d.cstatus = False
                 d.save()
-                print(d.status)
+                print(d.cstatus)
                 
             return HttpResponseRedirect(reverse('groceries:status'))
 
