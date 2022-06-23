@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    {% if title %}
+        <title>RV Life - {{ title }}</title>
+    {% else %}
+        <title>RV Life</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <img class="rv"src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmrtruck.com%2Fwp-content%2Fuploads%2F2019%2F01%2F19ramhdc.jpg&f=1&nofb=1" alt="">
+      <h1 class="heading" href="/">Traveling the roads.</h1>
+      <nav class="navbar">
+        <div class="logo"> 
+              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/about">About</a>
+              <a class="nav-link" href="/pictures">Pictures</a>
+              <a class="nav-link" href="/">Register</a>              
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div>
+        <div>
+          {% block content %}{% endblock %}
+        </div>
+        <div>
+          <div class='sidenav'>
+            <h3>For more infomation click on the links.</h3>
+            <p>
+              <ul class="list-group">
+                <li class="lists"><a href="#">Latest Posts</a></li>
+                <li class="lists"><a href="#">Announcements</a></li>
+                <li class="lists"><a href="#">Calendars</a></li>
+                <li class="lists"><a href="#">etc</a></li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+</body>
+</html>
