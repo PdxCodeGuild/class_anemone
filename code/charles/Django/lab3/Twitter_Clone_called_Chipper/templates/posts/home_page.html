@@ -1,0 +1,26 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <form action='' method='post'>
+                <input type='text' maxlength='128' id='newpost' name='newpost' placeholder="What's happening?">
+            </form>
+        </tr>
+    {% for post in posts%}
+        <tr>
+            {%post.title%}<br>
+            {%post.author%}, &nbsp; {%post.created%}<br>
+            {%post.body%}
+        </tr>
+    {%endif%}
+    </tabel>
+</body>
+</html>
