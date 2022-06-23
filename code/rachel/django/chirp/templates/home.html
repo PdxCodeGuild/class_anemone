@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% for post in object_list %}
+    <p><em><a href="{% url 'users:profile' post.author.username %}">{{post.author.username}}</a></em></p>
+    <p>{{post.body}}</p>
+{% endfor %}
+
