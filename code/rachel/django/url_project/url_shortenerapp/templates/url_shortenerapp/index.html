@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <h1>URL Shortener</h1>
+        <h1 >URL Shortener</h1>
     </header>
     <main>
         <form action="{% url 'url_shortener:index'%}" method="post">
@@ -24,10 +24,14 @@
             <input type='text' name='longurl' id='longurl'>
             <button type='submit'>Shorten</button>
         </form>
-        <!-- <a target='_blank'> -->
+        <h2>URLs:</h2><br>
+        {% for item in url_list %}
+        <p>Long URL:</p><br>
+        <p>{{item.long_url}}</p>
+        <p>Short URL:</p><br>
+        <p><a href="{% url 'url_shortener:redirect' item.short_url%}" target='_blank'>{{item.short_url}}</a></p>
+        <hr>
+        {% endfor %}
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>
