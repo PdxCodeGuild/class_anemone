@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'short_url/styles.css'%}">
+    <title>Short Url Generator</title>
+</head>
+<body>
+<h1>Lets Shorten THAT LINK!</h1>
+<div class='pad'>
+    <form action="{% url 'short_url:urlsnip' %}" method='POST'>
+        {% csrf_token %}
+        <input type='text' name='long_url' placeholder='Enter URL' size='30em'>
+        <input type='submit' value='MEOW'>
+    </form>
+<ul>
+    {%for urls in url%}
+    <p>{{ urls.long_url }}</p>
+        <li><a target="_blank" href="http://localhost:8000/{{ urls.small_url }}">http://localhost:8000/{{ urls.small_url }}</a></li><br></br>
+    {% endfor %}
+</ul>
+</div>
+</body>
