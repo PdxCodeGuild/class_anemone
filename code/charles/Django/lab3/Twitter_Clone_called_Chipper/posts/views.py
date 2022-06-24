@@ -1,15 +1,18 @@
-from django.shortcuts import render, get_list_or_404
-from django.urls import reverse
+from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from .models import Posts
 
 
-def home_page(request):
-    post= Posts.objects.order_by('-created')
-    context = {
-        'post':post
-    }
-    return render(request, 'home_page.html', context)
+class HomePageListView(ListView):
+    model = Posts
+    template_name = "home_page.html"
+        
+    def get_queryset(self):
+        return Posts.objects.order_by('-created')
+
+
+def newpost(request, user.id):
+  
 
 
 # Create your views here.
