@@ -5,14 +5,14 @@ from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
-class SignUpPage(CreateView):
-    form = UserCreationForm
-    view_name = 'signup.html'
+class CreateAccountPage(CreateView):
+    form_class = UserCreationForm
+    template_name = 'create_account.html'
     success_url = reverse_lazy('login')
 
 class ProfilePage(DetailView):
     model = User
-    view_name = 'profile.html'
+    template_name = 'profile.html'
     context_object_name = 'profile'
 
     def get_object(self):

@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<h1>New Chirp</h1>
+<h1>Create Account</h1>
 <form action="" method="post">
     {%csrf_token%}
     {{form.as_p}}
-    <button type="submit">Post</button>
+    <button type="submit">Create Account</button>
 </form>
 
 {% endblock content %}
