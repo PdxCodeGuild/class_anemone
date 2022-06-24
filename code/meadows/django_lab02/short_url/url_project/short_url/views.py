@@ -3,19 +3,39 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from string import ascii_letters, digits
+from django.utils import timezone
 import random
 
 from .models import ShortUrl
 
 def index(request):
-    return render(request,'short_url/index.html')
+    url = ShortUrl.objects.all()
+    context = {
+        'url':url
+    }
+    return render(request,'short_url/index.html', context)
 
-def createurl(request):
-    short = ShortUrl()
+def redirect(request, code):
+    try:
+        urls = ShortUrl.objects.all()
+        for url in urls:
+            if url.small_url == code:
+                new_address = url.long_url             
+    except: 
+        return HttpResponseRedirect(reverse('short_url:index'))
+    else:
+        return HttpResponseRedirect(new_address)
+
+def urlsnip(request):
     if request.method == 'POST':
-        short.small_url = ''.join(random.choice(ascii_letters+digits) for x in range(8))
-        short.long_url = request.POST["long_url"]
-        new_url = ShortUrl(long_url=short.long_url, small_url=short.small_url)
-        new_url.save()
+        new = ShortUrl()
+        new.long_url = request.POST['long_url']
+        new.snipped()
+        new.save()
+        context = {
+            'new':new,
+            'url':ShortUrl.objects.all()
+        }
+        return render(request, 'short_url/index.html', context)
 
-        return HttpResponseRedirect(request, 'short_url:index.html', {'short':short})
+# .order_by('-pub_date')[:1]

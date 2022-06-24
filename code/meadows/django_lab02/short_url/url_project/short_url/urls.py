@@ -6,6 +6,6 @@ app_name = "short_url"
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<str:createurl>/', views.createurl, name='createurl'),
-    path('<str:newurl>/', views.newurl, name='newurl')
+    path('urlsnip/', views.urlsnip, name='urlsnip'),
+    path('<str:code>/', views.redirect, name='redirect'),
 ]
