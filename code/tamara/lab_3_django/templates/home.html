@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+    {% for chirp in object_list %} 
+        <div class="chirp-entry">
+            <h2><a href="{% url 'posts:detail' post.pk %}">{{ chirp.username.username }}</h2>
+            <p>{{ post.body|linebreaksbr</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
