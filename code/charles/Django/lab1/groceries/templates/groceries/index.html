@@ -10,7 +10,7 @@
         <input type='submit' value='Update Status'>
     </form>
     
-    {% if recent_item %}
+    {% if nitem %}
         <table>
             <tr>
                 <th>Item Name</th>
@@ -19,16 +19,37 @@
                 <th>Complete Date</th>
                 <th>Completed Status</th>
             </tr>
-            {% for gitem in recent_item %}
+            {% for gitem in nitem %}
             <tr>
                 <td>{{gitem.item_text}}
                 <td>{{gitem.item_num}}
                 <td>{{gitem.cdate}}
                 <td>{{gitem.comdate}}
-                <td>{{gitem.status}}
+                <td>{{gitem.cstatus}}
                 </tr>
             {% endfor %}
             </table>
+    {% else %}
+        <p>No items available.</p>
+    {%endif%}
+    {%if citem%}        <table>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Quantity</th>
+                    <th>Created Date</th>
+                    <th>Complete Date</th>
+                    <th>Completed Status</th>
+                </tr>
+                {% for gitem in citem %}
+                <tr>
+                    <td>{{gitem.item_text}}
+                    <td>{{gitem.item_num}}
+                    <td>{{gitem.cdate}}
+                    <td>{{gitem.comdate}}
+                    <td>{{gitem.cstatus}}
+                    </tr>
+                {% endfor %}
+                </table>
     {% else %}
         <p>No items available.</p>
     {%endif%}
@@ -36,9 +57,9 @@
         <div class='newitem'>
                 {% csrf_token %}
                 <h1>New item</h1>
-                <label for="gitem_text">Item Name</label><input type="text" name="item_text" id="item_text" value=""><br>
+                <label for="gitem_text">Item Name</label><input type="text" name="item_text" id="item_text" value="" required='required'><br>
                 <label for="item_num">Item number</label><input type="text" name="item_num" id="item_num" value=""><br>
-                <label for="comdate">Completion Date</label><input type="date" name="comdate" id="comdate"><br>
+                <label for="comdate">Completion Date</label><input type="date" name="comdate" id="comdate" required='required'><br>
                 <input type="submit" value="create">
         </div>
             </form> 
