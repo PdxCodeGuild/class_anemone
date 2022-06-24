@@ -10,3 +10,5 @@ urlpatterns = [
     path('complete/<int:pk>/', views.complete, name='complete'),
     path('delete/<int:pk>/', views.delete, name='delete'),
 ]
+
+
