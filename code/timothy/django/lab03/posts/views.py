@@ -21,8 +21,12 @@ class DetailChirp(DetailView):
     model = Post 
     template_name = 'chirp_detail.html'
 
-class DeleteChirp(DeleteView):
+class DeleteChirp(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'delete_chirp.html'
     success_url = reverse_lazy('posts:home')
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
 
