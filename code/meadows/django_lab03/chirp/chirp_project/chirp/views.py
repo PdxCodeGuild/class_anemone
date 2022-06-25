@@ -1,5 +1,7 @@
 import re
 from django.shortcuts import render
+from django.contrib.auth.models import User, auth
+from django.http import HttpResponse
 from .models import Post
 
 def index(request):
@@ -9,4 +11,11 @@ def index(request):
     }
     return render(request, 'chirp/index.html', context)
 
-# def create(request):
+def signup(request):
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+    else:
+        return render(request, 'chirp/signup.html')
