@@ -6,5 +6,10 @@ from .models import Post
 
 class ListChirps(ListView):
     model = Post
-    template_name: 'base.html'
+    template_name = 'home.html'
+
+class CreateChirp(CreateView):
+    model = Post
+    template_name = 'create.html'
+    fields = ['body']
 

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  
+    
+    <div class="chirps">
+    {% for post in object_list %}
+        <div class="post">
+            <h4> {{ post.author }} - {{ post.created }}</h4>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock content %}

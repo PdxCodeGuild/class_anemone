@@ -9,9 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"> 
-    
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-    
+    <section class="container">
+        <header>
+            <div class="navi-left">
+                <h1>Chirp</h1>
+                <h3>Think before you speak.</h3>
+            </div>
+            <div class="navi-right">
+                <p><a href="{% url 'posts:create' %}">Create Chirp</a></p>
+            </div>
+        </header>
+
+        <main class="post">
+            {% block content %}
+            {% endblock content %}
+        </main>
+    </section>
 </body>
 </html>
