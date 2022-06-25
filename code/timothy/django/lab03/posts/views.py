@@ -13,3 +13,16 @@ class CreateChirp(CreateView):
     template_name = 'create.html'
     fields = ['body']
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class DetailChirp(DetailView):
+    model = Post 
+    template_name = 'chirp_detail.html'
+
+class DeleteChirp(DeleteView):
+    model = Post
+    template_name = 'delete_chirp.html'
+    success_url = reverse_lazy('posts:home')
+

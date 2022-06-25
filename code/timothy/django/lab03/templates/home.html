@@ -4,10 +4,10 @@
 
   
     
-    <div class="chirps">
+    <div>
     {% for post in object_list %}
         <div class="post">
-            <h4> {{ post.author }} - {{ post.created }}</h4>
+            <h4><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a> - <a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></h4>
             <p>{{ post.body }}</p>
         </div>
     {% endfor %}
