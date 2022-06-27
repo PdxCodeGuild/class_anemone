@@ -10,9 +10,12 @@
 <body>
     <header>
         <div class="nav_left">
-            <h1><a href="{% url 'post:home' %}">Witter!</a></h1>
+            <h1><a href="{% url 'witter_app:home' %}">Witter!</a></h1>
         </div>
         <div class="nav-right"></div>
+            <p>Hello {{ user.username }} </p>
+            <p><a href =" {% url 'logout' %}"> Click here to Logout! </a></p>
+            <p><a href= "{% url 'witter_app:create' %}">Create a post! </a></p>
 
     </header>
     <div class="container">
