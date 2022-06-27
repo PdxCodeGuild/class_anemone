@@ -3,7 +3,7 @@
 {% block content %}
     {% for twiddle in object_list %}
     <div class="twiddle">
-        <h2><a href="{% url 'posts:detail' twiddle.pk %}">{{ post.title }}</a></h2>
+        <h2><a href="{% url 'posts:detail' twiddle.pk %}">{{ twiddle.twidd }}</a></h2>
         <h4><em><a href="{% url 'users:profile' twiddle.twiddler.username %}">{{ twiddle.twiddler.username }}</a></em></h4>
         <p>{{ twiddle.twiddle|linebreaksbr }}</p>
     </div>

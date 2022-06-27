@@ -8,7 +8,7 @@ class Twiddle(models.Model):
     twiddler = models.ForeignKey('auth.User',max_length=200, related_name="twiddles",on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    twiddle = models.TextField(max_length=10000)
+    twiddle = models.TextField(max_length=50)
     
     def __str__(self):
         return self.twidd

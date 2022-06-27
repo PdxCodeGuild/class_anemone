@@ -1,0 +1,62 @@
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 18px;
+    background-color: #c99449;
+    color: whitesmoke;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+    font-family: 'EB Garamond', serif;
+    }
+    
+    header {
+    border-bottom: 1px solid #999;
+    margin-bottom: 2rem;
+    display: flex;
+    }
+    
+    header h1 a {
+    color: #0f4c81;
+    text-decoration: none;
+    }
+    
+    .navbar-up-l {
+    margin-right: auto;
+    }
+    
+    .navbar-up-r {
+    display: flex;
+    padding-top: 2rem;
+    }
+    
+    .navbar-up-r p {
+    margin-left: .25rem;
+    margin-right: .25rem;
+    }
+    
+    .twiddle {
+    margin-bottom: 2rem;
+    }
+    
+    .twiddle h2 {
+    margin: 0.5rem 0;
+    }
+    
+    .twiddle h2 a, .twiddle h2 a:visited {
+    color: #92A8D1;
+    text-decoration: none;
+    }
+    
+    .twiddle h5, .twiddle h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    }
+    
+    .twiddle p {
+    margin: 0;
+    font-weight: 400;
+    }
+    
+    .twiddle h2 a:hover {
+    color: #0f4c81;
+    }
