@@ -1,0 +1,726 @@
+Notes on JS
+
+3 Ways to declare variables
+    -var (grand scope)
+    -let (limited scope, will stay inside code block, no value outside code block)
+    -const (cannot change value)
+
+                if (2 < 10) {
+                    var x = 10 // scope extends beyond the if
+                    let y = 11 // scope is limited to the if
+                }
+                console.log(x) // 10
+                console.log(y) // error
+
+Only 7 datatypes:
+    -number (int and float, does not matter)
+    -string
+    -boolean
+    -null
+    -undefined
+    -array
+    -object
+
+Conversion, really only for str to int, or vice versa.
+    -parseInt
+    -parseFloat
+    -toString
+
+                let x = parseInt('4')
+                let y = parseFloat('4.2')
+                let z = x.toString()
+
+Comments
+    -// for line Comments
+
+Input
+    -prompt is a lot like input() in python but it's more for testing.
+
+                let name = prompt("Please enter your name")
+                alert("Hello " + name + "! How are you today?")
+
+    -input elements (like a form) are more common for grabbing input from real users.
+
+                <input id="name_input" type="text"/>
+                <script>
+                    let name_input = document.querySelector('#name_input')
+                    let name_value = name_input.value
+                    alert(name_value)
+                </script>
+
+Output
+    -alert (shows the user text in the form of a popup.)
+    -console.log (will print the parameter in the developer console (F12))
+    -document.write (will replace all existing HTML on the page with whatever you give it (which can be a string containing HTML))
+
+Errors
+    - Check the console in the developer tools.
+
+Example 1
+
+    let name = prompt("What's your name?")
+    alert("Hello, " + name + "!")
+    
+    - name used to mean something so it'll say it's deprecated but that's not really an issue
+
+    let name
+    alert(name)
+
+    - sometimes useful to let a variable be undefind first.
+
+    const name = promt("What's your name?")
+    alert("Hello, " + name + "!")
+    name = "javascript"
+    alert(name)
+
+    - ERROR, const is readonly (which is NOT EXACTLY like being immutable)
+
+    let num1 = prompt("give me a number: ")
+    num1 = promt("give me a new number: ")
+
+    let num1 = prompt("give me a number: ")
+    let num2 = prompt("give me another number: ")
+    alert(num1 + num2)
+
+    - Like in python, inputs will start as strings. Trying to add them will just concatenate. num1num2
+
+    let num1 = prompt("give me a number: ")
+    let num2 = prompt("give me another number: ")
+    alert(parseFloat(num1) + parseFloat(num2)
+
+    - num1 + num2 valid math
+
+    let num1 = prompt("give me a number: ")
+    let num2 = prompt("give me another number: ")
+    alert(parseFloat(num1) + num2)
+
+    - javascript will try and make things work, so if you try to add an int and a string, it will treat them both as a string. num1num2
+
+    num1 = parseFloat(num1)
+    alert(num1.toString)
+
+    - convert to float and back to string.
+
+---NUMBERS---
+
+-There is no special int type. Numbers are numbers.
+
+                let x = 1
+                let y = 1.5
+                let z = 1.23e-3
+                (all just numbers)
+
+- The basics are pretty self explanitary:
+
+                5 + 1 // 6
+                5 - 1 // 4
+                2 * 3 // 6
+                3 / 2 // 1.5
+                2 % 3 // 2
+
+- There are some basic operations as well:
+
+                let a = 1
+                a += 3  // a = a + 3
+                a -= 2  // a = a - 2
+                a *= 5  // a = a * 5
+                a /= 10 // a = a / 10
+                a++     // a = a + 1, a += 1
+                ++a     // a = a + 1, a += 1
+                a--     // a = a - 1, a -= 1
+                --a     // a = a - 1, a -= 1
+
+- Math is a built in object.
+
+                Math.abs(-4)    // 4 - absolute value
+                Math.sqrt(16)   // 4.0 - square root
+                Math.min(5, 6)  // 5 - the smaller of the two
+                Math.max(5, 6)  // 6 - the larger of the two
+                Math.floor(4.5) // 4 - always round down
+                Math.ceil(4.5)  // 5 - always rounds up
+                Math.round(4.5) // 5 - round to the nearest integer
+                ***Math.random()   // get a random number between 0 and 1, but not including 1
+                Math.pow(5, 2)  // 25 - exponentiation
+                Math.PI         // 3.1415... pi
+                Math.sin(0)     // 0.0 - sine operator
+                Math.cos(0)     // 1.0 - cosine operator
+
+*** Random needs your help to work:
+
+                console.log(Math.random()) // random number between 0 and 1
+                console.log(Math.random()*20) // random number between 0 and 20
+                console.log(20 + Math.random()*20) // random number between 20 and 40
+                console.log(Math.floor(20 + Math.random()*20)) // random *integer* between 20 and 40
+                let letters = ['a', 'b', 'c']
+                console.log(letters[Math.floor(Math.random()*letters.length)]) // random element
+
+                function randint(a, b) {
+                    return Math.floor(a + Math.random()*(b-a+1))
+                }
+
+                function randomChoice(arr) {
+                    let i = randint(0, arr.length-1)
+                    return arr[i]
+                }
+
+                let x = randint(1, 10) // a random number between 1 and 10
+                console.log(x)
+
+                let fruits = ['apples', 'bananas', 'pears']
+                console.log(randomChoice(fruits)) // get a random element out of an array
+
+---STRINGS---
+
+- single or double quotes are fine, like python
+
+- Escape characters work largely the same as well:
+
+
+                \n 	newline
+                \t 	tab
+                \' 	single-quote
+                \" 	double-quote
+                \\ 	backslash
+                \0 	begins an octal character
+                \x 	begins a hexidecimal character
+                \u 	begins a unicode character (e.g. \u2665 is ♥)
+
+-Template Literals allow us to more easily inject variables into strings. Template Literals are defined via back-ticks `. 
+
+                function getFullName(title, fname, lname, degree) {
+                    return `${title} ${fname} ${lname}, ${degree}`
+                }
+                // returns 'Rear Admiral Grace Hopper, PhD'
+                getFullName('Rear Admiral', 'Grace', 'Hopper', 'PhD')
+
+- A backslash followed by a newline in a string literal will continue that string.
+
+                let s = 'this is a really long\
+                string, so long that we had to\
+                write it on multiple lines'
+
+ - You may also use a template literal to get a multi-line string, which will contain new-line characters.
+
+                let s = `this is a really long
+                string, so long that we had to
+                write it on multiple lines`
+
+- String Methods
+    - whereas python had methods and functions for strings, javascript is only methods
+
+    Examples:
+    https://github.com/PdxCodeGuild/class_anemone/blob/main/4%20JavaScript/docs/05%20-%20Strings.md
+    
+---BOOLEANS---
+
+-Lowercase true and false, unlike python
+
+-Typical comparison operaters, except no "is":
+
+
+    == equal-to, may coerce types
+    === equal-to, does not coerce types
+    != not-equal, may coerce types
+    !== not-equal, does not coerce types
+    < less-than
+    <= less-than-or-equal-to
+    > greater-than
+    >= greater-than-or-equal-to
+
+-Type coercion: If the two operands of == aren't of the same type, 
+the JavaScript interpreter will try to convert them to the same type 
+so they can be compared. This may result in unexpected behavior. In practice, 
+it's better to use === which will only be true if both operands are of the same type and value.
+
+== tests whether something CAN BE MADE into something else. 
+
+                    console.log(5 == '5') // true (Not checking if they ARE equal but if they COULD be equal.)
+                    console.log(5 == 5) // true
+                    console.log(5 === '5') // false
+                    console.log(5 === 5) // true
+
+MERRITT "Don't user == or !=, use === or !=="
+
+-Bool operators
+
+&& (and)
+
+|| (or)
+
+! (not)
+
+Otherwise works like normal:
+
+                let x = 5
+                if (x > 0 && x < 10) {
+                    console.log('x is between 5 and 10')
+                }
+
+                if (x == 5 || x == 6) {
+                    console.log('x is 5 or 6')
+                }
+
+                let y = false
+                if (!y) {
+                    console.log('y is false')
+                }
+
+-Conditonals require parantheses and curly braces:
+
+                let temperature = 56
+                if (x < 60) {
+                    alert('cold')
+                } else if (x < 80) { (NOTICE how it's not 'elif', it's 'else if')
+                    alert('warm')
+                } else {
+                    alert('hot')
+                }
+
+Javascript does NOT utilize syntactical whitespace. Whitespace (like indents) does not matter to the computer.
+It DOES matter to you and whoever is reading your code.
+This is why it's on YOU to make your code readable with indents and whitespace.
+
+- Truthy Falsey works just like in python
+
+-Ternary Operator lets you perform if-else statemments on one line:
+
+                function min(a, b) {
+                    return (a < b)? a: b
+                }
+
+---Array---
+
+When you hear Array, think List
+No sets, no tuples, just Arrays
+
+let nums = [2, 1, 3]
+
+let fruits = ['apple', 'banana']
+
+console.log(fruits.length) // 2
+
+Array Operations:
+
+    https://github.com/PdxCodeGuild/class_anemone/blob/main/4%20JavaScript/docs/08%20-%20Arrays.md
+
+python = .append
+javasvript = .push
+
+python = .pop (can remove item from anywhere in the list and returns it)
+javascript .pop (only ever pops off the last item in a list and returns it)
+
+array.splice(index, to_remove, to_add)
+
+                let fruits = ['apples', 'bananas', 'pears', 'plums']
+                console.log(fruits.splice(1, 2)) // ['bananas', 'pears']
+                console.log(fruits) // ['apples', 'plums']
+                console.log(fruits.splice(1, 0, 'cherries')) // []
+                console.log(fruits) // ['apples', 'cherries', 'plums']
+
+.sort() by default will sort alphabetically, however when it comes to numbers it will sort by character
+this can lead to:
+
+                let nums = [20, 10, 102]
+                nums.sort()
+                console.log(nums) // [10, 102, 20]
+
+for .sort() to sort numbers correctly, you have to give it a function to tell it how to sort:
+
+                let nums = [20, 10, 102]
+                nums.sort(function(a, b) {
+                if (a < b) {
+                    return -1
+                } else if (a > b) {
+                    return 1
+                } else {
+                    return 0
+                }
+                })
+                console.log(nums) // [10, 20, 102]
+
+---LOOPS---
+
+Loops do work differently in Javascript.
+
+While-Loops will run while a condition is true:
+
+            let i = 0
+            while (i < 5) {
+                console.log(i)
+                i++
+            }
+
+                0 1 2 3 4
+
+            let invalidInput = true;
+            while (invalidInput) {
+                answer = prompt("Pick a number from one to ten");
+                if (answer >= 1 && answer <= 10) {
+                    invalidInput = false;
+                }
+            }
+
+            let i = 0
+            while (i < 5) {
+                console.log(i)
+                i+=2
+            }
+
+                0 2 4
+
+For-Loops in javascript are more 'classical' code style, using semicolons:
+
+            for (let i=0; i < 5; i++) {
+                console.log(i)
+            }
+
+                0 1 2 3 4
+
+            fruits = ['apples', 'bananas', 'cherries', 'plums']
+
+            for (let i=0; i < frits.length; i++) {
+                console.log(fruits[i])
+            }
+
+                apples bananas cherries plums
+
+To iterate over an object:
+
+            let fruits = {
+                'apples': 1.0,
+                'bananas': 1.5,
+                'plums': 1.25
+            }
+            // iterate over the keys/properties of an object
+            for (key in fruits) {
+                console.log(key + ' ' + fruits[key])
+            }
+            // apples 1
+            // bananas 1.5
+            // plums 1.25
+
+ For in
+
+            let fruits = {
+                'apples': 1.0,
+                'bananas': 1.5,
+                'plums': 1.25
+            }
+
+            for (let key in fruits) {
+                console.log(key, fruits[key])
+            }
+
+For of 
+
+            let fruits = {
+                'apples': 1.0,
+                'bananas': 1.5,
+                'plums': 1.25
+            }
+
+            for (let fruit for fruits) {
+                console.log(fruit)
+            }
+
+For each
+
+            let fruits = ['apple', 'banana', 'cherry'];
+
+            fruits.forEach(function(fruit) {
+                console.log(fruit);
+            });
+
+---OBJECTS---
+
+dicts, modules, classes, object instances = Objects
+anything that uses names as an attribute is an object 
+
+            let contact = {
+                first_name: 'Jane',
+                last_name: 'Doe',
+                age: 34
+            }
+            console.log(contact.first_name) // Jane
+
+Objects can be used like dictionaries, but have attributes (variable names) instead of keys (strings). 
+You can, however, use quotes around an attribute name like you would with strings. 
+This can allow you to use letters in keys that wouldn't ordinarily be possible, like leading numbers and hyphens.
+
+            let contact = {
+                name: 'Jane',
+                '0': 'use a number as a key',
+                'third-key': 'or use a hyphen'
+            }
+            console.log(contact.name) // Jane ('how the javascript devs do it')
+            console.log(contact['name']) // Jane ('how the python devs like to do it, both valid')
+            console.log(contact['0']) // use a number as a key
+            console.log(contact['third-key']) // or use a hyphen
+
+            let library_user = {
+                first_name: 'Jane',
+                last_name: 'Smith',
+                age: 20,
+                books: [{
+                    title: 'A Wrinkle in Time',
+                    author: 'Madeleine L\'Engle',
+                    published: 1962
+                },{
+                    title: 'The Giving Tree',
+                    author: 'Shel Silverstein',
+                    published: 1964
+                }]
+            };
+            console.log(library_user.first_name); // Jane
+            library_user['first_name']
+            console.log(library_user.books[0].title); // A Wrinkle in Time (again, this is how javascript devs would do it)
+            library_user['books'][0]['title]
+
+
+            let results = []
+            for (let i = 0; i < library_user.books.length; i++)
+                if (library_user.books[i].author === 'Madeleine L\'Engle') {
+                    results.push(library_user.books[i])
+                } 
+            alert(results)
+
+            (in a pop up) [object Object]
+
+            console.log(results) [{title: 'A Wrinkle in Time', author: 'Madeleine L'Engle", published: '1962'}]
+
+---FUNCTIONS---
+
+The MOST different from python
+Used more often and in more complicated situations in JS, function purity is important
+
+-Defining functions
+
+    -Declare:
+
+            function add(a, b) {
+                return a + b
+            }
+            console.log(add(5, 2))
+
+    You can assign an anonymous function (a function with no name that you can put in as an expression)
+
+            var add = function(a, b) {
+                return a + b
+            }
+            console.log(add(5, 2))
+
+    you can either save it to a variable, or pass it into something. It's common to pass an anonymous function into another function:
+
+            let fruits = ['apple', 'banana', 'cherry'];
+
+            fruits.forEach(function(fruit) {
+                console.log(fruit);
+            });
+
+    It doesnt need a name because we never call it:
+
+            let nums = [20, 10, 102]
+            nums.sort(function(a, b) {
+            if (a < b) {
+                return -1
+            } else if (a > b) {
+                return 1
+            } else {
+                return 0
+            }
+            })
+            console.log(nums) // [10, 20, 102]
+
+    You can add default arguments, basically everything is just positional parameters. 
+
+            function add(a, b=1) {
+                return a + b
+            }
+            add(5, 2) // 7
+            add(5) // 6
+
+    There is an exception to the rule that you have to define something before you can use it,
+    Hoisting - When a function is declared, it's automatically "hoisted" to the topp of the script when the script is run,
+        so it can be called before it's declared: JAVASCRIPT EXCLUSIVE, so don't rely on this for best practice.
+
+            // ok
+            console.log(add(5, 2))
+            function add(a, b) {
+                return a + b
+            }
+
+            // crashes
+            console.log(add(5, 2))
+            var add = function(a, b) {
+                return a + b
+            }
+
+A bit about Scope (customary to use camelCase for functions in javaScript)
+
+            function myFunc(a,b) { (it's automatically inserting let a = and let b =)
+                console.log(a)
+                console.log(b)
+            }
+
+            myFunc(1,2)
+
+                1 2
+
+            myFunc(1,2)
+
+            console.log(a)
+            console.log(b) (outside of the function these don't exist)
+---------------
+            function myFunc(a,b) { (it's automatically inserting let a = and let b =)
+                console.log(a)
+                console.log(b)
+                let x = 1
+                let y = 1
+            }
+
+            myFunc(1,2)
+
+            console.log(x)
+            console.log(y) (they still don't exist)
+---------------
+            let x = 10
+            let y = 10
+            function(myFunc(a,b) {
+                x=1
+                y=1
+                console.log(x)
+                console.log(y)
+            }
+
+            myFunc(1,2)
+
+            console.log(x)
+            console.log(y)
+
+                1 1 (because there's no let x = in the func, it's going to treat x & y as global variables, so it changes the top)
+
+            (if there's a let then you are creating a new version of x, if there's no let then it assumes you mean global x and change it.)
+            (so remember, in function myFunc(a,b) you should imagine that it says let a = and let b =)
+
+Try to write your functions as PURE as possible. Self containing functions.
+
+---CLASSES---
+
+JavaScript does not have true classes like Python. It uses something called prototypal inheritance. 
+This means that instead of objects being unique instances of classes, objects can have prototype objects that they inherit from. 
+However, ES6 introduced a much easier way of writing "classes" in JavaScript. They still rely on prototypal inheritance under the hood, 
+but we can now use a syntax that looks more familiar.
+
+ES5 Example, prototype system: ('annoying and complex, you don't have to know this, it's just history and may be out in the wild')
+
+            function Animal(legs) {
+                this.legs = legs || 0 // use default value if needed
+            }
+
+            Animal.prototype.move = function () {
+                if (this.legs > 0) {
+                    console.log('walk')
+                } else {
+                    console.log('slither')
+                }
+            }
+
+            function Dog(legs, sound) {
+                Animal.call(this, legs) // parent 'constructor'
+                this.sound = sound || 'ruff'
+            }
+
+            Dog.prototype = Object.create(Animal.prototype)
+
+            Dog.prototype.bark = function () {
+                console.log(this.sound)
+            }
+
+            var myDog = new Dog(4)
+
+            console.log(myDog.legs) // logs 4
+            myDog.move() // logs 'walk'
+            myDog.bark() // logs 'ruff'
+
+ES6 Example: (What we use today.)
+
+            // using a class
+            class ATM {
+                constructor(balance=0) { (basically your __init__)
+                    this.balance = balance (this instead of self)
+                }
+                get_balance() {
+                    return this.balance
+                }
+            }
+
+            let atm = new ATM(5.0) (instantiate with 'new')
+            alert(atm.get_balance())
+
+            // using an object
+            let atm = {
+                balance: 5.0,
+                get_balance: function() {
+                    return this.balance
+            }
+            }
+
+            alert(atm.get_balance())
+
+Inheritance: (extends instead of parentheses)
+
+            class Animal {
+                constructor(legs = 0) {
+                    this.legs = legs
+                }
+
+                move() {
+                    if (this.legs > 0) {
+                        console.log('walk')
+                    } else {
+                        console.log('slither')
+                    }
+                }
+            }
+
+            class Dog extends Animal {    (uses Extends instead of parentheses)
+                constructor(legs = 4, sound = 'ruff') {
+                    super(legs) // invoke the parent class's constructor
+                    this.sound = sound
+                }
+
+                bark() {
+                    console.log(this.sound)
+                }
+                
+                move() { // override the parent method
+                super.move() // call the parent method (optional)
+                console.log('dog moving')
+                }
+            }
+
+            let myDog = new Dog(4)
+
+            console.log(myDog.legs) // logs 4
+            myDog.move() // logs 'walk', 'dog moving'
+            myDog.bark() // logs 'ruff'
+
+Python VS Javascript Quick Comparison:
+
+Python 	                        JavaScript
+
+True False 	                    true false
+and 	                        &&
+or 	                            ||
+not 	                        !
+None 	                        null
+self 	                        this
+if c: 	                        if (c) {}
+elif c: 	                    else if (c) {}
+else: 	                        else {}
+while c: 	                    while (c) {}
+for i in range(len(mylist)): 	for (let i=0; i<myarray.length; ++i) {}
+a if c else b 	                c? a: b
+
+
+Py labs pick 6, blackjack advice, cc validation, contact list (just crud part), ATM.
