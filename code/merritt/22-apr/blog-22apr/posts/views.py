@@ -9,8 +9,8 @@ class BlogListView(ListView):
     model = Post
     template_name = 'home.html'
 
-    # def get_queryset(self):
-    #     return Post.objects.order_by('-created')
+    def get_queryset(self):
+        return Post.objects.order_by('-created')
 
 class BlogDetailView(DetailView):
     model = Post
