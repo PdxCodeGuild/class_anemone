@@ -26,7 +26,7 @@ def code(request):
     return HttpResponseRedirect(reverse('short_url:index'))
 
 # create a view to redirect a user to a url associated with a short code
-def redirect(request):
+def redirect(request, code):
     url = get_object_or_404(ShortUrl, code=code)
     return HttpResponseRedirect(url.url)
 
