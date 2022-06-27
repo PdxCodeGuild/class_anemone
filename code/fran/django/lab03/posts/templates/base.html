@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <h1><a href="{% url 'posts:home' %}">Chirp!</a></h1>
+        </div>
+        <div class="nav-right">
+            <p>This is nav-right</p>
+            {% if user.is_authenticated %}
+                {% comment %} <p>Hello, <a href="{% url 'users:profile' user.username %}">{{ user.username }}</a>!</p> {% endcomment %}
+                <p>Hello, {{ user.username }}</a>!</p>
+                <p><a href="{% url 'logout' %}">Logout</a></p>
+                {% comment %} <p><a href="{% url 'posts:new' %}">+ New Blog Post</a></p> {% endcomment %}
+            {% else %}
+                <p><a href="{% url 'login' %}">Login</a></p>
+                <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock content%}
+    </div>
+</body>
+</html>
