@@ -75,19 +75,3 @@ def delete(request):
     print("update-status",grocery_list)
     return HttpResponseRedirect (reverse("grocery_list:index"), context)
 
-# def new_item(request):
-    
-
-# def vote(request, question_id):
-    # question = get_object_or_404(Question, pk=question_id)
-    # try:
-    #     selected_choice = question.choices.get(pk=request.POST['choice'])
-    # except (KeyError, Choice.DoesNotExist):
-    #     return render(request, 'polls/detail.html', {
-    #         'question': question,
-    #         'error_message': "Please select a choice."
-    #     })
-    # selected_choice.votes += 1
-    # selected_choice.save()
-    # return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
