@@ -10,6 +10,7 @@
             <h4><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a> - <a href="{% url 'posts:detail' post.pk %}">{{ post.created }}</a></h4>
             <p>{{ post.body }}</p>
         </div>
+        <br>
     {% endfor %}
     </div>
 

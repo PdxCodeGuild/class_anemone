@@ -20,6 +20,30 @@ body {
 
 header {
     padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+a:link {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:hover {
+    color: turquoise;
+}
+
+.navi-right {
+    text-align: right;
+}
+
+.create-chirps {
+    text-align: center;
 }
 
 .post {
@@ -29,4 +53,11 @@ header {
     border-radius: 3rem;
     text-align: center;
     background-color: cornflowerblue;
+}
+
+.chirps {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
