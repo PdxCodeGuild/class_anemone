@@ -1,4 +1,7 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
 
 class Question(models.Model):
     # CharField is for text
@@ -6,6 +9,9 @@ class Question(models.Model):
 
     # DateTimeField combines a date and a time into one field
     pub_date = models.DateTimeField(verbose_name='date published')
+
+    def was_published_recently(self):
+        return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
     #Customize the string representation for a Question object
     def __str__(self):

@@ -1,0 +1,26 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+body {
+    text-align: center;
+    font-size: 1.3em;
+    background-color:moccasin;
+}
+h1 {
+    font-size: 3em;
+}
+li {
+    list-style: none;
+}
+form {
+    padding: 3em;
+}
+.pad {
+    padding:1em,
+}
