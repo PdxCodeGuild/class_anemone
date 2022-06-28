@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'grocery_list/main.css' %}">
+    <title>Grocery List</title>
+</head>
+<body>
+    <main>
+        <div class="list-container">
+            <div class="needed-container">
+                <h2>Groceries Needed</h2>
+                <ul>
+                    {% for item in incomplete_items %}
+                        
+                    <li> {{item.grocery_text}} -- Created: {{item.date_created}}</li>
+                        <form action="{% url 'grocery_list:complete' item.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Completed">
+                        </form>
+                        <form action="{% url 'grocery_list:delete' item.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="delete">
+                        </form>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="bought-container">
+                <h2>Groceries Bought</h2>
+                <ul>
+                    {% for item in completed_items %}
+                        
+                        <li> {{item.grocery_text}} -- Completed: {{item.date_completed}}</li>
+                        <form action="{% url 'grocery_list:complete' item.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Undo">
+                        </form>
+                        <form action="{% url 'grocery_list:delete' item.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="delete">
+                        </form>
+
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <form action="{% url 'grocery_list:create' %}" method="post">
+            {% csrf_token %} 
+            <input type="grocery_text" name="grocery_text" placeholder="enter grocery item here">
+            <input type="submit" value="add">
+        </form>
+    </main>
+</body>
+</html>

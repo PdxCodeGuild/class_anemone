@@ -18,15 +18,18 @@
         <h2>Welcome to Isaac's Burrito's!</h2>
         <p id="p1">Go ahead and make your dream burrito!  Price is $5 a burrito!!!  YAY CHEAP!</p>
         <img src="burrito.jpg" alt="burrito">
-        <form action="https://webhook.site/a6d8aeb6-d0cf-4379-b21a-c502a54b9892" method="post">
+        <form action="https://webhook.site/06f92a45-49bb-490d-befd-6ff7e9fc5134" method="post">
             <div class="name">
                 <input type="text" name="first-last" id="first-last" placeholder="Enter your first and last name">
             </div>
             <div class="wrap">
                 <p>Tortilla choice:</p>
-                <input type="radio" id="wheat" name="first-choice">Wheat
-                <input type="radio" id="flour" name="first-choice">Flour
-                <input type="radio" id="corn" name="first-choice">Corn
+                <input type="radio" value="wheat-tortilla" id="wheat" name="first-choice">
+                <label for="wheat">Wheat</label>
+                <input type="radio" value="flour-tortilla" id="flour" name="first-choice">
+                <label for="flour">Flour</label>
+                <input type="radio" value="corn-tortilla" id="corn" name="first-choice">
+                <label for="corn">Corn</label>
             </div>
             <div class="rice">
                 <p>Choice of rice:</p>
@@ -60,7 +63,7 @@
                 <input type="radio" id="salad" name="side-choice">Salad
                 <input type="radio" id="none" name="side-choice">None
             </div>
-            <button id="submit">Submit Order</button>
+            <button id="submit" type="submit">Submit Order</button>
         </form>
     </main>
     <footer>&COPY; Copyright 2022</footer>    

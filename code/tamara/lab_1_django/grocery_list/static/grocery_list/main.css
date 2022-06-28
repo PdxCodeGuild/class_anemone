@@ -1,0 +1,17 @@
+main {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.list-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.needed-container {
+    width: 50%;
+}
+
+.bought-container {
+    width: 50%;
+}

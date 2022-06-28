@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Form</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="lab04.css">
+
+    </head>
+        <body>
+            <header>
+                <div>
+                    <h1 class="id">Hola Burritos!</h1>
+                    <nav>
+                        <p><a href="#">Home</a></p>
+                        <p><a href="#">Hours</a></p>
+                        <p><a href="#">Contact Us</a></p>
+                    </nav>
+                </div>
+                
+            </header>
+            <main><img src="burrito2.png" alt="burrito picture">
+                <form class="menu" action="https://webhook.site/e5561663-e359-4331-9339-4dc59b38b248" method="post">
+                        <h3>Sign in to your account</h3>
+                    <div class="account">
+                            <label for="first">First Name:</label>
+                            <input type="text" name="input" id="first" placeholder="required" required style="width: 140px;"><br>
+
+                            <label for="lastt">Last Name:</label>
+                            <input type="text" name="input" id="last" placeholder="required" required style="width:142px;"><br>
+
+                            <label for="email">Email:</label>
+                            <input type="email" name="input" id="email" placeholder="required" required style="width: 178px;"><br>
+
+                            <label for="password">Password:</label>
+                            <input type="password" name="input" id="password" placeholder="required" required style="width: 151px;"><br>
+                    </div>
+
+                        <h4 class="line">Tell us what kind of Tortilla you want: </h4>
+                    <div class="tortilla">  
+                        <input type="radio" name="tortilla" id="whiteflour" value="whiteflour">White Flour<br>
+                        <input type="radio" name="tortilla" id="wheatflour" value="wheatflour">Wheat Flour<br>
+                        <input type="radio" name="tortilla" id="spinach" value="spinach">Spinach<br>
+                        <input type="radio" name="tortilla" id="corn" value="corn">Corn<br>
+                    </div>
+
+                        <h4 class="line">Choose your rice: </h4>
+                    <div class="rice">
+                        <input type="radio" name="rice" id="wrice" value="whiterice">White Rice<br>
+                        <input type="radio" name="rice" id="brice" value="brownrice">Brown Rice<br>
+                    </div>
+
+                        <h4 class="line">Choose your beans: </h4>
+                    <div class="beans">   
+                        <input type="radio" name="beans" id="blackbeans" value="blackbeans">Black Beans<br>
+                        <input type="radio" name="beans" id="pintobeans" value="pintobeans">Pinto Beans<br>
+                    </div>
+
+                        <h4 class="line">Choose your meat: </h4>
+                    <div class="meat"> 
+                        <input type="radio" name="meat" id="carnitas" value="carnitas">Carnitas<br>
+                        <input type="radio" name="meat" id="chicken" value="chicken">Chicken<br>
+                        <input type="radio" name="meat" id="sofritas" value="sofritas">Sofritas<br>
+                        <input type="radio" name="meat" id="steak" value="steak">Steak<br>
+                        <input type="radio" name="meat" id="none" value="none">None<br>
+                    </div>
+                        <h4 class="line">Additional Ingredients: </h4>
+                    <div class="addons">                      
+                        <input type="checkbox" name="cheese" value="cheese" id="cheese" for="cheese">Cheese<br>
+
+                        <input type="checkbox" name="sourcream" value="sourcream" id="sourcream" for="sourcream">Sour Cream<br>
+
+                        <input type="checkbox" name="guacamole" value="guacamole" id="guacamole" for="guacamole">Guacamole<br>
+
+                        <input type="checkbox" name="salsa" value="salsa" id="salsa" for="salsa">Salsa<br>
+                    </div>
+
+                    <section>
+                        <h9>Delivery Instructions</h9><br>
+                        <textarea name="instruction" style="width: 200px"></textarea><br>
+                        <div>
+                            <button class="buttons" type="submit" value="Submit">Submit</button>
+                            <button class="buttons" type="reset" value="reset">Clear</button>
+                        </div>
+                    </section>
+                    
+                </form>    
+
+            </main>
+        </body>
+</html>
