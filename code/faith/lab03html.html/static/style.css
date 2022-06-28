@@ -1,0 +1,28 @@
+header{
+    text-align: center;
+}
+nav{
+    text-align: center;
+    font-size: large;
+    color: rgb(250, 251, 188);
+}
+header{
+	border: 10px;
+    border-color: #000000;
+    border-style: solid;
+    background-color: rgb(250, 251, 188);
+}
+body{
+    text-align: center;
+    background-color: aquamarine;
+}
+p{
+    border: 10px;
+    border-color: gray;
+    border-style:double ;
+    background-color: rgb(250, 251, 188);
+}
+h2{
+    text-decoration: underline;
+    text-decoration-color: black;
+}
