@@ -102,6 +102,8 @@ else if (first_unit === 'meters') {
     alert(`Old distance is ${outcome_m}`)
 }
 
+// second unit of mesurement
+
 let second_unit = prompt("Enter second unit? ")
 if (second_unit === 'feet') {
     let new_dist_ft = outcome_ft / ft
