@@ -1,11 +1,11 @@
 // Lab 01 Py-JS Conversion - Average Numbers -~-~-~-~
 
-let nums = [];
+let nums = []
 
-let invalidInput = true;
+let invalidInput = true
 
 while (invalidInput) {
-    let num = prompt("Enter a number or done: ");
+    let num = prompt("Enter a number or done: ")
     if (num === "done") {
         invalidInput = false
     } else {
