@@ -1,3 +1,5 @@
+// Py to JS
+
 let deck = {
     "A": 1,
     "2":2,
