@@ -8,15 +8,17 @@
     <title>Chirp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <section class="container">
+        <hr>
         <header>
+            
             <div class="navi-left">
                 <h1><a href="{% url 'posts:home' %}">CHIRP</a></h1>
-                <h3>Think before you speak.</h3>
+                <h3>Choose your birds wisely.</h3>
             </div>
             <div class="navi-right">
                 {% if user.is_authenticated %}
@@ -26,8 +28,10 @@
                     <p><a href="{% url 'login' %}">Login</a></p>
                     <p><a href="{% url 'users:signup' %}">Join Chirp</a></p>
                 {% endif %}
-            </div> 
+            </div>
+            
         </header>
+        
         <main>
             <div class="create-chirps">
                 {% if user.is_authenticated %}
@@ -37,10 +41,12 @@
                 {% endif %}
             </div>
             <div class="chirps">
-            {% block content %}
-            {% endblock content %}
+                {% block content %}
+                {% endblock content %}
+                <br>
             </div>
         </main>
+        <hr>
     </section>
 </body>
 </html>
