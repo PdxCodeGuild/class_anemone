@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Url</title>
+</head>
+<body>
+    <header>
+        <h1>URL Shortener</h1> 
+    </header>
+    <main>
+        {% for item in url_items %}
+            <table>
+                <tr>
+                    <th>URL</th>
+                    <th>Short Code</th>
+                </tr>
+                <tr>
+                    <td>{{ item.url }}</td>
+                    <td><a href="{% url 'short_url:redirect' item.code %}" target="_blank">{{ item.code }}</a></td>
+                </tr>
+            </table>
+        {% endfor %}
+        <form action="{% url 'short_url:code' %}" method="post">
+            {% csrf_token %}
+            <input type="url" name="url" placeholder="enter a url here">
+            <input type="submit" value="generate code">
+        </form>
+    </main>   
+</body>
+</html>
