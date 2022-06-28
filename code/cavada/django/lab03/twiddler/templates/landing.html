@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for twiddle in object_list %}
+    <div class="twiddle">
+        <fieldset>
+            <legend>
+                <a href="{% url 'users:profile' twiddle.twiddler.username %}">{{ twiddle.twiddler.username }}</a>
+                {{ twiddle.created_date}}
+            </legend>
+            <a href="{% url 'posts:detail' twiddle.pk %}">{{ twiddle.twidd }}</a>
+            <p>{{ twiddle.twiddle|linebreaksbr }}</p>
+           
+        </fieldset>
+        
+        
+        
+    </div>
+        
+    {% endfor %}
+{% endblock content %}

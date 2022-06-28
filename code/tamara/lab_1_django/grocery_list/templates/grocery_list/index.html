@@ -48,6 +48,11 @@
                 </ul>
             </div>
         </div>
+        <form action="{% url 'grocery_list:create' %}" method="post">
+            {% csrf_token %} 
+            <input type="grocery_text" name="grocery_text" placeholder="enter grocery item here">
+            <input type="submit" value="add">
+        </form>
     </main>
 </body>
 </html>
