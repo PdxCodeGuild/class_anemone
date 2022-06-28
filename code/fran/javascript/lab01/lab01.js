@@ -26,9 +26,10 @@ let card_3 = prompt("What's your third card? (2-9,A,K,Q,J)")
 
 // Add card values and return advice on what to do next
 // Assuming aces are always worth one point
-alert("card 1 value: " + card_values[card_1])
-alert("card 2 value: " + card_values[card_2])
-alert("card 3 value: " + card_values[card_3])
+
+// alert("card 1 value: " + card_values[card_1])   for testing
+// alert("card 2 value: " + card_values[card_2])   for testing
+// alert("card 3 value: " + card_values[card_3])   for testing
 
 let hand_total = card_values[card_1] + card_values[card_2] + card_values[card_3]
 
