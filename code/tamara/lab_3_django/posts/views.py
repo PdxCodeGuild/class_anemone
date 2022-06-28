@@ -27,21 +27,12 @@ class ChirpCreateView (LoginRequiredMixin, CreateView):
         form.instance.username = self.request.user
         return super().form_valid(form)
 
-class ChirpEditView (LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Post
-    template_name = 'edit_chirp.html'
-    fields = ['body']
-
-    def test_func(self):
-        chirp = self.get_object()
-        return self.request.user == chirp.username or self.request.user.is_superuser
-
 class ChirpDeleteView (LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'delete_chirp.html'
-    success_url = reverse_lazy('posts:home')
+    # success_url = reverse_lazy('posts:home')
 
-    # makes sure the author of the post is the only one who can dlete it
+    # makes sure the author of the post is the only one who can delete it
     def test_func(self):
         chirp = self.get_object
         return self.request.user == chirp.username

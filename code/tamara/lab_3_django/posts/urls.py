@@ -9,6 +9,5 @@ urlpatterns = [
     ## all of their chirps
     ## may need to replace with string username or something
     path('post/<int:pk>', views.UserView.as_view(), name='detail'),
-    path('post/<int:pk>/edit/', views.ChirpEditView.as_view(), name='edit'),
     path('post/<int:pk>/delete/', views.ChirpDeleteView.as_view, name='delete'),
 ]
