@@ -8,7 +8,6 @@ for (let num of nums) {
 
 let average = newTotal / nums.length
 // console.log(average)
-// alert(average)
 
 let nums2 = []
 
@@ -26,8 +25,7 @@ let newTotal2 = 0
 
 for (let num of nums2) {
     newTotal2 = newTotal2 + Number(num)
-    console.log(newTotal2)
 }
 
 let average2 = newTotal2 / nums2.length
-console.log(average2)
+alert(average2)
