@@ -11,7 +11,9 @@ class TwiddleListView(ListView):
     model = Twiddle
     template_name = 'landing.html'
     def get_queryset(self):
-        return Twiddle.objects.order_by('-created_date')    
+        return Twiddle.objects.order_by('-created_date')  
+
+
 
 class TwiddleDetailView(DetailView):
     model = Twiddle
