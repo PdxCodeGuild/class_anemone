@@ -34,16 +34,10 @@ app.run(debug=True)
 
 
 '''
-
 app = Flask(__name__)
-
-
-
 @app.route('/')
 def index():
     name = 'myname'
     return render_template('index.html', name=name)
-
-
 app.run(debug=True)
-'''
+''' 
