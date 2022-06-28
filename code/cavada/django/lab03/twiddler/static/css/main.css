@@ -1,12 +1,12 @@
 body {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 18px;
-    background-color: #c99449;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vh;
+    background-color: #284e0ca4;
     color: whitesmoke;
     }
     
     h1, h2, h3, h4, h5, h6 {
-    font-family: 'EB Garamond', serif;
+    font-family:monospace;
     }
     
     header {
@@ -15,7 +15,7 @@ body {
     display: flex;
     }
     
-    header h1 a {
+    header a {
     color: #0f4c81;
     text-decoration: none;
     }
@@ -30,33 +30,29 @@ body {
     }
     
     .navbar-up-r p {
-    margin-left: .25rem;
-    margin-right: .25rem;
+    margin-left: 1vh;
+    margin-right: 1vh;
     }
     
     .twiddle {
-    margin-bottom: 2rem;
+    
+    margin-bottom: 3vh;
+    margin-top: 2vh;
+    width: 50%;
+    padding: 5vh;
     }
     
-    .twiddle h2 {
-    margin: 0.5rem 0;
-    }
-    
-    .twiddle h2 a, .twiddle h2 a:visited {
-    color: #92A8D1;
+    .twiddle a, .twiddle a:visited {
+    padding-top:2vh;
+    color: #0f2144;
     text-decoration: none;
     }
     
-    .twiddle h5, .twiddle h6 {
-    margin-top: 0;
-    margin-bottom: 0;
-    }
-    
     .twiddle p {
-    margin: 0;
+    margin-top: 3vh;
     font-weight: 400;
     }
     
-    .twiddle h2 a:hover {
+    .twiddle a:hover {
     color: #0f4c81;
     }
