@@ -1,0 +1,21 @@
+html {
+    background-color: black;
+    box-sizing: border-box;
+    color:rgb(178, 113, 238)
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+th,tr,td {
+    border-color: aliceblue;
+    border-style:solid;
+    padding:4px;
+}
+input {
+    margin-bottom: 8px;
+    margin-right:8px;
+}
+a:hover {
+    color:red
+}

@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    background-color: black;
+    color: white;
+    text-align: center;
+    list-style-position: inside;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+ul{
+    width:95%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: fit-content;
+}
+
+

@@ -2,44 +2,6 @@ from flask import Flask, render_template, redirect, request
 from jsondb import JsonDB
 import pprint
 
-
-
-json_data = {"burrito order form": {
-        "customer info": {
-            "name": "text",
-            "pw": "text",
-            "delivery": "text"
-        },
-        "order info": {
-            "tortilla": {
-                "corn": 0,
-                "spinach": 0,
-                "wheat-flour": 0,
-                "white-flour": 0
-            },
-            "rice": {
-                "brown-rice": 0,
-                "white-rice": 0
-            },
-            "beans": {
-                "black-beans": 0,
-                "pinto-beans": 0
-            },
-            "protein": {
-                "carnitas": 0,
-                "chicken": 0,
-                "none": 0,
-                "sofritas": 0
-            },
-            "additional ingredients": {
-                "cheese": 0,
-                "sour-cream": 0
-            }
-        }
-    }
-}
-
-
 app = Flask(__name__)
 
 # blank = JsonDB('blank.json')
@@ -65,12 +27,21 @@ def index():
     # print(rice)
     if request.method == 'POST':
         print(request.form)
+
+
         tortilla_order = request.form['tortilla']
         rice_order = request.form['rice']
         beans_order = request.form['beans']
         protein_order = request.form['protein']
-        additional_ingred_order = request.form['additional']
-        # print(tortilla_order)
+        for key in request.form:
+            if key == 'cheese':
+                additional_ingred['cheese'] += int(request.form[key])
+            elif key == 'sour-cream':
+                additional_ingred['sour-cream'] += int(request.form[key])
+
+        # cheese = request.form['cheese']
+        # sour_cream = request.form['sour-cream']
+        # additional_ingred_order=
         # print(tortilla)
         name = request.form['name']
         password = request.form['password']
@@ -84,10 +55,10 @@ def index():
         rice[rice_order]+=1
         beans[beans_order]+=1
         protein[protein_order]+=1
-        additional_ingred[additional_ingred_order]+=1
+        # additional_ingred[additional_ingred_order]+=1
         
         dict_list.update({'customer info':customer_info})
-        dict_list.update({'order info': {'tortilla':tortilla, 'rice':rice,'beans':beans,'protein': protein,'additional ingredients':additional_ingred}})
+        dict_list.update({'order info': {'tortilla':tortilla, 'rice':rice,'beans':beans,'protein': protein, 'additional ingredients': additional_ingred}})
         db.set("burrito order form", dict_list)
         db.save()
         return render_template("form.html", customer_info=customer_info, order_info=order_info)

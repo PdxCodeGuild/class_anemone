@@ -18,6 +18,6 @@ def index():
         print(c_val, c_unit)
     
     
-    return render_template('index.html', c_val=c_val, c_unit=c_unit)
-
+        return render_template('index.html', c_val=c_val, c_unit=c_unit)
+    return render_template('index.html')
 app.run(use_reloader=True, debug=True)

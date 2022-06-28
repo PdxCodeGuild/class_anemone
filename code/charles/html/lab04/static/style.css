@@ -25,9 +25,12 @@ header {
     max-height: 9vh
 }
 
-#ordername, #state, #ZIP, #street, #SSN, #DOB, #password, #Name, #email, #phone{
+#ordername, #state, #ZIP, #street, #SSN, #DOB, #City, #password, #Name, #email, #phone{
     width: 35vw;
     height: 1.2em;
+}
+h2 {
+    margin-bottom:2px;
 }
 
 .user label {
@@ -36,7 +39,7 @@ header {
 }
 
 .items {
-    margin: 2vh 5vw; 
+    margin: 0 5vw 3vh 5vw; 
 }
 
 .items label {
@@ -62,6 +65,10 @@ header {
    padding-left: 5vw;
    padding-right: 5vw;
    padding-bottom: 2vh;
+}
+
+.adds h2, .del h2 {
+    margin:0
 }
 
 .del input:hover, .adds input:hover{

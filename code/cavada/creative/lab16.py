@@ -1,4 +1,4 @@
-from pyble import bible
+from creative.pyble import bible
 import pprint
 
 text = bible.get_chapter()

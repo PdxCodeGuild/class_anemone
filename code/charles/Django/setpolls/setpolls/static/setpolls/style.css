@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(101, 87, 194);
+    text-align: left;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+}
+
+li {
+    list-style-type: armenian;
+}
+
+a {
+    color:aliceblue
+}
+
+a:hover {
+    color:red
+}

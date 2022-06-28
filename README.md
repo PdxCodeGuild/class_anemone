@@ -8,8 +8,10 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 - May 30th (Memorial Day)
+- June 7th (Merritt has Covid)
+- June 20th (Juneteenth)
 - July 4th (Independence Day)
-- TBD
+- July 29th (Independent Study Day, subject to change)
 
 ### Staff
 
@@ -23,33 +25,33 @@ M-F 9:30 am – 4:30 pm
 
 ## Capstone Dates:
 
-Capstone proposal due: TBD  
+Capstone proposal due: July 19th, 2022  
 Presentation Day: August 5th, 2022  
 
-<!--
+
 ## Django Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 00    | Polls                  | Feb 15th      | Feb 18th              |               |
-| 01    | Todo List              | Feb 22nd      | Feb 28th              | Mar 8th       |
-| 02    | URL Shortener          | Feb 24th      | Feb 28th              | Mar 10th      |
-| 03    | Chirp                  | Mar 1st       | Mar 4th               | Mar 15th      |
-| 04    | Students API           | Mar 23rd      | Mar 28th              | Apr 6th       |
-| 05    | Pokedex                | Mar 24th      | Mar 28th              | Apr 7th       |
+| 00    | Polls                  | Jun 8th       | Jun 13th              |               |
+| 01    | Todo List              | Jun 13th      | Jun 20th              | Jun 27th      |
+| 02    | URL Shortener          | Jun 15th      | Jun 20th              | Jun 27th      |
+| 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
+| 04    | Students API           | Jul 14th      | Jul 19th              | Jul 28th      |
+| 05    | Pokedex                | Jul 15th      | Jul 19th              | Jul 29th      |
 
 ## JavaScript Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Pick 3                 | Mar 4th       | Mar 14th              | Mar 18th      |
-| 02    | Pick 3                 | Mar 4th       | Mar 14th              | Mar 18th      |
-| 03    | Pick 3                 | Mar 4th       | Mar 14th              | Mar 18th      |
-| Group | Todo List              | Mar 10th      | Mar 14th              | Mar 24th      |
-| 04    | Vue Todos              | Mar 14th      | Mar 21st              | Mar 28th      |
-| 05    | Quotes in Vue          | Mar 16th      | Mar 21st              | Mar 20th      |
-| 06    | Mini-Capstone          | Mar 18th      | Mar 23rd              | Apr 1st       |
--->
+| 01    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
+| 02    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
+| 03    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
+| Group | Todo List              | Jul 1st       | Jul 5th               | Jul 15th      |
+| 04    | Vue Todos              | Jul 5th       | Jul 11th              | Jul 19th      |
+| 05    | Quotes in Vue          | Jul 7th       | Jul 11th              | Jul 21st      |
+| 06    | Mini-Capstone          | Jul 11th      | Jul 14th              | Jul 25th      |
+
 
 ## HTML/CSS Labs Assigned:
 

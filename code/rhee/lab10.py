@@ -1,94 +1,117 @@
-import json
+contact = []
+
+# opens selected file.
+with open("contacts.csv", 'r') as file:
+    # split the lines in the file
+    lines = file.read().split('\n')
+
+    c_list = []
+    key = lines[0].split(',')
+
+    contact.append(lines[0].split(','))
+    contact.append(lines[1].split(','))
+    contact.append(lines[2].split(','))
+
+    for thing in contact:
+        con = dict(zip(contact[0], thing))
+        c_list.append(con)
+    del c_list[0]
 
 
-class C_List:
-    def __init__(self):
-        self.contacts = []
-
-    # create contact information
-    def load(self):
-        with open("contacts.json", "r") as f:
-            contacts_content = f.read()
-            contacts_dict = json.loads(contacts_content)
-        self.contacts = contacts_dict["contacts"]
-
-    def count(self):
-        return len(self.contacts)
-
-    # saving contact information
-    def save(self):
-        with open("contacts.json", "w") as f:
-            saved_contacts_dict = {"contacts": self.contacts}
-            f.write(json.dumps(saved_contacts_dict, indent=2))
-
-    # showing information for contacts
-    def print(self):
-        for i in range(len(self.contacts)):
-            # print(self.contacts[i])
-            print(f"First name: {self.contacts[i]['First Name']}")
-            print(f"Last name: {self.contacts[i]['Last Name']}")
-            print(f"Address: {self.contacts[i]['Address']}")
-            print(f"Phone #: {self.contacts[i]['Phone_number']}")
-            print("                                           \n")
-
-    # removing contact information from list
-    def delete(self, f_name, l_name):
-        for contact in self.contacts:
-            if f_name.lower() == contact["Frst name"] and l_name.lower() == contact["Last name"].lower():
-                self.contacts.remove(contact)
-        print(f">>> {contact['First Name'] + ['Last Name']} has been removed\n")
-
-    # update contact information
-    def update(self, new_f_name, new_l_name, address, new_phone_number):
-        for contact in self.contacts:
-            if f_name.lower() == contact["First name"].lower():
-                self.contacts.remove(contact)
-            if l_name.lower() == contact["Last name"].lower():
-                new_dict = {"First name": new_f_name, "Last name": new_l_name, "Address": address, "Phone_number": new_phone_number}
-                self.contacts.append(new_dict)
-        print(f">>> {contact['First Name'] + {contact['Last Name'} has been updated\n")
+# Creates new contact
+def create():
+    name = input("Enter Contact Name: ")
+    address = input("Enter Contact Address: ")
+    phone = input("Enter Contact Phone: ")
+    add = False
+    for contact in c_list:
+        if name == c_list:
+            print('Name already in list! Please try again.')
+        elif contact['name'] == name:
+            print('Contact has been created.')
+        else:
+            add = True
+    if add:
+        c_list.append({'name': name, 'address': address, 'phone': phone})
 
 
-contact_list = ContactList()
-contact_list.load()
+# Shows retrieved information
+def lists():
+    request = input("Enter contact name: ")
+    for name in c_list:
+        if name['name'] == request:
+            print(name)
+        # elif name['name'] != request:
+        #     print("Name not in present in list. ")
+
+
+# Updates contact information
+def update_contact():
+    old_user = input("Enter name of contact to change: ")
+    new_user = input("Enter new name of contact: ")
+    new_change = input("Enter new address of contact: ")
+    for name in c_list:
+        if name['name'] == old_user:
+            if new_user in name:
+                name[new_user] = new_change
+
+
+# Deletes contact information
+def delete():
+    user = input("Enter contact to delete? ")
+    for name in c_list:
+        if name['name'] in user:
+            c_list.remove(name)
+
+
+# Selectable commands
 while True:
-    print("Commands to be entered: create, read, delete, update, exit, or help")
+    print("Select a command: '1': Create, '2': List, '3': Delete, '4': Update, '5': Help, '6':exit")
     command = input("Enter a command: ")
-    if command == "create":
-        print("Please enter contact information:")
-        f_name = input("Enter First name: ")
-        l_name = input("Enter Last name: ")
-        address = input("Enter Address: ")
-        phone_number = input("Enter phone number: ")
-        contact_list.load()
-        print(f"You have a total of {contact_list.count()} contacts.")
 
-    elif command == "read":
-        contact_list.print()
+    if command == '1':
+        create()
 
-    elif command == "delete":
-        f_name = input("Enter first name to remove: ")
-        l_name = input("Enter last name to remove:")
-        contact_list.delete(f_name, l_name, address, Phone_number)
+    elif command == '2':
+        lists()
 
-    elif command == "update":
-        print("Enter info of contact to add:")
-        previous_f_name = input("Enter First name to update: ")
-        previous_l_name = input("Enter Last name to update: ")
-        new_f_name = input("Enter First name: ")
-        new_l_name = input("Enter Last name:")
-        add_phone_number = input("Enter Phone Number: ")
-        add_address = input("Enter address: ")
-        contact_list.update(previous_f_name, previous_l_name, new_f_name, new_l_name, add_phone_number, add_address)
+    elif command == '3':
+        delete()
+        print("Contact has been deleted\n")
 
-    elif command == "help":
-        print("Available commands:")
-        print("create   - create contacts to file")
-        print("read     - read contacts from file")
-        print("delete   - delete contact")
-        print("update   - update contact")
-        print("exit     - leave the program")
-    elif command == "exit":
+    elif command == '4':
+        update_contact()
+        print('Contact has been updated\n')
+
+    elif command == "5":
+        print("Available commands")
+        print("1  - Create contacts")
+        print("2  - List contacts")
+        print("3  - Remove contact")
+        print("4  - Update contact")
+        print("5  - Help")
+        print("6  - Exit")
+
+    elif command == '6':
         break
     else:
-        print("Key not permitted, try again!")
+        print("Key command not permitted, try again!")
+
+with open("contacts.csv", 'w') as file:
+    new_contact = []
+    added_contact = []
+    lists = []
+    done = []
+    new_contact.append(list(c_list[0].keys()))
+
+    for abso in c_list:
+        new_contact.append(list(abso.values()))
+
+    for goto in new_contact:
+        lists = ','.join(goto)
+        added_contact.append(lists)
+
+    done = '\n'.join(added_contact)
+    print(done)
+
+    file.write(done)

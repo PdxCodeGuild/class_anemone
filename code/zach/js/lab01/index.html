@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Password Settings:</h2>
+        </div>
+        <div class="card-body">
+          <ul class="settings">
+            <li id="length-setting">
+              <label for="length-slider" id="length">Password Length: 8</label>
+              <br>
+              <input type="range" default="15" min="8" max="128" name="length-slider" id="length-slider" />
+            </li>
+
+            <li id="upper-setting">
+              <label for="length-setting" id="length">Use Uppercase: </label>
+              <input type="checkbox" id="upper-check" name="cc" value="1"/>
+            </li>
+
+            <li id="num-setting">
+              <label for="number-setting" id="number-check">Use Numbers: </label>
+              <input type="checkbox" id="number-check" name="cc" value="1"/>
+            </li>
+
+            <li id="symbol-setting">
+              <label for="symbol-setting" id="symbol-check">Use Symbols: </label>
+              <input type="checkbox" id="symbol-check" name="cc" value="1"/>
+            </li>
+          </ul>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
