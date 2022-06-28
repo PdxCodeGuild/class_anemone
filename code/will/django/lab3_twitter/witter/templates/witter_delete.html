@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+    <h1>Want to delete your post? Coward.</h1>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <p> Click below to hide your shame: "{{ witter_app.title }}" </p>
+        <input type="submit" value="Chicken!">  
+    </form>
+
+{% endblock content %}

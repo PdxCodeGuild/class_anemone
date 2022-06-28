@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+    <h1>{{ user_profile.username }} </h1>
+
+
+    {% for post in user_profile.post.all %}
+        <div class="witter_post">
+            <h2><a href="{% url 'witter_app:witter_detail' post.pk %}"> {{ post.title }}</a> </h2>
+
+            <h3><a href="{% url 'users:profile' post.pk %}"> {{ post.author.username }} </a></h3>
+            <p> {{ post.body }} </p>
+        </div>
+        {% endfor %} 
+
+% endblock content %
