@@ -7,8 +7,10 @@
     <title>URL Shortener</title>
 </head>
 <body>
-    <form action="urlshortener" method="post">
-            {% csrf-token %}
+    <form action="{% url 'url_shortener:url' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="url">
+            <button type="submit">Shortner</button>
 
     </form>
 
