@@ -1,5 +1,5 @@
 body{
-    display: grid;
+    display: flex;
     background-color: rgb(207, 206, 203);
     color: rgb(4, 55, 71);
 }
@@ -31,36 +31,11 @@ a:visited {
     text-decoration: none;
 }
 
-
-.item-a{
-    grid-area: header;
-    padding-left: .5em;
-    justify-items: start;
-}
-
-.item-b{
-    grid-area: main;
-    grid-auto-flow: column;
-    border: 5px solid rgb(177, 54, 124);
-    border-radius: 25px;
-}
-
-.item-c{
-    grid-area: sidebar;
-    border: 5px solid rgb(31, 121, 85);
-    border-radius: 25px;
-    font-size: 1.5em;
-}
-
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    "header main main"
-    "sidebar main main";
-}
-
 .linkformat {
     text-decoration: none;
+}
+
+.post-container {
+    width: 100vw;
+
 }

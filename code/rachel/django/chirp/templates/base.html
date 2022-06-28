@@ -14,8 +14,8 @@
 </head>
 <body>
     <header>
-        <h1 class="container item-a"><a class="linkformat" href="{% url 'posts:home' %}">Chirp</a></h1>
-        <div class="container item-c">
+        <h1><a class="linkformat" href="{% url 'posts:home' %}">Chirp</a></h1>
+        <div>
             {% if user.is_authenticated %}
                 <p><a href="{% url 'users:profile' user.username %}">{{user.username}}</a></p> 
                 <p><a href="{% url 'logout' %}">Logout</a></p>
@@ -26,7 +26,7 @@
             {% endif %}
         </div>
     </header>
-    <main class="container item-b">
+    <main>
         {% block content %}
         {% endblock content %}
     </main>
