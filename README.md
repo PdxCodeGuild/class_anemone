@@ -39,19 +39,19 @@ Presentation Day: August 5th, 2022
 | 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
 | 04    | Students API           | ---           | ---                   | ---           |
 | 05    | Pokedex                | ---           | ---                   | ---           |
-<!--
+
 ## JavaScript Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Pick 3                 | Mar 4th       | Mar 14th              | Mar 18th      |
-| 02    | Pick 3                 | Mar 4th       | Mar 14th              | Mar 18th      |
-| 03    | Pick 3                 | Mar 4th       | Mar 14th              | Mar 18th      |
-| Group | Todo List              | Mar 10th      | Mar 14th              | Mar 24th      |
-| 04    | Vue Todos              | Mar 14th      | Mar 21st              | Mar 28th      |
-| 05    | Quotes in Vue          | Mar 16th      | Mar 21st              | Mar 20th      |
-| 06    | Mini-Capstone          | Mar 18th      | Mar 23rd              | Apr 1st       |
--->
+| 01    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
+| 02    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
+| 03    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
+| Group | Todo List              | Jul 1st       | Jul 5th               | Jul 15th      |
+| 04    | Vue Todos              | Jul 5th       | Jul 11th              | Jul 19th      |
+| 05    | Quotes in Vue          | Jul 7th       | Jul 11th              | Jul 21st      |
+| 06    | Mini-Capstone          | Jul 11th      | Jul 14th              | Jul 25th      |
+
 
 ## HTML/CSS Labs Assigned:
 
