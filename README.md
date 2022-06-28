@@ -25,7 +25,7 @@ M-F 9:30 am – 4:30 pm
 
 ## Capstone Dates:
 
-Capstone proposal due: TBD  
+Capstone proposal due: July 19th, 2022  
 Presentation Day: August 5th, 2022  
 
 
@@ -37,8 +37,8 @@ Presentation Day: August 5th, 2022
 | 01    | Todo List              | Jun 13th      | Jun 20th              | Jun 27th      |
 | 02    | URL Shortener          | Jun 15th      | Jun 20th              | Jun 27th      |
 | 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
-| 04    | Students API           | ---           | ---                   | ---           |
-| 05    | Pokedex                | ---           | ---                   | ---           |
+| 04    | Students API           | Jul 14th      | Jul 19th              | Jul 28th      |
+| 05    | Pokedex                | Jul 15th      | Jul 19th              | Jul 29th      |
 
 ## JavaScript Labs Assigned:
 
