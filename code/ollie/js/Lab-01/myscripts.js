@@ -31,6 +31,4 @@ if (output === 'ft') {
     alert(`${distance} ${input} is ${(result / 0.0254).toFixed(2)} ${output}.`)
 } else if (output === 'yd') {
     alert(`${distance} ${input} is ${(result / 0.9144).toFixed(2)} ${output}.`)
-} else {
-    alert('This unit converter does not support that unit of measurement.')
 }
