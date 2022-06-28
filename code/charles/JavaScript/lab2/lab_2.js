@@ -7,7 +7,7 @@ function validation(verify) {
     for (let i = 0; i<ccard.length; i++) {
         ccardlist.push(parseInt(ccard[i]))
     }
-    console.log(ccardlist)
+    
 
     let ccardpop = ccardlist.pop()
     console.log(ccardpop)
@@ -39,15 +39,10 @@ function validation(verify) {
     
     
     for (i=0;i<ccardd.length;i++) {
-        console.log(ccardd[i])
-        a += ccardd[i]
-        console.log(a)
+        a += ccardd[i]   
     }
     for (i=0;i<ccardr.length;i++) {
-        console.log(ccardr[i])
-        a += ccardr[i]
-        
-        console.log(a)
+        a += ccardr[i]   
     }
     
     
