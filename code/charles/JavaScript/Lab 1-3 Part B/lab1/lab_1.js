@@ -1,0 +1,81 @@
+let numtotext = {0:'zero', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five', 6:'six', 7:'seven', 8:'eight', 9:'nine', 
+10:'ten', 11:'eleven', 12:'twelve', 13:'thirteen', 14:'fourteen', 15:'fifteen', 16:'sixteen', 17:'seventeen', 18:'eighteen', 19:'nineteen',
+20:'twenty', 30:'thirty', 40:'fourty', 50:'fifty', 60:'sixty', 70:'seventy', 80:'eighty', 90:'ninety'}
+
+let x = parseInt(document.getElementById('number'))
+let convert = document.getElementById('convert')
+if (x>=999) {
+    alert('Pick a number between 0 and 999')
+}
+
+
+convert.addEventListener('click', function() {
+    let resultP = document.getElementById('resultP')
+    
+    if (x >= 11 && x <= 20) {
+        let teenref = numtotext[x]
+        let results = teenref
+        resultP.innerText = results
+    }
+
+    else if (x >= 0 && x <= 99) {
+        let ones = x % 10
+        let tens = Math.round((x - ones) )
+        let tref = numtotext[tens]
+        let oref = numtotext[ones]
+
+        if (ones === 0) {
+            let results = tref
+            resultP.innerText = results   
+        }
+        else if (tens === 0) {
+            let results = oref
+            resultP.innerText = results
+        }
+        else {
+            let results = (tref+'-'+oref)
+            resultP.innerText = results
+        }
+    }
+
+    else if (x >= 100 && x <= 999) {
+        let ones = x % 10
+        let huns = Math.floor(x / 100)
+        let tens = Math.floor((x - huns * 100)/10)*10
+        let teens = Math.round(x - huns * 100)
+        let tnref = ''
+        let href = numtotext[huns]
+        let tref = numtotext[tens]
+        let oref = numtotext[ones]
+
+        if (teens >= 10 && teens <= 20) {
+            tnref = numtotext[teens]
+            resultP.innerText = results
+        }
+        
+        else if (ones === 0 && tens ===0) {
+            let results = href+'-hundred'
+            resultP.innerText = results
+        }
+
+        else if (tens === 0) {
+            let results = href+'-hundred and '+oref
+            resultP.innerText = results
+        }
+
+        else if (teens >= 11 && teens <= 20) {
+            let results = href+'-hundred and '+tnref
+            resultP.innerText = results
+        }
+
+        else if (ones === 0) {
+            let results = href+'-hundred and '+tref
+            resultP.innerText = results
+        }
+        else {
+            let results = href+'-hundred and '+tref+'-'+oref
+            resultP.innerText = results
+        }
+    }
+})
+
