@@ -5,7 +5,6 @@
     {% for post in object_list %}
         <div class="post-entry">
             <p><strong><a href="{% url 'posts:detail' post.pk %}">{{ post.author.username }}</a></strong><em> {{ post.create_date|date:"M d" }}</em></p>
-            <p><strong><a href="{% url 'posts:detail' post.pk %}">{{ post.author.username }}</a></strong><em> {{ post.create_date|date:"M d" }}</em></p>
             {% comment %} <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></em></h4> {% endcomment %}
             <p>{{ post.content_text|linebreaksbr }}</p>
         </div>
