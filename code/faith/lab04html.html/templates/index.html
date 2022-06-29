@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrito Form</title>
+</head>
+<header>
+    <h1>Burrito Order Form</h1>
+    <h2>Please fill out all required fields.</h2>
+</header>
+<body>
+    <form action="https://webhook.site/08bd2711-78f8-4dcc-9e81-57f25512ff40" method="post">
+        <label for="first_name_input">First Name:</label>
+        <input id="first_name_input" type="text" name="first_name" placeholder="Enter first name" required/>
+        <br/>
+
+        <label for="password_input">Password:</label>
+        <input id="password_input" pattern=".{10,}" required title="enter at least 10 characters" type="password" name="password"/>
+        <br/>
+
+        <h3>Tortilla</h3>
+        
+        <input id="whiteflour" type="radio" name="Tortilla" value="White Flour"/>
+        <label for="whiteflour">White Flour</label>
+        <br/>
+
+        <input id="wheatflour" type="radio" name="Tortilla" value="Wheat Flour"/>
+        <label for="wheatflour">Wheat Flour</label>
+        <br/>
+
+        <input id="spinach" type="radio" name="Tortilla" value="Spinach"/>
+        <label for="spinach">Spinach</label>
+        <br/>
+
+        <input id="corn" type="radio" name="Tortilla" value="Corn"/>
+        <label for="corn">Corn</label>
+        <br/>
+
+        <h3>Rice</h3>
+
+        <input id="whiterice" type="radio" name="Rice" value="White Rice"/>
+        <label for="whiterice">White Rice</label>
+        <br/>
+
+        <input id="brownrice" type="radio" name="Rice" value="Brown Rice"/>
+        <label for="brownrice">Brown Rice</label>
+        <br/>
+
+        <input id="limerice" type="radio" name="Rice" value="Lime Rice"/>
+        <label for="limerice">Lime Rice</label>
+        <br/>
+
+        <h3>Beans</h3>
+
+        <input id="pinto" type="radio" name="Beans" value="Pinto Beans"/>
+        <label for="pinto">Pinto Beans</label>
+        <br/>
+
+        <input id="blackbeans" type="radio" name="Beans" value="Black Beans"/>
+        <label for="blackbeans">Black Beans</label>
+        <br/>
+
+        <h3>Protien</h3>
+
+        <input id="chicken" type="radio" name="Protien" value="Chicken"/>
+        <label for="chicken">Chicken</label>
+        <br/>
+
+        <input id="steak" type="radio" name="Protien" value="Steak"/>
+        <label for="Steak">Steak</label>
+        <br/>
+
+        <input id="sofritas" type="radio" name="Protien" value="Sofritas"/>
+        <label for="sofritas">Sofritas</label>
+        <br/>
+
+        <input id="none" type="radio" name="Protien" value="none"/>
+        <label for="none">None</label>
+        <br/>
+
+        <h3>Add Ons</h3>
+
+        <label for="add_ons">Sour Cream</label>
+        <input id="add_ons" type="checkbox" name="Sour cream" />
+        <br/>
+
+
+        <label for="add_ons">Hot Sauce</label>
+        <input id="add_ons" type="checkbox" name="hotsauce" />
+        <br/>
+
+
+        <label for="add_ons">Cheese</label>
+        <input id="add_ons" type="checkbox" name="cheese" />
+        <br/>
+
+
+        <label for="add_ons">Utensils</label>
+        <input id="add_ons" type="checkbox" name="Utensils" />
+        <br/>
+
+        <button type="submit">submit</button>
+        
+    </form>
+</body>
+</html>
+
