@@ -44,6 +44,10 @@ header {
     justify-content: space-around;
 }
 
+nav {
+   text-align: right;
+}
+
 h1 {
     font-size: 50px;
     font-family: 'Monoton', Arial, Helvetica, sans-serif;
@@ -69,6 +73,10 @@ a:visited {
 
 a:hover {
     color: turquoise;
+}
+
+footer {
+    margin-top: 5rem;
 }
 
 .navi-left {
