@@ -92,31 +92,22 @@
 // console.log('y: '+ y)
 // console.log(add(x,y))
 
-// function randomNumber(x,y) {
-//     let random_number = Math.floor(x + Math.random()*y)
-//     return random_number
-// }
 
-// let x = randomNumber(1,10)
-// console.log(x)
+function randNumber(x,y) {
+    x = parseInt(x) 
+    y = parseInt(y)
+    return Math.floor(Math.random()*(y-x+1)) + x
+}
 
-// function randomNumber(x,y) {
-//     let z = y-x
-//     let random_number = Math.floor(x + Math.random()*z)
-//     return random_number
-// }
+let x = prompt("pick start of range: ")
 
-// // test = Math.floor(18 + Math.random()*44)
+let y = prompt("pick end of range: ")
 
-// let x = prompt("pick start of range: ")
-// let y = prompt("pick end of range: ")
-// console.log(x)
-// console.log(y)
-// let rand = randomNumber(x,y)
+console.log('x: ', x)
+console.log('y: ', y)
+// let result = randNumber(x,y)
 
-
-
-// console.log(rand)
+console.log(randNumber(x,y))
 
 
 // class ATM {
