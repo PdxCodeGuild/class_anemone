@@ -34,10 +34,16 @@ const tens = {
   8: 'eighty',
   9: 'ninety',
 };
+
+numberEl = document.getElementById('numberInput');
+btnEl = document.getElementById('btn')
+resultsEl = document.getElementById('results')
+
 let wordConvert = (numeric) => {
   let numb = numeric;
   let digits = numeric.length;
   let value = parseInt(numeric);
+  console.log(value, digits)
   let phrase = '';
   switch (digits) {
     case 1:
@@ -47,18 +53,29 @@ let wordConvert = (numeric) => {
       if (value < 20) {
         phrase = phrase.concat(teens[numb[1]]);
       } else {
-        phrase = phrase.concat(tens[numb[0]] + ' ' + ones[numb[1]]);
-      }
+        phrase = phrase.concat(tens[numb[0]] , ' ' , ones[numb[1]]);
+      };
       break;
+    case 3:
+      if (numb[1] == '1') {
+        phrase = phrase.concat(ones[numb[0]], ' hundred ', teens[numb[2]]);
+      }else {
+        phrase = phrase.concat(ones[numb[0]], ' hundred ', tens[numb[1]], ' ', ones[numb[2]]);
+      };
     default:
-      console.log('default switch');
       break;
   }
-
+  console.log(phrase)
   return phrase;
 };
 
-let input = prompt('input number < 100');
-let output = wordConvert(input);
-alert(`${input} is ${output}`);
-console.log(teens[input[1]]);
+btnEl.addEventListener ('click', () => {
+  console.log('click')
+  
+  let output = wordConvert(numberEl.value);
+
+  let resultP = document.createElement('p');
+  resultP.innerText = output;
+  resultsEl.prepend(resultP);
+})
+
