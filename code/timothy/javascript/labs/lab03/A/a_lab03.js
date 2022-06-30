@@ -53,7 +53,7 @@ function num_matches(winning, ticket) {
 
 let wallet = 0
 let winner = 0
-let expenses =0
+let expenses = 0
 let winning = pick6()
 
 alert("The winning numbers are " + winning + ". Good luck!")
