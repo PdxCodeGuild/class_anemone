@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Lab-02</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <input
+        type="text"
+        name="distance-input"
+        id="distanceInput"
+        placeholder="input distance"
+        />
+        <select name="unit-input" id="unitInput">
+          <optgroup label="Imperial">
+            <option value="in">in</option>
+            <option value="ft">ft</option>
+            <option value="yd">yd</option>
+            <option value="mi">mi</option>
+          </optgroup>
+          <optgroup label="Metric">
+            <option value="m">m</option>
+            <option value="km">km</option>
+          </optgroup>
+        </select>
+        <button class="btn-outline-success" type="submit" id="btn">
+          convert
+        </button>
+        <select name="unit-output" id="unitOutput">
+          <optgroup label="Imperial">
+            <option value="in">in</option>
+            <option value="ft">ft</option>
+            <option value="yd">yd</option>
+            <option value="mi">mi</option>
+          </optgroup>
+          <optgroup label="Metric">
+            <option value="m">m</option>
+            <option value="km">km</option>
+          </optgroup>
+        </select>
+        <div id="results" placeholder="resulting conversion"></div>
+      </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
