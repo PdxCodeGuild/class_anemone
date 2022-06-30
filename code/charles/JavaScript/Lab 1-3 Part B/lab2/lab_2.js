@@ -1,42 +1,42 @@
 let statement = true
-let input = prompt('Please enter a 16 digit card number to verify.')
-function validation(verify) {
-    let ccard = verify
-    let ccardd =[]
-    let ccardlist = []
-    for (let i = 0; i<ccard.length; i++) {
-        ccardlist.push(parseInt(ccard[i]))
-    }
-    
 
-    let ccardpop = ccardlist.pop()
-    console.log(ccardpop)
-    let ccardr = ccardlist.reverse()
-    console.log(ccardr)
-    let a = 0
-     
+let validate = document.getElementById('validate')
+
+validate.addEventListener('click', function() {
+    let card = document.getElementById('cardnum')
     
+    let body = document.getElementById('body')
+    card = card.value
+    let ccard = []
+    for (i=0;i<16;i++) {
+        ccard[i]=parseInt(card[i])   
+    }
+    let ccardpop = ccard.pop()
+    let ccardr = ccard.reverse()
+    let ccardd =[]
+    let a = 0
+    let valid = ''
+    
+    if (ccard.length === 16) {
+        alert('Not a correct amount of digits.')
+    }
+
     for (i=0; i<ccardr.length/2+1; i++) {
-        ccardd.push(ccardr[i*2] + ccardr[i*2])  
+        ccardd.push(ccardr[i*2] + ccardr[i*2]) 
     } 
     for (i=0; i<ccardr.length/2+4; i+=1) {
-        ccardr.splice(i, 1)
+        ccardr.splice(i, 1)  
     }
-   
+    
     ccardd.pop()
     
     for (i=0; i<ccardd.length; i++) {
-        dd = ccardd[i]
-        r= ccardr[i]
+        let dd = ccardd[i]
         if (dd>9) {
             dd = dd-9
             ccardd[i] = dd
         }
-        else {
-            continue
-        }
     }
-    
     
     for (i=0;i<ccardd.length;i++) {
         a += ccardd[i]   
@@ -44,27 +44,20 @@ function validation(verify) {
     for (i=0;i<ccardr.length;i++) {
         a += ccardr[i]   
     }
-    
-    
-    
+  
     let confirm = a % 10 
-
+    
     if (confirm === ccardpop) {
-        alert('Valid')
+        valid += 'Valid'
     }
-    else {
-        alert('Invalid')
+    else if (confirm != ccardpop) {
+        valid +='Invalid'
     }
-}
-while (statement) {
-    if (input.length <16) {
-        alert('Not a correct amount of digits.')
-        input = prompt('Please enter a 16 digit card number to verify.')
-    }
-    else {
-        validation(input)
-        statement = false
-    }
-}
+
+    let result = document.createElement('p')
+    result.innerText ='Your card Number is '+valid
+    body.prepend(result)
+
+})
 
 
