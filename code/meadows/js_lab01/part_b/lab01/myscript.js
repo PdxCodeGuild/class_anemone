@@ -1,48 +1,46 @@
-let card1 = document.getElementById('card1')
-let card2 = document.getElementById('card2')
-let card3 = document.getElementById('card3')
-let resultsDiv = document.getElementById('results')
-let Hit =document.getElementById('hit')
-
-//card 1
-if (card1 === 'A') {
-    card1 = 1
-}
-else if(card1 > 1 && card1 < 10) {
-    card1 === card1
-}
-else if ( card1 === 'Q'|| card1 === 'J'|| card1 === 'K') {
-    card1 = 10
-}
+let cards = document.getElementsByClassName('card')
+let cardDiv = document.getElementById('card-Div')
+let HitBTN = document.getElementById('hit')
+let hitDiv = document.getElementById('results')
+let dealerDiv = document.getElementById('info')
 
 
-// card 2
-if (card2 === 'A') {
-    card2 = 1
-}
-else if(card2 > 1 && card2 < 10) {
-    card2 === card2
-}
-else if ( card2 === 'Q'|| card2 === 'J'|| card2 === 'K') {
-    card2 = 10
-}
-
-
-//card 3
-if (card3 === 'A') {
-    card3 = 1
-}
-else if(card3 > 1 && card3 < 10) {
-    card3 === card3
-}
-else if ( card3 === 'Q'|| card3 === 'J'|| card3 === 'K') {
-    card3 = 10
-}
-
-Hit.addEventListener('click', function() {
-    let answer = parseInt(car1.value) + parseInt(card2.value) + parseInt(card3.value)
-    let blackjack = document.createElement('bj')
-    blackjack.innerText = answer
-    resultsDiv.insertBefore(blackjack, resultsDiv.firstChild)
-
+HitBTN.addEventListener('click', function() {
+    let dealer = 0
+    for (let i=0; i<cards.length; i++){
+        for (let i=0; i<cards.length;i++) {
+            if (cards[i].value === "A") {
+                cards[i].value = 1
+            }
+            else if (cards[i].value ==="Q" || cards[i].value ==="K" || cards[i].value ==="J") {
+                cards[i].value = 10
+            }
+            else if (cards[i].value === "") {
+                cards[i].value = 0
+            }
+            else if (cards[i].value > 10) {
+                alert("PICK Q,K,J OR 2-10, this play was invalid")       
+            }
+        }
+        dealer += parseInt(cards[i].value)
+    }
+    
+    if (dealer < 17){
+        Decide = "I would HIT!!"
+    }
+    else if(dealer >= 17 && dealer < 21) {
+        Decide = "I would STAY!"
+    }
+    else if(dealer === 21) {
+        Decide = "YOU WON! BLACK JACK BABY!"
+    }
+    else if(dealer >21) {
+        Decide = "BUST..GG, you LOSE!"
+    }
+    let resultP = document.createElement('p')
+    let dealerP = document.createElement('o')
+    resultP.innerText = dealer
+    dealerP.innerText = Decide
+    hitDiv.prepend(resultP)  
+    hitDiv.prepend(dealerP)
 })
