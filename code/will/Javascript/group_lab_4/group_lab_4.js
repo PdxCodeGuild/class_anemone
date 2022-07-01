@@ -12,9 +12,10 @@ add_button.addEventListener('click', function(){
     to_do_list.push(item)
 
     let printItem = document.createElement('li')
-    printItem.classList.add("border")
     printItem.innerText = item
     itemsDiv.prepend(printItem)
+
+    itemsDiv.appendChild(printItem)
 
     let completeBtn = document.createElement('button')
     completeBtn.innerText = "Complete"
