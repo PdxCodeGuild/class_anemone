@@ -4,24 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript ToDo List</title>
+    <title>ToDO</title>
 </head>
-<body>
-    <header>
-        <h1>Javascript ToDo List</h1>
-    </header>
-    <main>
-        <div class="card">
-            <form action="" method="" id="todoForm">
-                <label for="todoInput">Create A Todo</label>
-                <input type="text" name="todoInput" id="todoInput" placeholder="Todo...">
-                <button id="todoBtn">Create</button>
-            </form>
-            <ul id="todoList">
+  <body>
+    <div class="card">
+      <h1>Todo Tracker</h1>
+      <form id="todo-form" method="POST">
+        <label for="todo-text">Add a Todo: </label>
+        <input type="text" placeholder="Type todo here..." name="todo-text" id="todo-text" />
+      </form>
+      <p>Todo Count: <span id="todo-count">0</span></p>
+      <ul id="todo-list"></ul>
 
-            </ul>
-        </div>
-    </main>
-    <script src="todo.js"></script>
-</body>
+  </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
