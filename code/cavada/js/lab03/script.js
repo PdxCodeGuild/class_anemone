@@ -3,17 +3,16 @@ let board = ['-','-','-','-','-','-','-','-','-']
 const divBoard = document.querySelector('#board')
 let legend = document.querySelector('legend')
 let checkSpaces
-// let x = 7
+
 //make board
 i = 1
 while (i < 10) {
-    // let y = x-1
+
     let space = document.createElement('div') 
     space.classList= 'space'
     iStr = 'spc'+String(i)
     space.id = iStr
     divBoard.appendChild(space)
-
     let spaceBtn = document.createElement('button')
     spaceBtn.classList.add= ('space-btn')
     spaceBtn.style.display=('block')
@@ -46,10 +45,7 @@ const boardSpaces = {
     8:document.querySelector('#btn8'),
     9:document.querySelector('#btn9')
 }
-let token
-let counter = 1
-let tokens = ['O','X']
-let winner
+
 function check(board) {
     let test = board.slice()
 
@@ -66,28 +62,22 @@ function check(board) {
     for (key in checkSpaces) {
         
         console.log(key,':',checkSpaces[key])
-        if (checkSpaces[key] == ['X','X','X']) {
+        if (checkSpaces[key] === ['X','X','X']) {
             winner = 'X'
             
-        } else if (checkSpaces[key] == ['O','O','O']) {
+        } else if (checkSpaces[key] === ['O','O','O']) {
             winner = 'O'
         }
+    
     }
+    alert(winner)
     return winner
 }
 
-// checkSpaces = {
-// 'h1' : board.slice(0,3),
-// 'h2' : board.slice(3,6),
-// 'h3' : board.slice(6,9),
-// 'v1' : [board.slice(0,1).toString(),board.slice(3,4).toString(),board.slice(6,7).toString()],
-// 'v2' : [board.slice(1,2).toString(),board.slice(4,5).toString(),board.slice(7,8).toString()],
-// 'v3' : [board.slice(2,3).toString(),board.slice(5,6).toString(),board.slice(8,9).toString()],
-// 'd1' : [board.slice(0,1).toString(),board.splice(4,5).toString(),board.slice(8,9).toString()],
-// 'd2' : [board.slice(2,3).toString(),board.splice(4,5).toString(),board.slice(6,7).toString()]
-// }
-
-
+let token
+let counter = 1
+let tokens = ['O','X']
+let winner
 for (key in boardSpaces) {
     let index = key
     let boardSpace = boardSpaces[key]
@@ -111,24 +101,6 @@ for (key in boardSpaces) {
             if (winner == 'X' || winner == 'O') {
                 alert(winner) 
             }
-            // checkSpaces = {
-            //     'h1' : board.slice(0,3),
-            //     'h2' : board.slice(3,6),
-            //     'h3' : board.slice(6,9),
-            //     'v1' : [board.slice(0,1).toString(),board.slice(3,4).toString(),board.slice(6,7).toString()],
-            //     'v2' : [board.slice(1,2).toString(),board.slice(4,5).toString(),board.slice(7,8).toString()],
-            //     'v3' : [board.slice(2,3).toString(),board.slice(5,6).toString(),board.slice(8,9).toString()],
-            //     'd1' : [board.slice(0,1).toString(),board.splice(4,5).toString(),board.slice(8,9).toString()],
-            //     'd2' : [board.slice(2,3).toString(),board.splice(4,5).toString(),board.slice(6,7).toString()]
-            //     }
-            // for (key in checkSpaces) {
-
-            //     if (checkSpaces[key] === wins['X']) {
-            //         alert('win for X!')
-            //     } else if (checkSpaces[key] === wins['O']) {
-            //         alert('win for O!')
-            //     }
-            // }
 
         } else {
             legend.innerText = 'Player O'
@@ -146,29 +118,9 @@ for (key in boardSpaces) {
             console.log(winner)     
             if (winner != undefined) {
                 alert(winner) 
-            }            //     'h1' : board.slice(0,3),
-            //     'h2' : board.slice(3,6),
-            //     'h3' : board.slice(6,9),
-            //     'v1' : [board.slice(0,1).toString(),board.slice(3,4).toString(),board.slice(6,7).toString()],
-            //     'v2' : [board.slice(1,2).toString(),board.slice(4,5).toString(),board.slice(7,8).toString()],
-            //     'v3' : [board.slice(2,3).toString(),board.slice(5,6).toString(),board.slice(8,9).toString()],
-            //     'd1' : [board.slice(0,1).toString(),board.splice(4,5).toString(),board.slice(8,9).toString()],
-            //     'd2' : [board.slice(2,3).toString(),board.splice(4,5).toString(),board.slice(6,7).toString()]
-            //     }
-            // for (key in checkSpaces) {
-
-            //     if (checkSpaces[key] === wins['X']) {
-            //         alert('win for X!')
-            //     } else if (checkSpaces[key] === wins['O']) {
-            //         alert('win for O!')
-            //     }
-            // }
-
+            }         
         }
-        
     counter++
-
-    
     })
 }
 
