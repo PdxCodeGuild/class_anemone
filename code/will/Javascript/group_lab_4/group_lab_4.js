@@ -20,6 +20,7 @@ add_button.addEventListener('click', function(){
     removeItem.addEventListener('click', function(){
         printItem.remove()
         removeItem.remove()
+        completeBtn.remove()
     })
 
     itemsDiv.appendChild(removeItem)
@@ -31,14 +32,14 @@ add_button.addEventListener('click', function(){
         console.log(completeItem)
         completeList.push(completeItem)
         console.log(completeList)
+        removeItem.remove()
+        completeBtn.remove()
+        printItem.remove()
     })
     itemsDiv.appendChild(completeBtn)
-    
-    
-    
+    return item
+
+
+
 })
 // need to figure this out
-let displayItem = document.createElement('p')
-displayItem.innerText = item
-completeDiv.prepend(displayItem)
-
