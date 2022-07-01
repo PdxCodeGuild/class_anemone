@@ -41,4 +41,3 @@ add_button.addEventListener('click', function(){
 
     itemsDiv.appendChild(removeItem)
 })
-
