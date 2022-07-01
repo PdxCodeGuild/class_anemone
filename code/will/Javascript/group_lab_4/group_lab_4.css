@@ -1,0 +1,7 @@
+.strike {
+    text-decoration: line-through;
+}
+
+.border {
+    border: 2px solid red;
+}

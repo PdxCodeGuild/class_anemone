@@ -11,7 +11,8 @@ add_button.addEventListener('click', function(){
     let item = user_input.value
     to_do_list.push(item)
 
-    let printItem = document.createElement('p')
+    let printItem = document.createElement('li')
+    printItem.classList.add("border")
     printItem.innerText = item
     itemsDiv.prepend(printItem)
 
@@ -25,7 +26,8 @@ add_button.addEventListener('click', function(){
         completeBtn.remove()
 
         let displayItem = document.createElement('p')
-        displayItem.innerText = item.strike()
+        displayItem.classList.add("strike")
+        displayItem.innerText = item
         completeDiv.prepend(displayItem) 
     })   
 
