@@ -3,16 +3,19 @@ let board = ['-','-','-','-','-','-','-','-','-']
 const divBoard = document.querySelector('#board')
 let legend = document.querySelector('legend')
 let checkSpaces
-
+let Spaces = {}
+let boardSpaces = {}
+let winner
+let winningSpace 
 //make board
-i = 1
+i=1
 while (i < 10) {
-
     let space = document.createElement('div') 
     space.classList= 'space'
     iStr = 'spc'+String(i)
     space.id = iStr
     divBoard.appendChild(space)
+    Spaces[i]=space
     let spaceBtn = document.createElement('button')
     spaceBtn.classList.add= ('space-btn')
     spaceBtn.style.display=('block')
@@ -20,30 +23,19 @@ while (i < 10) {
     iStr = 'btn'+String(i)
     spaceBtn.id = iStr
     space.appendChild(spaceBtn)
+    boardSpaces[i]=spaceBtn
     i++
 }
-const Spaces = {
-    1:document.querySelector('#spc1'),
-    2:document.querySelector('#spc2'),
-    3:document.querySelector('#spc3'),
-    4:document.querySelector('#spc4'),
-    5:document.querySelector('#spc5'),
-    6:document.querySelector('#spc6'),
-    7:document.querySelector('#spc7'),
-    8:document.querySelector('#spc8'),
-    9:document.querySelector('#spc9')
-}
 
-const boardSpaces = {
-    1:document.querySelector('#btn1'),
-    2:document.querySelector('#btn2'),
-    3:document.querySelector('#btn3'),
-    4:document.querySelector('#btn4'),
-    5:document.querySelector('#btn5'),
-    6:document.querySelector('#btn6'),
-    7:document.querySelector('#btn7'),
-    8:document.querySelector('#btn8'),
-    9:document.querySelector('#btn9')
+const winningSpaces = {
+    'h1': [1,2,3,],
+    'h2': [4,5,6],
+    'h3': [7,8,9],
+    'v1': [1,4,7],
+    'v2': [2,5,8],
+    'v3': [3,6,9],
+    'd1': [1,5,9],
+    'd2': [3,5,7]
 }
 
 function check(board) {
@@ -60,30 +52,59 @@ function check(board) {
     'd2' : [test.slice(2,3).toString(),test.slice(4,5).toString(),test.slice(6,7).toString()]
     }
     for (key in checkSpaces) {
-        
-        console.log(key,':',checkSpaces[key])
-        if (checkSpaces[key] === ['X','X','X']) {
+        test = checkSpaces[key].join("")
+        x = 'XXX'
+        o = 'OOO'
+
+        console.log(test,x,o)
+        if (test == x) {
+            // alert(key)
             winner = 'X'
+            winningSpace = winningSpaces[key]
+            winningSpace.forEach(space => {
+                Spaces[space].style.backgroundColor = 'red'
+            });
+            legend.innerText = 'Player X WON!'
+            for (key in boardSpaces) {
+                boardSpaces[key].remove()   
+            }
+            // alert(winningSpaces[key])
             
-        } else if (checkSpaces[key] === ['O','O','O']) {
+            // winningSpace.forEach(element => {
+                
+            // });
+        } else if (test == o) {
+            // alert(key)
             winner = 'O'
+            winningSpace = winningSpaces[key]
+            winningSpace.forEach(space => {
+                Spaces[space].style.backgroundColor = 'red'
+            });
+            legend.innerText = 'Player O WON!'
+            for (key in boardSpaces) {
+                boardSpaces[key].remove()
+                
+            }
+            
         }
-    
+        
     }
-    alert(winner)
+    // alert(winner)
     return winner
 }
 
 let token
 let counter = 1
 let tokens = ['O','X']
-let winner
+
+
 for (key in boardSpaces) {
     let index = key
     let boardSpace = boardSpaces[key]
     let spc = Spaces[key]
     
     boardSpace.addEventListener('click',function() {
+
         boardSpace.style.display = 'none'
         if (counter % 2 === 0) {
             legend.innerText = 'Player X'
@@ -99,9 +120,9 @@ for (key in boardSpaces) {
             winner = check(board)
             console.log(winner)
             if (winner == 'X' || winner == 'O') {
-                alert(winner) 
+                // alert(winner) 
             }
-
+        
         } else {
             legend.innerText = 'Player O'
             token = tokens[1]
@@ -116,13 +137,12 @@ for (key in boardSpaces) {
             console.log(board)
             winner = check(board)   
             console.log(winner)     
-            if (winner != undefined) {
-                alert(winner) 
-            }         
+            if (winner == 'X' || winner == 'O') {
+                // alert(winner) 
+            } 
         }
     counter++
     })
 }
 
-    
  
