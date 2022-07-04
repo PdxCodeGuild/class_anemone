@@ -2,7 +2,7 @@
 // let omega = document.getElementById('create')
 // let mark = document.getElementById('completed')
 let nitems = document.getElementsByClassName('nitem')
-let itemDiv = document.getElementById('todoitem')
+let incomDiv = document.getElementById('todoitem')
 let Confirm = document.getElementById('submit')
 let completedDiv = document.getElementById('completeditems')
 
@@ -33,9 +33,9 @@ Confirm.addEventListener('click', function() {
             undo = !undo
         } else {
             resultP.style.textDecoration ='none'
-            itemDiv.appendChild(resultP)
-            itemDiv.appendChild(itemComplete)
-            itemDiv.appendChild(itemRemove)
+            incomDiv.appendChild(resultP)
+            incomDiv.appendChild(itemComplete)
+            incomDiv.appendChild(itemRemove)
             undo = !undo
         }
         // resultP.remove()
@@ -50,9 +50,9 @@ Confirm.addEventListener('click', function() {
     
     // completedDiv.appendChild(resultP)
     
-    itemDiv.appendChild(resultP)
-    itemDiv.appendChild(itemComplete)
-    itemDiv.appendChild(itemRemove)
+    incomDiv.appendChild(resultP)
+    incomDiv.appendChild(itemComplete)
+    incomDiv.appendChild(itemRemove)
 
     
 })
