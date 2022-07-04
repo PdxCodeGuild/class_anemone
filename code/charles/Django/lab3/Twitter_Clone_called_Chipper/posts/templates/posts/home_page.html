@@ -8,7 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'signup.html' %}" method='post'>
+    {% include 'users/signup.html' %}
+    <form action="{% url 'users/signup.html' %}" method='post'>
         <div class='sign-up'>
             <input type='submit' value='Signup'>
         </div>
@@ -30,15 +31,15 @@
         </tr>
     {% for post in posts%}
         <tr>
-            {% post.title %}<br>
-            {% post.author %}, &nbsp; {% post.created %}<br>
+            {{ post.title }}<br>
+            {{ post.author }}, &nbsp; {{ post.created }}<br>
         </tr>    
         <tr>
-            {% post.body %}
+            {{ post.body }}
         </tr>
         <hr>  
         
-    {%endif%}
+    {%endfor%}
     </tabel>
 </body>
 </html>

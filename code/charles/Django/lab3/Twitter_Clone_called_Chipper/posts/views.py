@@ -10,7 +10,7 @@ def home_page(request):
     context = {
         'posts':posts
     }
-    return render(request, 'home_page.html', context)
+    return render(request, 'posts/home_page.html', context)
 
 def newpost(request):
     title=request.POST['title']
@@ -24,7 +24,7 @@ def edited(request, postid, userid):
     user = get_object_or_404(User, pk=userid)
     post = get_object_or_404(Posts, pk=postid)
     if user != post.author:
-        error_message = "You do did not create this so cannot edit it."
+        error_message = "You do did not create this so you cannot edit it."
         na = {
             'error_message':error_message
         }
@@ -40,11 +40,14 @@ def edited(request, postid, userid):
         post.save()
 
 def userprofile(request, reuserid):
-    posts=Posts.objects.order_by('author')
+    posts = Posts.objects.order_by('author')
     user = get_object_or_404(User, pk=reuserid)
-    pots = 
+    pots = []
     for post in posts:
         if posts.author == user.username:
+            pots.apppend['pots':post]
+    return render(request, 'users/userprofile.html', pots)
+
 
 
 # Create your views here.

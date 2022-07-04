@@ -4,8 +4,8 @@ class Posts(models.Model):
     title = models.TextField(max_length=20)
     author = models.ForeignKey('auth.User', related_name="posts", on_delete=models.CASCADE)
     body = models.TextField(max_length=128)
-    created = models.DateTimeField(auto_now_add=True)
-    updated_last = models.DateTimeField(add_now=True)
+    created = models.DateTimeField(auto_now_add = True)
+    updated_last = models.DateTimeField()
 
     def __str__(self):
         return self.title
