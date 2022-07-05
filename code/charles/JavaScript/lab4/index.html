@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Incomplete</h1>
+        <ul v-for="todo in todos">
+            <li v-if="todo.complete === false">
+                {{ todo.text }}<button v-on:click="removeTodo(todo)">Delete</button><button v-on:click="truefalsey(todo)">Set as Complete</button>
+            </li>
+        </ul>
+        <h1>Complete</h1>
+        <ul v-for="todo in todos">
+            <li v-if="todo.complete === true">
+                {{ todo.text }}<button v-on:click="removeTodo(todo)">Delete</button><button v-on:click="truefalsey(todo)">Set as Incomplete</button>
+            </li>
+        </ul>
+        <h1>New Todo</h1>
+        <input type="text" v-model='newtodo'>
+        <button v-on:click='addTodo'>New Todo</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="Vue.js"></script>
+</body>
+</html>
