@@ -18,7 +18,7 @@ cipherBtn.addEventListener('click', function(){
         newWord +=wordCipher
     }
 
-    let result = document.createElement('r')
+    let result = document.createElement('p')
     result.innerText = newWord
     results.prepend(result)
 })

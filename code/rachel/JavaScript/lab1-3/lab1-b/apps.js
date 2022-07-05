@@ -30,7 +30,7 @@ calcAvgBtn.addEventListener('click', function() {
         avg_answer = answer / nums.length
     }
 
-    let result = document.createElement('r')
+    let result = document.createElement('p')
     result.innerText = avg_answer
     results.prepend(result)
 })
