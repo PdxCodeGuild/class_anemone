@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo List Using Vue</title>
+        <link rel="stylesheet" href="/css/site.css">
+    </head>
+    <body>
+        <div id="incomplete-list">
+            <li v-for="todo in todos">
+                {{ todo.text }}<button v-on="removeTodo(todo)">x</button><button v-on="completeTodo(todo)">✓</button>
+            </li>
+        </div>
+        <input type="text" v-model="inputField">
+        <button v-on:click="addTodo">Add Todo</button>
+        
+        <div id="complete-list">
+            <li v-for="todo in todos">
+                {{ todo.text }}<button v-on="removeTodo(todo)">x</button>
+            </li>
+        </div>
+
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="/js/site.js"></script>
+    </body>
+</html>
