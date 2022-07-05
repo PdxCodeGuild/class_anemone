@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    background-color: rgb(207, 206, 203);
+    color: rgb(4, 55, 71);
+}
+
+header {
+    text-align: center;
+}
+
+main{
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1.5em;
+    padding-left: 15vw;
+}
+
+h1 a{
+    font-family: 'Old Standard TT', serif;
+    font-size: 3em;
+    color: rgb(8, 99, 130);
+    border: 5px solid whitesmoke;
+    border-radius: 25px;
+    padding: .1em;
+}
+
+p a{
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color:rgb(8, 99, 130)
+}
+
+.linkformat {
+    text-decoration: none;
+}
