@@ -8,20 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-    {% include 'users/signup.html' %}
-    <form action="{% url 'users/signup.html' %}" method='post'>
-        <div class='sign-up'>
-            <input type='submit' value='Signup'>
-        </div>
-    </form>
-
-    <form action='' method='post'>
+    <form action="{% url 'users:signin' %}" method='post'>
         <div class='sign-in'>
             <input type='text' id='username' name='username' placeholder='Username'>
             <input type='text' id='password' name='password' placeholder='Password'>
-            <input type='submit' value='SiGnIn'>
+            <input type='submit' value='Sign-In'>
         </div>
     </form>
+    
+    {%if not bsing%}
+    <form action="{% url 'posts:bsignup'%}" method='post'>
+        {% csrf_token %}
+    <button type='submit' value='nothing'>Sign Up</button>
+    </form>
+    {%endif%}
+    {% if bsing %}
+    {% include 'users/signup.html' %}
+    {% endif %} 
+   
+
+    
 
     <table>
         <tr>

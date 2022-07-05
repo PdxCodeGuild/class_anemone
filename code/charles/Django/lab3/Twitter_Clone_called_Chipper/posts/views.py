@@ -12,6 +12,13 @@ def home_page(request):
     }
     return render(request, 'posts/home_page.html', context)
 
+def bsignup(request):
+    bsing = 'text'
+    bsignin = {'bsing':bsing}
+    
+    return render(request, 'posts/home_page.html', bsignin)
+
+
 def newpost(request):
     title=request.POST['title']
     author= User.username.id
