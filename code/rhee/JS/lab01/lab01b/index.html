@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Converter</title>
+</head>
+<body>
+    <div class="convert-body">
+        <h1 class="convert-title">Unit Converter</h1>
+
+        <input type="text" id="input" class="input" placeholder="Enter distance: ">
+        <p id="output" class="output">Your conversion is: </p>
+        <!-- <button onclick="getVal();">Submit</button> -->
+
+
+        <select id="input_sel" class="input_sel">
+            <option value="feet">feet (ft)</option>
+            <option value="meters">meter (m)</option>
+            <option value="miles">mile (m)</option>
+            <option value="kilometers">kilometers (km)</option>
+        </select>
+            <span> = </span>
+        <select id="output_sel" class="input_sel">
+            <option value="feet">feet (ft)</option>
+            <option value="meters">meter (m)</option>
+            <option value="miles">mile (m)</option>
+            <option value="kilometers">kilometers (km)</option>
+        </select>
+            <button id="submitBtn" class="btn">Submit</button>  
+        </div>
+    </div>
+    <script src="basic.js"></script>
+
+</body>
+</html>
