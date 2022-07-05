@@ -8,7 +8,7 @@ Your Vue app will need to do a few things:
  * Allow the user to add and remove todos
  * Allow a user to toggle if a task is complete or not
  
- Reference the Vue.js [Introduction Guide](https://vuejs.org/v2/guide/).
+ Reference the Vue.js [Introduction Guide](https://v2.vuejs.org/v2/guide/).
 
 ## How to get started
 
@@ -41,7 +41,7 @@ Example: `index.html`
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Todo List</title>
     <!-- Add your styles here! -->
-    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
     <div id="app">
@@ -51,7 +51,7 @@ Example: `index.html`
     <!-- Include Vue from a CDN of your choice, I chose unpkg -->
     <script src="https://unpkg.com/vue@2"></script>
     <!-- Include your code here... -->
-    <script src="/js/site.js"></script>
+    <script src="js/site.js"></script>
 </body>
 </html>
 ```
