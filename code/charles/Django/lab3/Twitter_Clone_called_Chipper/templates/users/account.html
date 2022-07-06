@@ -8,12 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form action='' method='post'>
+    <form action="{% url 'posts:home_page' %}" method='post'>
+        {% csrf_token %}
         <input type='submit' value='Home Page'>
     </form>
     <form action='' method='post'>
-    {% user.is_authenticated %}
-    {% for users in user %}
-        <p>Username: {{users.name}}
+    </form>
+    {% if user_profile %}
+        <p>Username: {{user_profile.username}}
+    {%endif%}
 </body>
 </html>
