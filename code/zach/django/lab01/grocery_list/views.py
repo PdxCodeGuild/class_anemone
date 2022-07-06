@@ -27,22 +27,31 @@ def index(request):
 
 def add_item(request):
     submitted = False
-    
     if request.method == "POST":
         form = GroceryItemForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('add/?submitted=True')
+            return HttpResponseRedirect(reverse('grocery_list:index'), {'form': form, 'submitted': submitted})
     else:
+        print('error')
         form = GroceryItem
         if 'submitted' in request.GET:
             submitted = True
-    form = GroceryItemForm        
-    return render(request, 'grocery_list/add.html', {'form':form, 'submitted': submitted})
-            
-        
-    # description = request.POST['description']
-    # GroceryItem.objects.create(
-    #     description=description, date_created=timezone.now(), complete=False)
+    # form = GroceryItemForm        
+    return HttpResponseRedirect(reverse('grocery_list:index'), {'form': form, 'submitted': submitted})
+
     
-    return render(request, 'grocery_list/add.html')
+def update_item(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
+    print(item)
+    if item.complete:
+        item.complete = False
+        item.completed_date = None
+        item.save()
+    else:
+        item.complete = True
+        item.completed_date = timezone.now()
+        item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+

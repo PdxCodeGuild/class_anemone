@@ -5,10 +5,11 @@ from .models import GroceryItem
 class GroceryItemForm(ModelForm):
     class Meta:
         model = GroceryItem
-        fields = ("description","created_date","complete")
-        # labels = {
-        #     "description" : ""
-        # }
+        fields = ("description","complete")
+        labels = {
+            "description" : "Item",
+            "complete": "Complete"
+        }
         # widgets = {
         #     "description" : forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Grocery Item'})
         # }

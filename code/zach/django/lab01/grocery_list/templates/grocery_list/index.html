@@ -9,7 +9,7 @@
     {% if submitted %}
         Grocery added Successfully
     {% else %}    
-    <form  action="" method="POST" enctype="multipart/form-data">
+    <form  action="{% url 'grocery_list:add' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %} 
         <p>
         {{ aform.as_p }}
@@ -28,18 +28,16 @@
     <p>    
         <ul>
         {% for item in incomplete_items %}
-        <form  action="" method="POST" enctype="multipart/form-data">
+        <h3>{{ item.description }}:</h3>
+        <form  action="{% url 'grocery_list:update' item.pk %}" method="POST">
             {% csrf_token %}
             <p>
-                <li>
-                    {{ item.description }} <input type="checkbox" value="{{ item.complete }}"> <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Submit"> 
-                </li>
+                <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Update"> 
             </p>
         </form>
         {% endfor %}
         </ul>
     </p>
-    </form>
 </card>
 <card class="containter-fluid">
     <p>
@@ -48,17 +46,15 @@
     <p>    
         <ul>
         {% for item in completed_items %}
-        <form  action="" method="POST" enctype="multipart/form-data">
+        <h3>{{ item.description }}:</h3>
+        <form  action="{% url 'grocery_list:update' item.pk %}" method="POST">
             {% csrf_token %}
             <p>
-                <li>
-                    {{ item.description }} <input type="checkbox" value="{{ item.complete }}"> <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Submit"> 
-                </li>
+                <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Update"> 
             </p>
         </form>
         {% endfor %}
         </ul>
     </p>
-    </form>
 </card>
 {% endblock %}
