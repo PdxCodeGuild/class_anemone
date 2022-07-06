@@ -18,11 +18,5 @@ class ProfilePage(DetailView):
     def get_object(self):
         return get_object_or_404(User, username=self.kwargs['username'])
 
-def profile(request, username):
-    profile = get_object_or_404(User, username=username)
-    context = {
-        'profile' : profile
-    }
-    return render(request, 'profile.html', context)
 
 
