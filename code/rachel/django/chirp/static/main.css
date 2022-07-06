@@ -32,10 +32,10 @@ a:link {
     text-decoration: none;
 }
 
-a:visited {
+/* a:visited {
     text-decoration: none;
     color:rgb(8, 99, 130)
-}
+} */
 
 .linkformat {
     text-decoration: none;

@@ -5,6 +5,7 @@
 {% for post in post_list %}
     <div class="post-container">
     <p><a href="{% url 'users:profile' post.author.username %}">{{post.author.username}}</a></p>
+    <p><a href="{% url 'posts:detail' post.pk %}">{{post.title}}</a></p>
     <p>{{post.body}}</p>
     </div>
 {% endfor %}
