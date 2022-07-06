@@ -5,23 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Todo List Using Vue</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/site.css">
     </head>
     <body>
-        <div id="incomplete-list">
-            <li v-for="todo in todos">
-                {{ todo.text }}<button v-on="removeTodo(todo)">x</button><button v-on="completeTodo(todo)">✓</button>
-            </li>
-        </div>
-        <input type="text" v-model="inputField">
-        <button v-on:click="addTodo">Add Todo</button>
-        
-        <div id="complete-list">
-            <li v-for="todo in todos">
-                {{ todo.text }}<button v-on="removeTodo(todo)">x</button>
-            </li>
-        </div>
+        <div id="lists-div">
+            <div id="incomplete-list" >
+                <h2>Incomplete Tasks</h2>
+                <ul v-for="todo in incomplete">
+                    <li>{{ todo.text }}<button v-on:click="removeTodo(todo)">x</button><button v-on:click="completeTodo(todo)">✓</button></li>
+                </ul>
+                <div id="entry">
+                    <input type="text" v-model="inputField" @keyup.enter="addTodo">
+                    <button v-on:click="addTodo">Add Todo</button>
+                </div>
+            </div>
 
+            <div id="complete-list">
+                <h2>Completed Tasks</h2>
+                <ul v-for="todo in complete">
+                    <li>{{ todo.text }}<button v-on:click="removeTodo(todo)">x</button><button v-on:click="undoComplete(todo)">Undo</button></li>
+                </ul>
+            </div>
+        </div>
         <script src="https://unpkg.com/vue@2"></script>
         <script src="/js/site.js"></script>
     </body>

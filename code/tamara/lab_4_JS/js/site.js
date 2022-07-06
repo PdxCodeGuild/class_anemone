@@ -1,8 +1,8 @@
-var incompleteList = new Vue({
-    el: '#incomplete-list',
+var todosList = new Vue({
+    el: '#lists-div',
     data: {
         todos: [
-            {text: 'placeholder example 1 todo item'}
+            {text: 'placeholder example 1 todo item', complete: false},
         ],
 
         inputField: "",
@@ -10,40 +10,34 @@ var incompleteList = new Vue({
 
     methods: {
         addTodo: function () {
-            this.incompleteList.todos.push({text: this.inputField})
+            this.todos.push({text: this.inputField, complete: false})
+            this.inputField= ''
         },
+
         removeTodo: function(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
         },
         completeTodo: function(todo) {
-            this.completeList.todos.push({text: this.inputField})
-            this.todos.splice(this.todos.indexOf(todo), 1)
-            // change complete to true here
+            todo.complete = true
+        },
+
+        undoComplete: function(todo) {
+            todo.complete = false
         }
     },
 
     
     computed: {
         complete: function() {
-            // do a .filter here for complete: true
+            return this.todos.filter(function (element) {
+                return (element.complete === true)
+            })
         },
+
         incomplete: function() {
-            // do a .filer here for complete: true -- this is a javascript function
+           return this.todos.filter(function (element) {
+                return (element.complete === false)
+           })
         }
     }
 })
-
-// var completeList = new Vue({
-//     el: '#complete-list',
-//     data: {
-//         todos: [
-//             {text: 'completed item 1 - example paceholder'}
-//         ],
-//     },
-
-//     methods: {
-//         removeTodo: function(todo) {
-//             this.todos.splice(this.todos.indexOf(todo), 1)
-//         },
-//     }
-// })
