@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>My Blog</title>
+</head>
+<body>
+    <header>
+        <nav class="flex">xxx</nav>
+    </header>
+    <main>
+        <sidebar class="flex left"></sidebar>
+        <section>
+            <ul>
+            {%  for post in posts %}
+                <h3 class="post-title">{{post["title"]}}</h3>
+                <li class="post-textarea">{{post["body"]}}<br>-{{post["author"]}}</li>
+            {% endfor%}
+            </ul>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

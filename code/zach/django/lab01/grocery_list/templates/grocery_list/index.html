@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<card class="containter-fluid">
+    <p>
+        <h3>Add Grocery Item:</h3>
+    </p>
+
+    {% if submitted %}
+        Grocery added Successfully
+    {% else %}    
+    <form  action="{% url 'grocery_list:add' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <p>
+        {{ aform.as_p }}
+        <input class="btn btn-secondary my-2 my-sm-0" type="submit" value="Submit">
+        </p>
+    </form>
+    {% endif %}
+
+
+</card>
+
+<card class="containter-fluid">
+    <p>
+        <h3>Incomplete Grocery Items:</h3>
+    </p>   
+    <p>    
+        <ul>
+        {% for item in incomplete_items %}
+        <h3>{{ item.description }}:</h3>
+        <form  action="{% url 'grocery_list:update' item.pk %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Update"> 
+            </p>
+        </form>
+        {% endfor %}
+        </ul>
+    </p>
+</card>
+<card class="containter-fluid">
+    <p>
+        <h3>Completed Grocery Items:</h3>
+    </p>   
+    <p>    
+        <ul>
+        {% for item in completed_items %}
+        <h3>{{ item.description }}:</h3>
+        <form  action="{% url 'grocery_list:update' item.pk %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Update"> 
+            </p>
+        </form>
+        {% endfor %}
+        </ul>
+    </p>
+</card>
+{% endblock %}
