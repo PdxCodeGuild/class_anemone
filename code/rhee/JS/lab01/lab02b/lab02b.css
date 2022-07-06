@@ -1,0 +1,27 @@
+.selection {
+    background-color: rgb(69, 129, 129);
+    height: 300px;
+    width: 500px;
+    text-align: left;
+    margin-left: 600px;
+    border: 2px solid black;
+    font-size: 18px;
+    border-radius: 10px;
+    text-indent: 20px;
+    
+}
+.comp-input {
+    text-decoration-line: underline;
+    font-size: 35px;
+    color:rgb(187, 167, 181)
+}
+.user-input {
+    text-decoration-line: underline;
+    font-size: 35px;
+    color:rgb(187, 167, 181)
+}
+.result {
+    text-decoration-line: underline;
+    font-size: 35px;
+    color:rgb(187, 167, 181)
+}
