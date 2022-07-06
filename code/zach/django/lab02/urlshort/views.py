@@ -22,7 +22,14 @@ def url_short(request):
             url = f.cleaned_data['url']
             new_url = UrlData(url=url, slug=slug)
             new_url.save()
-            return redirect('/')
+            f = UrlForm()
+            data = UrlData.objects.all()
+
+            context = {
+                'f': f,
+                'data': data,
+            }
+            return render(request, 'urlshort/url.html',context)
     else:
         f = UrlForm()
         data = UrlData.objects.all()   

@@ -12,7 +12,7 @@
 
 {% for item in data %}
 <p>
-    {{ item }}
+    {{ item.url }}:<a href="{{ item.url }}">{{ item.slug }}</a>
 </p>
 {% endfor %}
 {% endblock %}
