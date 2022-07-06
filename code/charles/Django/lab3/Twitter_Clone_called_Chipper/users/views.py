@@ -23,12 +23,17 @@ def signin(request):
     user=authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
+        for log in Users:
+            if username == Users.username:
+                Users.authenticated = True
         return profile(request, request.POST['username'])
     else:
         error_message = "Your password or username is not valid."
         return render(request, 'login.html', error_message)
 
-def signout(request):
+def signout(request, userid):
+    username = get_object_or_404(Users, userid)
+    username.authenticated = False
     logout(request)
     return render(request, 'posts:home_page')
 

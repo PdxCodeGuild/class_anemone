@@ -10,6 +10,7 @@
 <body>
     <form action="{% url 'users:signin' %}" method='post'>
         {%csrf_token%}
+        {{error_message}}
         <div class='sign-in'>
             <input type='text' id='username' name='username' placeholder='Username' required='required'>
             <input type='text' id='password' name='password' placeholder='Password' required='required'>
@@ -32,8 +33,10 @@
 
     <table>
         <tr>
-            <form action='' method='post'>
+            <form action="{% url 'posts:newpost'%}" method='post'>
+                {%csrf_token%}
                 <input type='text' maxlength='128' id='newpost' name='newpost' placeholder="What's happening?">
+                <button type='submit' value='Submit'>Submit</button>
             </form>
         </tr>
     {% for post in posts%}

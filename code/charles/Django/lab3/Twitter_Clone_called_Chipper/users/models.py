@@ -7,6 +7,7 @@ class Users(models.Model):
     email = models.EmailField()
     first_name = models.TextField(max_length=20)
     last_name = models.TextField(max_length=20)
+    authenticated=models.BooleanField(default=False)
 
     # def __str__(self):
     #     return (self.username, self.email, self.first_name, self.last_name)
