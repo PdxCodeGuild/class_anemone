@@ -1,0 +1,28 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: #731728;
+}
+
+a:hover {
+    color: #3B9ABF;
+}
+
+body {
+    background-color: #1C1C24;
+    color: #f0dacd;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5em;
+    margin: 2em;
+    padding: 0em;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+}

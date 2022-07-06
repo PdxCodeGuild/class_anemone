@@ -2,8 +2,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
+
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
@@ -17,4 +18,9 @@ class UserProfileView(DetailView):
 
     def get_object(self):
         return get_object_or_404(User, username=self.kwargs['username'])
+
+# def user_profile(request, username):
+#     user_profile = get_object_or_404(User, username=username)
+#     context = {'user_profile': user_profile}
+#     return render(request, 'user_profile.html', context)
 
