@@ -4,11 +4,11 @@ new Vue ({
         newTodo: {
             text: '',
             isComplete: false,
-            id: 2
+            id: 0
         },
         todos: [
-            { text: 'Learn Vue', isComplete: false, id: 0 },
-            { text: 'Eat sushi', isComplete: true, id: 1 },
+            
+            
         ],
     },
     methods: {
