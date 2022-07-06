@@ -10,7 +10,7 @@ easy to write more complicated user interfaces and interactive web pages.
 
 For more information about JavaScript frameworks and why to use them, go [here](https://www.academind.com/learn/javascript/jquery-future-angular-react-vue/).
 
-More detailed explanations and code examples can be found in the Vue guide [here]([https://v2.vuejs.org/v2/guide/).
+More detailed explanations and code examples can be found in the Vue guide [here](https://v2.vuejs.org/v2/guide/).
 
 A YouTube series on Vue basics can be found [here](https://www.youtube.com/watch?v=5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) and the solution repo [here](https://github.com/iamshaunjp/vuejs-playlist/tree/lesson-1).
 
