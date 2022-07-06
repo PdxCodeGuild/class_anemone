@@ -9,7 +9,7 @@
 <body>
     <h4>Enter a distance and original unit of measurement. 
         Then select what unit you would like your distance convereted into. 
-        Finally, hit calculate to display your converted distance.
+        Finally, hit CONVERT to display your converted distance.
     </h4>
     <input type="number" id="distance">
     <select id="in_unit">
@@ -31,7 +31,8 @@
         <option value="in">in - inches</option>
         <option value="yd">yd - yards</option>
     </select>
-    <button type="button" onClick="alert('(number)(in unit) is (number)(out unit).')">Convert</button>
+    <button id="convert">CONVERT</button>
+    <div id="display"></div>
     <script src="part_b.js"></script>
 </body>
 </html>
