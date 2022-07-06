@@ -15,10 +15,10 @@
         
         <h3>Incomplete Tasks:</h3>
         <ol>
-            <li v-for = "task in tasks">
+            <li v-for = "task in incompleteTask">
                 <div>{{ task.text }}</div>
                 <div>
-                    <button v-on:click="completedTask(task)">Complete</button>
+                    <button v-on:click="markTask(task)">Complete</button>
                     <button v-on:click="removeTask(task)">Delete</button>
                 </div>
             </li>
@@ -29,6 +29,8 @@
         <ol>
             <li v-for = "task in completedTask">
                 <div>{{ task.text }}</div>
+                <button v-on:click="markTask(task)">Incomplete</button>
+                <button v-on:click="removeTask(task)">Delete</button>
             </li>
         </ol>
     </div>
