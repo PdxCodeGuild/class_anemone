@@ -1,32 +1,38 @@
 new Vue ({
     el: '#app',
     data: {
-        newTodo: "",
+        newTodo: {
+            text: '',
+            isComplete: false,
+            id: 2
+        },
         todos: [
-            { text: 'Learn Vue', isComplete: false },
-            { text: 'Eat sushi', isComplete: true },
+            { text: 'Learn Vue', isComplete: false, id: 0 },
+            { text: 'Eat sushi', isComplete: true, id: 1 },
         ],
     },
     methods: {
         createTodo: function() {
-            this.todos.push({text: this.newTodo, isComplete: false})
+            this.todos.push({text: this.newTodo.text, isComplete: this.newTodo.isComplete, id: this.newTodo.id})
+            this.newTodo.id ++
+            this.newTodo.text = ""
         },
         deleteTodo: function(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
         },
-        completeTodo: function(dex) {
-            this.todos[dex].isComplete = true
+        completeTodo: function(todo) {
+            todo.isComplete = true
         },
-        incompleteTodo: function(dex) {
-            this.todos[dex].isComplete = false
+        incompleteTodo: function(todo) {
+            todo.isComplete = false
         }
 
     },
     computed: {
-        incompleteList() {
+        incompleteList: function() {
             return this.todos.filter(todo => ! todo.isComplete)
         },
-        completeList() {
+        completeList: function() {
             return this.todos.filter(todo => todo.isComplete)
         }
     }

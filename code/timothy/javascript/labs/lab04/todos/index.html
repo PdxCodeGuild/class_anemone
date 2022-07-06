@@ -13,22 +13,22 @@
     </header>
     <div id="app">
         <div id="input-todo">
-        <input type="text" v-model="newTodo">
+        <input type="text" v-model="newTodo.text">
         <button v-on:click="createTodo">Create</button>
         </div>
         <div id="todo-list">
             <h3>To-Do</h3>
             <ul>
-                <li v-for="(todo, dex) in incompleteList" v-bind:key="todo.id">
-                    {{ todo.text }}<button v-on:click='deleteTodo(todo)'>×</button><button v-on:click='completeTodo(dex)'>✓</button>
+                <li v-for="todo in incompleteList" v-bind:key="todo.id">
+                    {{ todo.text }}<button v-on:click='deleteTodo(todo)'>×</button><button v-on:click='completeTodo(todo)'>✓</button>
                 </li>
             </ul>
         </div>
         <div id="complete-list">
             <h3>Complete</h3>
             <ul>
-                <li v-for="(todo, dex) in completeList" v-bind:key="todo.id">
-                    {{ todo.text }}<button v-on:click='deleteTodo(todo)'>×</button><button v-on:click='incompleteTodo(dex)'>↑</button>
+                <li v-for="todo in completeList" v-bind:key="todo.id">
+                    {{ todo.text }}<button v-on:click='deleteTodo(todo)'>×</button><button v-on:click='incompleteTodo(todo)'>↑</button>
                 </li>
             </ul>
         </div>
