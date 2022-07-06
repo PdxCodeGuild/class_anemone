@@ -9,44 +9,33 @@
 </head>
 <body>
     <p>Unit Converter</p>
-    <form method="POST">
-        <input name="distance"><br>
-        <label for="units">Original Unit:</label>
-        <select name="units" id="units">
-        <option value="ft">ft</option>
-        <option value="mi">mi</option>
-        <option value="m">m</option>
-        <option value="km">km</option>
-        <option value="yard">yard</option>
-        <option value="inch">inch</option>
-        </select>
-        <method="POST">
-        
-    </form>
-    <form method="POST">
-        <label for="units">New Unit:</label>
-        <select name="units" id="units">
-        <option value="ft">ft</option>
-        <option value="mi">mi</option>
-        <option value="m">m</option>
-        <option value="km">km</option>
-        <option value="yard">yard</option>
-        <option value="inch">inch</option>
-        </select>
-        <method="POST">
+    <form method="POST" action='/'>
+        <input type='number' name="distance"><br>
 
-            <p>The result is {{result}}</p>
-            {% if  == 'ft' %}
-            <p>cold</p>
-            {% elif temperature < 80 %}
-            <p>warm</p>
-            {% else %}
-            <p>hot</p>
-            {% endif %}
-        
-        
-    </form>
+        <label for="from-units">Original Unit:</label>
+        <select name="from-units" id="from-units">
+            <option value="ft">ft</option>
+            <option value="mi">mi</option>
+            <option value="m">m</option>
+            <option value="km">km</option>
+            <option value="yard">yard</option>
+            <option value="inch">inch</option>
+        </select>
 
-    </ul>
+        <label for="to-units">New Unit:</label>
+        <select name="to-units" id="to-units">
+            <option value="ft">ft</option>
+            <option value="mi">mi</option>
+            <option value="m">m</option>
+            <option value="km">km</option>
+            <option value="yard">yard</option>
+            <option value="inch">inch</option>
+        </select>  
+
+        <button type='submit'>Submit</button>
+    </form>
+    {% if final_result %}
+    <p>Result is {{final_result}} {{to_units}}</p>
+    {% endif %}
 </body>
 </html>
