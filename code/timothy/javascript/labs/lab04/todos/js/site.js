@@ -3,27 +3,31 @@ new Vue ({
     data: {
         newTodo: "",
         todos: [
-            { text: 'Learn Vue' },
+            { text: 'Learn Vue', isComplete: false },
+            { text: 'Eat sushi', isComplete: true },
         ],
-        completeTodos: [
-            { text: 'Eat sushi' },
-        ],
-        isComplete: false,
     },
     methods: {
         createTodo: function() {
-            this.todos.push({text: this.newTodo})
+            this.todos.push({text: this.newTodo, isComplete: false})
         },
         deleteTodo: function(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
         },
-        deleteComplete: function(complete) {
-            this.completeTodos.splice(this.todos.indexOf(complete), 1)
+        completeTodo: function(dex) {
+            this.todos[dex].isComplete = true
         },
-        completeTodo: function(todo) {
-            newComplete = this.todos.splice(this.todos.indexOf(todo), 1)
-            this.completeTodos.push({text: this.todo})
+        incompleteTodo: function(dex) {
+            this.todos[dex].isComplete = false
         }
 
+    },
+    computed: {
+        incompleteList() {
+            return this.todos.filter(todo => ! todo.isComplete)
+        },
+        completeList() {
+            return this.todos.filter(todo => todo.isComplete)
+        }
     }
 })
