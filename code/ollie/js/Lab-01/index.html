@@ -7,6 +7,32 @@
     <title>Unit Converter</title>
 </head>
 <body>
-    <script src="myscripts.js"></script>
+    <h4>Enter a distance and original unit of measurement. 
+        Then select what unit you would like your distance convereted into. 
+        Finally, hit CONVERT to display your converted distance.
+    </h4>
+    <input type="number" id="distance">
+    <select id="in_unit">
+        <option disabled selected value>Unit - INPUT</option>
+        <option value="ft">ft - feet</option>
+        <option value="m">m - meters</option>
+        <option value="mi">mi - miles</option>
+        <option value="km">km - kilometers</option>
+        <option value="in">in - inches</option>
+        <option value="yd">yd - yards</option>
+    </select>
+    <b>--></b>
+    <select id="out_unit">
+        <option disabled selected value>Unit - OUTPUT</option>
+        <option value="ft">ft - feet</option>
+        <option value="m">m - meters</option>
+        <option value="mi">mi - miles</option>
+        <option value="km">km - kilometers</option>
+        <option value="in">in - inches</option>
+        <option value="yd">yd - yards</option>
+    </select>
+    <button id="convert">CONVERT</button>
+    <div id="display"></div>
+    <script src="part_b.js"></script>
 </body>
 </html>
