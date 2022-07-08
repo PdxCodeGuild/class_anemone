@@ -1,39 +1,39 @@
 // JS Lab 4 Todos
 
 const vm = new Vue({
-    el: '#quotes',
+    el: '#task',
     data: {
-        todos: [
+        tasks: [
             {id: 1, text: "Clean the kitchen", completed: false},
             {id: 2, text: "Wash the car", completed: false},
             {id: 3, text: "Feed the cat", completed: false}
         ], 
-        newTodoText: "",
-        newTodoId: 4,
+        newTaskText: "",
+        newTaskId: 4,
     },
     computed: {
         notComplete: function() {
-            return this.todos.filter(function(todo) {
-                return !todo.completed
+            return this.tasks.filter(function(task) {
+                return !task.completed
             })
         },
         isComplete: function() {
-            return this.todos.filter(function(todo) {
-                return todo.completed 
+            return this.tasks.filter(function(task) {
+                return task.completed 
             })
         }
     },
     methods: {
         addTask: function() {
-            this.todos.push({id: this.newTodoId, text: this.newTodoText, completed: false})
-            this.newTodoId++
-            this.newTodoText = ""
+            this.tasks.push({id: this.newTaskId, text: this.newTaskText, completed: false})
+            this.newTaskId++
+            this.newTaskText = ""
         },
-        removeTask: function(todo) {
-            this.todos.splice(this.todos.indexOf(todo), 1)
+        removeTask: function(task) {
+            this.tasks.splice(this.tasks.indexOf(task), 1)
         },
-        toggleTask: function(todo) {
-            todo.completed = !todo.completed
+        toggleTask: function(task) {
+            task.completed = !task.completed
         }
     }
 })
