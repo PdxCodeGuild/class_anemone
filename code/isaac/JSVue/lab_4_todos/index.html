@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+</head>
+<body>
+    
+    <div id="quotes">
+        <h1>Todo List (Vue application)</h1>
+        <div>
+            <input type="text" placeholder="add a todo" v-model="newTodoText" @keyup.enter="addCheck">
+            <button @click="addCheck">Add a task</button>
+        </div>
+        <ul>
+            <li v-for="todo in notComplete" :key="todo.id">
+                {{ todo.text }}
+                <input type="checkbox" v-model="todo.completed">
+                <button @click="removeTask(todo)">-</button>
+            </li>
+        </ul>
+        <h3>Completed</h3>
+        <ul>
+            <li v-for="todo in isComplete">
+            {{ todo.text }}
+            <input type="checkbox" v-model="todo.completed" :key="todo.id">
+            <button @click="removeTask(todo)">-</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="todos.js"></script>
+</body>
+</html>
