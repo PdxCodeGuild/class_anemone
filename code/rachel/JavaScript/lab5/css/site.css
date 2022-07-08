@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: rgb(166, 214, 181);
+    color:rgb(62, 97, 73);
+}
+
+header{
+    text-align: center;
+    background-color: rgb(211, 234, 228)
+}
+
+h1{
+    font-size: 4em;
+}
