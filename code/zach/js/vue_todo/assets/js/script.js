@@ -2,10 +2,10 @@ let vm = new Vue({
   el: '#app',
   data: {      
     todos: [
-      { text: 'Push Me' },
-      { text: 'And Just Touch Me' },
-      { text: 'Till I get my' },
-      { text: 'Satisfaction' },
+      { id:1, completed: false,text: 'Push Me' },
+      { id:2, completed: false,text: 'And Just Touch Me' },
+      { id:3, completed: false,text: 'Till I get my' },
+      { id:4, completed: true,text: 'Satisfaction' },
     ],
     inputField: '',
     return: {
