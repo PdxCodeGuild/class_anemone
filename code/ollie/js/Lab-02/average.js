@@ -1,11 +1,6 @@
-let nums = document.getElementById('nums')
-let add = document.getElementById('addNum')
-let del = document.getElementById('deleteNum')
-let avg = document.getElementById('average')
-
 // set nums array and set sum equal to 0
-// let nums = []
-// let sum = 0
+let nums = []
+let sum = 0
 
 // user message
 alert("Enter as many numbers as you'd like. When you're finished, enter 'done', and the average of all of the numbers you entered will be displayed")
