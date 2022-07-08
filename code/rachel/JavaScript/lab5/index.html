@@ -16,12 +16,42 @@
         <h1>Quote Of The Day!</h1>
     </header>
     <main>
-        <h3>SEARCH FOR YOUR OWN QUOTE HERE!</h3>
-        <input type="text">
-        <button>Search</button>
+        <div id="app">
+            <h3>SEARCH FOR YOUR OWN QUOTE HERE!</h3>
+            <label for="user-input">Search by Author, keyword, or Tag</label><br>
+            <input type="text" name="user-input" v-model = 'inputField'><br>
+            <select name="search-by" v-model='typeSelect'>
+                <option value="author">Author</option>
+                <option value="keyword">Keyword</option>
+                <option value="tag">Tag</option>
+            </select><br>
+            <button v-on:click="loadRequestedQuotes">Search</button>
+            
+            <div v-if="Object.keys(requestedQuotes).length">
+                <ul>
+                    <quote-list
+                    v-for="quote in requestedQuotes.quotes"
+                    :key="quote.id"
+                    :quote="quote"
+                    ></quote-list>
+                </ul>
+                <button>Next Page</button>
+                </div>
+            
+            <div v-else>
+            <ul>
+                <quote-list
+                v-for="quote in qotd.quotes"
+                :key="quote.id"
+                :quote="quote"
+                ></quote-list>
+            </ul>
+            </div>
+        </div>
     </main>
     <!-- Does the script go inside main at the bottom or after? -->
-    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

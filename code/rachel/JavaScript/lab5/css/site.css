@@ -9,6 +9,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     background-color: rgb(166, 214, 181);
     color:rgb(62, 97, 73);
+    text-align: center;
 }
 
 header{
@@ -18,4 +19,8 @@ header{
 
 h1{
     font-size: 4em;
+}
+
+li {
+    list-style: none;
 }
