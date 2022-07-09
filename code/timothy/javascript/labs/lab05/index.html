@@ -16,13 +16,13 @@
         <div>
             <input type="text" placeholder="Search for quotes..." v-model="searchText">
             <select name="terms" id="terms" v-model="searchTag">
-                <option value="keyword" selected required>Keyword</option>
+                <option value="keyword" required>Keyword</option>
                 <option value="author">Author</option>
                 <option value="tag">Tag</option>
             </select>
             <button @click="search">Search</button>
         </div>
-        <!-- <search-quotes @search="search"></search-quotes> -->
+
         <ul v-if="Object.keys(searchQuotes).length">
             <li v-for="quote in searchQuotes.quotes" :key="quote.id">
                 <p>{{ quote.body }}</p>
@@ -35,7 +35,7 @@
                 <p><a :href="quote.url">{{ quote.author }}</a></p>
             </li>
         </ul>
-
+        <pagination @next-page="search"></pagination>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
