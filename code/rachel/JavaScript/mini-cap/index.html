@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cook Book - Recipes</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <header>
+        <h1>Cook Book Recipes</h1>
+    </header>
+    <main>
+        <div id="app">
+            <div>
+                <h3>Recipe Search:<h3><br>
+                <label for="foodId-search">Search by foodId</label>
+                <input type="text" name="foodId-search" v-model = 'inputField'><br>
+                <label for="meal-type">Meal Type:</label>
+                <select name="meal-type" v-model = 'meal-type-select'>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="brunch">Brunch</option>
+                    <option value="lunch/dinner">Lunch & Dinner</option>
+                    <option value="snack">Snack</option>
+                    <option value="teatime">Teatime</option>
+                </select><br>
+                <labe for="health-label">Health Label(Optional):</labe>
+                <select name="health-label" v-model="health-label-select">
+                    <option value="alcohol-cocktail">Cocktail (Alcohol)</option>
+                    <option value="alcohol-free">Mocktail (Alcohol Free)</option>
+                    <option value="celery-free">Celery Free</option>
+                    <option value="crustcean-free">Crustcean Free</option>
+                    <option value="dairy-free">Dairy Free</option>
+                    <option value="DASH">DASH (Dietary Approaches to Stop Hypertension Diet)</option>
+                    <option value="egg-free">Egg Free</option>
+                    <option value="fish-free">Fish Free</option>
+                    <option value="FODMAP-free">FODMAP Free</option>
+                    <option value="gluten-free">Gluten Free</option>
+                    <option value="immuno-supportive">Immuno Supportive</option>
+                    <option value="keto-friendly">Keto Friendly</option>
+                    <option value="kidney-friendly">Kidney Friendly</option>
+                    <option value="kosher">Kosher Diet</option>
+                    <option value="low-potassium">Low Potassium</option>
+                    <option value="low-sugar">Low Sugar</option>
+                    <option value="lupine-free">Lupine Free</option>
+                    <option value="mediterranean">Mediterranean Diet</option>
+                    <option value="mollusk-free">Mollusk Free</option>
+                    <option value="mustard-free">Mustard Free</option>
+                    <option value="no-oil-added">No Oil Added</option>
+                    <option value="paleo">Paleo (No Agricultural Products)</option>
+                    <option value="peanut-free">Peanut Free</option>
+                    <option value="pescatarian">Pescatarian</option>
+                    <option value="pork-free">Pork Free</option>
+                    <option value="red-meat-free">Red Meat Free</option>
+                    <option value="seasame-free">Sesame Free</option>
+                    <option value="shellfish-free">Shellfish Free</option>
+                    <option value="soy-free">Soy Free</option>
+                    <option value="sugar-conscious">Sugar Conscious</option>
+                    <option value="sulfite-free">Sulfite Free</option>
+                    <option value="tree-nut-free">Tree Nut Free</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="wheat-free">Wheat Free</option>
+                </select><br>
+                <label for="cusine-type">Cusine Type(Optional):</label>
+                <select name="cusine-type" v-model = "cusine-type-select">
+                    <option value="american">American</option>
+                    <option value="asian">Asian</option>
+                    <option value="british">British</option>
+                    <option value="caribbean">Caribbean</option>
+                    <option value="central-europe">Central Europe</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="eastern-europe">Eastern Europe</option>
+                    <option value="french">French</option>
+                    <option value="greek">Greek</option>
+                    <option value="indian">Indian</option>
+                    <option value="italian">Italian</option>
+                    <option value="japanese">Japanese</option>
+                    <option value="korean">Korean</option>
+                    <option value="kosher">Kosher</option>
+                    <option value="mediterranean">Mediterranean</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="middle eastern">Middle Eastern</option>
+                    <option value="nordic">Nordic</option>
+                    <option value="south american">South American</option>
+                    <option value="south east asian">South East Asian</option>
+                    <option value="world">World</option>
+                </select><br>
+                <button>Search</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
