@@ -35,8 +35,9 @@
                     :quote="quote"
                     ></quote-list>
                 </ul>
-                <button>Next Page</button>
-                </div>
+                <button v-show="page > 1" v-on:click="backBtn">Back</button>
+                <button v-show="requestedQuotes.last_page === false" v-on:click="nextPage">Next Page</button>
+            </div>
             
             <div v-else>
             <ul>

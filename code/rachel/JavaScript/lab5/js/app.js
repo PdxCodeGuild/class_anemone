@@ -45,9 +45,15 @@ new Vue({
                 this.requestedQuotes = response.data
             })
         },
-        // nextPage: function() {
-
-        // }
+        nextPage: function() {
+            this.page++
+            console.log(this.page)
+            this.loadRequestedQuotes()
+        },
+        backBtn: function() {
+            this.page--
+            this.loadRequestedQuotes()
+        }
     },
     created: function() {
         this.loadQotd()
