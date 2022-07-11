@@ -52,12 +52,25 @@
         </form>
       </div>
     </nav>
-    <section class="card-fluid">
-      <h1>Hello, world!</h1>
-      <div class="card" id="content">
+    <section class="container-sm gy-5 m-5">
+      <div class="card row alert alert-dark" id="content">
         <div v-if="Object.keys(qotd).length">
           <p>{{ qotd.quote.body }}</p>
-          <p><a :href="qotd.quote.url">{{ qotd.quote.author }}</a></p>
+          <p>
+            <a :href="qotd.quote.url" class="alert-link"
+              >{{ qotd.quote.author }}</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="card row alert alert-dark" id="content">
+        <div v-if="Object.keys(qotd).length">
+          <p>{{ qotd.quote.body }}</p>
+          <p>
+            <a :href="qotd.quote.url" class="alert-link"
+              >{{ qotd.quote.author }}</a
+            >
+          </p>
         </div>
       </div>
     </section>
