@@ -8,17 +8,22 @@
     <title>Title</title>
 </head>
 <body>
+    <header>
+        <h1>Zamsha</h1>
+    </header>
     <main id="app">
         <div>
-            <input type="text" v-model="searchTerm" placeholder="Enter Artist or Title">
+            <h3>Top 5 Tracks</h3>
+            <input type="text" v-model="searchTerm" placeholder="Enter Artist">
             <button @click="loadResults">Enter</button>
         </div>
-        <ul>
+        
+        <ol>
             <li v-for="track in hit">
-                <p>{{ track.track.title }}</p>
+                <p><a :href="track.track.url">{{ track.track.title }}</a></p>
             </li>
             <!-- <li> {{ hit }}</li> -->
-        </ul>
+        </ol>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
