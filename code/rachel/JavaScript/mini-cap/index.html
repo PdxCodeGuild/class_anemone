@@ -5,29 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cook Book - Recipes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display&family=Petit+Formal+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-    <header>
+    <div>
+    <div class="top">
+        <header>
         <h1>Cook Book Recipes</h1>
-    </header>
+        </header>
+    </div>
     <main>
         <div id="app">
-            <div>
+            <div class="left">
                 <h3>Recipe Search:<h3><br>
-                <label for="foodId-search">Search by foodId</label>
-                <input type="text" name="foodId-search" v-model = 'inputField'><br>
+                <label for="foodkeyword-search">Search by keyword:</label>
+                <input type="text" id="foodkeyword-search" v-model = 'inputField'><br>
                 <label for="meal-type">Meal Type:</label>
-                <select name="meal-type" v-model = 'meal-type-select'>
+                <select id="meal-type" v-model = 'mealTypeSelect'>
                     <option value="breakfast">Breakfast</option>
                     <option value="brunch">Brunch</option>
-                    <option value="lunch/dinner">Lunch & Dinner</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
                     <option value="snack">Snack</option>
                     <option value="teatime">Teatime</option>
                 </select><br>
-                <labe for="health-label">Health Label(Optional):</labe>
-                <select name="health-label" v-model="health-label-select">
+                <!-- <label for="health-label">Health Label(Optional):</label>
+                <select id="health-label" v-model="healthLabelSelect">
                     <option value="alcohol-cocktail">Cocktail (Alcohol)</option>
                     <option value="alcohol-free">Mocktail (Alcohol Free)</option>
                     <option value="celery-free">Celery Free</option>
@@ -64,8 +71,8 @@
                     <option value="vegetarian">Vegetarian</option>
                     <option value="wheat-free">Wheat Free</option>
                 </select><br>
-                <label for="cusine-type">Cusine Type(Optional):</label>
-                <select name="cusine-type" v-model = "cusine-type-select">
+                <label for="cuisine-type">Cuisine Type(Optional):</label>
+                <select name="cuisine-type" v-model = "cuisineTypeSelect">
                     <option value="american">American</option>
                     <option value="asian">Asian</option>
                     <option value="british">British</option>
@@ -87,11 +94,35 @@
                     <option value="south american">South American</option>
                     <option value="south east asian">South East Asian</option>
                     <option value="world">World</option>
-                </select><br>
-                <button>Search</button>
+                </select><br> -->
+                <button v-on:click="loadSearchedRecipes">Search</button>
+            </div>
+
+            <div class="right">
+                <ol>
+                    <li v-for="recipe in recipes.hits" :key="recipe.id">
+                        <h3><u>{{ recipe.recipe.label }}</u></h3>
+                        <!-- PICTURES NOT SHOWING UP -->
+                        <img :src="`${ recipe.recipe.image }`">
+                        <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
+                        <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
+                        <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
+                        <h4>Ingredients:</h4>
+                            <ul>
+                                <li v-for="item in recipe.recipe.ingredientLines">
+                                    {{ item }}
+                                </li>
+                            </ul>
+                        <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
+                        <!-- LINKS NOT WORKING -->
+                        <p><a :href="`${ recipe.recipe.shareAs }`">{{ recipe.recipe.label }} instructions</a></p>
+                        <p>{{recipe.recipe.shareAs}}</p>
+                    </li>                    
+                </ol>
             </div>
         </div>
     </main>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/app.js"></script>

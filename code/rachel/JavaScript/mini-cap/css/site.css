@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Noto Serif Display', serif;
+    color: rgb(25, 70, 87);
+    background-color: rgb(242, 245, 246);
+}
+
+header {
+    background-color: rgb(34, 93, 116);
+    color: white;
+    text-align: center;
+}
+
+main {
+    padding: .5em;
+}
+
+h1 {
+    font-family: 'Petit Formal Script', cursive;
+    text-shadow: 2px 2px 10px rgb(10, 32, 40);
+    font-size: 4em;
+    margin: 0;
+    padding: 1em;
+
+}
