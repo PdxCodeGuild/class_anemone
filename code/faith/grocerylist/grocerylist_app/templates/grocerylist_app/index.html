@@ -2,9 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Grocery List</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'grocerylist_app/style.css' %}"> {% endcomment %}
   </head>
   <body>
-    
+    <h1>GroceryList</h1>
+    <form action="{% url 'grocerylist_app:index' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="text_description"  maxlength="200">
+      <input type="submit" value="Add">
+    </form>
   </body>
 </html>
