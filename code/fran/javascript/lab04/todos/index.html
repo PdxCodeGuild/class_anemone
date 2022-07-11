@@ -8,18 +8,28 @@
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-    <h2>To Do List</h2>
+    <h2>To Do:</h2>
     <div id="app">
-        <input type="text" v-model="inputField">
-        <button v-on:click="addTodo">Add To List</button>
+        <add-todo @add="addTodo"></add-todo>
         <ul>
-            <li v-for="todo in todos">
-                {{ todo.text + ' '}}<button v-on:click="removeTodo(todo)">×</button>
-            </li>
+            <todo-item
+                v-for="todo in incompleteTodos"     
+                v-bind:key="todo.id"
+                v-bind:todo="todo"  
+                @remove="removeTodo"
+                @toggle="toggleTodo"
+            ></todo-item>
         </ul>
-        <!-- <p v-for="todo in todos">
-            {{ todo.text + ' '}}<button v-on:click="removeTodo(todo)">×</button>
-        </p> -->
+        <h4>Completed:</h4>
+        <ul>
+            <todo-item
+                v-for="todo in completeTodos"
+                v-bind:key="todo.id"
+                v-bind:todo="todo"
+                @remove="removeTodo"
+                @toggle="toggleTodo"
+            ></todo-item>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/site.js"></script>
