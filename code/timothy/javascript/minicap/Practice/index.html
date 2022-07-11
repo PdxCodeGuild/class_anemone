@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>RecMe</title>
+    <title>Title</title>
 </head>
 <body>
     <main id="app">
-        <h1>RecMe</h1>
         <div>
-            <input type="text" id="searchName" placeholder="Artist..." v-model="searchResultName">
-            <input type="text" id="searchName" placeholder="Title..." v-model="searchResultTitle">
-            <button @click="loadResults">Rec Me!</button>
+            <input type="text" v-model="searchTerm" placeholder="Enter Artist or Title">
+            <button @click="loadResults">Enter</button>
         </div>
+        <ul>
+            <li v-for="track in hit">
+                <p>{{ track.track.title }}</p>
+            </li>
+            <!-- <li> {{ hit }}</li> -->
+        </ul>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
