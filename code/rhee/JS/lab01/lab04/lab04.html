@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lab04.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+    <br>
+    <div id="app-5">
+        <input v-model="newTodo" @keyup.enter="addTodo" placeholder="enter information">
+        <button v-on:click="addTodo">Add</button>
+
+        <ul>
+          <li v-for="(todo,i) in existingTodo">
+
+            <span>{{i+1}}: {{ todo.text }}</span>
+            <button v-on:click='removeTodo(index)'>Remove</button>
+            <!-- <button @click ='todo.completed'>Toggle</button> -->
+            <button v-if = "!todo.editing" @click ='editTodo(todo)'>Edit</button>
+            <input v-else type="text" v-model="todo.text" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)">
+            <input type="checkbox" v-model="todo.completed" class="finished-completed" class="{completed: todo.completed}">completed
+          </li>
+        </ul>
+    </div>
+    <div>
+    </div>
+    
+      
+</body>
+    <script src="lab04.js"></script>
+</html>
