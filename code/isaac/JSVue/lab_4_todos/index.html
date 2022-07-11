@@ -8,29 +8,29 @@
 </head>
 <body>
     
-    <div id="quotes">
-        <h1>Todo List (Vue application)</h1>
+    <div id="task">
+        <h1>Task List</h1>
         <div>
-            <input type="text" placeholder="add a todo" v-model="newTodoText" @keyup.enter="addCheck">
-            <button @click="addCheck">Add a task</button>
+            <input type="text" placeholder="add a task" v-model="newTaskText" @keyup.enter="addTask">
+            <button @click="addTask">Add a task</button>
         </div>
         <ul>
-            <li v-for="todo in notComplete" :key="todo.id">
-                {{ todo.text }}
-                <input type="checkbox" v-model="todo.completed">
-                <button @click="removeTask(todo)">-</button>
+            <li v-for="task in notComplete" :key="task.id">
+                {{ task.text }}
+                <input type="checkbox" v-model="task.completed">
+                <button @click="removeTask(task)">-</button>
             </li>
         </ul>
         <h3>Completed</h3>
         <ul>
-            <li v-for="todo in isComplete">
-            {{ todo.text }}
-            <input type="checkbox" v-model="todo.completed" :key="todo.id">
-            <button @click="removeTask(todo)">-</button>
+            <li v-for="task in isComplete">
+            {{ task.text }}
+            <input type="checkbox" v-model="task.completed" :key="task.id">
+            <button @click="removeTask(task)">-</button>
             </li>
         </ul>
     </div>
-    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="todos.js"></script>
 </body>
 </html>
