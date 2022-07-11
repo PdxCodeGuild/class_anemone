@@ -11,8 +11,9 @@
     <main id="app">
         <h1>RecMe</h1>
         <div>
-            <input type="text" id="searchName" placeholder="Search...">
-            <button>Rec Me!</button>
+            <input type="text" id="searchName" placeholder="Artist..." v-model="searchResultName">
+            <input type="text" id="searchName" placeholder="Title..." v-model="searchResultTitle">
+            <button @click="loadResults">Rec Me!</button>
         </div>
     </main>
 
