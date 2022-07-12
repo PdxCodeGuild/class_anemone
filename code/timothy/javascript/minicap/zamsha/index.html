@@ -13,17 +13,18 @@
     </header>
     <main id="app">
         <div>
-            <h3>Top 5 Tracks</h3>
             <input type="text" v-model="searchTerm" placeholder="Enter Artist">
             <button @click="loadResults">Enter</button>
         </div>
-        
-        <ol>
-            <li v-for="track in hit">
-                <p><a :href="track.track.url">{{ track.track.title }}</a></p>
-            </li>
-            <!-- <li> {{ hit }}</li> -->
-        </ol>
+        <div v-if="Object.keys(searchResults).length" class="artist-info">
+            <h3>Showing results for {{ artist }}</h3>
+            <ol>
+                <h3>Top 5 Tracks</h3>
+                <li v-for="track in hit">
+                    <p><a :href="track.track.url">{{ track.track.title }}</a></p>
+                </li>
+            </ol>
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

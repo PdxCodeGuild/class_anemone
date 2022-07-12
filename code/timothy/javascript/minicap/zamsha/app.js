@@ -27,7 +27,9 @@ const vm = new Vue ({
                 this.hits = this.searchResults.tracks
                 this.hit = this.hits.hits
                 this.tracks = this.hit
-                console.log(this.tracks)
+                console.log(hit)
+                this.artist = this.tracks[0].track.subtitle
+                
                 
             }).catch(error => {
                 console.log(error)
