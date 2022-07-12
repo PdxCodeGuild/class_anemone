@@ -6,12 +6,19 @@ html {
 }
 
 body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar maincontent";
     font-family: 'Noto Serif Display', serif;
     color: rgb(25, 70, 87);
     background-color: rgb(242, 245, 246);
 }
 
 header {
+    grid-area: header;
     background-color: rgb(34, 93, 116);
     color: white;
     text-align: center;
@@ -28,4 +35,45 @@ h1 {
     margin: 0;
     padding: 1em;
 
+}
+
+.center {
+    text-align: center;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: maincontent;
+}
+
+/* div:nth-of-type(2) {
+    grid-area: sidebar;
+}
+
+div:nth-of-type(3) {
+    grid-area: maincontent;
+} */
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: auto 30%;
+    grid-template-rows: 20% auto;
+    grid-template-areas: 
+        "recipe-header none"
+        "recipe-main recipe-image";
+}
+
+.recipe-header {
+    grid-area: recipe-header;
+}
+
+.recipe-main {
+    grid-area: recipe-main;
+}
+
+.recipe-image {
+    grid-area: recipe-image;
 }

@@ -12,19 +12,16 @@
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-    <div>
-    <div class="top">
-        <header>
+    <header>
         <h1>Cook Book Recipes</h1>
-        </header>
-    </div>
+    </header>
     <main>
         <div id="app">
-            <div class="left">
-                <h3>Recipe Search:<h3><br>
-                <label for="foodkeyword-search">Search by keyword:</label>
+            <div class="center sidebar">
+                <h2>Recipe Search<h2><br>
+                <label for="foodkeyword-search">Search by keyword:</label><br>
                 <input type="text" id="foodkeyword-search" v-model = 'inputField'><br>
-                <label for="meal-type">Meal Type:</label>
+                <label for="meal-type">Meal Type:</label><br>
                 <select id="meal-type" v-model = 'mealTypeSelect'>
                     <option value="breakfast">Breakfast</option>
                     <option value="brunch">Brunch</option>
@@ -98,12 +95,12 @@
                 <button v-on:click="loadSearchedRecipes">Search</button>
             </div>
 
-            <div class="right">
+            <div class="content recipe-grid">
                 <ol>
                     <li v-for="recipe in recipes.hits" :key="recipe.id">
-                        <h3><u>{{ recipe.recipe.label }}</u></h3>
-                        <!-- PICTURES NOT SHOWING UP -->
-                        <img :src="`${ recipe.recipe.image }`">
+                        <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
+                        <img :src="`${ recipe.recipe.image }`" class="recipe-image">
+                        <div class="recipe-main">
                         <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
                         <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
                         <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
@@ -114,15 +111,14 @@
                                 </li>
                             </ul>
                         <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
-                        <!-- LINKS NOT WORKING -->
                         <p><a :href="`${ recipe.recipe.shareAs }`">{{ recipe.recipe.label }} instructions</a></p>
                         <p>{{recipe.recipe.shareAs}}</p>
+                        </div>
                     </li>                    
                 </ol>
             </div>
         </div>
     </main>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/app.js"></script>
