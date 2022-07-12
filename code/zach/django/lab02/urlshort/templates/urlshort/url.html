@@ -12,7 +12,8 @@
 
 {% for item in data %}
 <p>
-    {{ item.url }}:<a href="{{ item.url }}">{{ item.slug }}</a>
+    {{ item.url }}:<a href="{% url 'url_shortener:redirect' item.slug %}">{{ item.slug }}</a>
 </p>
+
 {% endfor %}
 {% endblock %}

@@ -1,7 +1,7 @@
 import random
 import string
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 
 from .forms import UrlForm
 from .models import UrlData
@@ -39,3 +39,7 @@ def url_short(request):
             'data': data,
         }
     return render(request, 'urlshort/url.html', context)
+
+def url_Redirect(request, slug):
+    r = get_object_or_404(UrlData, slug=slug)
+    return HttpResponseRedirect(r.url)
