@@ -18,14 +18,20 @@
             <input type='text' v-model="first" placeholder='first name'><br>
             <input type='text' v-model="last" placeholder='last name' @keyup.enter='loadquots'><br>
             <button @click='loadquots' >Search</button><hr>
-            <button v-if="Object.keys(quotes).length" @click="previous">Previous Quote</button>
+        <!-- <p v-if="error ! {}">{{error}}</p>     -->
         
-        <ul v-if="Object.keys(quotes).length">
+        <ol v-if="Object.keys(quotes).length">
+            <updown 
+                
+                @nextq="nextq"
+                @previousq="previousq"
+            ></updown>
+            <p>Page {{quotes.page}}</p>
             <li v-for="quote in quotes.quotes" :key="quote.id">  
                 <p>Quote by <a href="quote.url">{{quote.author}}</a></p>
                 <p>{{quote.body}}</p><hr>
             </li>
-        </ul>
+        </ol>
 
                 
     </div>
