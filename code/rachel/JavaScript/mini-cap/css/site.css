@@ -71,7 +71,7 @@ div:nth-of-type(3) {
 }
 
 .recipe-main {
-    grid-area: recipe-main;
+    grid-area: recipe-main;  
 }
 
 .recipe-image {

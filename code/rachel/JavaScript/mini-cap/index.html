@@ -95,7 +95,7 @@
                 <button v-on:click="loadSearchedRecipes">Search</button>
             </div>
 
-            <div class="content recipe-grid">
+            <div class="content recipe-grid">  
                 <ol>
                     <li v-for="recipe in recipes.hits" :key="recipe.id">
                         <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
