@@ -1,21 +1,19 @@
-let ds = new Vue({
+new Vue({
     el:'#app',
     data: {
         todos: [
-            {text:'groceries', complete:false},
-            {text:'decorations', complete:false},
-            {text:'speech', complete:false},
-            {text:'texting', complete:false},
+            {text: 'Get BEER', complete: false},
+            {text: 'Go Swimming with Sharks', complete: false},
+            {text: 'Befriend a Grizzly Bear', complete: false}
         ],
-        newtodo: "",
+        New: '',
     },
     
     methods: {
         addTodo: function() {
-            this.todos.push({text: this.newtodo, complete:false})
-            this.newtodo = ''
+            this.todos.push({text: this.New, complete: false})
         },
-        removeTodo: function(todo) {
+        Remove: function(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
         },
         truefalsey: function(todo) {
@@ -26,5 +24,5 @@ let ds = new Vue({
                 status.complete = false
             }
         }
-    }
+    },
 })

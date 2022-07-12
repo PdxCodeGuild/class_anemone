@@ -1,7 +1,8 @@
 const vm = new Vue({
     el: "#app",
     data: {
-        qotd: {}
+        qotd: {},
+        lincolnQuotes: {}
     },
     methods: {
         loadQotd: function() {
@@ -25,9 +26,9 @@ const vm = new Vue({
                 headers: {
                     "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
                 }
-            }).then(function(response) {
-              
-            }).catch(function(error) {
+            }).then(response => {
+                this.lincolnQuotes = response.data
+            }).catch(error => {
                 console.log(error)
                 console.log(error.response.data)
             })

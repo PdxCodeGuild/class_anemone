@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes</title>
+    <title>Quote of the Day</title>
 </head>
 <body>
     <div id="app">
@@ -13,9 +13,9 @@
             <p>{{ qotd.quote.body }}</p>
             <p><a :href="qotd.quote.url">{{ qotd.quote.author }}</a></p>
         </div>
-        <button @click="loadQuotes">Lincoln me!</button>
-        <ul v-if="Object.keys(lincolnQuotes).length">
-            <li v-for="quote in lincolnQuotes.quotes" :key="quote.id">
+        <button @click="loadQuotes">Search Quotes by Author</button>
+        <ul v-if="Object.keys(search).length">
+            <li v-for="quote in search.quotes" :key="quote.id">
                 <p>{{ quote.body }}</p>
                 <p><a :href="quote.url">{{ quote.author }}</a></p>
             </li>
