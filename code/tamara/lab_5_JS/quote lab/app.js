@@ -15,7 +15,7 @@ Vue.component('user-search', {
         </div>`
     ,
     methods: {
-        userSearch: function () {
+        loadUserQuotes: function () {
             this.$emit('search', {userChoice: this.userChoice, userInput: this.userInput})
             this.userInput = ''
         }
@@ -28,6 +28,8 @@ const quoteApp = new Vue ({
         randomQuotes: {},
         userQuotes: {},
         pageNumber: 1,
+        userInput: '',
+        userChoice: 'keyword',
     },
     methods: {
         loadRandomQuotes: function () {
@@ -40,7 +42,10 @@ const quoteApp = new Vue ({
             }).then(response => this.randomQuotes = response.data)
         },
 
-        loadUserQuotes: function () {
+        loadUserQuotes: function (payLoad) {
+            console.log(payLoad)
+            this.userInput=payLoad.userInput
+            this.userChoice=payLoad.userChoice
             axios({
                 method: 'get',
                 url: 'https://favqs.com/api/quotes/',
@@ -52,7 +57,10 @@ const quoteApp = new Vue ({
                     type: this.userChoice,
                     page: this.pageNumber,
                 }
-            }).then(response => this.userQuotes = response.data)
+            }).then(response => {
+                console.log(this.userInput)
+                this.userQuotes = response.data
+            })
 
             
         },
@@ -72,6 +80,4 @@ const quoteApp = new Vue ({
     created: function () {
         this.loadRandomQuotes()
     }
-})
-
-// if (this.userQuotes.last_page === false) 
+}) 

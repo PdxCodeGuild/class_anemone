@@ -9,11 +9,8 @@
     <body>
         <div id="quote-app">
             <h1>Quotes</h1>
-            <input type="text" v-model="userInput" @keyup.enter="loadUserQuotes">
-            <input type="radio" v-model="userChoice" value="keyword" id="keyword"><label for="keyword">keyword</label>
-            <input type="radio" v-model="userChoice" value="tag" id="tag"><label for="tag">tag</label>
-            <input type="radio" v-model="userChoice" value="author" id="author"><label for="author">author</label>
-            <button @click="loadUserQuotes">Search</button>
+
+            <user-search @search='loadUserQuotes'></user-search>
             
             <div id="user-quotes" v-if="Object.keys(userQuotes).length">
                 <h2>User Quotes</h2>
