@@ -4,6 +4,8 @@ new Vue({
         recipes: {},
         inputField: "",
         mealTypeSelect: "",
+        nextPage: "",
+        favRecipes: [],
         // healthLabelSelect: "",
         // cuisineTypeSelect: "",
     },
@@ -27,7 +29,22 @@ new Vue({
                 }
             }).then((response) => {
                 this.recipes = response.data
+                this.nextPage = this.recipes._links.next.href
             })
-        }
+        },
+        nextNextPage: function() {
+            axios({
+                method: 'get',
+                url: this.nextPage,
+            }).then((response) =>{
+                this.recipes = response.data
+            })
+        },
+        favoriteRecipe: function(recipe) {
+            console.log("this works")
+            console.log(recipe)
+            this.favRecipes.push(recipe)
+            console.log("favRecipes Array", this.favRecipes)
+        },
     }
 })

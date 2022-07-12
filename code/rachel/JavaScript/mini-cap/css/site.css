@@ -34,6 +34,12 @@ h1 {
     padding: .5em;
 }
 
+#btnRight {
+    text-align: right;
+    padding: .5em;
+    font-size: 1.2em;;
+}
+
 .recipe-grid {
     display: grid;
     grid-template-columns: auto 30%;
@@ -71,8 +77,10 @@ h1 {
 
 img {
     padding: 1em;
+    height: 300px;
+    width: 300px;
 }
 
-#next-btn {
+#btn {
     text-align: center;
 }
