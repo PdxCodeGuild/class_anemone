@@ -18,9 +18,10 @@
         </div>
         <div v-if="Object.keys(searchResults).length" class="artist-info">
             <h3>Showing results for {{ artist }}</h3>
+            <img id="artist-image" :src="imageSrc" :alt="artist">
             <ol>
-                <h3>Top 5 Tracks</h3>
-                <li v-for="track in hit">
+                <h3>Top Tracks</h3>
+                <li v-for="track in hit" :key="track.key">
                     <p><a :href="track.track.url">{{ track.track.title }}</a></p>
                 </li>
             </ol>

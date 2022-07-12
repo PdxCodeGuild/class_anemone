@@ -8,6 +8,8 @@ const vm = new Vue ({
         tracks: {},
         title: "",
         artist: "",
+        imageSrc: "",
+        songKeys: []
 
     },
     methods: {
@@ -27,13 +29,24 @@ const vm = new Vue ({
                 this.hits = this.searchResults.tracks
                 this.hit = this.hits.hits
                 this.tracks = this.hit
-                console.log(hit)
+                this.imageSrc = this.tracks[0].track.images.background
+                console.log(this.tracks[0].track)
                 this.artist = this.tracks[0].track.subtitle
+                console.log(this.tracks.track)
                 
                 
             }).catch(error => {
                 console.log(error)
                 console.log(error.response.data)
+            })
+        },
+        songDetail: function() {
+            axios({
+                method: 'get',
+                url: 'https://shazam.p.rapidapi.com/songs/get-details',
+                params: {
+                    
+                }
             })
         }
     }
