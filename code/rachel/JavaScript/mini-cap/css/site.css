@@ -6,19 +6,12 @@ html {
 }
 
 body {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "header header"
-        "sidebar maincontent";
     font-family: 'Noto Serif Display', serif;
     color: rgb(25, 70, 87);
     background-color: rgb(242, 245, 246);
 }
 
 header {
-    grid-area: header;
     background-color: rgb(34, 93, 116);
     color: white;
     text-align: center;
@@ -34,28 +27,12 @@ h1 {
     font-size: 4em;
     margin: 0;
     padding: 1em;
-
 }
 
 .center {
     text-align: center;
+    padding: .5em;
 }
-
-.sidebar {
-    grid-area: sidebar;
-}
-
-.content {
-    grid-area: maincontent;
-}
-
-/* div:nth-of-type(2) {
-    grid-area: sidebar;
-}
-
-div:nth-of-type(3) {
-    grid-area: maincontent;
-} */
 
 .recipe-grid {
     display: grid;
@@ -76,4 +53,26 @@ div:nth-of-type(3) {
 
 .recipe-image {
     grid-area: recipe-image;
+}
+
+#app {
+    display: flex;
+}
+
+.main {
+    background-color: white;
+    width: 100vw;
+    height: auto;
+}
+
+#recipe-main {
+    display: flex;
+}
+
+img {
+    padding: 1em;
+}
+
+#next-btn {
+    text-align: center;
 }

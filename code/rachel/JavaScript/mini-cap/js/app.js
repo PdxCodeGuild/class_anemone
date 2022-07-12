@@ -18,6 +18,7 @@ new Vue({
                     app_key: '1a19da9ec31d6f8947067bda7bb211c7',
                     app_id: '0285e128',
                     mealType: this.mealTypeSelect,
+                    imageSize: 'SMALL',
                     // health: this.healthLabelSelect,
                     // cuisineType: this.cuisineTypeSelect,
                 },

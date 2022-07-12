@@ -17,7 +17,7 @@
     </header>
     <main>
         <div id="app">
-            <div class="center sidebar">
+            <div class="center">
                 <h2>Recipe Search<h2><br>
                 <label for="foodkeyword-search">Search by keyword:</label><br>
                 <input type="text" id="foodkeyword-search" v-model = 'inputField'><br>
@@ -95,27 +95,29 @@
                 <button v-on:click="loadSearchedRecipes">Search</button>
             </div>
 
-            <div class="content recipe-grid">  
+            <div class="main">  
                 <ol>
                     <li v-for="recipe in recipes.hits" :key="recipe.id">
                         <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
-                        <img :src="`${ recipe.recipe.image }`" class="recipe-image">
-                        <div class="recipe-main">
-                        <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
-                        <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
-                        <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
-                        <h4>Ingredients:</h4>
-                            <ul>
-                                <li v-for="item in recipe.recipe.ingredientLines">
-                                    {{ item }}
-                                </li>
-                            </ul>
-                        <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
-                        <p><a :href="`${ recipe.recipe.shareAs }`">{{ recipe.recipe.label }} instructions</a></p>
-                        <p>{{recipe.recipe.shareAs}}</p>
+                        <div id="recipe-main">
+                            <img :src="`${ recipe.recipe.image }`" class="recipe-image">
+                            <div>
+                                <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
+                                <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
+                                <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
+                                <h4>Ingredients:</h4>
+                                    <ul>
+                                        <li v-for="item in recipe.recipe.ingredientLines">
+                                            {{ item }}
+                                        </li>
+                                    </ul>
+                                <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
+                                <p><a :href="`${ recipe.recipe.shareAs }`">Instructions: {{ recipe.recipe.label }}</a></p>
+                            </div>
                         </div>
-                    </li>                    
+                    </li>                 
                 </ol>
+                <div id="next-btn"><button>Next Page</button></div>
             </div>
         </div>
     </main>
