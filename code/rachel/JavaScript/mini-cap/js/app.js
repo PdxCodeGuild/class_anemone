@@ -6,11 +6,13 @@ new Vue({
         mealTypeSelect: "",
         nextPage: "",
         favRecipes: [],
+        favorites: false,
         // healthLabelSelect: "",
         // cuisineTypeSelect: "",
     },
     methods: {
         loadSearchedRecipes: function() {
+            this.favorites = false
             axios({
                 method: 'get',
                 url: 'https://api.edamam.com/api/recipes/v2',
@@ -29,25 +31,22 @@ new Vue({
                 }
             }).then((response) => {
                 this.recipes = response.data
-                this.nextPage = this.recipes._links.next.href
+                // this.nextPage = this.recipes._links.next.href
             })
         },
-        nextNextPage: function() {
-            axios({
-                method: 'get',
-                url: this.nextPage,
-            }).then((response) =>{
-                this.recipes = response.data
-            })
-        },
+        // nextNextPage: function() {
+        //     axios({
+        //         method: 'get',
+        //         url: this.nextPage,
+        //     }).then((response) =>{
+        //         this.recipes = response.data
+        //     })
+        // },
         favoriteRecipe: function(recipe) {
             console.log("this works")
             console.log(recipe)
             this.favRecipes.push(recipe)
             console.log("favRecipes Array", this.favRecipes)
         },
-        favoriteRecipesList: function() {
-            this.favRecipes
-        }
     }
 })

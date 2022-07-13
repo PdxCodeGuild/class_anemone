@@ -14,7 +14,6 @@
 <body>
     <header>
         <h1>Cook Book Recipes</h1>
-        <div id="btnRight"><button v-on:click="favoriteRecipesList">Favorite Recipes</button></div>
     </header>
     <main>
         <div id="app">
@@ -97,31 +96,62 @@
             </div>
 
             <div class="main">  
-                <ol>
-                    <li v-for="recipe in recipes.hits" :key="recipe.id">
-                        <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
-                        <button v-on:click="favoriteRecipe(recipe)">♡ Favorite</button>
-                        <div id="recipe-main">
-                            <img :src="`${ recipe.recipe.image }`" class="recipe-image">
-                            <div>
-                                <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
-                                <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
-                                <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
-                                <h4>Ingredients:</h4>
-                                    <ul>
-                                        <li v-for="item in recipe.recipe.ingredientLines">
-                                            {{ item }}
-                                        </li>
-                                    </ul>
-                                <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
-                                <p><a :href="`${ recipe.recipe.shareAs }`">Instructions: {{ recipe.recipe.label }}</a></p>
-                            </div>
-                        </div>
-                    </li>                 
-                </ol>
-                <div id="btn">
-                    <button v-on:click="nextNextPage">Next</button>
+                <div id="btnRight">
+                    <button v-on:click="favorites = true">Favorite Recipes</button>
                 </div>
+
+                <div v-show="favorites === false">
+                    <ol>
+                        <li v-for="recipe in recipes.hits" :key="recipe.id">
+                            <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
+                            <button v-on:click="favoriteRecipe(recipe)">♡ Favorite</button>
+                            <div id="recipe-main">
+                                <img :src="`${ recipe.recipe.image }`" class="recipe-image">
+                                <div>
+                                    <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
+                                    <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
+                                    <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
+                                    <h4>Ingredients:</h4>
+                                        <ul>
+                                            <li v-for="item in recipe.recipe.ingredientLines">
+                                                {{ item }}
+                                            </li>
+                                        </ul>
+                                    <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
+                                    <p><a :href="`${ recipe.recipe.shareAs }`">Instructions: {{ recipe.recipe.label }}</a></p>
+                                </div>
+                            </div>
+                        </li>                 
+                    </ol>
+                </div>
+
+                <div v-show="favorites === true">
+                    <ol>
+                        <li v-for="recipe in favRecipes" :key="recipe.id">
+                            <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
+                            <button v-on:click="favoriteRecipe(recipe)">♡ Favorite</button>
+                            <div id="recipe-main">
+                                <img :src="`${ recipe.recipe.image }`" class="recipe-image">
+                                <div>
+                                    <p v-for="item in recipe.recipe.mealType"><b>Meal Type:</b> {{ item }}</p>
+                                    <p v-for="item in recipe.recipe.cuisineType"><b>Cuisine Type:</b> {{ item }}</p>
+                                    <p><b>Calories:</b> {{ recipe.recipe.calories }}</p>
+                                    <h4>Ingredients:</h4>
+                                        <ul>
+                                            <li v-for="item in recipe.recipe.ingredientLines">
+                                                {{ item }}
+                                            </li>
+                                        </ul>
+                                    <p>Recipe is from <u>{{ recipe.recipe.source }}</u></p>
+                                    <p><a :href="`${ recipe.recipe.shareAs }`">Instructions: {{ recipe.recipe.label }}</a></p>
+                                </div>
+                            </div>
+                        </li>                 
+                    </ol>
+                </div>
+                <!-- <div id="btn">
+                    <button v-on:click="nextNextPage">Next</button>
+                </div> -->
             </div>
         </div>
     </main>
