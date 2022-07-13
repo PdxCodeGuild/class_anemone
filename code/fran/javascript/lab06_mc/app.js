@@ -8,6 +8,7 @@ const vm = new Vue({
     },
     methods: {
         loadResult: function() {
+            this.result = {}
             axios({
                 method: 'get',
                 url: 'https://images-api.nasa.gov/search',
@@ -19,10 +20,6 @@ const vm = new Vue({
                     year_end: this.endYear
                 }
             }).then(response => {
-                // this.result = response.data
-                // response.items.data.sort(function (a, b) {                         
-                //     return (a.date_created < b.date_created) ? -1 : (a.date_created > b.date_created) ? 1 : 0;                     
-                // });
                 this.result = response.data
                 console.log(response.data)
             }).catch(error => {
@@ -37,8 +34,5 @@ const vm = new Vue({
     //             this.orderedResults
     //         }
     //     }
-    // },
-    // created: function() {
-    //     this.loadResult()
     // }
 })
