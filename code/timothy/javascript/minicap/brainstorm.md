@@ -24,8 +24,8 @@ APIs:
 Notes:
  - May require use of multiple APIs in one app, uncertain interconnectivity.
 
-Title: RecMe (or Recd)
-Concept: Basic media recommendation app.
+Title: Track Trends
+Concept: Music top charts by city, search artist, etc.
 APIs:
  - https://tastedive.com/read/api
 Notes:

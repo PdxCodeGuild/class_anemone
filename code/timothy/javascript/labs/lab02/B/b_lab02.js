@@ -34,7 +34,7 @@ blackjackButton.addEventListener('click', function() {
     console.log(first_card, second_card, third_card) // 1 10 7
     total = add(first_card, second_card, third_card)
     console.log(total) // 18
-    return total
+    
 
     let answer
 
@@ -50,7 +50,7 @@ blackjackButton.addEventListener('click', function() {
     console.log(answer) // Stay
 
     let resultP = document.createElement('p')
-    resultP.innerText = answer
+    resultP.innerText = `Total: ${total} Advice: ${answer}`
     resultsDiv.prepend(resultP)
 
 })
