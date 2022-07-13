@@ -5,18 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find your adventure dog!</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Commissioner&family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
     <body>
-        <div id="dog-finder">
+        <header>
         
-            <ul>
-                <li v-for="dog in dogData.animals" :key="dog.id">
-                    <p>{{ dog.name }}</p>
-                </li>
-            </ul>
+        </header>
+        <main>
+            <div id="dog-finder">
+                <div class="search-container">
 
-        </div>
+                    <h1>Adopt an Adventure Dog!</h1><br>
 
+                    <div class="activity-container">
+                        <p>Choose an activity:</p>
+
+                        <input type="radio" value="running" v-model="activity" id="running">
+                        <label for="running">running</label></input>
+                        <input type="radio" value="hiking" v-model="activity" id="hiking">
+                        <label for="hiking">hiking</label></input>
+                        <input type="radio" value="hunting" v-model="activity" id="hunting">
+                        <label for="activity">hunting</label></input>
+                    </div>
+
+                    <div id="breeds-list-container" v-if="activity !== ''">
+                        <br><h2>Recommended Breeds</h2><br>
+                        <div v-for="breeds in breedList">
+                            <div v-for="sport in breeds.activites">
+
+                                <div v-if="sport === activity">
+                                    <input type="radio" :value="breeds.breed" v-model="userBreed" :id="breeds.breed">
+                                    <label :for="breeds.breed">{{ breeds.breed }}</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br><button @click="getNewDogData">Search</button>
+                    </div>
+
+                </div>
+                        
+                
+                        <!-- various if statements depending on the activity the person wants to do then they have more options to narrow down their choices
+                            - hiking -- --casual-- --long-distance-- climate: hot, cold, temperate --
+                            -hunting -- retriever -- sight-hound -- tracker
+                            -running -- jogger -- middistance -- marathoner
+                            -cycling -- cycletouring option (designed to keep dogs weight down) -->
+
+                <div id="dog-list" v-if="Object.keys(dogData).length">
+
+                    <div class="button-container">
+                        <div v-if="dogData.pagination.current_page !== 1" class="back-button">
+                            <button @click="backPage">Back</button>
+                        </div>
+                        <div v-if="dogData.pagination.current_page !== dogData.pagination.total_pages" class="next-button">
+                            <button @click="nextPage">Next</button>
+                        </div>
+                    </div>
+                
+                    <!-- change border to be pink for girls and blue for boys by doing if-->
+
+                    <div class='dog-card' v-for="dog in dogData.animals" :key="dog.id">
+                        <div v-if="dog.gender === 'Male'" class="name-container-male">
+                            <h3>{{ dog.name }}</h3>
+                        </div>
+                        <div v-else="dog.gender === 'Female'" class="name-container-female">
+                            <h3>{{ dog.name }}</h3>
+                        </div>
+                        <div v-if="dog.photos.length" class="img-container">
+                            <img :src="dog.photos[0].large">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
