@@ -11,9 +11,13 @@ const vm = new Vue ({
         imageSrc: "",
         songKeys: [],
         citySongData: {},
+        citySongList: [],
         portlandChart: "ip-city-chart-5746545",
         portlandList: {},
-        portlandTracks: []
+        portlandTracks: [],
+        spotifyLink: "",
+        songKey: ""
+        
 
     },
     methods: {
@@ -34,9 +38,11 @@ const vm = new Vue ({
                 this.hit = this.hits.hits
                 this.tracks = this.hit
                 this.imageSrc = this.tracks[0].track.images.background
-                console.log(this.tracks[0].track)
+                console.log(this.tracks[0].track.images.coverart)
                 this.artist = this.tracks[0].track.subtitle
-                console.log(this.tracks.track)
+                this.spotifyLink = this.tracks[0].track.hub.providers[0].actions[0].uri
+                
+                
                 
                 
             }).catch(error => {
@@ -44,12 +50,12 @@ const vm = new Vue ({
                 console.log(error.response.data)
             })
         },
-        songDetail: function() {
+        songDetail: function(key) {
             axios({
                 method: 'get',
                 url: 'https://shazam.p.rapidapi.com/songs/get-details',
                 params: {
-                    
+                    songKeyRun: this.songKey
                 }
             })
         },
@@ -63,7 +69,8 @@ const vm = new Vue ({
                 }
             }).then(response => {
                 this.citySongData = response.data
-                console.log(this.citySongData.countries[10].cities[32])
+                this.citySongList = this.citySongData.countries[10].cities
+                console.log(this.citySongList)
 
             }).catch(error => {
                 console.log(error)
