@@ -46,5 +46,8 @@ new Vue({
             this.favRecipes.push(recipe)
             console.log("favRecipes Array", this.favRecipes)
         },
+        favoriteRecipesList: function() {
+            this.favRecipes
+        }
     }
 })
