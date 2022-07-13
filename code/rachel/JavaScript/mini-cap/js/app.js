@@ -7,8 +7,6 @@ new Vue({
         nextPage: "",
         favRecipes: [],
         favorites: false,
-        // healthLabelSelect: "",
-        // cuisineTypeSelect: "",
     },
     methods: {
         loadSearchedRecipes: function() {
@@ -23,30 +21,20 @@ new Vue({
                     app_id: '0285e128',
                     mealType: this.mealTypeSelect,
                     imageSize: 'SMALL',
-                    // health: this.healthLabelSelect,
-                    // cuisineType: this.cuisineTypeSelect,
                 },
                 header: {
                     'Accept': 'application/json'
                 }
             }).then((response) => {
                 this.recipes = response.data
-                // this.nextPage = this.recipes._links.next.href
             })
         },
-        // nextNextPage: function() {
-        //     axios({
-        //         method: 'get',
-        //         url: this.nextPage,
-        //     }).then((response) =>{
-        //         this.recipes = response.data
-        //     })
-        // },
+
         favoriteRecipe: function(recipe) {
-            console.log("this works")
-            console.log(recipe)
             this.favRecipes.push(recipe)
-            console.log("favRecipes Array", this.favRecipes)
         },
+        unfavoriteRecipe: function(recipe) {
+            this.favRecipes.splice(this.favRecipes.indexOf(recipe), 1)
+        }
     }
 })

@@ -18,7 +18,7 @@
     <main>
         <div id="app">
             <div class="center">
-                <h2>Recipe Search<h2><br>
+                <h2><u>Recipe Search</u><h2><br>
                 <label for="foodkeyword-search">Search by keyword:</label><br>
                 <input type="text" id="foodkeyword-search" v-model = 'inputField'><br>
                 <label for="meal-type">Meal Type:</label><br>
@@ -30,68 +30,6 @@
                     <option value="snack">Snack</option>
                     <option value="teatime">Teatime</option>
                 </select><br>
-                <!-- <label for="health-label">Health Label(Optional):</label>
-                <select id="health-label" v-model="healthLabelSelect">
-                    <option value="alcohol-cocktail">Cocktail (Alcohol)</option>
-                    <option value="alcohol-free">Mocktail (Alcohol Free)</option>
-                    <option value="celery-free">Celery Free</option>
-                    <option value="crustcean-free">Crustcean Free</option>
-                    <option value="dairy-free">Dairy Free</option>
-                    <option value="DASH">DASH (Dietary Approaches to Stop Hypertension Diet)</option>
-                    <option value="egg-free">Egg Free</option>
-                    <option value="fish-free">Fish Free</option>
-                    <option value="FODMAP-free">FODMAP Free</option>
-                    <option value="gluten-free">Gluten Free</option>
-                    <option value="immuno-supportive">Immuno Supportive</option>
-                    <option value="keto-friendly">Keto Friendly</option>
-                    <option value="kidney-friendly">Kidney Friendly</option>
-                    <option value="kosher">Kosher Diet</option>
-                    <option value="low-potassium">Low Potassium</option>
-                    <option value="low-sugar">Low Sugar</option>
-                    <option value="lupine-free">Lupine Free</option>
-                    <option value="mediterranean">Mediterranean Diet</option>
-                    <option value="mollusk-free">Mollusk Free</option>
-                    <option value="mustard-free">Mustard Free</option>
-                    <option value="no-oil-added">No Oil Added</option>
-                    <option value="paleo">Paleo (No Agricultural Products)</option>
-                    <option value="peanut-free">Peanut Free</option>
-                    <option value="pescatarian">Pescatarian</option>
-                    <option value="pork-free">Pork Free</option>
-                    <option value="red-meat-free">Red Meat Free</option>
-                    <option value="seasame-free">Sesame Free</option>
-                    <option value="shellfish-free">Shellfish Free</option>
-                    <option value="soy-free">Soy Free</option>
-                    <option value="sugar-conscious">Sugar Conscious</option>
-                    <option value="sulfite-free">Sulfite Free</option>
-                    <option value="tree-nut-free">Tree Nut Free</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="wheat-free">Wheat Free</option>
-                </select><br>
-                <label for="cuisine-type">Cuisine Type(Optional):</label>
-                <select name="cuisine-type" v-model = "cuisineTypeSelect">
-                    <option value="american">American</option>
-                    <option value="asian">Asian</option>
-                    <option value="british">British</option>
-                    <option value="caribbean">Caribbean</option>
-                    <option value="central-europe">Central Europe</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="eastern-europe">Eastern Europe</option>
-                    <option value="french">French</option>
-                    <option value="greek">Greek</option>
-                    <option value="indian">Indian</option>
-                    <option value="italian">Italian</option>
-                    <option value="japanese">Japanese</option>
-                    <option value="korean">Korean</option>
-                    <option value="kosher">Kosher</option>
-                    <option value="mediterranean">Mediterranean</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="middle eastern">Middle Eastern</option>
-                    <option value="nordic">Nordic</option>
-                    <option value="south american">South American</option>
-                    <option value="south east asian">South East Asian</option>
-                    <option value="world">World</option>
-                </select><br> -->
                 <button v-on:click="loadSearchedRecipes">Search</button>
             </div>
 
@@ -104,7 +42,7 @@
                     <ol>
                         <li v-for="recipe in recipes.hits" :key="recipe.id">
                             <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
-                            <button v-on:click="favoriteRecipe(recipe)">♡ Favorite</button>
+                            <button class="fav-btn" v-on:click="favoriteRecipe(recipe)">♡ Favorite</button>
                             <div id="recipe-main">
                                 <img :src="`${ recipe.recipe.image }`" class="recipe-image">
                                 <div>
@@ -129,7 +67,7 @@
                     <ol>
                         <li v-for="recipe in favRecipes" :key="recipe.id">
                             <h3 class="recipe-header"><u>{{ recipe.recipe.label }}</u></h3>
-                            <button v-on:click="favoriteRecipe(recipe)">♡ Favorite</button>
+                            <button v-on:click="unfavoriteRecipe(recipe)">Unfavorite</button>
                             <div id="recipe-main">
                                 <img :src="`${ recipe.recipe.image }`" class="recipe-image">
                                 <div>
@@ -149,9 +87,6 @@
                         </li>                 
                     </ol>
                 </div>
-                <!-- <div id="btn">
-                    <button v-on:click="nextNextPage">Next</button>
-                </div> -->
             </div>
         </div>
     </main>

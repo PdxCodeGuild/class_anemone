@@ -84,3 +84,11 @@ img {
 #btn {
     text-align: center;
 }
+
+.fav-btn:focus {
+    color: rgb(15, 183, 0);
+}
+
+.fav-btn:visited {
+    color: rgb(15, 183, 0);
+}
