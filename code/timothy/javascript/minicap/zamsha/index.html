@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="main.css">
     <title>Track Trends</title>
 </head>
@@ -12,34 +13,38 @@
         <div class="grid-container">
 
             <header class="grid-item grid-item-1">
-                <h1>Track Trends</h1>
+                <a id="tracktrends" href="" target="_self"><h1>Track Trends</h1></a>
+                <div>
+                    <input type="text" v-model="searchTerm" placeholder="Enter Artist" @keyup.enter="loadResults" style="height:50px;font-size:24pt;text-align:center;font-family: sans-serif"><br><br>
+                    <button @click="loadResults" class="button-64" role="button"><span class="text">Top Tracks</span></button>
+                </div>
             </header>
             
-            <div class="grid-item grid-item-3">
-                <input type="text" v-model="searchTerm" placeholder="Enter Artist" @keyup.enter="loadResults"><br><br>
-                <button @click="loadResults">Enter</button>
-            </div>
 
-            <div v-if="Object.keys(searchResults).length" class="grid-item grid-item-4">
-                <h3>Showing results for {{ artist }}</h3>
-                <img id="artist-image" :src="imageSrc" :alt="artist">
+            <div v-if="Object.keys(searchResults).length" class="grid-item grid-item-3">
+                <div>
+                    <h3>Artist Shown: {{ artist }}</h3>
+                    <img id="artist-image" :src="imageSrc" :alt="artist">
+                </div>
                 <ol id="top-tracks">
                     <h3>Top Tracks</h3>
-                    <li v-for="track in hit" :key="track.track.key">
+                    <li class="grid-item-4" v-for="track in hit" :key="track.track.key">
                         <p>{{ track.track.title }}</p>
-                        <img :src="track.track.images.coverart" alt="track.track.subtitle">                 
-                        <a target="_blank" id="icon" :href="track.track.hub.providers[0].actions[0].uri"><img src="https://img.icons8.com/fluency/48/000000/spotify.png"/></a>
-                        <a target="_blank" id="icon" :href="track.track.url"><img src="https://img.icons8.com/fluency/48/000000/shazam.png"/></a>
+                        <img id="album" :src="track.track.images.coverart" alt="track.track.subtitle">
+                        <div class="icons">                 
+                            <a target="_blank" id="icon" :href="track.track.hub.providers[0].actions[0].uri"><img src="https://img.icons8.com/fluency/48/000000/spotify.png"/></a>
+                            <a target="_blank" id="icon" :href="track.track.url"><img src="https://img.icons8.com/fluency/48/000000/shazam.png"/></a>
+                        </div>
                     </li>
                 </ol>
             </div>
 
-            <div v-else="Objects.keys(portlandTracks).length" class="grid-item grid-item-2">
+            <div v-else="Objects.keys(portlandTracks).length" class="grid-item grid-item-5">
                 <h3>Top 10 Trending Tracks in Portland, OR </h3>
                 <ol>
                     <li v-for="ptrack in portlandTracks" :key="ptrack.key">
                         <p>{{ ptrack.title }} - {{ ptrack.subtitle }}</p>
-                        <img :src="ptrack.images.coverart" alt=""></p>
+                        <img id="album" :src="ptrack.images.coverart" alt=""></p>
                     </li>
                 </ol>
             </div>
@@ -49,6 +54,7 @@
     <footer>
         <a target="_blank" href="https://icons8.com/icon/ArJvfHiqhZSV/shazam">Shazam icon by Icons8</a>
         <a target="_blank" href="https://icons8.com/icon/G9XXzb9XaEKX/spotify">Spotify icon by Icons8</a>
+        <p>Copyright &copy; 2022</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
