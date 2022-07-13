@@ -1,0 +1,23 @@
+.main-body {
+    background-color: rgb(139, 98, 98);
+    text-align: center;
+    font-size: 20px;
+    height: 400px;
+    width: 400px;
+    margin-left: 400px;
+    margin-top: 100px;
+    border: 5px solid black;
+    border-radius: 10px;
+
+}
+.output {
+    color: rgb(44, 160, 44);
+    font-size: 28px;
+}
+.input {
+    font-size: 20px;
+    margin-top: 20px;
+}
+.submitbtn {
+    font-size: 20px;
+}
