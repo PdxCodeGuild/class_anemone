@@ -14,5 +14,5 @@ for (let letter of phrase) {
     newWord += cipher
     // console.log(cipher)
 }
-alert(newWord)
+alert(newWord) 
 

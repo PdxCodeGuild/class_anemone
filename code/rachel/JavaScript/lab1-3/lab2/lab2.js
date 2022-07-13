@@ -31,5 +31,5 @@ if (total < 17) {
     }
     if (total === 21) {
         alert(total + "Blackjack!")
-    }
+    } 
 }
