@@ -1,36 +1,87 @@
+// Vue.component('load', {
+//     data: function() {
+//         return {
+//             any: {}
+//         }
+//     },
+//     template:`
+//         <div>
+//             <button @click="load">Load all Returned</button>
+//         </div>
+//         `,
+//         methods: {
+//             load: function() {
+
+//             }
+//         }
+// })
+
+
 const vm = new Vue({
     el:"#main",
-    data:{
-        response:{},
-        out:{},
-        sout:{},
+    data: {
+        standby:{},
+        qout:{},
+        tout:{},
+        aout:{},
         error:{},
-        element:'',
-        element2: '',
-        element3:''
+        qinput:'',
+        tinput: '',
+        ainput:''
     },
-
+    
     methods:{
-        loadhome: function() {
+        
+        qsearch: function() {
+            
             axios({
                 method: 'get',
-                url: 'https://api.fiscaldata.treasury.gov/services/api/fiscal_service'
-            }).then(response => {this.out = response.json}, console.log(response.data, this.out))
+                url: 'http://openlibrary.org/search.json',
+                params: {
+                    q: this.qinput,
+                    limit:10
+                }
+            }).then(response => {this.qout = response.data})
+            
+            .catch(error => {
+                console.log(error, error.response.data)
+                this.error=error.response.data})
+                
+        },
+        
+        tsearch: function() {
+            axios({
+                method: 'get',
+                url: 'http://openlibrary.org/search.json',
+                params:{
+                    title: this.tinput,
+                    limit: 10
+                }
+            }).then(response => {this.tout = response.data})
             .catch(error => {
                 console.log(error, error.response.data)
                 this.error=error.response.data})
         },
-        search: function() {
-            if (element2 != '') {
-                element +='/'+element2
-            } if (element3 != '') {
-                element +='/'+element3
-            }
+        
+        asearch: function() {
             axios({
                 method: 'get',
-                url: 'https//www.dnd5eapi.com/api/'+this.element
-            }).then(response => {this.sout = response.data},
-            console.log(response.data)).catch(error => {this.error=error.response.data})
-        }
-    }
+                url: 'http://openlibrary.org/search.json',
+                params:{
+                    author: this.ainput,
+                    limit:10
+                }
+            }).then(response => {this.aout = response.data})
+            .catch(error => {
+                console.log(error, error.response.data)
+                this.error=error.response.data})
+        },
+        
+    },
+    // computed: {
+    //     isquotloaded() {
+    //         const nestedLoaded = Object.keys(this.quot).map(key => this.quot[key].length !==0)
+    //         return this.qout && nestedLoaded.length !== 0
+    //     }
+    // }
 })
