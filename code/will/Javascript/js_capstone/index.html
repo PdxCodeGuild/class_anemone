@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather Get!</title>
+</head>
+<body>
+  <div id="main">
+    <div id="app">
+
+                  {{ weather.city.main }}
+
+                 
+        <section class="top-banner">
+            <div v-for = "data in temp_array.slice(0,5)" class="container">
+              <h1 class="heading">{{ weather.city.name}}</h1>
+              <form>
+               
+                {{ data.dt_txt }} - {{ data.main.temp }}
+                <span class="msg"></span>
+              </form>
+              </div>
+
+            </div>
+          </section>
+          <section class="ajax-section">
+    
+           
+            </div>
+          </section>
+    
+        </div>
+       
+        
+            
+         
+        
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="capstone.js"></script>
+</body>
+</html>
