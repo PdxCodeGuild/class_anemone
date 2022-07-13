@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Images</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <h1>NASA Images</h1>
+        <div>
+            <input type="text" v-model="searchString" placeholder="Search String" @keyup.enter="loadResult">
+            <input type="text" v-model="startYear" placeholder="Start Year (YYYY)" @keyup.enter="loadResult">
+            <input type="text" v-model="endYear" placeholder="End Year (YYYY)" @keyup.enter="loadResult">
+            <button @click="loadResult">Search</button>
+        </div>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <!-- <img src="https://images-assets.nasa.gov/image/PIA15777/PIA15777~thumb.jpg" class="d-block w-100" alt="..."> -->
+                <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <!-- <h5>NuSTAR Orbits Earth Artist Concept</h5>
+                  <h6>2012-05-22T18:12:17Z</h6>
+                  <p>This artist concept shows NASA NuSTAR mission orbiting Earth. NuSTAR will hunt for hidden black holes and other exotic cosmic objects.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images-assets.nasa.gov/image/PIA15632/PIA15632~thumb.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Bringing Black Holes Into Focus</h5>
+                  <h6>2012-05-22T18:12:17Z</h6>
+                  <p>NASA NuSTAR will be able to identify individual black holes making up the diffuse X-ray glow, also called the X-ray background. At bottom right is a simulated view of what NuSTAR will see.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images-assets.nasa.gov/image/PIA17841/PIA17841~thumb.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Radioactive Core of a Dead Star</h5>
+                  <h6>2012-05-22T18:12:17Z</h6>
+                  <p>NASA NuSTAR has, for the first time, imaged the radioactive guts of a supernova remnant, the leftover remains of a star that exploded. The NuSTAR data are blue, and show high-energy X-rays.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <!-- <div v-if="Object.keys(result).length">
+            <p>{{ result }}</p> NO
+            <li v-for="result in result.collection.items" order="result.data[0].date_created">
+            <li v-for="result in sorted(result.collection.items.data.date_created)"> NO
+                <img :src="result.links[0].href">   
+                <img :src="{{ result.links[0].href }}">    NO
+                <p>{{ result.links[0].href }}</p>    NO
+                <p>{{ result.data[0].title }}</p>
+                <p>{{ result.data[0].description }}</p>
+                <p>{{ result.data[0].date_created }}</p>
+            </li>
+        </div> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
