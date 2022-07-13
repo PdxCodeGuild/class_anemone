@@ -29,6 +29,6 @@ adviceBtn.addEventListener('click', function(){
             let blackjackResult = document.createElement('blackjack')
             blackjackResult.innerText = `${total} - "Blackjack!"`
             results.prepend(blackjackResult)
-        }
+        }  
     }
 })

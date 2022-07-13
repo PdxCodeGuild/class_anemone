@@ -22,3 +22,4 @@ cipherBtn.addEventListener('click', function(){
     result.innerText = newWord
     results.prepend(result)
 })
+  
