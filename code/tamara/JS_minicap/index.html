@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Commissioner&family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
     <body>
@@ -21,16 +21,15 @@
 
                     <h1>Adopt an Adventure Dog!</h1><br>
 
-                    <div class="activity-container">
-                        <p>Choose an activity:</p>
+                    <label for="activity">Choose an activity:</label>
 
-                        <input type="radio" value="running" v-model="activity" id="running">
-                        <label for="running">running</label></input>
-                        <input type="radio" value="hiking" v-model="activity" id="hiking">
-                        <label for="hiking">hiking</label></input>
-                        <input type="radio" value="hunting" v-model="activity" id="hunting">
-                        <label for="activity">hunting</label></input>
-                    </div>
+                    <select id="activity" v-model="activity">
+                        <option value="hiking">Hiking</option>
+                        <option value="running">Running</option>
+                        <option value="hunting">Hunting</option>
+                        <option value="skiing">Skiing</option>
+                    </select>
+                    
 
                     <div id="breeds-list-container" v-if="activity !== ''">
                         <br><h2>Recommended Breeds</h2><br>
@@ -42,9 +41,27 @@
                                     <label :for="breeds.breed">{{ breeds.breed }}</label>
                                 </div>
 
+                                
                             </div>
                         </div>
-                        <br><button @click="getNewDogData">Search</button>
+
+                    
+
+                        <!-- <label for="user-breed-choice">Choose a breed:</label>
+                        <select v-model="userBreed" id="user-breed-choice">
+                            <div v-for="breeds in breedList">
+                                <div v-for="sport in breeds.activites">
+
+                                    <div v-if="sport === activity">
+                                        <option :value="breeds.breed">{{ breeds.breed }}</option>
+                                    </div>
+                                </div>
+                            </div>
+                        </select> -->
+                        
+                        <br><label for="location">Location:</label>
+                        <input type='text' value='location' v-model="location" id='location' placeholder="city, state or zip" @keyup.enter="getNewDogData">
+                        <button @click="getNewDogData">Search</button>
                     </div>
 
                 </div>
@@ -68,18 +85,36 @@
                     </div>
                 
                     <!-- change border to be pink for girls and blue for boys by doing if-->
+                <div class="all-dog-cards-container">
+                    <div v-for="dog in dogData.animals" :key="dog.id" class="dog-card-container">
 
-                    <div class='dog-card' v-for="dog in dogData.animals" :key="dog.id">
-                        <div v-if="dog.gender === 'Male'" class="name-container-male">
-                            <h3>{{ dog.name }}</h3>
-                        </div>
-                        <div v-else="dog.gender === 'Female'" class="name-container-female">
-                            <h3>{{ dog.name }}</h3>
-                        </div>
-                        <div v-if="dog.photos.length" class="img-container">
-                            <img :src="dog.photos[0].large">
-                        </div>
+                            <div v-if="dog.gender === 'Male'" class="dog-card-male">
+                                <div class='card-header'>
+                                    <h3>{{ dog.name }}</h3>
+                                </div>
+                                <div v-if="dog.photos.length" class="img-container">
+                                    <img :src="dog.photos[0].large">
+                                </div>
+                            </div>
 
+                            <div v-else="dog.gender === 'Female'" class="dog-card-female">
+                                <div class='card-header'>
+                                    <h3>{{ dog.name }}</h3>
+                                </div>
+                                <div v-if="dog.photos.length" class="img-container">
+                                    <img :src="dog.photos[0].large">
+                                </div>
+                            </div>
+                    </div>
+                </div> 
+
+                    <div class="button-container-bottom">
+                        <div v-if="dogData.pagination.current_page !== 1" class="back-button">
+                            <button @click="backPage">Back</button>
+                        </div>
+                        <div v-if="dogData.pagination.current_page !== dogData.pagination.total_pages" class="next-button">
+                            <button @click="nextPage">Next</button>
+                        </div>
                     </div>
 
                 </div>
