@@ -7,10 +7,42 @@
   </head>
   <body>
     <h1>GroceryList</h1>
-    <form action="{% url 'grocerylist_app:index' %}" method="post">
+    <form action="{% url 'grocerylist_app:add_item' %}" method="post">
       {% csrf_token %}
       <input type="text" name="text_description"  maxlength="200">
       <input type="submit" value="Add">
     </form>
+
+    <h3>Incomplete</h3>
+    <ul>
+        {% for item in incomplete_items %}
+        <li>{{ item.text_description }}
+            <form action="{% url 'grocerylist_app:complete' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Mark Complete">
+            </form>
+            <form action="{% url 'grocerylist_app:delete' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Completed</h3>
+    <ul>
+        {% for item in complete_items %}
+        <li>{{ item.text_description }}
+            <form action="{% url 'grocerylist_app:complete' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Undo">
+            </form>
+            <form action="{% url 'grocerylist_app:delete' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
   </body>
 </html>
