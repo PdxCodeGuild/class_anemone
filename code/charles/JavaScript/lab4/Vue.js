@@ -13,6 +13,7 @@ let ds = new Vue({
     methods: {
         addTodo: function() {
             this.todos.push({text: this.newtodo, complete:false})
+            this.newtodo = ''
         },
         removeTodo: function(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
