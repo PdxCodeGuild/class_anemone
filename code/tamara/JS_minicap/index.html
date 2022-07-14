@@ -21,15 +21,16 @@
 
                     <h1>Adopt an Adventure Dog!</h1><br>
 
-                    <label for="activity">Choose an activity:</label>
+                    <div class="activity-container">
+                        <label for="activity">Choose an activity:&nbsp;</label>
 
-                    <select id="activity" v-model="activity">
-                        <option value="hiking">Hiking</option>
-                        <option value="running">Running</option>
-                        <option value="hunting">Hunting</option>
-                        <option value="skiing">Skiing</option>
-                    </select>
-                    
+                        <select id="activity" v-model="activity">
+                            <option value="hiking">Hiking</option>
+                            <option value="running">Running</option>
+                            <option value="hunting">Hunting</option>
+                            <option value="skiing">Skiing</option>
+                        </select>
+                    </div>
 
                     <div id="breeds-list-container" v-if="activity !== ''">
                         <br><h2>Recommended Breeds</h2><br>
@@ -59,9 +60,9 @@
                             </div>
                         </select> -->
                         
-                        <br><label for="location">Location:</label>
+                        <br><label for="location">Location:&nbsp;</label>
                         <input type='text' value='location' v-model="location" id='location' placeholder="city, state or zip" @keyup.enter="getNewDogData">
-                        <button @click="getNewDogData">Search</button>
+                        <br><br><button @click="getNewDogData">Search</button>
                     </div>
 
                 </div>

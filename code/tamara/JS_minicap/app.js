@@ -11,7 +11,7 @@ const dogFinder = new Vue ({
         // can add aditional options later and climate options like hot or cold climates
         // based on what the user selects it will filter by breed and it will only show adult and younger dogs
         location: '',
-        // user enters gps cordinates, zip or city and state
+        // user enters zip or city and state
         // need results sorted by closest first
         // can later allow user to choose sort function
         pageNumber: 1,
@@ -84,9 +84,9 @@ const dogFinder = new Vue ({
         this.getDogData()
        },
 
-       activityType: function() {
+    //    activityType: function() {
 
-       }
+    //    }
 
     // created: function() {
     //     this.getDogData()
