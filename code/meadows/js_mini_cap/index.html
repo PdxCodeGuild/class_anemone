@@ -15,7 +15,7 @@
         <button @click="loadOne">Black Clover</button>
         <div>
             <img :src="`${ring.img}`">
-            <ul v-if="Object.keys(ring).length">
+            <ul>
                 <li v-for="facts in ring.data" :key="ring.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -26,7 +26,7 @@
         <button @click="loadTwo">Bleach</button>
         <div>
             <img :src="`${Two.img}`">
-            <ul v-if="Object.keys(Two).length">
+            <ul>
                 <li v-for="facts in Two.data" :key="Two.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -37,7 +37,7 @@
         <button @click="loadThree">Dragon Ball Z</button>
         <div>
             <img :src="`${Three.img}`">
-            <ul v-if="Object.keys(Three).length">
+            <ul>
                 <li v-for="facts in Three.data" :key="Three.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -48,7 +48,7 @@
         <button @click="loadFour">Jujutsu Kaisen</button>
         <div>
             <img :src="`${Four.img}`">
-            <ul v-if="Object.keys(Four).length">
+            <ul>
                 <li v-for="facts in Four.data" :key="Four.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -59,7 +59,7 @@
         <button @click="loadFive">Full Metal Alchemist</button>
         <div>
             <img :src="`${Five.img}`">
-            <ul v-if="Object.keys(Five).length">
+            <ul>
                 <li v-for="facts in Five.data" :key="Five.id">
                    <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -70,7 +70,7 @@
         <button @click="loadSix">Naruto</button>
         <div>
             <img :src="`${Six.img}`">
-            <ul v-if="Object.keys(Six).length">
+            <ul>
                 <li v-for="facts in Six.data" :key="Six.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -81,7 +81,7 @@
         <button @click="loadSeven">Gin Tama</button>
         <div>
             <img :src="`${Seven.img}`">
-            <ul v-if="Object.keys(Seven).length">
+            <ul>
                 <li v-for="facts in Sevendata" :key="Seven.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -92,7 +92,7 @@
         <button @click="loadEight">Itachi Uchiha</button>
         <div>
             <img :src="`${Eight.img}`">
-            <ul v-if="Object.keys(Eight).length">
+            <ul>
                 <li v-for="facts in Eight.data" :key="Eight.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -103,7 +103,7 @@
         <button @click="loadNine">One Piece</button>
         <div>
             <img :src="`${Nine.img}`">
-            <ul v-if="Object.keys(Nine).length">
+            <ul>
                 <li v-for="facts in Nine.data" :key="Nine.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -114,7 +114,7 @@
         <button @click="loadTen">Demon Slayer</button>
         <div>
             <img :src="`${Ten.img}`">
-            <ul v-if="Object.keys(Ten).length">
+            <ul>
                 <li v-for="facts in Ten.data" :key="Ten.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -125,7 +125,7 @@
         <button @click="loadEleven">Attack on Titan</button>
         <div>
             <img :src="`${Eleven.img}`">
-            <ul v-if="Object.keys(Eleven).length">
+            <ul>
                 <li v-for="facts in Eleven.data" :key="Eleven.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -136,7 +136,7 @@
         <button @click="loadTwelve">Hunter x Hunter</button>
         <div>
             <img :src="`${Twelve.img}`">
-            <ul v-if="Object.keys(Twelve).length">
+            <ul>
                 <li v-for="facts in Twelve.data" :key="Twelve.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
@@ -147,7 +147,7 @@
         <button @click="loadThirteen">My Hero Academia</button>
         <div>
             <img :src="`${Thirteen.img}`">
-            <ul v-if="Object.keys(Thirteen).length">
+            <ul>
                 <li v-for="facts in Thirteen.data" :key="Thirteen.id">
                     <p><b>{{facts.fact}}</b></p>
                 </li>
