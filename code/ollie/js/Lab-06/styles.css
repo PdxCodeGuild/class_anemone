@@ -1,0 +1,69 @@
+* {
+    font-family: "American Typewriter";
+}
+body {
+    background-image: url('https://data.templateroller.com/pdf_docs_html/25/255/25518/blank-lined-notebook-paper-template_print_big.png');
+    background-size: cover;
+}
+h1 {
+    font-size: 195px;
+    font-weight: 600;
+    margin: 0px;
+    margin-left: 275px;
+}
+#hangman{
+    display: flex;
+}
+#menu {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+#b-letters {
+    font-size: 38px;
+}
+select {
+    font-size: 30px;
+    background: transparent;
+    appearance: none;
+    border: none;
+}
+button {
+    margin: 0px;
+    font-size: 38px;
+    border: none;
+    background-color: transparent;
+}
+button:hover {
+    color: dimgray;
+}
+img {
+    height: 600px;
+    width: 450px;
+    margin-right: 50px;
+}
+#game {
+    height: 530px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+}
+#word-div {
+    font-size: 100px;
+    margin: auto;
+}
+#new-letter {
+    display: flex;
+    align-self: center;
+}
+input {
+    font-size: 35px;
+    width: 38px;
+    text-align: center;
+    border-style: dashed;
+    background: transparent;
+}
+#guess-div {
+    font-size: 50px;
+    margin-top: 20px;
+}
