@@ -3,17 +3,102 @@
     <head>
         <meta charset="utf-8">
         <title>Movie Search</title>
-        <link rel="stylesheet" href="https://bootswatch.com/sketchy/bootstrap.min.css"
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
     </head>
     <body>
-        <header>
-           <nav</nav> 
-        </header>
-        <main class="container">
-            <h1>
-                Movie Search
-            </h1>
-        </main>
-        <script src="app.js" charset="utf-8"></script>
+        <div id="app">
+            <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" href="#">Movie Search</a>
+            </nav>
+          </header>
+          <main class="container mt-2">
+            <form @submit.prevent="getResults">
+              <fieldset class="form-group">
+                <label for="searchTerm">Search</label>
+                <input v-model="searchTerm" type="text" class="form-control" id="searchTerm" placeholder="Enter a movie title.">
+              </fieldset>
+              <button type="submit" class="btn btn-primary">GO</button>
+            </form>
+            <section>
+              <section class="row movies-area">
+                <section class="mt-2 col-9 row" id="results">
+                  <div v-if="error" class="alert alert-danger col" role="alert">
+                    {{error}}
+                  </div>
+                  <movie
+                    class="col-4"
+                    v-for="movie in results"
+                    :movie="movie"
+                    :isInWatchLater="isInWatchLater"
+                    :addToWatchLater="addToWatchLater"></movie>
+                </section>
+                <section class="mt-2 col-3 row">
+                  <h3>Watch Later</h3>
+                  <section class="row" id="watch-later">
+                    <movie
+                      class="col-12"
+                      v-for="movie in watchLater"
+                      :removeWatchLater="removeWatchLater"
+                      :movie="movie"></movie>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </main>
+          <template>
+            <div id="app">
+              <header>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <a class="navbar-brand" href="#">Movie Search</a>
+                </nav>
+              </header>
+              <main class="container mt-2">
+                <form @submit.prevent="getResults">
+                  <fieldset class="form-group">
+                    <label for="searchTerm">Search</label>
+                    <input v-model="searchTerm" type="text" class="form-control" id="searchTerm" placeholder="Enter a movie title.">
+                  </fieldset>
+                  <button type="submit" class="btn btn-primary">GO</button>
+                </form>
+                <section>
+                  <section class="row movies-area">
+                    <section class="mt-2 col-9 row" id="results">
+                      <div v-if="error" class="alert alert-danger col" role="alert">
+                        {{error}}
+                      </div>
+                      <movie
+                        class="col-4"
+                        v-for="movie in results"
+                        :movie="movie"
+                        :isInWatchLater="isInWatchLater"
+                        :addToWatchLater="addToWatchLater"></movie>
+                    </section>
+                    <section class="mt-2 col-3 row">
+                      <h3>Watch Later</h3>
+                      <section class="row" id="watch-later">
+                        <movie
+                          class="col-12"
+                          v-for="movie in watchLater"
+                          :removeWatchLater="removeWatchLater"
+                          :movie="movie"></movie>
+                      </section>
+                    </section>
+                  </section>
+                </section>
+              </main>
+            </div> 
+                    
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="app.js"></script>
     </body>
-</html>
+    </html>
+  
+      
+    
+      
+     
