@@ -27,54 +27,66 @@ const vm = new Vue({
         error:{},
         qinput:'',
         tinput: '',
-        ainput:''
+        ainput:'',
+        limit:10,
     },
     
     methods:{
         
         qsearch: function() {
-            
+            this.quot = {}
+            this.tout = {}
+            this.aout = {}
             axios({
                 method: 'get',
                 url: 'http://openlibrary.org/search.json',
                 params: {
                     q: this.qinput,
-                    limit:10
+                    limit:  this.limit
                 }
             }).then(response => {this.qout = response.data})
             
             .catch(error => {
                 console.log(error, error.response.data)
                 this.error=error.response.data})
+                this.qinput = ''
                 
         },
         
         tsearch: function() {
+            this.quot = {}
+            this.tout = {}
+            this.aout = {}
             axios({
                 method: 'get',
                 url: 'http://openlibrary.org/search.json',
                 params:{
                     title: this.tinput,
-                    limit: 10
+                    limit: this.limit
                 }
             }).then(response => {this.tout = response.data})
             .catch(error => {
                 console.log(error, error.response.data)
                 this.error=error.response.data})
+                this.tinput = ''
         },
         
         asearch: function() {
+            this.quot = {}
+            this.tout = {}
+            this.aout = {}
             axios({
                 method: 'get',
                 url: 'http://openlibrary.org/search.json',
                 params:{
                     author: this.ainput,
-                    limit:10
+                    limit:  this.limit
                 }
             }).then(response => {this.aout = response.data})
             .catch(error => {
                 console.log(error, error.response.data)
                 this.error=error.response.data})
+                this.ainput = ''
         },
         
     },
