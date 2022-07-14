@@ -13,8 +13,7 @@ const vm = new Vue({
                 method: 'get',
                 url: 'https://images-api.nasa.gov/search',
                 params: {
-                    // q: 'moon landing',
-                    description: this.searchString, //'apollo 11',
+                    description: this.searchString, 
                     media_type: 'image',
                     year_start: this.startYear,
                     year_end: this.endYear
@@ -27,12 +26,5 @@ const vm = new Vue({
                 console.log(error.response_data)
             })
         }
-    } //,
-    // computed: {
-    //     orderedResults: function() {
-    //         for (record in this.result) {
-    //             this.orderedResults
-    //         }
-    //     }
-    // }
+    }
 })
