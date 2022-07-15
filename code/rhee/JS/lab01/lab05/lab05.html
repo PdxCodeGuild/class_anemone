@@ -1,0 +1,26 @@
+<!-- This is a simple Vue.js application that works that shows Quotes: Click for a Random Quote or Search by term for a quote -->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="lab05.css">
+  </head>
+  <body>
+    <div id="app">
+      {{ notice }}
+      <br>
+
+      <button @click="getQuote" class="quote"> Random Quote:  </button>
+      <p class="line"> {{quotePrint}} </p>
+      <div class="main-form">
+        <form @submit.prevent ="searchQuotes">
+        <input type="text" v-model="searchText" placeholder="Search Here" class="search-input">
+        <button type="submit" class="submitbtn"> Submit </button>
+        </form>
+
+        <ul v-for="quote in search.quotes"><li> {{ quote.body }} </li></ul>
+
+      </div>
+
+    
+    <script src="lab05.js"></script>
+  </body>
