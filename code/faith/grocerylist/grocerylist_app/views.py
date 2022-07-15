@@ -18,7 +18,7 @@ def index(request):
 
 def add_item(request):
     text_description = request.POST['text_description']
-    GroceryItem.objects.create(text_description=text_description, created_date=timezone.now(), complete=False)
+    GroceryItem.objects.create(text_description=text_description, created_date=timezone.now(), completed=False)
     return HttpResponseRedirect(reverse('grocerylist_app:index'))
 
 
