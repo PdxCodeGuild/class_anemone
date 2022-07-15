@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header {
+    background-color:lightblue;
+    padding: .1em .5em;
+}
+
+body {
+    background-color: black;
+    padding: 1em;
+}
+
+.search {
+    background-color: grey;
+    padding: .3em .5em;
+}
+
+.carousel-inner .carousel-item img {
+    width: 100px;
+    height: 650px;
+}
+  
+#carouselExampleCaptions {
+    padding: 10px 175px;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px black, 0 0 2px lightgrey, 0 0 2px grey;
+    /* box-shadow: 20px 20px 50px 15px grey; */
+    /* height: 100%; */
+}
+
