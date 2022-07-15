@@ -7,7 +7,9 @@ router = DefaultRouter()
 router.register('posts', views.PostViewSet, basename='posts')
 router.register('users', views.UserViewSet, basename='users')
 
-urlpatterns = router.urls
+urlpatterns = router.urls + [
+    path('currentuser/', views.CurrentUserView.as_view())
+]
 
 # urlpatterns = [
 #     path('posts/<int:pk>/', views.PostDetail.as_view()),

@@ -15,6 +15,11 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+class CurrentUserView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    def get_object(self):
+        return self.request.user
+
 # class PostList(generics.ListCreateAPIView):
 #     queryset = Post.objects.all()
 #     serializer_class = PostSerializer
