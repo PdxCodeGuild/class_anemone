@@ -2,5 +2,15 @@
 
 {% block content %}
 
-    // display all of users posts here
-{% block content %}
+    <h2>{{ user_profile.username }}'s Chirps:</h2>
+
+    {% for chirp in user_profile.posts.all %} 
+        <div class="chirp-entry">
+            <p><em>Chirped on: {{ chirp.created }}</em></p>
+            <p>{{ chirp.body|linebreaksbr }}</p>
+            {% if user == chirp.author %}
+            <p><a href="{% url 'posts:delete' chirp.pk %}">Delete x</a></p>
+        {% endif %}
+        </div>
+    {% endfor %}
+{% endblock content %}
