@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+      integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+      integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app-1">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+      id="sideNav"
+    >
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Weather Forecast</span>
+        <span class="d-none d-lg-block">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <h3 class="nav-item">
+            <h3>Weather App</h3>
+          </li>
+          <li class="nav-item container-fluid">
+            <input type="text" class="form-control" placeholder="Enter City" aria-label="City Name" aria-describedby="button-addon2" name="cityInput" v-model.trim="cityInput">
+            <button class="btn btn-outline-warning" type="button" id="button-addon2" @click="onClick()">Search</button>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#topCities">
+              Top Cities:
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#prevSearches">
+              Previous Searches:
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <main class="container-fluid"> 
+        <content class="col-sm-8 col-md-9">
+            <div id="weatherContent" class="pt-3">
+                <div class="card w-100">
+                    <div class="card-body py-2">
+                        <h3>{{cWeather.name}}</h3>
+                        <h6 class="font-weight-bold mb-0">{{ cWeather.weather[0].description }}</h6>
+                        <div class="card-text mt-0">
+                            <p>Temperature: <span id="temp">{{ cWeather.main.temp }} °F</span></p>
+                            <p>Humidity: <span id="humidity">{{ cWeather.main.humidity }} %</span></p>
+                            <p>Wind Speed: <span id="windSpeed">{{ cWeather.wind.speed }} MPH</span></p>
+                            <p>UV Index: <span id="uvIndex"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 5 Day Forecast-->
+            <section class="container-fluid" id="forecastSection">
+                <h6 class="font-weight-bold my-4">5-Day Forecast</h6>
+                <!-- Forecast 1 -->
+                <li class="col-20 list-unstyled"v-for="item in fWeather.list">
+                    <div class="forecast-container bg-primary text-white mb-4">
+                    <h6 class="font-weight-bold">
+                        <span id="tempForecast" class="font-weight-normal">{{item.weather[0].main}}</span></h6>
+                    <p class="font-weight-bold">Temperature: <span id="tempForecast" class="font-weight-normal">{{item.main.temp}} °F</span></p>
+                    <p class="font-weight-bold">Humidity: <span id="humidityForecast" class="font-weight-normal">{{item.main.humidity}} %</span></p>
+                </div>
+            </li>
+            </section>
+        </content>
+    </main>
+  
+    
+   </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
