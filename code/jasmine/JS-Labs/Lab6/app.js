@@ -1,6 +1,6 @@
 
 
-// Vue.component('Movie-object', {
+// Vue.component('Movie', {
 //     data: function () {
 //         return {
 //             clicks: 0
@@ -28,22 +28,30 @@
 //     `
 // })
 
-
+const API_URL = 'http://www.omdbapi.com/?i=tt3896198&apikey=b97ab39d';
 const vm= new Vue({
     el: '#app',
-    data : {},
+    data : {
+      searchTerm:'',
+      results:[],
+      error: '',
+
+    },
     methods:{
-      getMovie : function (){
+      getResults : function (){
+        this.result = {}
+        this.error = '',
         axios({
           method: 'get',
-          url : 'http://www.omdbapi.com/?i=tt3896198&apikey=b97ab39d'
-        }).then(function(response){
-            console.log(response)
-            console.log(response.data)
-        }).catch(function(error){
-            console.log(error)
-            console.log(error.response.data)
+          url : `http://www.omdbapi.com/?apikey=b97ab39d&?type=movie&s=${this.searchTerm}`,
+       
+        }).then(response => {
+          this.results = response.data
+          console.log(response.data)
+        }).catch(error => {
+          this.error = response.data
+          console.log(error.response.data)
         })
-        }
     }
-})
+  }
+});
