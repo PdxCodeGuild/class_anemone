@@ -28,6 +28,12 @@ header {
     padding: 1em;
 }
 
+/* V this is not working and im not sure why??? */
+form {
+    background-color: #343442;
+    padding: 1em;
+}
+
 footer {
     padding: 1em;
     margin: 0em;

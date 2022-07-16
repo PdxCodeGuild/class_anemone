@@ -15,6 +15,7 @@ class Post(models.Model):
         return self.body
         # will show the username of the person who made the chirp in the admin panel
     
+    #### BELOW Not working for redirecting after creating new Chirp
     # will automatically reverse url to the home page when submitting a form
     def get_absolute_url(self):
         return reverse('posts:home', args=(self.pk,))
