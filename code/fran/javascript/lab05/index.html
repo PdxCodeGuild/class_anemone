@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Quotes</h1>
+            <h5>Search quotes by keyword, author, or tag and see what gems you can find.</h5>
+        </div>
+    </header>
+    <main>
+        <div id="app">
+            <div class="search">
+                <input type="text" v-model="searchString" placeholder="Search string" @keyup.enter="loadResult">
+                <select v-model="selectedType" @keyup.enter="loadResult">
+                    <option disabled value="">Please select one</option>
+                    <option>keyword</option>
+                    <option>author</option>
+                    <option>tag</option>
+                </select>
+                <button @click="loadSearchQuotes">Search</button>
+            </div>
+            <ul>
+            </ul>
+            <ul v-if="Object.keys(quotesResult).length">
+                <span v-for="quote in quotesResult.quotes" :key="quote.id">
+                    <p>{{ quote.body }}</p>
+                    <p><em>- {{ quote.author }}</em></p>
+                    <br>
+                </span>
+                <pagination 
+                    :last_page="quotesResult.last_page"
+                    :page="quotesResult.page"
+                ></pagination>
+            </ul>
+
+            <!-- PAGINATION NOTES/QUESTIONS: Need to keep track of page you are requesting, because the 
+            List Quotes API response always provides a value of 1 in its 'page' response element.
+            - How to increment/decrement a page number in our data object (so that I can keep track
+                of what page the user is on, and also know what page number to pass in the request)?
+            - Need to re-initialize the page number back to 1 when a new search is conducted? 
+                So initialze on click of the Search button? -->
+
+            <span v-if="quotesResult.page = 1">
+                <p>this is the first page</p>
+                <p>Page Number: {{ quotesResult.page }}</p>
+            </span>            
+            <span v-if="quotesResult.page > 1">
+                <p>this is NOT the first page</p>
+                <p>Page Number: {{ quotesResult.page }}</p>
+                <button @click="loadSearchQuotes">Previous</button>
+            </span>            
+            <span v-if not="quotesResult.last_page">
+                <p>this is not the last page</p>
+                <p>Last Page: {{ quotesResult.last_page }}</p>
+                <p>Page Number: {{ quotesResult.page }}</p>
+                <button @click="loadSearchQuotes">Next</button>
+            </span>
+            <!-- <span v-if="quotesResult.last_page">
+                <p>this is the last page</p>
+                <p>Last Page: {{ quotesResult.last_page }}</p>
+                <p>Page Number: {{ quotesResult.page }}</p>
+            </span> -->
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
