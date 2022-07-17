@@ -14,8 +14,6 @@ Vue.component('Movie', {
       <h5 class="card-title">{{movie.Title}}</h5>
       <p class="card-text">{{movie.Year}}</p>
       <button
-        v-if="addToWatchLater && !isInWatchLater(movie)"
-        @click="addToWatchLater(movie)"
         type="button"
         class="btn btn-success">Watch Later</button>
       <button
