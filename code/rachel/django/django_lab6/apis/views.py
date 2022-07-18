@@ -6,6 +6,6 @@ class ListStudent(generics.ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-class StudentViewSet(viewsets.Modelviewset):
+class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
