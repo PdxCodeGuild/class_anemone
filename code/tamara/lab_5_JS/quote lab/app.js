@@ -17,8 +17,7 @@ Vue.component('user-search', {
     methods: {
         loadUserQuotes: function () {
             this.$emit('search', {userChoice: this.userChoice, userInput: this.userInput})
-            this.userInput = ''
-        }
+        },
     }
 })
 
@@ -28,8 +27,10 @@ const quoteApp = new Vue ({
         randomQuotes: {},
         userQuotes: {},
         pageNumber: 1,
+        lastUserInput: '',
         userInput: '',
         userChoice: 'keyword',
+        lastUserChoice: '',
     },
     methods: {
         loadRandomQuotes: function () {
@@ -43,9 +44,10 @@ const quoteApp = new Vue ({
         },
 
         loadUserQuotes: function (payLoad) {
-            console.log(payLoad)
             this.userInput=payLoad.userInput
             this.userChoice=payLoad.userChoice
+            this.lastUserInput = this.userInput
+            this.lastUserChoice = this.userChoice
             axios({
                 method: 'get',
                 url: 'https://favqs.com/api/quotes/',
@@ -53,27 +55,63 @@ const quoteApp = new Vue ({
                     "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
                 },
                 params: {
-                    filter: this.userInput,
-                    type: this.userChoice,
+                    filter: this.lastUserInput,
+                    type: this.lastUserChoice,
                     page: this.pageNumber,
                 }
             }).then(response => {
                 console.log(this.userInput)
+                console.log(this.userChoice)
                 this.userQuotes = response.data
             })
-
             
         },
 
         nextPage: function() {
+            
             this.pageNumber ++
-            this.loadUserQuotes()
+
+            axios({
+                method: 'get',
+                url: 'https://favqs.com/api/quotes/',
+                headers: {
+                    "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                },
+                params: {
+                    filter: this.lastUserInput,
+                    type: this.lastUserChoice,
+                    page: this.pageNumber,
+                }
+            }).then(response => {
+                console.log(this.userInput)
+                console.log(this.userChoice)
+                console.log(this.pageNumber)
+                this.userQuotes = response.data
+            })
         },
         
         backPage: function() {
+            
             this.pageNumber --
-            this.loadUserQuotes()
-        }
+            
+            axios({
+                method: 'get',
+                url: 'https://favqs.com/api/quotes/',
+                headers: {
+                    "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                },
+                params: {
+                    filter: this.lastUserInput,
+                    type: this.lastUserChoice,
+                    page: this.pageNumber,
+                }
+            }).then(response => {
+                console.log(this.userInput)
+                console.log(this.userChoice)
+                console.log(this.pageNumber)
+                this.userQuotes = response.data
+            })
+        },
         
     },
 
