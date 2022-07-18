@@ -7,10 +7,10 @@ class Student(models.Model):
     cohort = models.CharField(max_length=25)
     favorite_topic = models.CharField(max_length=25)
     favorite_teacher = models.CharField(max_length=25)
-    capstone = models.URLField
+    capstone = models.URLField()
 
     def __str__(self):
-        return self.first_name, self.last_name
+        return self.first_name +' '+ self.last_name
 
     class Meta:
         ordering = ['-last_name']

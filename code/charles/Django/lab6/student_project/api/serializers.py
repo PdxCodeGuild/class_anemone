@@ -13,13 +13,13 @@ class NestedUserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username')
 
 class StudentSerializer(serializers.ModelSerializer):
-    student_detail = NestedStudentSerializer(read_only=True, source='username')
+    student_detail = NestedUserSerializer(read_only=True, source='username')
     class Meta:
         model = Student
         fields = ('id', 'first_name', 'last_name', 'student_detail', 'cohort', 'favorite_topic', 'favorite_teacher', 'capstone')
 
 class UserSerializer(serializers.ModelSerializer):
-    student_detail = NestedUserSerializer(many=True, source='student', read_only=True)
+    student_detail = NestedStudentSerializer(many=True, source='student', read_only=True)
     class Meta:
         model = get_user_model()
-        fields = ('id', 'username', 'student', 'student_detail')
+        fields = ('id', 'username', 'first_name', 'student_detail')
