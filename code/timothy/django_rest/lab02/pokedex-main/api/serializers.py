@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from pokemon import models
+from django.contrib.auth import get_user_model
 
 
 
@@ -22,6 +23,7 @@ class PokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Pokemon
         fields = (
+            'id',
             'number',
             'name',
             'height',
@@ -40,4 +42,13 @@ class TypeSerializer(serializers.ModelSerializer):
             'type',
             'name',
             'pokemon',
+        )
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = (
+            'id',
+            'username',
+            'caught'
         )

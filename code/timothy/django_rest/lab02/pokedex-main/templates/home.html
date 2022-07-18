@@ -6,25 +6,46 @@
 <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
 {% endif %}
 
-<main id="app">
+<h1>Pokemon of the Kanto Region</h1>
+<main id="app" style="display:flex">
 
-    <h1>Pokemon of the Kanto Region</h1>
-    <ol>
-        <li v-for='poke in pokemon' :key='pokemon.number'>
-            <p>[[ poke.name ]]</p>
-        </li>
-    </ol>
+
+    <div>
+        <h3>To Catch</h3>
+        <ol>
+            <li v-for='poke in pokemon' :key='pokemon.number'>
+                <p>[[ poke.name ]]</p>
+                <input type='checkbox' id='isCaught' @change='catchPokemon(poke.id)' :key='poke.id'>
+                <label for='isCaught'>Caught</label>
+            </li>
+        </ol>
+    </div>
+
+    <div>
+        <h3>Caught</h3>
+        <ol>
+            <li v-for='poke in caughtPokemon' :key='pokemon.number'>
+                <p>[[ poke ]]</p>
+                <input type='checkbox' id='toRelease' @change='catchPokemon(poke.id)' :key='poke.id'>
+                <label for='toRelease'>Release</label>
+            </li>
+        </ol>
+    </div>
 
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script>
+
     const vm = new Vue({
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
-            pokemon: [],  
+            pokemon: [],
+            users: [],
+            currentUser: {},
+            caughtPokemon:[]  
         },
         methods: {
             loadPokemon: function() {
@@ -32,10 +53,38 @@
                     method: 'get',
                     url: 'api/v1/pokemon',
                 }).then(response => this.pokemon = response.data)
+                    console.log(this.pokemon.id)
+            },
+            loadUsers: function() {
+                axios({
+                    method: 'get',
+                    url: 'api/v1/users',
+                }).then(response => this.users = response.data)
+            },
+            loadCurrentUser: function() {
+                axios({
+                    method: 'get',
+                    url: 'api/v1/currentuser',
+                }).then(response => this.currentUser = response.data)
+            },
+            catchPokemon: function(poke_id) {
+
+                this.caughtPokemon = this.currentUser.caught
+                this.caughtPokemon.push(poke_id)
+                axios({
+                    method: 'patch',
+                    data: {
+                        caught: this.currentUser.caught
+                    }
+                }).then(response => {
+                    this.loadPokemon()
+                })
             },
         },
         created: function() {
             this.loadPokemon()
+            this.loadUsers()
+            this.loadCurrentUser()
         }
     })
 </script>
