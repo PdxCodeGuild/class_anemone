@@ -11,4 +11,4 @@ urlpatterns = router.urls
 #     path('add', views.addStudent),
 #     path('all', views.ListStudent.as_view()),
 #     path('<int:pk>/', views.DetailStudent.as_view()),
-# ]
+# ]        "cohort": "1",
