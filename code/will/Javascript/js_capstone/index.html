@@ -15,10 +15,10 @@
                   {{ weather.city.main }}
 
                  
-        <section class="top-banner">
-            <div v-for = "data in temp_array.slice(0,1)" class="container">
-              <h1 class="heading">{{ weather.city.name}}</h1>
-              <form>
+      <section class="top-banner">
+        <div v-for = "data in temp_array.slice(0,1)" class="container">
+          <h1 class="heading">{{ weather.city.name}}</h1>
+            <form>
                
                 {{ data.dt_txt }} -<br>
                 
@@ -29,16 +29,16 @@
 
                 Feels Like: {{ data.main.feels_like }}°<br>
 
-               Today's Minimum Temperature: {{ data.main.temp_min }}°<br>
+                Today's Minimum Temperature: {{ data.main.temp_min }}°<br>
                 Today's Max Temperature: {{ data.main.temp_max }}°<br>
                 Humidity: {{data.main.humidity }}%
 
                 
                 <span class="msg"></span>
               </form>
-              </div>
+          </div>
               
-            </div>
+    </div>
           </section>
           <section class="ajax-section">
     
