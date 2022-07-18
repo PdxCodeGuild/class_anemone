@@ -23,8 +23,8 @@ avg.addEventListener('click', function() {
     let sum = 0
     for (let i=0; i < num.length; i++) {
         sum += parseFloat(num[i].value)
-        average = sum/num.length
     }
+    let average = sum/num.length
     let p = document.createElement('p')
     p.innerText = `Your average is: ${parseFloat(average).toFixed(2)}`
     display.prepend(p)
