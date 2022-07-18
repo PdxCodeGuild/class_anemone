@@ -23,6 +23,7 @@ class ChirpCreateView (LoginRequiredMixin, CreateView):
     template_name = 'new_chirp.html'
     # can input the body of the post
     fields = ['body']
+    success_url = reverse_lazy('posts:home')
 
     # makes it so that the user who makes the chirp is the author of the chirp
     def form_valid(self, form):
