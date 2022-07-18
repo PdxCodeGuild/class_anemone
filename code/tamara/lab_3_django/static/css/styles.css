@@ -6,7 +6,7 @@ html {
 }
 
 a {
-    color: #731728;
+    color: #e93354;
 }
 
 a:hover {
@@ -32,6 +32,7 @@ header {
 form {
     background-color: #343442;
     padding: 1em;
+    margin: 1em;
 }
 
 footer {
