@@ -6,5 +6,6 @@ from . import views
 
 router = DefaultRouter()
 router.register('pokemon', views.PokemonViewSet, basename='pokemon')
+router.register('types', views.TypeViewSet, basename='types')
 
 urlpatterns = router.urls 

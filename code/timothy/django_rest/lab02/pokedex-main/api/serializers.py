@@ -5,21 +5,22 @@ from pokemon import models
 
 class NestedPokemonSerializer(serializers.ModelSerializer):
     class Meta:
+        model = models.Pokemon
         fields = (
             'name',
         )
-        model = models.Pokemon
 
 class NestedTypeSerializer(serializers.ModelSerializer):
     class Meta:
+        model = models.Type
         fields = (
             'type',
         )
-        model = models.Type
 
 class PokemonSerializer(serializers.ModelSerializer):
-    type = NestedTypeSerializer(many=True, source='type')
+    type = NestedTypeSerializer(many=True, source='types')
     class Meta:
+        model = models.Pokemon
         fields = (
             'number',
             'name',
@@ -30,14 +31,13 @@ class PokemonSerializer(serializers.ModelSerializer):
             'caught_by',
             'type',
         )
-        model = models.Pokemon
 
 class TypeSerializer(serializers.ModelSerializer):
     name = NestedPokemonSerializer(many=True, source='pokemon')
     class Meta:
+        model = models.Type
         fields = (
             'type',
             'name',
             'pokemon',
         )
-        model = models.Type
