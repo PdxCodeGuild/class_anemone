@@ -9,8 +9,8 @@ def index():
         alpha = 'abcdefghijklmnopqrstuvwxyz' 
         bravo = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
         cipher = str.maketrans(alpha + bravo, alpha[13:] + alpha[:13] + bravo[13:] + bravo[:13])
-        encrypt = str.translate(cipher)
-        encrypt = request.form['encrypt']
+        encode = request.form['encode']
+        encrypt = str.translate(encode, cipher)
             
         return render_template('index.html', cipher=encrypt)
     return render_template('index.html')
