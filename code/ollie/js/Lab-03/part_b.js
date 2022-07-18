@@ -18,6 +18,6 @@ adv.addEventListener('click', function() {
         output = 'Busted...'
     }
     let p = document.createElement('p')
-    p.innerText = output
+    p.innerText = `${sum}, ${output}`
     suggest.prepend(p)
 })
