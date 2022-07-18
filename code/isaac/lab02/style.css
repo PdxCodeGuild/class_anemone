@@ -1,144 +1,118 @@
-body {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    text-align: center;
-    background-color: rgb(110, 108, 108);
-}
-
 html {
     box-sizing: border-box;
 }
-
-
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-h1 {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4em;
-    margin: 0em;
-    border-radius: 0.2em;
-}
-
-nav {
+body {
+    background-color: rgb(24, 24, 207);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid blue;
-    margin: 1em 50em;
-}
-
-h2 {
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.7);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3em;
-    margin: 15px 5em;
-    border-radius: 0.2em;
-    
-}
-
-.p1 {
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.7);
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px 3em;
-    padding: 40px 40px;
-    font-size: x-large;
     text-align: center;
-    line-height: 1.5em;
-    
 }
 
-.p2 {
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.7);
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px 3em;
-    padding: 40px 40px;
-    font-size: x-large;
-    text-align: center;
-    
+header {
+    font-family: 'Orbitron', sans-serif;
+    background-color: rgb(175, 48, 1);
+    border-radius: 10px;
+}
+
+nav, a {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    text-decoration: none;
+    gap: 3em;
+    justify-content: center;
+}
+
+#description {
+    padding-left: 5em;
+    padding-right: 5em;
+    line-height: 1.2em;
+    font-size: 1.2em;
 }
 
 img {
-    display: block;
-    max-width: 50%;
+    max-width: 30em;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px black;
 }
 
 
-ul {
-    display: block;
-    max-width: 20%;
-    color: whitesmoke;
-    margin: 5em 40em;
-    background-color: rgba(0, 0, 0, 0.75);
-    background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    line-height: 1.75em;
-    list-style-type: circle;
-    border-radius: 6px;
+#services {
+    background-color: rgba(145, 52, 18, 0.925);
+    border-radius: 10px;
+    padding: 1.5em;
+    margin: 5em;
+    line-height: 1.4;
     text-align: left;
-    position: relative;
-    right: 34em;
-    bottom: 31em;
+}
+
+#services h3 {
+    
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
 }
 
 footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: rgb(247, 236, 236);
-    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20em;
 }
 
-
-
-@media (min-width: 640px) {
-    nav {
-        display: flex;
-        justify-content: center;
-    }
-    nav p {
-        margin: 1em;
-    }
+@media (min-width: 640px ) {
     body {
-        margin: 1em;
+        margin: inherit;
     }
-    .p1, .p2 {
-        margin: 1em;
-        position: relative;
+
+    header {
+        margin: inherit;
     }
-    header, footer {
-        margin: 1em;
-    }
-    .services {
-        margin: 1em;
-        position: relative;
-    }
-    .crew, .exploration {
-        margin: 1em;
-        position: relative;
-    }
+
+
 }
 
-
-
-@media (min-width: 960px) {
+@media (min-width: 960px ) {
     body {
-        margin: 1em;
+        margin: inherit;
     }
-    .p1, .p2 {
-        margin: 1em;
+
+    header {
+        margin: inherit;
     }
-    header, footer {
-        margin: 1em;
+
+    #description {
+        padding-left: 10em;
+        padding-right: 10em;
+        margin-bottom: 5em;
     }
-    .services {
-        margin: 1em;
+
+    #services {
+        padding: inherit;
+        margin-left: 15em;
+        margin-right: 15em;
+    }
+    
+}
+
+@media (min-width: 1460px) {
+    body, html {
+        margin: inherit;
+    }
+
+    header {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+
+    #description {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+
+    #services {
+        margin-left: 30em;
+        margin-right: 30em;
+        padding: 2em;
     }
 }
