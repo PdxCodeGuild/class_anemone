@@ -25,28 +25,25 @@
                 </select>
                 <button @click="loadSearchQuotes">Search</button>
             </div>
-            <ul>
-            </ul>
             <ul v-if="Object.keys(quotesResult).length">
+                <quotes-result 
+                    v-for="quote in quotesResult.quotes" 
+                    :key="quote.id"
+                    :componentquote="quote"
+                ></quotes-result>
+            </ul>
+            <!-- <ul v-if="Object.keys(quotesResult).length">
                 <span v-for="quote in quotesResult.quotes" :key="quote.id">
                     <p>{{ quote.body }}</p>
                     <p><em>- {{ quote.author }}</em></p>
                     <br>
                 </span>
-                <!-- <pagination 
-                    :last_page="quotesResult.last_page"
-                    :page="quotesResult.page"
-                ></pagination> -->
-            </ul>
-
-            <!-- PAGINATION NOTES/QUESTIONS: Need to keep track of page you are requesting, because the 
-            List Quotes API response always provides a value of 1 in its 'page' response element.
-            - How to increment/decrement a page number in our data object (so that I can keep track
-                of what page the user is on, and also know what page number to pass in the request)?
-            - Need to re-initialize the page number back to 1 when a new search is conducted? 
-                So initialze on click of the Search button? -->
-
-            <span v-if="quotesResult.page = 1">
+            </ul>             -->
+            <div>
+                <button @click="previousPage" v-show="quotesResult.page > 1">Previous</button>
+                <button @click="nextPage" v-show="!quotesResult.last_page">Next</button>
+            </div>
+            <!-- <span v-if="quotesResult.page === 1">
                 <p>this is the first page</p>
                 <p>Page Number: {{ quotesResult.page }}</p>
             </span>            
@@ -59,8 +56,8 @@
                 <p>this is not the last page</p>
                 <p>Last Page: {{ quotesResult.last_page }}</p>
                 <p>Page Number: {{ quotesResult.page }}</p>
-                <button @click="loadSearchQuotes">Next</button>
-            </span>
+                <button @click="nextPage">Next</button>
+            </span> -->
             <!-- <span v-if="quotesResult.last_page">
                 <p>this is the last page</p>
                 <p>Last Page: {{ quotesResult.last_page }}</p>
