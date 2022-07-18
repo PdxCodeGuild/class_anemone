@@ -7,7 +7,7 @@
 {% endif %}
 
 <h1>Pokemon of the Kanto Region</h1>
-<main id="app" style="display:flex">
+<main id="app" style="display:flex; justify-content:space-between; padding:5rem">
 
 
     <div>
@@ -15,8 +15,8 @@
         <ol>
             <li v-for='poke in pokemon' :key='pokemon.number'>
                 <p>[[ poke.name ]]</p>
-                <input type='checkbox' id='isCaught' @change='catchPokemon(poke.id)' :key='poke.id'>
-                <label for='isCaught'>Caught</label>
+                <input type='button' value='Catch' id='isCaught' @click='catchPokemon(poke.name)' :key='poke.name'>
+        
             </li>
         </ol>
     </div>
@@ -26,8 +26,8 @@
         <ol>
             <li v-for='poke in caughtPokemon' :key='pokemon.number'>
                 <p>[[ poke ]]</p>
-                <input type='checkbox' id='toRelease' @change='catchPokemon(poke.id)' :key='poke.id'>
-                <label for='toRelease'>Release</label>
+                <input type='button' value='Release' id='toRelease' @click='releasePokemon(poke.name)' :key='poke.name'>
+                
             </li>
         </ol>
     </div>
@@ -68,7 +68,6 @@
                 }).then(response => this.currentUser = response.data)
             },
             catchPokemon: function(poke_id) {
-
                 this.caughtPokemon = this.currentUser.caught
                 this.caughtPokemon.push(poke_id)
                 axios({
@@ -80,6 +79,17 @@
                     this.loadPokemon()
                 })
             },
+            releasePokemon: function(poke_id) {
+                this.caughtPokemon.splice(this.caughtPokemon.indexOf(poke_id))
+                axios ({
+                    method: 'patch',
+                    data: {
+                        caught: this.currentUser.caught
+                    }
+                }).then(response => {
+                    this.loadPokemon()
+                })
+            }
         },
         created: function() {
             this.loadPokemon()
