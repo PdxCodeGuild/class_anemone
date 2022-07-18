@@ -16,8 +16,8 @@
     <main>
         <div id="app">
             <div class="search">
-                <input type="text" v-model="searchString" placeholder="Search string" @keyup.enter="loadResult">
-                <select v-model="selectedType" @keyup.enter="loadResult">
+                <input type="text" v-model="searchString" placeholder="Search string" @keyup.enter="loadSearchQuotes">
+                <select v-model="selectedType" @keyup.enter="loadSearchQuotes">
                     <option disabled value="">Please select one</option>
                     <option>keyword</option>
                     <option>author</option>
@@ -33,10 +33,10 @@
                     <p><em>- {{ quote.author }}</em></p>
                     <br>
                 </span>
-                <pagination 
+                <!-- <pagination 
                     :last_page="quotesResult.last_page"
                     :page="quotesResult.page"
-                ></pagination>
+                ></pagination> -->
             </ul>
 
             <!-- PAGINATION NOTES/QUESTIONS: Need to keep track of page you are requesting, because the 
@@ -55,7 +55,7 @@
                 <p>Page Number: {{ quotesResult.page }}</p>
                 <button @click="loadSearchQuotes">Previous</button>
             </span>            
-            <span v-if not="quotesResult.last_page">
+            <span v-if="!quotesResult.last_page">
                 <p>this is not the last page</p>
                 <p>Last Page: {{ quotesResult.last_page }}</p>
                 <p>Page Number: {{ quotesResult.page }}</p>
