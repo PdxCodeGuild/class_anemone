@@ -5,3 +5,37 @@
 <h1>Welcome, visitor!</h1>
 <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
 {% endif %}
+
+<main id="app">
+
+    <h1>Pokemon of the Kanto Region</h1>
+    <ol>
+        <li v-for='poke in pokemon' :key='pokemon.number'>
+            <p>[[ poke.name ]]</p>
+        </li>
+    </ol>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            pokemon: [],  
+        },
+        methods: {
+            loadPokemon: function() {
+                axios({
+                    method: 'get',
+                    url: 'api/v1/pokemon',
+                }).then(response => this.pokemon = response.data)
+            },
+        },
+        created: function() {
+            this.loadPokemon()
+        }
+    })
+</script>
