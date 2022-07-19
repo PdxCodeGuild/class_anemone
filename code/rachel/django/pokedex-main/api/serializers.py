@@ -8,6 +8,13 @@ class NestedTypeSerializer(serializers.ModelSerializer):
             'type',
         )
 
+class NestedPokemonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pokemon
+        fields = (
+            'name',
+        )
+
 class PokemonSerializer(serializers.ModelSerializer):
     type_detail = NestedTypeSerializer(source='types', many=True, read_only=True)
     class Meta:
@@ -22,4 +29,14 @@ class PokemonSerializer(serializers.ModelSerializer):
             'image_back',
             'caught_by',
             'type_detail',
+        )
+
+class TypeSerializer(serializers.ModelSerializer):
+    pokemon_detail = NestedPokemonSerializer(source='pokemon', many=True)
+    class Meta:
+        model = Type
+        fields = (
+            'id',
+            'type',
+            'pokemon_detail',
         )
