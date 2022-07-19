@@ -3,75 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
-    <title>BlackJack Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Blackjack Game</title>
   </head>
 
   <body>
     <header>
-      <h1>BlackJack Game!</h1>
+      <h1>Blackjack Game</h1>
     </header>
     <main>
-      <h2>Select cards below:</h2>
-      <div class="card-container">
-        <div class="card">
-          <label for="card_1">Pick Card 1</label>
-          <select id="card1">
-            <option value="A">A</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="K">K</option>
-            <option value="Q">Q</option>
-            <option value="J">J</option>
-          </select>
-        </div>
-        <div class="card">
-          <label for="card_2">Pick Card 2</label>
-          <select id="card2">
-            <option value="A">A</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="K">K</option>
-            <option value="Q">Q</option>
-            <option value="J">J</option>
-          </select>
-        </div>
-        <div class="card">
-          <label for="card_3">Pick Card 3</label>
-          <select id="card3">
-            <option value="A">A</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="K">K</option>
-            <option value="Q">Q</option>
-            <option value="J">J</option>
-          </select>
-        </div>
+      <div class="cards">
+        <select id="first_card">
+          <option value="a">A</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="j">J</option>
+          <option value="q">Q</option>
+          <option value="k">K</option>
+        </select>
+        <select id="second_card">
+          <option value="a">A</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="j">J</option>
+          <option value="q">Q</option>
+          <option value="k">K</option>
+        </select>
+        <select id="third_card">
+          <option value="a">A</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="j">J</option>
+          <option value="q">Q</option>
+          <option value="k">K</option>
+        </select>
+        <button id="btn">Play!</button>
       </div>
-      <button type="button" id="advice">GO!</button>
-      <div id="total"></div>
+      <div>
+        <h2 id="points"></h2>
+      </div>
     </main>
+
     <script src="blackjack.js"></script>
   </body>
 </html>
