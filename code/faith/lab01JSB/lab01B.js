@@ -42,11 +42,16 @@ function convert(distance,unit,unit2){
 
 // let number = convert
 
-// let btn=document.getElementById('Submit')
-// btn.addEventListener('click', function(){
-//    let conversion = document.querySelector('#conversion')
-//    conversion.innerHTML= number
-// })
+let btn=document.getElementById('Submit')
+btn.addEventListener('click', function(){
+    let distance = document.getElementById('input')
+    let input = distance.value
+    let unit = document.getElementById('unit')
+    let unit2 = document.getElementById('unit2')
+    let number = convert(parseInt(input),unit.value,unit2.value)
+   let conversion = document.getElementById('conversion')
+   conversion.innerHTML= number
+})
 
 // console.log('hi')
 
