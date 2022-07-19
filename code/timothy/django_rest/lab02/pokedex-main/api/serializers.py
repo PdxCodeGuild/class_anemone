@@ -50,5 +50,5 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
-            'caught'
+            'caught',
         )
