@@ -1,0 +1,29 @@
+.inputbox {
+    font-size: 25px;
+
+}
+.main-body {
+    background-color: rgb(114, 110, 110);
+    text-align: center;
+}
+.main-heading {
+    font-size: 45px;
+}
+.incompletebtn {
+    display:inline-flex;
+}
+.completebtn {
+    display: inline-flex
+}
+.submitbtn {
+    font-size: 25px;
+    color: brown;
+}
+.complete-addon {
+    font-size: 25px;
+    text-transform: capitalize;
+}
+.incomplete-addon {
+    font-size: 25px;
+    text-transform: capitalize;
+}
