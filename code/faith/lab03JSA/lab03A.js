@@ -1,20 +1,45 @@
-number = input('Please enter credit card number: ')
+let rot13= {
+    'a':'n',
+    'b':'o',
+    'c':'p',
+    'd':'q',
+    'e':'r',
+    'f':'s',
+    'g':'t',
+    'h':'u',
+    'i':'v',
+    'j':'w',
+    'k':'x',
+    'l':'y',
+    'm':'z',
+    'n':'a',
+    'o':'b',
+    'p':'c',
+    'q':'d',
+    'r':'e',
+    's':'f',
+    't':'g',
+    'u':'h',
+    'v':'i',
+    'w':'j',
+    'x':'k',
+    'y':'l',
+    'z':'m'
+}
 
-nums = []
+let userstring = prompt('Please enter a string:  ')
+// '''alert(rot13[userstring])'''
+
+let new_word = []
+let newstring = new_word.join(userstring)
+alert(newstring)
+
+for (letter in newstring){
+    new_word.append(rot13[letter])
+}
+
+alert(''.join(new_word))
 
 
-
-while True:
-    r_input = (input("Please enter a number -done when completed-  "))
-    if r_input == 'done':
-        break
-    nums.append(int(r_input))
- 
-for num in nums:
-    print(num)
-length = len(nums)
-total = sum(nums)
-answer = total / length
-print(answer)
 
 
