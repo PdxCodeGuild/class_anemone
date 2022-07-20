@@ -34,8 +34,8 @@ let new_word = []
 let newstring = new_word.join(userstring)
 alert(newstring)
 
-for (letter in newstring){
-    new_word.append(rot13[letter])
+for (let letter in newstring){
+    new_word.push(rot13[letter])
 }
 
 alert(''.join(new_word))
