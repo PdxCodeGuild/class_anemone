@@ -4,22 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
     <title>rando Qoute</title>
 </head>
 <body>
     <h1>Yup thats some nice Qoutes!</h1>
     <div id="app">
         <div>
+            <input type="text" v-model="inputTxt" placeholder="Search Here" @keyup.enter="loadSearch">
+            <select v-model="selected" @keyup.enter="loadSearch">
+                <option disabled value="">Select Option</option>
+                <option>author</option>
+                <option>tag</option>
+                <option>keyword</option>
+            </select>
+            <button @click="loadSearch">Search</button>
+        </div>
+        <br><br>
+        <div>
+            <p>Random assortment of Qoutes</p>
+            <button @click="loadRando">Random</button>
             <ul>
-                <li v-for="quote in rando.quotes" :key="quote.id">
-                    <p>{{ quote.body }}</p>
-                    <p><a :href="quote.url">{{ quote.author }}</a></p>
+                <li v-for="random in authors.quotes" :key="authors.id">
+                    <p><b>{{random.body}}</b></p>
                 </li>
             </ul>
+        </div>
+        <div>
+            <button @click="previousPage" v-show="authors.page > 1">Previous</button>
+            <button @click="nextPage" v-show="!authors.last_page">Next</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="static/favq.js"></script>
+    <script src="favq.js"></script>
 </body>
