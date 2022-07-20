@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+    <body>
+        {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+        {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+
+        {% csrf_token %} 
+        <div id="app">
+            <ul>
+                <li v-for="pokemon in pokemon_list" :key="pokemon.id">
+                    <h3>[[ pokemon.name ]]</h3>
+                    <h4>Type(s):</h4><h4 v-for="type in pokemon.type_detail"> [[ type.type ]] </h4>
+                    <img src="[[ pokemon.image_front ]]">
+                    <img src="[[ pokemon.image_back ]]">
+                    <h4>height: [[ pokemon.height ]], weight: [[ pokemon.weight ]]</h4>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>Create a New Pokemon!</h3>
+            <input type="text" placeholder="name" v-model="newPokemon.name">
+            <input type="number" placeholder="number" v-model="newPokemon.number">
+            <input type="number" placeholder="height" v-model="newPokemon.height">
+            <input type="number" placeholder="weight" v-model="newPokemon.weight">
+            <input type="url" placeholder="front image url" v-model="newPokemon.image_front">
+            <input type="url" placeholder="back image url" v-model="newPokemon.image_back">
+            <select v-model="newPokemon.type">
+                <option v-for="item in type_list" :key="item.id" :value="item.id">[[ item.type ]]</option>
+            </select>
+            <button @click="createPokemon">Create</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                delimiters: ['[[', ']]'],
+                data: {
+                    csrfToken: "",
+                    pokemon_list: [],
+                    type_list: [],
+                    newPokemon: {
+                        "name": '',
+                        "number": '',
+                        "height": '',
+                        "weight": '',
+                        "image_front": '',
+                        "image_back": '',
+                        "type": '',
+                    },
+                    },
+                methods: {
+                    loadPokemon: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/pokemon/'
+                    }).then(response => this.pokemon_list = response.data)
+                },
+                    loadType: function() {
+                        axios({
+                            method: 'get',
+                            url: '/api/v1/type/'
+                        }).then(response => this.type_list = response.data)
+                    }
+                },
+                created: function() {
+                    this.loadPokemon()
+                    this.loadType()
+                },
+                mounted: function() {
+                    this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+                }
+            })
+        </script>
+    </body>
+</html>
+
