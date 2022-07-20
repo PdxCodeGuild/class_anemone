@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" href="{% static 'main.css'%}">
+        <title>Student Listings</title>
+    </head>
+    <body>
+        {%csrf_token%}
+        <div id='main'>
+            
+            <input type='text' v-model='searchd' id='search' placeholder='General Search'>
+            <select name='option' v-model='typesearch' id='typesearch'>
+                <option value='first_name'>First Name</option>
+                <option value='last_name'>Last Name</option>
+                <option value='cohort'>Cohort</option>
+                <option value='favorite_teacher'>Favorite Teacher</option>
+                <option value='favorite_topic'>Favorite Topic</option>
+                <option value='capstone'>Capstone</option>
+            </select>
+            <button for='search' for='typesearch' @click=search>Search</button>
+
+
+            <button @click=loadstudents>Load all students</button>
+            <button @click=clear>Clear All</button>
+            <ul>
+                <li v-for='student in students' :key='student.id'>
+                    <button v-model='edit'>Edit</button> <span v-if='student.last_name'><h1>Student:&nbsp;[[student.last_name]],&nbsp;[[student.first_name]]</h1></span>
+                    <span v-if='student.cohort'><p>Cohort:&nbsp; [[student.cohort]]</p></span>
+                    <span v-if='student.favorite_topic'><p>Favorite Topic:&nbsp; [[student.favorite_topic]]</p></span>
+                    <span v-if='student.favorite_teacher'><p>Favorite Teacher:&nbsp; [[student.favorite_teacher]]</p></span>
+                    <span v-if='student.capstone'><p>Capstone:&nbsp; [[student.capstone]]</p></span>
+                </li>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const vm = new Vue ({
+                el:'#main',
+                delimiters:['[[',']]'],
+                data: {
+                    csrfToken: '',
+                    edit: false,
+                    news: false,
+                    searchd: '',
+                    typesearch: '',
+                    students: [],
+                    user: [], 
+                    newstudent:{
+                        "first_name": "",
+                        "last_name": "",
+                        "cohort": "",
+                        "favorite_topic": "",
+                        "favorite_teacher": "",
+                        "capstone": ""
+                    },
+                    error: '',
+                },
+                methods: {
+                    clear: function() {
+                        this.students = [],
+                        this.newstudent = {
+                            "first_name": "",
+                            "last_name": "",
+                            "cohort": "",
+                            "favorite_topic": "",
+                            "favorite_teacher": "",
+                            "capstone": ""
+                        }
+                    },
+                    cedit: function() {
+                        this.edit != this.edit
+                    },
+                    save: function() {
+                        this.edit != this.edit
+                    },
+                    search: function() {
+                        axios.get('/api/v1/students'+ '?' + this.typesearch + '=' + this.searchd)
+                            .then(response => this.students = response.data)
+                            .catch(function (error) {
+                               this.error = error.response.data 
+                            })
+                    },
+                    loadstudents: function() {
+                        axios({
+                            method: 'get',
+                            url: 'api/v1/students/',
+                        }).then(response => this.students = response.data)
+                    },
+                    loadusers: function() {
+                        axios({
+                            method: 'get',
+                            url: 'api/v1/users/',
+                        }).then(response => this.users = response.data)
+                    },
+                    createstudent: function() {
+                        axios({
+                            method: 'post', 
+                            url: '/api/v1/students/',
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                            data: {
+                                "first_name": this.newstudent.first_name,
+                                "last_name": this.newstudent.last_name,
+                                "cohort": this.newstudent.cohort,
+                                "favorite_topic": this.newstudent.favorite_topic,
+                                "favorite_teacher": this.newstudent.favorite_teacher
+                            }
+                        }).then(response => 
+                            {this.loadstudents(), 
+                            this.newstudent= {
+                                "first_name": "",
+                                "last_name": "",
+                                "cohort": "",
+                                "favorite_topic": "",
+                                "favorite_teacher": ""
+                            } 
+                        })
+                    }
+                },
+                created: function() {
+                    
+                    this.loadusers()
+                },
+                mounted: function() {
+                    this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+html {
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(184, 184, 184);
+    box-sizing:border-box;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+
+li {
+    margin-bottom: 2em
+}

@@ -34,6 +34,7 @@ const vm = new Vue({
         quotd: {},
         quotes: {},
         error: {},
+        selected: '',
         first: '',
         last:'',
         page:1
@@ -56,8 +57,8 @@ const vm = new Vue({
                 url: 'https://favqs.com/api/quotes',
                 params: {
                     filter: (this.first+'+'+this.last),
-                    type: 'author',
-                    // page: this.page
+                    type: this.selected,
+                    
                 },
                 headers: {
                     "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
