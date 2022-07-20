@@ -23,16 +23,15 @@
         </select>
 
         <span v-if="typesearch === 'author'"><br>
-            <input type='text' v-model="first" placeholder='first name'><br>
-            <input type='text' v-model="last" placeholder='last name' @keyup.enter='loadquots'><br>
+            <input type='text' v-model="input" placeholder='last name' @keyup.enter='loadquots'><br>
             <button @click='loadquots' >Search</button><hr>
         </span>
         <span v-else-if="typesearch === 'tags'"><br>
-            <input type='text' v-model="tags" placeholder='tags' @keyup.enter='loadquots'><br>
+            <input type='text' v-model="input" placeholder='tags' @keyup.enter='loadquots'><br>
             <button @click='loadquots' >Search</button><hr>
         </span>
         <span v-else-if="typesearch === 'user'"><br>
-            <input type='text' v-model="username" placeholder='user' @keyup.enter='loadquots'><br>
+            <input type='text' v-model="input" placeholder='user' @keyup.enter='loadquots'><br>
             <button @click='loadquots' >Search</button><hr>
         </span>
         <!-- <p v-if="error ! {}">{{error}}</p>     -->

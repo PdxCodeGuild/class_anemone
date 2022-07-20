@@ -34,11 +34,8 @@ const vm = new Vue({
         quotd: {},
         quotes: {},
         error: {},
-        tags: '',
-        username: '',
         typesearch: '',
-        first: '',
-        last:'',
+        input:'',
         page:1
     },
     
@@ -60,7 +57,7 @@ const vm = new Vue({
                     url: 'https://favqs.com/api/quotes',
                     params: {
                         type: this.typesearch,
-                        filter: (this.first+'+'+this.last),
+                        filter: this.input,
                     },
                     headers: {
                         "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
@@ -73,44 +70,6 @@ const vm = new Vue({
                     this.error = error.response.data
                 })
             } 
-            else if (this.typesearch === 'tags') {
-                axios({
-                    method: 'get', 
-                    url: 'https://favqs.com/api/quotes',
-                    params: {
-                        type: this.typesearch,
-                        filter: (this.tags),
-                    },
-                    headers: {
-                        "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
-                    }
-                }).then(response => {
-                    this.quotes = response.data
-                    console.log(this.quotes, response.data)
-                }).catch(error => {
-                    console.log(error, error.response.data)
-                    this.error = error.response.data
-                })
-            } 
-            else if (this.typesearch === 'user') {
-                axios({
-                    method: 'get', 
-                    url: 'https://favqs.com/api/quotes',
-                    params: {
-                        type: this.typesearch,
-                        filter: (this.username),                        
-                    },
-                    headers: {
-                        "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
-                    }
-                }).then(response => {
-                    this.quotes = response.data
-                    console.log(this.quotes, response.data)
-                }).catch(error => {
-                    console.log(error, error.response.data)
-                    this.error = error.response.data
-                })
-            }
         },
         nextq: function() {
             this.page++
