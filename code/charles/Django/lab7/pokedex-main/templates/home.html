@@ -1,0 +1,143 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{% static 'main.css'%}">
+    <title>Pokedex</title>
+</head>
+<body>
+    {%csrf_token%}
+    {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+    <div id="app">
+        <h1>Find your Pokemon<h1>
+
+            <input type='text' v-model='searchd' id='search' placeholder='General Search'>
+            <select name='option' v-model='typesearch' id='typesearch'>
+                <option value='number'>By Number</option>
+                <option value='name'>By Name</option>
+                <option value='height'>By Height</option>
+                <option value='weight'>By Weight</option>
+            </select>
+            <button for='search' for='typesearch' @click=search>Search</button>
+        <ol>
+            <li v-for='poke in pokemon' :key='poke.id'>
+                <button v-model='edit'>Edit</button> 
+                <span v-if='poke.number'><h1>Pokemon #[[poke.number]]</span><span v-if='poke.name'><p>[[poke.name]]</p></span>
+                <span v-if='poke.height'><p>Favorite Topic:&nbsp; [[poke.height]]</p></span>
+                <span v-if='poke.weight'><p>Favorite Teacher:&nbsp; [[poke.weight]]</p></span>
+                <span v-if='poke.image_front'><img :src="[[poke.image_front]]"><img></span>
+                <span v-if='poke.image_back'><p>Favorite Teacher:&nbsp; [[poke.image_back]]</p></span>
+                <span v-if='poke.caught_by'><p>Favorite Teacher:&nbsp; [[poke.caught_by]]</p></span>
+            </li>
+        </ol>
+    </body>     
+</html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    const vm = new Vue ({
+                el:'#app',
+                delimiters:['[[',']]'],
+                data: {
+                    csrfToken: '',
+                    edit: false,
+                    searchd: '',
+                    typesearch: '',
+                    pokemon: {},
+                    user: [], 
+                    newpokemon:{
+                        "number": "",
+                        "name": "",
+                        "height": "",
+                        "weight": "",
+                        "image_front": "",
+                        "image_back": "",
+                        "caught_by": ""
+                    },
+                    error: '',
+                },
+                methods: {
+                    clear: function() {
+                        this.students = [],
+                        this.newstudent = {
+                            "number": "",
+                            "name": "",
+                            "height": "",
+                            "weight": "",
+                            "image_front": "",
+                            "image_back": "",
+                            "caught_by": ""
+                        }
+                    },
+                    cedit: function() {
+                        this.edit != this.edit
+                    },
+                    save: function() {
+                        this.edit != this.edit
+                    },
+                    search: function() {
+                        axios.get('/api/v1/pokemon'+ '?' + this.typesearch + '=' + this.searchd)
+                            .then(response => this.students = response.data)
+                            .catch(function (error) {
+                               this.error = error.response.data 
+                            })
+                    },
+                    loadstudents: function() {
+                        axios({
+                            method: 'get',
+                            url: 'api/v1/students/',
+                        }).then(response => this.students = response.data)
+                    },
+                    loadusers: function() {
+                        axios({
+                            method: 'get',
+                            url: 'api/v1/users/',
+                        }).then(response => this.users = response.data)
+                    },
+                    createstudent: function() {
+                        axios({
+                            method: 'post', 
+                            url: '/api/v1/students/',
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                            data: {
+                                "first_name": this.newstudent.first_name,
+                                "last_name": this.newstudent.last_name,
+                                "cohort": this.newstudent.cohort,
+                                "favorite_topic": this.newstudent.favorite_topic,
+                                "favorite_teacher": this.newstudent.favorite_teacher
+                            }
+                        }).then(response => 
+                            {this.loadstudents(), 
+                            this.newstudent= {
+                                "first_name": "",
+                                "last_name": "",
+                                "cohort": "",
+                                "favorite_topic": "",
+                                "favorite_teacher": ""
+                            } 
+                        })
+                    }
+                },
+                created: function() {
+                    axios({
+                        method: 'get',
+                        url: 'api/v1/pokemon/',
+                    }).then(response => this.pokemon = response.data)
+                },
+                mounted: function() {
+                    this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+                }
+            })
+        </script>
