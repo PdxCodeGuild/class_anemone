@@ -7,10 +7,11 @@ class ReadOnly(permissions.BasePermission):
 
 class IsSuper(permissions.BasePermission):
     def has_permission(self, request, view):
+        print('superuser')
         return request.user.username == 'cgt10'
 
 class IsUsernameOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
-        return obj.username == request.user
+        return obj.first_name == request.user
