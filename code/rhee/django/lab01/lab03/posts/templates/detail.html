@@ -1,0 +1,30 @@
+<h1> Detail Page </h1>
+
+{% extends 'main.html' %}
+
+{% block content %}
+   
+    <div>
+        <div>
+
+            <h2> Author: {{ posts.author.username }} </h2>
+
+            <h2> Posted Date: {{ posts.created }} </h2>
+
+            <h2> Post: {{ posts.body }} </h2>
+
+        </div>
+
+        
+        <div>
+            <form action="{% url 'posts:edit' posts.pk %}">
+                <button type ="Edit"> Edit </button>
+            </form>
+            
+            <form action="{% url 'posts:delete' posts.pk %}">
+                <button type ="Delete"> Delete </button>
+            </form>
+        </div>
+    </div>
+    
+{% endblock content %}
