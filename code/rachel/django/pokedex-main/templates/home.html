@@ -5,3 +5,48 @@
 <h1>Welcome, visitor!</h1>
 <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
 {% endif %}
+
+<div id="app">
+    <div id="ind-pokemon">
+        <ul>
+            <li v-for="item in pokemon" :key="pokemon.id">
+                <p>[[ pokemon.name ]]</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    new Vue ({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            csrfToken: "",
+            name: "",
+            height: "",
+            weight: "",
+            image_front: "",
+            image_back: "",
+            caught_by: [],
+            type_detail: [],
+        },
+        methods: {
+            loadPokemon: function(){
+                axios({
+                    method: 'get',
+                    url: '/api/v1/',
+                }).then((response) => {
+                    this.loadPokemon = response.data
+                }),
+            },
+        },
+        created: function(){
+            this.loadPokemon()
+        },
+        mounted: function(){
+            this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+        }
+    });
+</script>
