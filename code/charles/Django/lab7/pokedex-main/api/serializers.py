@@ -6,7 +6,12 @@ from users.models import CustomUser
 class NestedPokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pokemon
-        fields = ('number', 'name', 'caught_by')
+        fields = ('name',)
+
+class NestedTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Type
+        fields = ('type',)
 
 class NestedUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,10 +19,16 @@ class NestedUserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username')
 
 class PokemonSerializer(serializers.ModelSerializer):
-    user_detail = NestedUserSerializer(read_only=True, source='username')
+    type_detail = NestedTypeSerializer(many=True, read_only=True, source='types')
     class Meta:
         model = Pokemon
-        fields = ('number', 'name', 'height', 'weight', 'image_front', 'image_back', 'caught_by', 'user_detail')
+        fields = ('number', 'name', 'height', 'type_detail', 'weight', 'image_front', 'image_back', 'caught_by',)
+
+class TypeSerializer(serializers.ModelSerializer):
+    pokemon_detail = NestedPokemonSerializer(many=True, source='pokemon', read_only=True)
+    class Meta:
+        model = Type
+        fields = ('type', 'pokemon_detail')
 
 class UserSerializer(serializers.ModelSerializer):
     pokemon_detail = NestedPokemonSerializer(many=True, source='name', read_only=True)

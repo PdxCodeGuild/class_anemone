@@ -20,13 +20,9 @@
     {% endif %}
     <div id="app">
         <h1>Find your Pokemon<h1>
-
-            <input type='text' v-model='searchd' id='search' placeholder='General Search'>
-            <select name='option' v-model='typesearch' id='typesearch'>
-                <option value='number'>By Number</option>
-                <option value='name'>By Name</option>
-                <option value='height'>By Height</option>
-                <option value='weight'>By Weight</option>
+            <p>Search by Pokemon Number <input type='int' v-model='number' id='search'><p>
+            
+                            
             </select>
             <button for='search' for='typesearch' @click=search>Search</button>
         <ol>
@@ -51,7 +47,7 @@
                 data: {
                     csrfToken: '',
                     edit: false,
-                    searchd: '',
+                    number: '',
                     typesearch: '',
                     pokemon: {},
                     user: [], 
@@ -86,7 +82,12 @@
                         this.edit != this.edit
                     },
                     search: function() {
-                        axios.get('/api/v1/pokemon'+ '?' + this.typesearch + '=' + this.searchd)
+                        axios({
+                            method: 'get',
+                            url: 'api/v1/students/',
+                            params: {
+                                num: this.number
+                            }
                             .then(response => this.students = response.data)
                             .catch(function (error) {
                                this.error = error.response.data 
