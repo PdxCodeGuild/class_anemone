@@ -18,7 +18,7 @@ class TypeViewSet(viewsets.ModelViewSet):
 class PokemonDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Pokemon.objects.all()
     serializer_class = PokemonSerializer
-    permission_classes = [IsSuper] or [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = get_user_model().objects.all()
