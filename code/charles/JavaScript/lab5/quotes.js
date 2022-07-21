@@ -34,9 +34,8 @@ const vm = new Vue({
         quotd: {},
         quotes: {},
         error: {},
-        selected: '',
-        first: '',
-        last:'',
+        typesearch: '',
+        input:'',
         page:1
     },
     
@@ -52,24 +51,25 @@ const vm = new Vue({
             })
         },
         loadquots: function()  {
-            axios({
-                method: 'get', 
-                url: 'https://favqs.com/api/quotes',
-                params: {
-                    filter: (this.first+'+'+this.last),
-                    type: this.selected,
-                    
-                },
-                headers: {
-                    "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
-                }
-            }).then(response => {
-                this.quotes = response.data
-                console.log(this.quotes, response.data)
-            }).catch(error => {
-                console.log(error, error.response.data)
-                this.error = error.response.data
-            })
+            if (this.typesearch === 'author') {
+                axios({
+                    method: 'get', 
+                    url: 'https://favqs.com/api/quotes',
+                    params: {
+                        type: this.typesearch,
+                        filter: this.input,
+                    },
+                    headers: {
+                        "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                    }
+                }).then(response => {
+                    this.quotes = response.data
+                    console.log(this.quotes, response.data)
+                }).catch(error => {
+                    console.log(error, error.response.data)
+                    this.error = error.response.data
+                })
+            } 
         },
         nextq: function() {
             this.page++
@@ -119,5 +119,20 @@ const vm = new Vue({
                 this.error = error.response.data
             })
         }
+    },
+    created: function() {
+        axios({
+            method:'get',
+            url: 'https://favqs.com/api/quotes/',
+            headers: {
+                "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+            }
+            }).then(response => {
+                this.quotes = response.data
+                console.log(this.quotes, response.data)
+            }).catch(error => {
+                console.log(error, error.response.data)
+                this.error = error.response.data
+        })
     }
 })

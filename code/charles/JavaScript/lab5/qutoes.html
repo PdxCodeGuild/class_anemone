@@ -14,10 +14,26 @@
                 <p><a :href="quotd.quote.url">{{quotd.quote.author}}</a></p>
             </div>
         <button @click='loadquotd'>Your Daily Quote</button><hr>
-            
-            <input type='text' v-model="first" placeholder='first name'><br>
-            <input type='text' v-model="last" placeholder='last name' @keyup.enter='loadquots'><br>
+        
+        <select name='option' v-model='typesearch' id='typesearch' placeholder =''>
+            <option disable value="">Please Select</option>
+            <option value='author'>Author</option>
+            <option value='tags'>tags</option>
+            <option value='user'>user</option>
+        </select>
+
+        <span v-if="typesearch === 'author'"><br>
+            <input type='text' v-model="input" placeholder='last name' @keyup.enter='loadquots'><br>
             <button @click='loadquots' >Search</button><hr>
+        </span>
+        <span v-else-if="typesearch === 'tags'"><br>
+            <input type='text' v-model="input" placeholder='tags' @keyup.enter='loadquots'><br>
+            <button @click='loadquots' >Search</button><hr>
+        </span>
+        <span v-else-if="typesearch === 'user'"><br>
+            <input type='text' v-model="input" placeholder='user' @keyup.enter='loadquots'><br>
+            <button @click='loadquots' >Search</button><hr>
+        </span>
         <!-- <p v-if="error ! {}">{{error}}</p>     -->
         
         <ol v-if="Object.keys(quotes).length">
