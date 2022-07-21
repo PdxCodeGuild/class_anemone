@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}"/>
+
+    <title > lab01 </title>
+</head>
+<body class="main-body">
+    <h1 class="main-heading"> Grocery List </h1>
+    <form action="{% url 'grocery:create' %}" method="post">
+        {% csrf_token %}
+        <label for="description-input"></label>
+        <input type="text" class="inputbox" name="description" id="description-input" placeholder="Enter Item" required>
+        <input type="submit" value="Submit" class="submitbtn">
+    </form>
+    
+    <div class="complete-items">
+        <h2> Complete </h2>
+        <ul>
+            {%for item in completed%}
+
+           <li class="complete-addon"> {{item.description}} </li>
+
+            <div class="completebtn">
+                    <form action="{% url 'grocery:complete' item.pk %}" method="post">
+                            {% csrf_token%}
+                        <input type="submit" value="Toggle">
+                    </form>
+                    <form action="{% url 'grocery:delete' item.pk %}" method="post">
+                            {% csrf_token%}
+                        <input type="submit" value='Delete'>
+                    </form>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="incomplete-items">
+    <h2> Incomplete </h2>
+        <ul>
+        {% for item in incompleted %}
+
+        <li class="incomplete-addon"> {{item.description}} </li>
+
+            <div class="incompletebtn">
+                <form action="{% url 'grocery:complete' item.pk %}" method="post">
+                        {% csrf_token %}
+                    <input type="submit" value="Toggle">
+                </form>
+                <form action="{% url 'grocery:delete' item.pk %}" method="post">
+                        {%csrf_token%}
+                    <input type="submit" value="delete">
+                </form>
+            </div>
+
+        {%endfor%}
+        </ul>
+    </div>
+</body>
+</html>

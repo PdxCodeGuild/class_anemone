@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime and Facts</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <h1>ANIME FACTS!</h1>
+    <h4>Click on a button To see all the FACTS of that anime!</h4>
+    <div id="app">
+        <button @click="loadOne">Black Clover</button>
+        <div>
+            <img :src="`${ring.img}`">
+            <ul>
+                <li v-for="facts in ring.data" :key="ring.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadTwo">Bleach</button>
+        <div>
+            <img :src="`${Two.img}`">
+            <ul>
+                <li v-for="facts in Two.data" :key="Two.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadThree">Dragon Ball Z</button>
+        <div>
+            <img :src="`${Three.img}`">
+            <ul>
+                <li v-for="facts in Three.data" :key="Three.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadFour">Jujutsu Kaisen</button>
+        <div>
+            <img :src="`${Four.img}`">
+            <ul>
+                <li v-for="facts in Four.data" :key="Four.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadFive">Full Metal Alchemist</button>
+        <div>
+            <img :src="`${Five.img}`">
+            <ul>
+                <li v-for="facts in Five.data" :key="Five.id">
+                   <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadSix">Naruto</button>
+        <div>
+            <img :src="`${Six.img}`">
+            <ul>
+                <li v-for="facts in Six.data" :key="Six.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadSeven">Gin Tama</button>
+        <div>
+            <img :src="`${Seven.img}`">
+            <ul>
+                <li v-for="facts in Sevendata" :key="Seven.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadEight">Itachi Uchiha</button>
+        <div>
+            <img :src="`${Eight.img}`">
+            <ul>
+                <li v-for="facts in Eight.data" :key="Eight.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadNine">One Piece</button>
+        <div>
+            <img :src="`${Nine.img}`">
+            <ul>
+                <li v-for="facts in Nine.data" :key="Nine.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadTen">Demon Slayer</button>
+        <div>
+            <img :src="`${Ten.img}`">
+            <ul>
+                <li v-for="facts in Ten.data" :key="Ten.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadEleven">Attack on Titan</button>
+        <div>
+            <img :src="`${Eleven.img}`">
+            <ul>
+                <li v-for="facts in Eleven.data" :key="Eleven.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadTwelve">Hunter x Hunter</button>
+        <div>
+            <img :src="`${Twelve.img}`">
+            <ul>
+                <li v-for="facts in Twelve.data" :key="Twelve.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        <button @click="loadThirteen">My Hero Academia</button>
+        <div>
+            <img :src="`${Thirteen.img}`">
+            <ul>
+                <li v-for="facts in Thirteen.data" :key="Thirteen.id">
+                    <p><b>{{facts.fact}}</b></p>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="mini.js"></script>
+</body>
+</html>

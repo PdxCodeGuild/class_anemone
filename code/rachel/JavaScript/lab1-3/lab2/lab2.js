@@ -24,12 +24,12 @@ if (total < 17) {
     alert(total, "Hit")
 } else if (total >= 17) {
     if (total > 21) {
-        alert(total, "Already Busted")
+        alert(total + "Already Busted")
     }
     if (total < 21) {
-        alert(total, "Stay")
+        alert(total + "Stay")
     }
     if (total === 21) {
-        alert(total, "Blackjack!")
-    }
+        alert(total + "Blackjack!")
+    } 
 }

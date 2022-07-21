@@ -1,0 +1,20 @@
+<h1> Signup Page </h1>
+
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1> Create your Login and Password: </h1>
+<br>
+<br>
+<form action='' method='post'>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        
+        <input type='submit' value='Submit'>
+</form>
+
+
+{% endblock content %}

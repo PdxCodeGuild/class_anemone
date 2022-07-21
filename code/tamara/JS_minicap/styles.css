@@ -1,0 +1,181 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: rgb(244, 241, 240);
+    padding: 0em;
+    margin: 0em;
+    font-family: 'Inter', sans-serif;
+    color: rgb(39, 39, 40);
+    font-size: 1.5em;
+    line-height: 1.25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Fredoka One', cursive;
+}
+
+h1 {
+    font-size: 1.75em;
+}
+
+h3 {
+    text-shadow: -.1em 0 white, 0 .1em white, .1em 0 white, 0 -.1em white;
+}
+
+#dog-list {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.search-container {
+    background-color: rgba(216, 223, 227, 0.51);
+    padding: 1em;
+}
+
+#location {
+    max-width: 100%;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+    align-self: flex-end;
+    justify-content: flex-end;
+    padding: 1em 1em 0em 1em;
+    margin: 0em 1em 0em 1em;
+}
+
+.button-container-bottom {
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+    align-self: flex-end;
+    padding: 1em 1em 0em 1em;
+    margin: 0em 1em 0em 1em;
+}
+
+.back-button {
+    width: 50%;
+    margin: .5em;
+}
+
+.next-button {
+    width: 50%;
+    margin: .5em;
+}
+
+.breeds-list-container {
+    margin: 0em 1em 1em 1em;
+}
+
+.card-header {
+    height: 5em;
+    padding: .5em;
+}
+
+.card-header h3 {
+    font-size: 1em;
+}
+
+.dog-card-container {
+    padding: 0em 1em 0em 1em;
+    margin: 2em 0em 2em 0em;
+}
+
+.dog-card-male {
+    background-color: rgb(153, 202, 208);
+    border-radius: 3em .5em 3em .5em;
+    outline: solid white .1em;
+    margin: 0em;
+    padding: 0em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dog-card-female {
+    background-color: rgb(211, 151, 193);
+    border-radius: 3em .5em 3em .5em;
+    outline: solid white .1em;
+    margin: 0em;
+    padding: 0em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.img-container {
+    display: flex;
+    justify-content: space-around; 
+    margin: 0em;
+    
+    width: 100%;
+    height: 15em;
+}
+
+.img-container img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 3em 0em 3em .5em;
+    margin: 0em;
+}
+
+@media (min-width: 750px) {
+
+    .activity-container {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+    }
+
+    .all-dog-cards-container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .dog-card-container {
+        width: 50%
+    }
+
+    .dog-card-female, .dog-card-male {
+        width: 100%;
+        height: 20em;
+    }
+
+    .img-container {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 1000px) {
+
+    .all-dog-cards-container {
+        justify-content: space-around;
+    }
+    .dog-card-container {
+        width: 33.3%;
+        padding: 0em .5em 0em .5em;
+    }
+}
+
+@media (min-width: 1250px) {
+    #dog-finder {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .search-container {
+        width: 25%;
+        height: inherit;
+    }
+
+}
+

@@ -1,0 +1,131 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1557683304-673a23048d34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1700&q=80);
+    
+
+}
+
+main {
+    background-color: #FFFFFF;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-radius: 20px;
+}
+
+header {
+    text-align: center;
+    min-width: 99vw;
+    height: auto;
+    position: top;
+    padding-bottom: 2rem;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    box-shadow: 0px 5px 20px;
+
+}
+
+footer {
+    text-align: center;
+    font-size: smaller;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+li {
+    font-style: oblique;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10rem;
+    padding: 2rem;
+}
+
+.grid-item-4 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.grid-item-5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons {
+
+    margin-top: 3rem;
+    
+
+}
+
+.button-64 {
+  background-color: #00dbeb00;
+  border: 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+#album {
+    box-shadow: 0px 0px 20px 5px;
+}
+
+#artist-image {
+    min-width: 600px;
+    min-height: 600px;
+    border-radius: 5px;
+}
+
+#tracktrends {
+    text-decoration: none;
+    color: black;
+}

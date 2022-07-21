@@ -1,0 +1,33 @@
+<h1> Profile Page </h1>
+
+    {% extends 'main.html' %}
+
+    {% block content %}
+
+
+    {% for post in user_profile.chirps.all %}
+
+    <div >
+        <p href="{% url 'posts:detail' post.pk %}"></p>
+
+        <p> Author: {{ post.author.username }} </p>
+            
+            <div>
+                <p> {{ post.body }} </p>
+                <form action="{% url 'posts:edit' post.pk %}">
+                    <button type ="Edit"> Edit </button>
+                </form>
+                <form action="{% url 'posts:delete' post.pk %}">
+                    <button type ="Delete"> Delete </button>
+                </form>
+            </div>
+        
+
+    </div>
+
+    {% endfor %}
+        
+        
+
+
+    {% endblock content %} 

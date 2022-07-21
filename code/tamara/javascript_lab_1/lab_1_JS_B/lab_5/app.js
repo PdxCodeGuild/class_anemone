@@ -1,5 +1,6 @@
 let submitBtn = document.getElementById('submit')
 
+
 function ticket() {
     var ticketNumbers = []
     while (ticketNumbers.length < 7) {
@@ -9,10 +10,26 @@ function ticket() {
 }
 
 submitBtn.addEventListener('click', function(){
+    let num1 = parseInt(document.getElementById('num1').value)
+    let num2 = parseInt(document.getElementById('num2').value)
+    let num3 = parseInt(document.getElementById('num3').value)
+    let num4 = parseInt(document.getElementById('num4').value)
+    let num5 = parseInt(document.getElementById('num5').value)
+    let num6 = parseInt(document.getElementById('num6').value)
+    let num7 = parseInt(document.getElementById('num7').value)
+
     let balance = 0
     let winnings = 0
     let expenses = 0
-    let winningTicket = ticket()
+    let winningTicket = []
+
+    winningTicket.push(num1)
+    winningTicket.push(num2)
+    winningTicket.push(num3)
+    winningTicket.push(num4)
+    winningTicket.push(num5)
+    winningTicket.push(num6)
+    winningTicket.push(num7)
 
     totalTickets = 100000
     x = 0

@@ -9,7 +9,13 @@ function ticket() {
 let balance = 0
 let winnings = 0
 let expenses = 0
-let winningTicket = ticket()
+let winningTicket = []
+
+while(winningTicket.length < 7) {
+    number = parseInt(prompt("Enter a number between 1 and 99: "))
+    winningTicket.push(number)
+}
+
 alert(`The winning ticket is ${winningTicket}`)
 
 totalTickets = 100000
