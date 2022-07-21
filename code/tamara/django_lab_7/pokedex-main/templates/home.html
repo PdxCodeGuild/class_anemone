@@ -17,28 +17,43 @@
 
         {% csrf_token %} 
         <div id="app">
+            <div>
+                <h3>Create a New Pokemon!</h3>
+                <input type="text" placeholder="name" v-model="newPokemon.name">
+                <input type="number" placeholder="number" v-model="newPokemon.number">
+                <input type="number" placeholder="height" v-model="newPokemon.height">
+                <input type="number" placeholder="weight" v-model="newPokemon.weight">
+                <input type="text" placeholder="front image url" v-model="newPokemon.image_front">
+                <input type="text" placeholder="back image url" v-model="newPokemon.image_back">
+                <select v-model="newPokemon.caught_by" required multiple>
+                    <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
+                </select>
+                <button @click="createPokemon">Create</button>
+            </div>
             <ul>
                 <li v-for="pokemon in pokemon_list" :key="pokemon.id">
-                    <h3>[[ pokemon.name ]]</h3>
+
+                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.name" @keyup.enter="editPokemon">
+                    <template v-else><h3>[[ pokemon.name ]]</h3></template>
+
+                    <button @click="editModeValue = !editModeValue">[[ editModeValue ? "Done" : "Edit" ]]</button>
+                    <button @click="deletePokemon(pokemon)">Delete</button>
+
                     <h4>Type(s):</h4><h4 v-for="type in pokemon.type_detail"> [[ type.type ]] </h4>
-                    <img src="[[ pokemon.image_front ]]">
-                    <img src="[[ pokemon.image_back ]]">
-                    <h4>height: [[ pokemon.height ]], weight: [[ pokemon.weight ]]</h4>
+                    
+                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.front_image" @keyup.enter="editPokemon">
+                    <template v-else><img :src="[[ pokemon.image_front ]]"></template>
+
+                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.back_image" @keyup.enter="editPokemon">
+                    <template v-else><img :src="[[ pokemon.image_back ]]"></template>
+
+                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.height" @keyup.enter="editPokemon">
+                    <template v-else><h4>height: [[ pokemon.height ]]</h4></template>
+
+                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.weight" @keyup.enter="editPokemon">
+                    <template v-else><h4>height: [[ pokemon.height ]]</h4></template>
                 </li>
             </ul>
-        </div>
-        <div>
-            <h3>Create a New Pokemon!</h3>
-            <input type="text" placeholder="name" v-model="newPokemon.name">
-            <input type="number" placeholder="number" v-model="newPokemon.number">
-            <input type="number" placeholder="height" v-model="newPokemon.height">
-            <input type="number" placeholder="weight" v-model="newPokemon.weight">
-            <input type="url" placeholder="front image url" v-model="newPokemon.image_front">
-            <input type="url" placeholder="back image url" v-model="newPokemon.image_back">
-            <select v-model="newPokemon.type">
-                <option v-for="item in type_list" :key="item.id" :value="item.id">[[ item.type ]]</option>
-            </select>
-            <button @click="createPokemon">Create</button>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -49,7 +64,14 @@
                 data: {
                     csrfToken: "",
                     pokemon_list: [],
-                    type_list: [],
+                    editModeValue: false,
+                    editPokemonValues: {
+                        "name": '',
+                        "height": '',
+                        "weight": '',
+                        "image_front": '',
+                        "image_back": '',
+                    },
                     newPokemon: {
                         "name": '',
                         "number": '',
@@ -57,26 +79,79 @@
                         "weight": '',
                         "image_front": '',
                         "image_back": '',
-                        "type": '',
+                        "caught_by": [],
                     },
+                    users: [],
                     },
                 methods: {
                     loadPokemon: function() {
-                    axios({
-                        method: 'get',
-                        url: '/api/v1/pokemon/'
-                    }).then(response => this.pokemon_list = response.data)
-                },
-                    loadType: function() {
                         axios({
                             method: 'get',
-                            url: '/api/v1/type/'
-                        }).then(response => this.type_list = response.data)
-                    }
+                            url: '/api/v1/pokemon/'
+                        }).then(response => this.pokemon_list = response.data)
+                    },
+                    loadUsers: function() {
+                        axios({
+                            method: 'get',
+                            url: '/api/v1/users/'
+                        }).then(response => this.users = response.data)
+                    },
+                    createPokemon: function() {
+                        axios({
+                            method: 'post',
+                            url: '/api/v1/pokemon/',
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                            data: this.newPokemon
+                            }).then(response => {
+                                this.loadPokemon()
+                                this.newPokemon = {
+                                    "name": '',
+                                    "number": '',
+                                    "height": '',
+                                    "weight": '',
+                                    "image_front": '',
+                                    "image_back": '',
+                                    "caught_by": [],
+                                }
+                            })
+                    },
+                    editPokemon: function(pokemon) {
+                        axios({
+                            method: 'patch',
+                            url: `/api/v1/pokemon/${pokemon.id}/`,
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                            data: this.pokemon
+                        }).then(response => {
+                            this.loadPokemon()
+                            this.pokemon = {
+                                "name": '',
+                                "height": '',
+                                "weight": '',
+                                "image_front": '',
+                                "image_back": '',
+                            },
+                            this.editModeValue = false
+                        })
+                    },
+                    deletePokemon: function(pokemon) {
+                        axios({
+                            method: 'delete',
+                            url: `/api/v1/pokemon/${pokemon.id}/`,
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                        }).then(response => {
+                            this.loadPokemon()
+                        })
+                    },
                 },
                 created: function() {
                     this.loadPokemon()
-                    this.loadType()
+                    this.loadUsers()
                 },
                 mounted: function() {
                     this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
@@ -85,4 +160,3 @@
         </script>
     </body>
 </html>
-
