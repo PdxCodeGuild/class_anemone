@@ -26,13 +26,11 @@
                 <button for='search' for='typesearch' @click=search>Search</button>
                 <button @click=closepd>Close Pokedex</button>
                 {% if user.is_authenticated %}
-                <button  @click=cedit>Add New Pokemon</button>
-                    <li v-if=edit>
-                        <new-Poke v-for="poke in newpokemon"
-                        :key="poke.id"
-                        :poke="poke"
+                    
+                        <new-Poke v-model=newpokemon
+                        :key='newpokemon.id'
                         @add='addPoke'></new-Poke>
-                    </li>
+                    
                 {% endif %}
                 
 
@@ -60,16 +58,6 @@
                     @remove="removePoke"
                     @submit="submitPoke"
                 ></user-edit>
-
-                {% comment %} <li v-for='poke in pokemon' :key='poke.id'>
-                    <button @click=cedit>Edit</button>
-                    <input type='textarea' v-if=edit><span v-if='poke.number'><h1>Pokemon #[[poke.number]]</h1><input></span><span v-if='poke.name'><p>Name: [[poke.name]]</p></span>
-                    <span v-if='poke.height'><p>Height:&nbsp; [[poke.height]]</p></span>
-                    <span v-if='poke.weight'><p>Weight:&nbsp;[[poke.weight]]</p></span>
-                    <span v-if='poke.image_front'><img :src="[[poke.image_front]]"></img></span>
-                    <span v-if='poke.image_back'><img :src="[[poke.image_back]]"></img></span>
-                    <span v-if='poke.caught_by'><p>Caught by:&nbsp; [[poke.caught_by]]</p></span>
-                </li> {% endcomment %}
             </ol>
     
         </div>
@@ -127,27 +115,37 @@
     Vue.component('new-poke',{
         data: function() {
             return {
-                cedit: true
+                cedit: false,
+                newpokemon: {
+                    "number": "",
+                    "name": "",
+                    "height": "",
+                    "weight": "",
+                    "image_front": "",
+                    "image_back": "",
+                    "caught_by": []
+                }
             }
+           
         },
-        props: ['poke'],
         delimiters:['[[',']]'],
         template: `
-            <li v-if=edit>
-                <template v-if="edit">
-                    <label for='num'>Pokedex Number</label><input type="text" v-model="poke.number" id='num'><br>
-                    <label for='num'>Pokedex Name</label><input type="text" v-model="poke.name" id='num'><br>
-                    <label for='num'>Pokedex Height</label><input type="text" v-model="poke.height" id='num'><br>
-                    <label for='num'>Pokedex Weight</label><input type="text" v-model="poke.weight" id='num'><br>
-                    <label for='num'>Pokedex Image</label><input type="text" v-model="poke.image_front" id='num'><br>
-                    <label for='num'>Pokedex image_back</label><input type="text" v-model="poke.image_back" id='num'><br>
+            <p>
+                <template v-if=cedit>
+                    <label for='num'>Pokedex Number</label><input type="text" v-model="newpokemon.number" id='num'><br>
+                    <label for='name'>Pokedex Name</label><input type="text" v-model="newpokemon.name" id='name'><br>
+                    <label for='Height'>Pokedex Height</label><input type="text" v-model="newpokemon.height" id='Height'><br>
+                    <label for='Weight'>Pokedex Weight</label><input type="text" v-model="newpokemon.weight" id='Weight'><br>
+                    <label for='Front'>Pokedex Image Front</label><input type="text" v-model="newpokemon.image_front" id='Front'><br>
+                    <label for='Back'>Pokedex Image Back</label><input type="text" v-model="newpokemon.image_back" id='Back'><br>
+                    <button @click=addPoke>Submit to Pokedex</button>
                 </template>
-                <button @click=addPoke>Add To Pokedex</button>
-            </li>
+                <button @click="cedit = !cedit">[[cedit ? "Close" : "Add New Pokemon" ]]</button>
+            </p>
         `,
         methods: {
-            addPoke: function(poke) {
-                this.$emit('add', poke)
+            addPoke: function(newpokemon) {
+                this.$emit('add', this.newpokemon)
             }
         }
     })
@@ -165,13 +163,13 @@
                     spokemon:{},
                     user: [], 
                     newpokemon:{
-                        "number": "",
-                        "name": "",
-                        "height": "",
-                        "weight": "",
-                        "image_front": "",
-                        "image_back": "",
-                        "caught_by": ""
+                            "number": "",
+                            "name": "",
+                            "height": "",
+                            "weight": "",
+                            "image_front": "",
+                            "image_back": "",
+                            "caught_by": ""
                     },
                     error: '',
                 },
@@ -237,10 +235,19 @@
                     },
                     addPoke: function(newpokemon) {
                         axios({
-                            method: 'put',
-                            url: 'api/v1/pokemon/' + newpokemon.number + '/',
+                            method: 'post',
+                            url: 'api/v1/pokemon/',
                             headers: {
                                 'X-CSRFToken': this.csrfToken
+                            },
+                            data: {
+                                "number": newpokemon.number,
+                                "name": newpokemon.name,
+                                "height": newpokemon.height,
+                                "weight": newpokemon.weight,
+                                "image_front": newpokemon.image_front,
+                                "image_back": newpokemon.image_back,
+                                "caught_by": newpokemon.caught_by
                             }
                         }).then(response => {this.loadpokemon()})
                     }

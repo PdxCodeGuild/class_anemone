@@ -6,8 +6,8 @@ class Pokemon(models.Model):
     name = models.CharField(max_length=200, unique=True)
     height = models.FloatField()
     weight = models.FloatField()
-    image_front = models.URLField(unique=True)
-    image_back = models.URLField(unique=True)
+    image_front = models.URLField()
+    image_back = models.URLField()
     caught_by = models.ManyToManyField(get_user_model(), related_name='caught', blank=True)
     # types = the set of Types associated with that Pokemon
 
