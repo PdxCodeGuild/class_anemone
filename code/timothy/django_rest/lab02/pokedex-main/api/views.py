@@ -11,11 +11,11 @@ class TypeViewSet(viewsets.ModelViewSet):
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
-class CurrentUserViewSet(generics.RetrieveAPIView):
+class CurrentUserViewSet(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     def get_object(self):
         return self.request.user
