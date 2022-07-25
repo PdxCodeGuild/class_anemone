@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+        <h2>{{ post.title }}</h2>
+        <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></em></h4>
+        <h4><em> Posted on {{ post.created }}</em></h4>
+        <h4><em>Last updated on {{ post.updated }}</em></h4>
+    </div>
+
+    {% if user == post.author %}
+        <p><a href="{% url 'posts:edit' post.pk %}">+ Edit Chirp</a></p>
+        <p><a href="{% url 'posts:delete' post.pk %}">+ Delete Chirp</a></p>
+    {% endif %}
+
+    <hr>
+    
+    <h2> Comments {{ data }}</h2>
+
+     {% if user.is_authenticated %}
+      <form action="" method="POST" id="main_form" class="comment_form">
+         <div>
+             <label for="comment">Type Comment here</label>
+            {{ comment_form.content }} {% csrf_token %} <input type="submit" value="Post"></div>
+         </div>
+      </form>
+      {% else %} <h2>You need to Login to comment</h2> 
+      {% endif %}
+
+      {% for comment in comments %}
+         {% if comment.is_parent %}
+         <h3> <b>{{ comment.author }} : </b> {{ comment.content }}</h3> <hr>
+         {% endif %} 
+         {% for replies in comment.children %}
+            <h3>&nbsp; &nbsp; &nbsp; <b>{{ comment.author }} : </b> {{ replies.content }}</h3>
+         {% endfor %}
+      {% endfor %}
+
+{% endblock content %}
