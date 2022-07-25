@@ -1,0 +1,79 @@
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+    font-family: 'EB Garamond', serif;
+    }
+
+
+    header {
+    border-bottom: 1px solid #999;
+    margin-bottom: 2rem;
+    text-align: center;
+    }
+    
+    header h1 a {
+    color: #1aa0c9;
+    text-decoration: none;
+    }
+    
+    .nav-left {
+    margin-right: auto;
+    text-align: center;
+    }
+    
+    .nav-right {
+    display: flex;
+    padding-top: 2rem;
+    justify-content: center;
+    }
+    
+    .nav-right p {
+    margin-left: .25rem;
+    margin-right: .25rem;
+    }
+    
+    .post-entry {
+    display: block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 38px;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    padding: 0 16px 16px 16px;
+    max-width: 468px;
+    margin-bottom: 2rem;
+    }
+    
+    .post-entry h2 {
+    margin: 0.5rem 0;
+    }
+    
+    .post-entry h2 a, .post-entry h2 a:visited {
+    color: white;
+    text-decoration: none;
+    }
+    
+    .post-entry h5, .post-entry h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    }
+    
+    .post-entry p {
+    margin: 0;
+    font-weight: 400;
+    }
+    
+    .post-entry h2 a:hover {
+    color: #0f4c81;
+    }

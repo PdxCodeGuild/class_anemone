@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>chirping since {{ user_profile.date_joined }}!</em></h5>
+
+    {% for post in user_profile.posts.all %}
+        <div class="post-entry">
+            <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2><hr>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
