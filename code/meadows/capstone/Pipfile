@@ -8,6 +8,9 @@ django = "*"
 djangorestframework = "*"
 django-crispy-forms = "*"
 django-rest-knox = "*"
+django-filter = "*"
+markdown = "*"
+pygments = "*"
 
 [dev-packages]
 
