@@ -26,7 +26,7 @@
               </form>
               <section>
                 <section class="row movies-area">
-                  <section class="mt-2 col-9 row" id="results">
+                  <section class="mt-5 col-9 row" id="results">
                     <div v-if="error" class="alert alert-danger col" role="alert">
                       {{error}}
                     </div>
@@ -40,18 +40,20 @@
                           @click="addToWatchLater(movie)"
                           type="button"
                           class="btn btn-success">Watch Later</button>
-                        <button
+                        <!-- <button
                           v-if="removeWatchLater"
                           @click="removeWatchLater(movie)"
                           type="button"
-                          class="btn btn-danger">Remove</button>
+                          class="btn btn-danger">Remove</button> -->
                       </div>
                     </div>
-                  <section class="mt-2 col-3 row">
-                    <h3>Watch Later</h3>
-                    <small>Search to add movies here</small>
+                    <section>
+                  <section class="mt-5 col-3 row">
+                    <h3>Watch Library</h3>
+                    
                     <section class="row" id="watch-later">
                     <div class="card col-12" v-for="movie in watchLater">
+                      
                       <img class="card-img-top" :src="movie.Poster" :alt="movie.Title">
                       <div class="card-body">
                         <h5 class="card-title">{{movie.Title}}</h5>
@@ -66,14 +68,10 @@
                           @click="removeWatchLater(movie)"
                           type="button"
                           class="btn btn-danger">Remove</button>
+                      </section>
+                      </section>
                       </div>
-                    </div>
-                  </section>
-                  </section>
-                </section>
-              </section>
-        
-          </div>
+                            
 </main>
 
 

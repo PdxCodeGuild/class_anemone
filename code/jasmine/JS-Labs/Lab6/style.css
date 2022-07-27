@@ -1,13 +1,21 @@
+.container {
+  background-color: grey;
+}
+
 .movies-area{
     justify-content: space-around;
     align-items: flex-start;
-    padding: 25px 50px;
+    
   }
+.h3 {
+  color: white;
+}
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
+    margin: 10px;
   }
 
 img {
