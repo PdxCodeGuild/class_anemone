@@ -17,6 +17,7 @@
 
         {% csrf_token %} 
         <div id="app">
+            {% if user.is_authenticated %}
             <div>
                 <h3>Create a New Pokemon!</h3>
                 <input type="text" placeholder="name" v-model="newPokemon.name">
@@ -30,34 +31,60 @@
                 </select>
                 <button @click="createPokemon">Create</button>
             </div>
+            {% endif %}
             <ul>
-                <li v-for="pokemon in pokemon_list" :key="pokemon.id">
-
-                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.name" @keyup.enter="editPokemon">
-                    <template v-else><h3>[[ pokemon.name ]]</h3></template>
-
-                    <button @click="editModeValue = !editModeValue">[[ editModeValue ? "Done" : "Edit" ]]</button>
-                    <button @click="deletePokemon(pokemon)">Delete</button>
-
-                    <h4>Type(s):</h4><h4 v-for="type in pokemon.type_detail"> [[ type.type ]] </h4>
-                    
-                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.front_image" @keyup.enter="editPokemon">
-                    <template v-else><img :src="[[ pokemon.image_front ]]"></template>
-
-                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.back_image" @keyup.enter="editPokemon">
-                    <template v-else><img :src="[[ pokemon.image_back ]]"></template>
-
-                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.height" @keyup.enter="editPokemon">
-                    <template v-else><h4>height: [[ pokemon.height ]]</h4></template>
-
-                    <input v-if="editModeValue" type="text" v-model="editPokemonValues.weight" @keyup.enter="editPokemon">
-                    <template v-else><h4>height: [[ pokemon.height ]]</h4></template>
-                </li>
+                <pokemon-item v-for="pokemon in pokemon_list" :key="pokemon.id" :pokemon='pokemon' @delete="deletePokemon(pokemon)" @edit="editPokemon(pokemon)">
+                </pokemon-item>
             </ul>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script>
+
+            Vue.component('pokemon-item', {
+                data: function() {
+                    return {
+                        editModeValue: false
+                    }
+                },
+                props: ['pokemon'],
+                template: 
+                    <div>
+                        <div v-if="editModeValue">
+                            <input type="text" v-model="pokemon.name" placeholder="enter name">
+                            <input type="text" v-model="pokemon.front_image" placeholder="enter front image url">
+                            <input type="text" v-model="pokemon.back_image" placeholder="enter back image url">
+                            <input type="text" v-model="pokemon.height" placeholder="enter height">
+                            <input type="text" v-model="pokemon.weight" placeholder="enter weight">
+                        </div>
+
+                        <div v-else>
+                            <h3>{{ pokemon.name }}</h3></div>
+                            <h4>Type(s):</h4><h4 v-for="type in pokemon.type_detail"> {{ type.type }} </h4>
+                            <img :src="{{ pokemon.image_front }}">
+                            <img :src="{{ pokemon.image_back }}">
+                            <h4>height: {{ pokemon.height }}</h4>
+                            <h4>weight: {{ pokemon.height }}</h4>
+                        </div>
+
+                        <button @click="editModeValue = !editModeValue">Edit</button>
+                        <button @click="editPokemon(pokemon)">Complete</button>
+                        <button @click="deletePokemon(pokemon)">Delete</button>
+                    
+                    </div>
+                ,
+
+                    methods: {
+                        deletePokemon: function(pokemon) {
+                            this.$emit('delete', pokemon)
+                        },
+                        editPokemon: function(pokemon) {
+                            this.$emit('edit', pokemon)
+                        }
+            
+                    }
+            })
+
             const vm = new Vue({
                 el: '#app',
                 delimiters: ['[[', ']]'],
@@ -65,7 +92,7 @@
                     csrfToken: "",
                     pokemon_list: [],
                     editModeValue: false,
-                    editPokemonValues: {
+                    pokemon: {
                         "name": '',
                         "height": '',
                         "weight": '',
