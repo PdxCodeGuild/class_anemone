@@ -49,7 +49,7 @@
                 },
                 props: ['pokemon'],
                 template: 
-                    <div>
+                    <li>
                         <div v-if="editModeValue">
                             <input type="text" v-model="pokemon.name" placeholder="enter name">
                             <input type="text" v-model="pokemon.front_image" placeholder="enter front image url">
@@ -71,7 +71,7 @@
                         <button @click="editPokemon(pokemon)">Complete</button>
                         <button @click="deletePokemon(pokemon)">Delete</button>
                     
-                    </div>
+                    </li>
                 ,
 
                     methods: {
