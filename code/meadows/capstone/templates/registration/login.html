@@ -1,6 +1,37 @@
-<h1>Login</h1>
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Login">
-</form>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime and Facts</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"/>
+</head>
+<body>
+  <div class="title2">
+    <h1>MYGYMPAL</h1>
+  </div>
+  <div class="title">
+    <h1>MYGYMPAL</h1>    
+  </div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="username">
+      <h3>Username:</h3>
+    </div>
+    {{ form.username }}
+      <br><br>
+    <div class="password">
+      <h3>Password:</h3>
+    </div>
+    {{ form.password }}
+    <div class='btn'>
+      <input type="submit" value='Login'>
+    </div>
+  </form>
+<body>

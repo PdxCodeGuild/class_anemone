@@ -1,0 +1,94 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #023438;
+}
+.title {
+    position:absolute;
+    margin-left: 40%;
+    margin-top: 3em;
+    font-size: 3em;
+    color: #08c4d1;
+}
+.title2{
+    position:absolute;
+    margin-left: 39.5%;
+    margin-top: 2.7em;
+    font-size: 3.05em;
+    color: black;
+}
+form {
+    background-color: #15b5c0;
+    flex: auto;
+    margin-left: 7em;
+    margin-top: 5em;
+    border: 12px solid black;
+    padding: 100px;
+    margin-left: 1em;
+    width: 500px;
+    border-radius: 50%;
+    box-shadow: 0px 6px 20px 8px rgb(8, 94, 109);
+
+}
+
+input[type=text]{
+    font-family: 'Saira', sans-serif;
+    font-size: 1em;
+    margin-left: 50%;
+    margin: .1em;
+    height: 1.9em;
+    width: 13em;
+    box-shadow: 0px 8px 20px 2px rgb(17, 17, 17);
+}
+input[type=text]:focus{
+    font-family: 'Saira', sans-serif;
+    font-size: 1.1em;
+    height: 2.4em;
+    width: 16em;
+    box-shadow: 0px 9px 10px 3px black;
+}
+
+input[type=password]{
+    font-family: 'Saira', sans-serif;
+    margin-left: 50%;
+    margin: .1em;
+    height: 1.9em;
+    width: 13em;
+    box-shadow: 0px 9px 20px 3px rgb(17, 17, 17);
+}
+input[type=password]:focus{
+    font-family: 'Saira', sans-serif;
+    height: 2.4em;
+    width: 16em;
+    box-shadow: 0px 9px 10px 3px rgb(0, 0, 0);
+}
+
+input[type=submit] {
+    color: aliceblue;
+    background-color: #000000;
+    width: 4em;
+  }
+  
+    input[type=submit]:hover {
+    background-color: #05eeff;
+    color: #000000;
+    }
+
+    .btn input[type=submit]{
+    margin-top: 2em;
+    box-shadow: 0px 9px 30px 3px rgb(17, 17, 17);
+    height: 2em;
+    border-radius: 50%;
+    }
+   
+.username {
+    font-family: 'Saira', sans-serif;
+}
+.password {
+    font-family: 'Saira', sans-serif;
+}
