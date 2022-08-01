@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime and Facts</title>
+    <title>MYGYMPAL-LOGIN</title>
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,19 +19,28 @@
   <div class="title">
     <h1>MYGYMPAL</h1>    
   </div>
+
+{% comment %} ------------- {% endcomment %}
+
   <form action="" method="post">
     {% csrf_token %}
+
     <div class="username">
       <h3>Username:</h3>
     </div>
     {{ form.username }}
+
       <br><br>
     <div class="password">
       <h3>Password:</h3>
     </div>
     {{ form.password }}
+
     <div class='btn'>
       <input type="submit" value='Login'>
-    </div>
   </form>
+
+  
+  <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+    </div>
 <body>

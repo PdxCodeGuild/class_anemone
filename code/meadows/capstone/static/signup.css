@@ -8,6 +8,8 @@ html {
 body {
     background-color: #023438;
     font-family: 'Saira', sans-serif;
+    padding-left:9%;
+    padding-top: 6em;
 }
 .title {
     position:absolute;
@@ -24,16 +26,12 @@ body {
     color: black;
 }
 form {
-    font-family: 'Saira', sans-serif;
     background-color: #15b5c0;
     flex: auto;
-    margin-left: 7em;
-    margin-top: 5em;
     border: 12px solid black;
     padding: 100px;
-    margin-left: 1em;
-    width: 500px;
-    border-radius: 50%;
+    width: 650px;
+    border-radius: 60%;
     box-shadow: 0px 6px 20px 8px rgb(8, 94, 109);
 
 }
@@ -70,10 +68,27 @@ input[type=password]:focus{
     box-shadow: 0px 9px 10px 3px rgb(0, 0, 0);
 }
 
+input[type=email]{
+    font-family: 'Saira', sans-serif;
+    font-size: 1em;
+    margin-left: 50%;
+    margin: .1em;
+    height: 1.9em;
+    width: 13em;
+    box-shadow: 0px 8px 20px 2px rgb(17, 17, 17);
+}
+input[type=email]:focus{
+    font-family: 'Saira', sans-serif;
+    font-size: 1.1em;
+    height: 2.4em;
+    width: 16em;
+    box-shadow: 0px 9px 10px 3px black;
+}
+
 input[type=submit] {
     color: aliceblue;
     background-color: #000000;
-    width: 4em;
+    width: 5em;
   }
   
     input[type=submit]:hover {
@@ -84,34 +99,6 @@ input[type=submit] {
     .btn input[type=submit]{
     margin-top: 2em;
     box-shadow: 0px 9px 30px 3px rgb(17, 17, 17);
-    height: 2em;
+    height: 2.6em;
     border-radius: 50%;
     }
-.btn p {
-    border: 1px solid black;
-    background-color: #000000;
-    box-shadow: 0px 9px 30px 3px rgb(17, 17, 17);
-    margin-left: 7em;
-    width: 5em;
-    height: 2em;
-    margin-top: .45em;
-    padding: .4em;
-    border-radius: 50%;
-    text-align: center;
-}
-.btn p:hover{
-    background-color: #05eeff;
-}
-.btn p a{
-    color: white;
-    text-decoration: none;
-}
-.btn p a:hover{
-    color: #000000;
-}
-.username {
-    font-family: 'Saira', sans-serif;
-}
-.password {
-    font-family: 'Saira', sans-serif;
-}

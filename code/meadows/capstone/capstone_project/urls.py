@@ -25,5 +25,6 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('profile', TemplateView.as_view(template_name='profile.html'), name='profile'),
     path('api/v1/', include('api.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

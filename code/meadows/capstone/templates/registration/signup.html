@@ -1,6 +1,55 @@
-<h1>Sign up</h1>
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Sign Up">
-</form>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYGYMPAL-SIGNUP</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}"/>
+</head>
+<body>
+  <div class="title2">
+    <h1>Create<br>Your Gains</h1>
+  </div>
+  <div class="title">
+    <h1>Create<br>Your Gains</h1>    
+  </div>
+
+{% comment %} ------------- {% endcomment %}
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class='username'>
+      <p>username</p>
+    </div>
+    {{ form.username }}
+      <br></br>
+
+    <div class='email'>
+      <p>Email Address</p>
+    </div>
+    {{form.email}}
+      <br></br>
+
+    <div class='pass1'>
+      <p>Password</p>
+    </div>
+    {{form.password1}}
+      <br></br>
+
+    <div class='pass2'>
+      <p>Confirm Password</p>
+    </div>
+    {{form.password2}}
+      <br></br>
+      
+    <div class='btn'>
+      <input type="submit" value="Sign Up">
+    </div>
+  </form>
+</body>

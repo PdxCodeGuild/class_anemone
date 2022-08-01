@@ -13,26 +13,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}"/>
 </head>
 <body>
-{% if user.is_authenticated %}
-<h1>{{ user.username }}!</h1>
-<a href="{% url 'profile' %}">profil</a>
-<p><a href="{% url 'login' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, GYMBRO!</h1>
-<p>You are not logged in OR need to signup. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+<h1>{{user.username}}</h1>
 <div id="app">
-
-    <ul v-for="blogs in blog.results" :key="blogs.id">
-
-        <h3><a href="{% url 'profile' %}">[[blogs.username]]</a></h2>
-
-        <li v-for="posts in blogs.blog_detail">
-
-            <h2>[[ posts.title ]]</h3>
-            <h4>[[ posts.body ]]
-            <h6>created:[[posts.created]] /// updated:[[posts.updated]]
-
+    <ul>
+        <li v-for="blogs in blog.results" :key="blogs.id">
+            <h3>[[ blogs.username ]]</h3>
         </li>
     </ul>
 
@@ -40,6 +25,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script src="{% static 'home.js'%}"></script>
+<script src="{% static 'profile.js'%}"></script>
 </body>
 </html>
