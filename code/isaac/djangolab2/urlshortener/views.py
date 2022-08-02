@@ -13,7 +13,7 @@ def random_generator():
     empty_string = ''
     while len(empty_string) < 6:
         empty_string += random.choice(characters)
-    return empty_string
+    return empty_string 
 
 def index(request):
     if request.method == 'POST':
