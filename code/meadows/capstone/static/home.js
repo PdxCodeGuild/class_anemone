@@ -6,6 +6,7 @@ const vm = new Vue({
         blog: [],
         users: [],
         currentUser: {},
+        profilePic: null,
         newBlog: {
             "title": "",
             "username": null,

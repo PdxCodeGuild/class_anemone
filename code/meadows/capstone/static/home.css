@@ -1,0 +1,66 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: rgb(163, 159, 159);
+    font-family: 'Saira', sans-serif;
+    display:flex;
+    flex-wrap:nowrap;
+}
+.float-conatiner {
+    border: 3px solid #fff;
+    padding: 20px;
+    border: flex;
+}
+
+.float-child .blogs{
+    width:fit-content;
+    float: center;
+    padding: 20px;
+    border: 2px solid red;
+}
+.float-child .user{
+    width: 20%;
+    float:center;
+    padding:10px;
+    border: 2px solid red;
+    margin-right: 20%;
+}
+span .prof-pic{
+    border-radius: 50%;
+    box-shadow: 0px 6px 15px 3px black;
+}
+.blogs {
+    margin-left: 20%;
+}
+.blogs ul {
+    list-style-type: none;
+    padding: 1.6em;
+}
+
+.blog-li{
+    border: 2px solid black;
+    padding:10px;
+    width: fit-content;
+    border-radius: 2.9%;
+    font-size: 1.4em;
+}
+.blog-user{
+    padding-top: 5%;
+    font-size: smaller;
+}
+.blog-user a{
+    color: rgb(8, 5, 156);
+    text-decoration:none;
+    padding: .5em;
+}
+.blog-user a:hover{
+    color: deepskyblue;
+}
+h6{
+    font-size: xx-small;
+}

@@ -27,13 +27,20 @@ class NestedBlogSerializer(serializers.ModelSerializer):
 class NestedUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ('id', 'username', 'profil_pic')
+        fields = ('username', 'profil_pic')
 
 class PostSerializer(serializers.ModelSerializer):
     user_detail = NestedUserSerializer(many=True, read_only=True, source='username')
     class Meta:
         model = Blog
-        fields = ('id', 'title', 'username', 'user_detail', 'created', 'updated', 'body', 'profile_pic')
+        fields = ('title', 'user_detail', 'created', 'updated', 'body')
+
+        # def create(self, validate_data):
+        #     user_data = validate_data.pop('user_detail')
+        #     blog = Blog.objects.create(**validate_data)
+
+        #     for user in user_data:
+        #         get_user_model().objects.create(blog=blog, **user)
 
 class UserSerializer(serializers.ModelSerializer):
     blog_detail = NestedBlogSerializer(many=True, source='posts', read_only=True)
