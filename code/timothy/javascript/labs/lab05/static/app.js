@@ -1,4 +1,21 @@
-
+Vue.component('next-page', {
+    data: function() {
+        return {
+            page: 1
+        }
+    },
+    template: `
+        <div>
+            <button @click="nextPage">Next Page</button>
+        </div>
+    `,
+    methods: {
+        nextPage: function() {
+            this.$emit('next', {page: this.page})
+            this.page++
+        }
+    }
+})
 
 
 const vm = new Vue({
@@ -45,6 +62,10 @@ const vm = new Vue({
                 console.log(error)
                 console.log(error.response.data)
             })
+        },
+        nextPage: function() {
+            this.page++
+            this.search()
         }
     },
     created: function() {
