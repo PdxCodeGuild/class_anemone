@@ -60,4 +60,3 @@ else if (hand === 21) {
 else {
     alert('Your hand is ' + hand + ' YOU BUSTED!')
 }
-// alert ('Your hand is ' + hand)
