@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+    <body>
+        <header>
+            <a href="{% url 'posts:home' %}" class="home-link"><h1>Chirp</h1></a>
+
+        </header>
+
+            <div class="side-main-container">
+                <div class="user-links">
+                    {% if user.is_authenticated %}
+                    <p><a href="{% url 'users:profile' user.username %}">{{ user.username }}</a></p>
+                    <p><a href="{% url 'logout' %}">Logout</a></p>
+                    <p><a href="{% url 'posts:new' %}">Create new Chirp</a></p>
+            
+                    {% else %} 
+                        <p><a href="{% url 'login' %}">Login</a></p>
+                        <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+                    {% endif %}
+                </div>
+                <div class="chirps-container">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        <footer>
+            <h3>&copy; Chirp inc.</h3>
+        </footer>
+    </body>
+</html>

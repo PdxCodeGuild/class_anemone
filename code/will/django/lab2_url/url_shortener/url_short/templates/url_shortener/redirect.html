@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p><a href="{% url 'url_shortener:redirect' url.url %}">{{url.slug}}</a></p>
+    <p><a href="http://{{ url.url }}">{{url.slug}}</a></p>
 </body>
 </html>

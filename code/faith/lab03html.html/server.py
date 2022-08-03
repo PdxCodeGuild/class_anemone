@@ -1,5 +1,6 @@
 # from tempfile import template
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template
+from requests import request
 
 app = Flask(__name__)
 
@@ -51,9 +52,7 @@ def blog():
     ]
     return render_template('blog.html',author = 'Faith',  posts=posts)
 
-@app.route('/blog/<blog_id>')
-def blogpost(blog_id):
-    return 'blog number '+ str(blog_id)
+
 
 if __name__ == '__main__':
     app.run()

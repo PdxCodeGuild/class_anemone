@@ -56,9 +56,11 @@ let winner = 0
 let expenses = 0
 let winning = pick6()
 
+let plays =  prompt("How many tickets do you want to play?")
+
 alert("The winning numbers are " + winning + ". Good luck!")
 
-for (let p = 0; p < 100000; p++) {
+for (let p = 0; p < plays; p++) {
     ticket = pick6()
     wallet -= 2
     expenses += 2
@@ -72,5 +74,5 @@ let final_balance = wallet + winner
 let roi = (winner - expenses)/expenses
 
 
-alert("After playing 100,000 times your final balance is: $" + final_balance)
+alert("After playing " +  plays + " times your final balance is: $" + final_balance)
 alert("Your earnings were $" + winner + ". Your expenses were $" + expenses + ". Your ROI is " + roi + "%")
