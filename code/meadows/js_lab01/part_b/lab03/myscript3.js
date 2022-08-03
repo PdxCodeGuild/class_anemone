@@ -10,11 +10,13 @@ CC.addEventListener('click', function(){
     let myFunc = num => Number(num)
 
     var intArr = Array.from(String(card), myFunc)
-    var intArr2 = [...intArr]
+    // var intArr2 = [...intArr]
 
     let hold = intArr.pop()
 
-    let Reverse = intArr2.reverse()
+    let Reverse = intArr.reverse()
+    // console.log(intArr2)
+    // console.log(intArr)
 
     function everyOther(multArray) {
         for (var i = 1; i < multArray.length; i+=2) {
@@ -45,6 +47,8 @@ CC.addEventListener('click', function(){
     }
 
     let numSum = sum / intArr2.length
+
+    console.log(numSum)
 
     if ( Math.floor(numSum)===hold) {
         Decide = "Your Credit Card is Valid"
