@@ -20,6 +20,7 @@
             <option value='author'>Author</option>
             <option value='tags'>tags</option>
             <option value='user'>user</option>
+            <option value='contains'>Contains</option>
         </select>
 
         <span v-if="typesearch === 'author'"><br>
@@ -34,6 +35,10 @@
         <span v-else-if="typesearch === 'user'"><br>
             <input type='text' v-model="input" placeholder='user' @keyup.enter='loadquots'><br>
             <button @click='loadquotu' >Search</button><hr>
+        </span>
+        <span v-else-if="typesearch === 'contains'"><br>
+            <input type='text' v-model="input" placeholder='Contains this word' @keyup.enter='loadquotf'><br>
+            <button @click='loadquotf' >Search</button><hr>
         </span>
         <!-- <p v-if="error ! {}">{{error}}</p>     -->
         

@@ -115,6 +115,26 @@ const vm = new Vue({
                 })
             } 
         },
+        loadquotf: function()  {
+            if (this.typesearch === 'contains') {
+                axios({
+                    method: 'get', 
+                    url: 'https://favqs.com/api/quotes',
+                    params: {
+                        filter: this.input,
+                    },
+                    headers: {
+                        "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                    }
+                }).then(response => {
+                    this.quotes = response.data
+                    console.log(this.quotes, response.data)
+                }).catch(error => {
+                    console.log(error, error.response.data)
+                    this.error = error.response.data
+                })
+            } 
+        },
         nextq: function() {
             this.page++
             if (this.typesearch === 'author') {
@@ -178,7 +198,27 @@ const vm = new Vue({
                     this.error = error.response.data
                 })
             }
+            if (this.typesearch === 'contains') {
+                axios({
+                    method: 'get', 
+                    url: 'https://favqs.com/api/quotes',
+                    params: {
+                         filter: this.input,
+                        page:this.page
+                    },
+                    headers: {
+                        "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                    }
+                }).then(response => {
+                    this.quotes = response.data
+                    console.log(this.quotes, response.data)
+                }).catch(error => {
+                    console.log(error, error.response.data)
+                    this.error = error.response.data
+                })
+            }
         },
+        
         previousq: function() {
             if (this.page > 1) {
                this.page-- 
@@ -244,7 +284,27 @@ const vm = new Vue({
                     this.error = error.response.data
                 })
             }
-        }
+            if (this.typesearch === 'contains') {
+                axios({
+                    method: 'get', 
+                    url: 'https://favqs.com/api/quotes',
+                    params: {
+                         filter: this.input,
+                        page:this.page
+                    },
+                    headers: {
+                        "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                    }
+                }).then(response => {
+                    this.quotes = response.data
+                    console.log(this.quotes, response.data)
+                }).catch(error => {
+                    console.log(error, error.response.data)
+                    this.error = error.response.data
+                })
+            }
+        },
+        
     },
     created: function() {
         axios({
