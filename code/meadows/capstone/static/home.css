@@ -9,29 +9,32 @@ body {
     background-color: rgb(163, 159, 159);
     font-family: 'Saira', sans-serif;
     display:flex;
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 }
 .float-conatiner {
-    border: 3px solid #fff;
-    padding: 20px;
-    border: flex;
+    margin:0 auto;
+    padding:0;
+    width:1000px;
+    border:3px solid red;
+    overflow: hidden;
 }
 
-.float-child .blogs{
-    width:fit-content;
+.float-child .blogs, .float-child .user{
+    width:450px;
     float: center;
-    padding: 20px;
+    padding: 0px;
     border: 2px solid red;
 }
-.float-child .user{
-    width: 20%;
+/* .float-child .user{
+    width: 100%;
     float:center;
     padding:10px;
     border: 2px solid red;
     margin-right: 20%;
-}
+    display: ;
+} */
 span .prof-pic{
-    border-radius: 50%;
+    border-radius: 40%;
     box-shadow: 0px 6px 15px 3px black;
 }
 .blogs {

@@ -27,7 +27,6 @@ const vm = new Vue({
                 url: '/api/v1/users/'
             }).then(response => this.users = response.data)
         },
-        
         loadCurrentUser: function() {
             axios({
                 method: 'get',

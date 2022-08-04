@@ -6,7 +6,7 @@ class Blog(models.Model):
     username = models.ForeignKey(get_user_model(), related_name='posts', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    body = models.TextField()
+    body = models.TextField(max_length=350)
 
     def __str__(self):
         return self.title
