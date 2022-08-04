@@ -153,6 +153,12 @@ Be sure to replace `django_demo` with the name of your project folder.  So, that
 web: gunicorn django_demo.wsgi
 release: python manage.py migrate
 ```
+If you have a custom user model, you'll need to make sure your release command migrates the user app (and your user model) first, then migrates your other models. Your Procfile will need to look like this:
+
+```
+web: gunicorn django_demo.wsgi
+release: python manage.py migrate users && python manage.py migrate
+```
 
 Be sure to use `python` here, not `py` or `python3`.  This will migrate everything to your new database (create the tables for your schema).  Note that you don't have to run `makemigrations` as well.  That only needs to be done after you make changes to your Models, and all your migrations are already stored as Python files in your repo.  
 ### Note:
