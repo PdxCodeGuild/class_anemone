@@ -9,7 +9,7 @@ const vm = new Vue({
         profilePic: null,
         newBlog: {
             "title": "",
-            "username": null,
+            "username": '',
             "body": ""
         },
         postErrors: {},
@@ -34,6 +34,7 @@ const vm = new Vue({
             }).then(response => this.currentUser = response.data)
         },
         createPost: function() {
+            this.newBlog.username = this.currentUser.username
             axios({
                 method: 'post',
                 url: '/api/v1/blog/',
@@ -42,7 +43,7 @@ const vm = new Vue({
                 },
                 data: {
                     "title": this.newBlog.title,
-                    "username": this.currentUser.username,
+                    "username": this.currentUser.id,
                     "body": this.newBlog.body
                 }
             }).then(response => {

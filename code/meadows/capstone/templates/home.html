@@ -12,18 +12,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}"/>
 </head>
-<body>
 <div id="app">
+<body>
     {% csrf_token %}
-    <div class='float-container'>
-
-        <div class='float-child'>
             {% if user.is_authenticated %}
                 <div class='user'>
-                    <span v-if="currentUser"><img class='prof-pic' :src='currentUser.profile_pic' alt='profile-Pic' width='100%'border-box='flex'></span>
-                    <h1>{{ user.username }}</h1>
-                    <span v-if='currentUser'><a :href="'/users/profile/' + currentUser.username">profile</a></span>
-                    <p><a href="{% url 'login' %}">Logout</a></p>
+                <nav>
+                    <ul>
+                        <li><span v-if="currentUser"><a :href="'/users/profile/' + currentUser.username">
+                            <img class='prof-pic' :src='currentUser.profile_pic' alt='profile-Pic' width='100%'border-box='flex'></span></li></a>
+                        <li><p>{{ user.username }}</p></li>
+                        <li><h4><span v-if='currentUser'><a :href="'/users/profile/' + currentUser.username">profile</a></span></h4></li>
+                        <li><h4><a href="{% url 'login' %}">Logout</a></h4></li>
+                        <li><h3><a href='/'>MYGYMPAL</a></h3></li>
+                    </ul>
+                </nav>
                 </div>
 
             {% else %}
@@ -31,22 +34,18 @@
                 <p>You are not logged in OR need to signup. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
             {% endif %}
         
-
-        {% comment %} <div class='float-child'> {% endcomment %}
-            <div class='blogs'>
-                {% if user.is_authenticated %}
-                <div>
+            {% if user.is_authenticated %}
+            <div class='input'>
                 <span v-if="currentUser">
+                    <div>
                     <input type="text" placeholder="Title" v-model="newBlog.title">
-                    <template v-if="postErrors.title">
-                    </template>
-                    <textarea placeholder="Body" v-model="newBlog.body"></textarea>
-                    <template v-if="postErrors.body">
-                    </template>
+                    </div>
+                    <textarea class='body' type='text' placeholder="GYMBRO Thoughts" rows="7" cols="50" v-model="newBlog.body"></textarea>
                     <button @click="createPost">New Post</button>
                 </span>
-                </div>
-                {%endif%}
+            </div>
+            {%endif%}
+            <div class='blogs'>
 
                 <ul v-for="blogs in blog.results" :key="blogs.id">
                     <li>
@@ -56,7 +55,7 @@
                         <h4>[[ blogs.body ]]</h4>
 
                         <div v-if="blogs" class='blog-user'>
-                            <h5>Posted by:<a :href="'/users/profile/' + blogs.user_detail.username">[[blogs.user_detail.username]]</a></h5>
+                            <h5>Posted by:<a :href="'/users/profile/' + blogs.user_detail.username">&nbsp;&nbsp;&nbsp;[[blogs.user_detail.username]]</a></h5>
                         </div>
 
                         <h6>created:[[blogs.created]] /// updated:[[blogs.updated]]</h6>
@@ -64,14 +63,14 @@
                     </li>
                 </ul>
             </div>
-    </div>
-</div></div></div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="{% static 'home.js'%}"></script>
 </body>
+</div>
 </html>
 
 

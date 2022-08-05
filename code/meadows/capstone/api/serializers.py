@@ -19,7 +19,7 @@ class BlogSerializer(serializers.ModelSerializer):
     user_detail = NestedUserSerializer(read_only=True, source='username')
     class Meta:
         model = Blog
-        fields = ('title', 'user_detail', 'created', 'updated', 'body')
+        fields = ('title', 'username', 'user_detail', 'created', 'updated', 'body')
 
 
 class UserSerializer(serializers.ModelSerializer):

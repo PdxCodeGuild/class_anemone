@@ -89,6 +89,7 @@ input[type=submit] {
     color: aliceblue;
     background-color: #000000;
     width: 5em;
+    margin: 1em;
   }
   
     input[type=submit]:hover {
@@ -102,3 +103,21 @@ input[type=submit] {
     height: 2.6em;
     border-radius: 50%;
     }
+
+.btn a{
+    color: aliceblue;
+    font-size: large;
+    background-color: #000000;
+    width: 30em;
+    border: 1px solid black;
+    padding: .3em;
+    box-shadow: 0px 9px 30px 3px rgb(17, 17, 17);
+    height: 2.6em;
+    border-radius: 50%;
+    margin: 1em;
+    text-decoration: none;
+}
+.btn a:hover{
+    background-color: #05eeff;
+    color: #000000;
+}
