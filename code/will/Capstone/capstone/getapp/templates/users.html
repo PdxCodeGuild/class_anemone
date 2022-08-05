@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-     
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-      
-      <title></title>
-      {% comment %} <link rel="stylesheet" type="text/css" href="css/mystyle.css"/> {% endcomment %}
-  </head>
-  <body>
-   
- {{response}}
+  {% load static %}
+<head>
+<title>Dalton's List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 
-{% comment %} 
-    <form action="https://webhook.site/bb8a70c3-c4a0-430a-988c-a72d3d5b365d" method="post">
-      <label for="Enter your name">Enter your name here:</label><br>
-      <input type="text" name="Enter your name"/><br>
-     
+</head>
+<body>
+
+
+
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Description</h1>
+      <p> {{ description }}  <img class="one" src="{{ image }}" style="width:500px;height:600px" alt="House Picture"></p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">Bedrooms: {{ bedrooms }}</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Bathrooms: {{ bathrooms }}</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Zipcode: {{ zipcode }}</p>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Historical Weather Information</h1>
+      <p>Address: {{ address }}<br> Living Area: {{ living_area}}<br>  HOA Fees? : {{ hoa }} <br> Wind Direction: {{ wdir }} <br> Temperature: {{ temp }}<br> Daily High: {{ maxt }} <br> Daily Low {{ mint }} <br> Visiblity {{ visibility }} <br> Wind Speed {{ wspd }} <br> Solar Energy: {{ solarenergy }} <br> Cloud Cover: {{ cloudcover }} </p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">Last Price: {{ last_price }} </p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Lot Size: {{ lot_size }} </p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Home Type : {{ home_type }} </p>
+    </div>
+  </div>
+
  
-      <label for="password">Enter your password here if you have an account with us:</label><br>
-      <input type="password" id ="delivery" name = "delivery" label for ="delivery"> <br>
-   
-
-      <p>Select what type of Tortilla you would like</p>
-      <input type="radio" name="burrito" value="flour" checked> White Flour<br>
-      <input type="radio" name="burrito" value="w.flour"> Wheat Flour<br>
-      <input type="radio" name="burrito" value="spinach"> Spinach<br>
-      <input type="radio" name="burrito" value="corn" > Corn<br>
-
-      <p>Select either White or Brown Rice</p>
-      <input type="radio" name="rice" value="w.rice"checked> White Rice<br>
-      <input type="radio" name="rice" value="b.rice"> Brown Rice<br>
-      <p>Select either Pinto or Black Beans</p>
-      <input type="radio" name="beans" value="black.beans" checked> Black Beans<br>
-      <input type="radio" name="beans" value="pinto.beans"> Pinto Beans<br>
   
+  </div>
 
-      <p>Please choose what type of protein you would like for your Burrito</p>
-      <input type="radio" name="protein" value="male" checked> Carnitas<br>
-      <input type="radio" name="protein" value="female"> Chicken<br>
-      <input type="radio" name="protein" value="other"> Sofritas<br>
-      <input type="radio" name="protein" value="male"> None<br>
-      <p>Check these boxes if you would like to add Cheese or Sour Cream!</p>
-      <input type="checkbox" id="add.ingredients" name="Cheese" value="Cheddar">
-      <label for="Add Cheese"> Additional Cheese</label><br>
-      <input type="checkbox" id="add.ingredients" name="Sour Cream" value="Sour">
-      <label for="Add Cream"> Additional Sour Cream</label><br>
-      <p>Enter any special delivery instructions here!</p>
-      <textarea>Enter any delivery instructions here!</textarea><br>
-      <button type="submit">submit</button><br>
 
-    </form> {% endcomment %}
-  </body>
+
+
+ 
+
+</div>
+<button onclick="history.back()">New Search!</button>
+
+
+</body>
 </html>
