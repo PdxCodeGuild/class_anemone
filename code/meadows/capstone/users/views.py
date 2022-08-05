@@ -13,7 +13,6 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 class ProfileView(DetailView):
-    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     model = CustomUser
     template_name = 'profile.html'
     context_object_name = 'user_profile'

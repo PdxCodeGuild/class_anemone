@@ -55,9 +55,8 @@
                         <h4>[[ blogs.body ]]</h4>
 
                         <div v-if="blogs" class='blog-user'>
-                            <h5>Posted by:<a :href="'/users/profile/' + blogs.user_detail.username">&nbsp;&nbsp;&nbsp;[[blogs.user_detail.username]]</a></h5>
+                            <h5>Posted by:<a @click="loadProfile(blogs)" :href="'/users/profile/' + blogs.user_detail.username">&nbsp;&nbsp;&nbsp;[[blogs.user_detail.username]]</a></h5>
                         </div>
-
                         <h6>created:[[blogs.created]] /// updated:[[blogs.updated]]</h6>
                     </div>
                     </li>

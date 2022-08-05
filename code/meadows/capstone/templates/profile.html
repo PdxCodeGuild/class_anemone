@@ -51,7 +51,7 @@
                 <div class='blogs'>
     
                     <ul v-for="blogs in blog.results" :key="blogs.id">
-                        <li>
+                        <li v-if="blogs.user_detail.username===profile">
                             <h1><b>[[ blogs.title ]]</b></h1>
     
                         <div class='blog-li'>
