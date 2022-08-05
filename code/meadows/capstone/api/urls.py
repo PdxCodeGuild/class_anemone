@@ -7,7 +7,6 @@ router.register('blog', views.BlogViewSet, basename='blog')
 router.register('users', views.UserViewSet, basename='users')
 
 urlpatterns = router.urls + [
-    path('<int:pk>', views.BlogDetailView.as_view()),
+    # path('<int:pk>', views.BlogDetailView.as_view()),
     path('currentuser/', views.CurrentUserView.as_view()),
-    # path('currentblog/', views.CurrentBlogView.as_view())
-]
+ ] + router.urls

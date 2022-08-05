@@ -6,6 +6,7 @@ const vm = new Vue({
         blog: [],
         users: [],
         currentUser: {},
+        userProfile: {},
         profilePic: null,
         newBlog: {
             "title": "",
@@ -33,6 +34,21 @@ const vm = new Vue({
                 url: '/api/v1/currentuser/'
             }).then(response => this.currentUser = response.data)
         },
+        // loadProfile: function() {
+        //     axios({
+        //         method: 'get',
+        //         url: '/api/v1/users/' +=1,
+        //         headers: {
+        //             data: {
+        //                 "id":this.users.id,
+        //                 "username":this.users.username,
+        //                 "pic":this.users.profile_pic,
+        //                 "title":this.blog.title,
+        //                 "body":this.blog.body
+        //             }
+        //         }
+        //     }).then(response => this.userProfile = response.data)
+        // },
         createPost: function() {
             this.newBlog.username = this.currentUser.username
             axios({
@@ -61,6 +77,7 @@ const vm = new Vue({
         this.loadBlogs()
         this.loadUsers()
         this.loadCurrentUser()
+        this.loadProfile()
     },
     mounted: function() {
         this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
