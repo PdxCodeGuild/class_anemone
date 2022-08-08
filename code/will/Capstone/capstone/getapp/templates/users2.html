@@ -1,126 +1,57 @@
-
+<!DOCTYPE html>
 <html lang="en">
   {% load static %}
-  <head>
-     
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-      
-      <title>Dalton's List </title>
-      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
-  </head>
-  <body>
-      {{ response }}
-    
+<head>
+<title>Dalton's List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 
-  <div class="wrapper">
-    House Address {{ address }}
-    
-    <div>
-   Bathrooms {{ bathrooms }}
+</head>
+<body>
+
+
+
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Description</h1>
+      <p> {{ description }}  <img class="one" src="{{ image }}" style="width:500px;height:600px" alt="House Picture"></p>
     </div>
-    <div>
-   Bedrooms {{ bedrooms }}
-    </div>
-    <div>
-   Last Price: ${{ last_price }}
-    </div>
-    <div>
-   Lot Size: {{ lot_size }} SQFT
-    </div>
-    <div>
-   Zestimate: {{ zestimate }}
-    </div>
-    <div>
-   Rent Zestimate {{remt_zestimate}}
-    </div>
-    <div>
-    Zipcode {{ zipcode }}
-    </div>
-    <div>
-    Description: {{ description }}
-    </div>
-    <div>
-    Home Type : {{ home_type }}
-    </div>
-    <div>
-    Living Area: {{ living_area }}
-    </div>
-    <div>
-    Hoa Fees? : {{ hoa }}
-    </div>
-    <div>
-   Wind Direction:  {{ wdir }}
-    </div>
-    <div>
-   Temperarature:    {{ temp }}
-    </div>
-    <div>
-   Daily High:  {{ maxt }}
-    </div>
-    <div>
-   Daily Low: {{ mint }}
-    </div>
-    <div>
-   Visibility: {{ visiblity }}
-    </div>
-    <div>
-   Wind Speed:  {{ wspd }}
-    </div>
-    <div>
-   Solar Energy:  {{ solarenergy }}
-    </div>
-    <div>
-   Cloud Cover:  {{ cloudcover }}
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">Bedrooms: {{ bedrooms }}</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Bathrooms: {{ bathrooms }}</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Zipcode: {{ zipcode }}</p>
     </div>
   </div>
- 
-   
 
-
-
-    
-    {% for item, value in response.items %}
-   
-    {% comment %} <div>
-      Dew :    {{ dew }}
-    </div> {% endcomment %}
-    {% comment %} <div>
-      temp:   {{ temp }}
-    </div> {% endcomment %}
-    {% comment %} <div>
-      Max Temp: {{ temp_max }}
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Historical Weather Information</h1>
+      <p>Address: {{ address }}<br> Living Area: {{ living_area}}<br>  HOA Fees? : {{ hoa }} <br> Wind Direction: {{ wdir }} <br> Temperature: {{ temp }}<br> Daily High: {{ maxt }} <br> Daily Low {{ mint }} <br> Visiblity {{ visibility }} <br> Wind Speed {{ wspd }} <br> Solar Energy: {{ solarenergy }} <br> Cloud Cover: {{ cloudcover }} </p>
     </div>
-    <div> 
-      Min Temp:     {{ temp_min }}
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">Last Price: {{ last_price }} </p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Lot Size: {{ lot_size }} </p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Home Type : {{ home_type }} </p>
     </div>
-    <div>
-      Chance of Rain:      {{ precip }}
-    </div>
-    <div>
-      Solar Energy : {{ solarenergy }}
-    </div>
-    <div>
-      Cloud Cover: {{ cloudcover }}
-    </div>
-    <div>
-      Cloud Cover : {{ cloudcover }}
-    </div>
-    <div>
-      Dew2 : {{ dew2 }} {% endcomment %}
-
-
-
-
-
-   {% endfor %}
- 
+  </div>
 
  
+  
+  </div>
+
+
+
+
  
 
+</div>
+<button onclick="history.back()">New Search!</button>
 
 
-  </body>
+</body>
 </html>

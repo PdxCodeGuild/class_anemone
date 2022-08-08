@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+<title>Dalton's List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+
+</head>
+<body>
+
+
+
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Description</h1>
+      <p> Great Uptown Hideaway~3 or 4 bdrm,3.5 baths in main house. Formal Living, Dining,&amp; Den flowing out onto back covered porch which overlooks flagstone patio and pool w. hottub! Unique &amp; Stylish this home boasts cypress doors, beadboard accents, warm paint colors, high ceilings, hardwd floors, and stainless applainces. **718 sq ft of total living area is detached guest house= 2- story 1bdrm/1 bath with kitchen, living area , and cool upstairs porch  <img class="one" src="https://photos.zillowstatic.com/fp/cd3ba5f168c1cd3d7d10d0d42a604f3b-uncropped_scaled_within_1536_1152.webp" style="width:500px;height:600px" alt="House Picture"></p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">Bedrooms: 4</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Bathrooms: 3</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Zipcode: 70115</p>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Historical Weather Information</h1>
+      <p>Address: 5525 Garfield St <br> Living Area: 3190 <br>  HOA Fees? : None <br> Wind Direction: {{ wdir }} <br> Temperature: {{ temp }}<br> Daily High: {{ maxt }} <br> Daily Low {{ mint }} <br> Visiblity {{ visibility }} <br> Wind Speed {{ wspd }} <br> Solar Energy: {{ solarenergy }} <br> Cloud Cover: {{ cloudcover }} </p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">Last Price:$ 1,290,000 </p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Lot Size: 5190 sqft</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">Home Type : Single Family </p>
+    </div>
+  </div>
+ 
+ 
+  
+  </div>
+
+
+
+
+ 
+
+</div>
+<button onclick="history.back()">New Search!</button>
+
+
+</body>
+</html>
