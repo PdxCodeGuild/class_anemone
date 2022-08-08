@@ -1,9 +1,11 @@
 
 
 
+
+
 <h1> All Students </h1>
 
-{% for student in students %} 
+
 
 First Name : {{ student.firstname }}
 Last Name :  {{ student.lastname }}
@@ -23,13 +25,26 @@ Last Name :  {{ student.lastname }}
 <script src=""> </script>
 <script src=""> </script>
 
+
+
+<div id="app">
+  <p>{{ message }}</p> # Uh oh, this is the same template syntax as Django! We'll need to fix that...
+</div>
+<script src="https://unpkg.com/vue"></script>
 <script>
-    const vm = new Vue({
-        el:'#app',
-        delimiters: ['[[',']]'],
-        data: {
-            
-        }
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello world!',
+    },
+    methods: {
+      logMessage: function () {
+        console.log(this);
+      }
+    },
+    mounted: function () {
+      logMessage();
+    }
+  });
+</script>
 
-
-    })
