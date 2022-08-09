@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-class Post(models.Model):
+class Posts(models.Model):
     title = models.TextField(max_length=50)
     author = models.ForeignKey('auth.user', related_name="posts", on_delete=models.CASCADE)
     body = models.TextField(max_length=128)

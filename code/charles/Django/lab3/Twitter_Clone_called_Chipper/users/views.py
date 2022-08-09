@@ -14,7 +14,7 @@ class SignUpView(CreateView):
 
 class UserProfileView(DetailView):
     model = User
-    template_name = 'profile.html'
+    template_name = 'user_profile.html'
     context_object_name = 'user_profile'
 
     def get_object(self):
@@ -23,6 +23,6 @@ class UserProfileView(DetailView):
 def user_profile(request, username):
     user_profile = get_object_or_404(User, username=username)
     context = {'user_profile': user_profile}
-    return render(request, 'profile.html', context)
+    return render(request, 'user_profile.html', context)
 
 # Create your views here.
