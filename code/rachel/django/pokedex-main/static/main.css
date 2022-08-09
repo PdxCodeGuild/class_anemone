@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(171, 208, 196);
+    font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+a {
+    font-size: 1.5em;
+    color:rgb(10, 71, 52);
+}
+
+#flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.center {
+    text-align: center;
+}
+
+.space {
+    padding-top: 3em;
+}
