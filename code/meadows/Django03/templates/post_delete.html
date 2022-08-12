@@ -5,7 +5,7 @@
     <h1>Delete</h1>
     <form action="" method="post">
         {% csrf_token %}
-        <p>DELETE this CHIRP ??"{{ post.title }}"?</p>
+        <p>DELETE this CHIRP ??"{{ chirps.title }}"?</p>
         <input type="submit" value="Confirm">
     </form>
 

@@ -2,11 +2,13 @@
 
 {% block content %}
 
-    {% for post in object_list %}
-        <div class="post-entry">
-            <h2><a href="{% url 'chirp:detail' post.pk %}">{{ post.title }}</a></h2>
-            <h4><em><a href="{% url 'users:profile' post.chirpname.username %}">{{ post.chirpname.username }}</a></em></h4>
-            <p>{{ post.body|linebreaksbr }}</p>
+    {% for chirps in object_list %}
+        <div class="home">
+            <h2><a href="{% url 'chirp:detail' chirps.pk %}">{{ chirps.title }}</a></h2>
+            <p>{{ chirps.body|linebreaksbr }}</p>
+            <h4><em>CHIRPED BY:<a href="{% url 'users:profile' chirps.chirpname.username %}">
+                &nbsp; &nbsp;{{ chirps.chirpname.username }}</a></em></h4>
+            <br>
         </div>
     {% endfor %}
 

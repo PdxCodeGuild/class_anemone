@@ -31,8 +31,8 @@ class ChirpEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ['title', 'body']
 
     def test_func(self):
-        post = self.get_object()
-        return self.request.user == post.chirpname
+        chirps = self.get_object()
+        return self.request.user == chirps.chirpname
 
 class ChirpDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Chirp
@@ -40,5 +40,5 @@ class ChirpDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('chirp:home')
 
     def test_func(self):
-        post = self.get_object()
-        return self.request.user == post.chirpname
+        chirps = self.get_object()
+        return self.request.user == chirps.chirpname

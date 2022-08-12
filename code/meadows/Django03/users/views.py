@@ -12,7 +12,7 @@ class SignUpView(CreateView):
 
 class UserView(DetailView):
     model = User
-    template_name = 'user_profile.html'
+    template_name = 'chirps_profile.html'
     context_object_name = 'user_profile'
 
     def get_object(self):
@@ -21,4 +21,4 @@ class UserView(DetailView):
 def user_profile(request, username):
     user_profile = get_object_or_404(User, username=username)
     context = {'user_profile': user_profile}
-    return render(request, 'user_profile.html', context)
+    return render(request, 'chirps_profile.html', context)
