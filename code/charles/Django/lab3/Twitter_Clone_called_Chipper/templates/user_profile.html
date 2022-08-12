@@ -2,17 +2,14 @@
 
 {% block content %}
 
-    <div class="posts-entry">
-        <h2>{{ posts.title }}</h2>
-        <h4><em><a href="{% url 'users:profile' posts.author.username %}">{{ posts.author.username }}</a></em></h4>
-        <h4><em> posted on {{ posts.created }}</em></h4>
-        <h4><em>Last updated on {{ posts.updated }}</em></h4>
-        <p>{{ posts.body|linebreaksbr }}</p>
-    </div>
+<h1>{{ user_profile.username }}</h1>
+<h5><em>Writing stuff since {{ user_profile.date_joined }}!</em></h5>
 
-    {% if user == posts.author %}
-        <p><a href="{% url 'posts:edit' posts.pk %}">+ Edit Blog Post</a></p>
-        <p><a href="{% url 'posts:delete' posts.pk %}">+ Delete Blog Post</a></p>
-    {% endif %}
+{% for post in user_profile.posts.all %}
+    <div class="post-entry">
+        <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.body|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 
 {% endblock content %}
