@@ -4,6 +4,7 @@ from pokemon import models
 from .serializers import PokemonSerializer
 
 
+
 class ListPokemon(generics.ListCreateAPIView):
     queryset = models.Pokemon.objects.all()
     serializer_class = PokemonSerializer
@@ -12,3 +13,6 @@ class ListPokemon(generics.ListCreateAPIView):
 class DetailPokemon(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Pokemon.objects.all()
     serializer_class = PokemonSerializer
+
+
+
