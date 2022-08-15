@@ -40,4 +40,5 @@ let distanceConverter = (dis,x,y) => {
 let oVal = toMeters(oUnit)
 let cVal = toMeters(cUnit)
 let final = distanceConverter(distance,oVal,cVal);
-console.log(`${distance} ${oUnit} converts to ${final} ${cUnit}`)
+console.log(`${distance} ${oUnit} converts to ${final} ${cUnit}`);
+alert(`${distance} ${oUnit} converts to ${final} ${cUnit}`);
