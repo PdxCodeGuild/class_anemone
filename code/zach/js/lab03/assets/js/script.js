@@ -61,4 +61,4 @@ let wordConvert = (numeric) => {
 let input = prompt('input number < 100');
 let output = wordConvert(input);
 alert(`${input} is ${output}`);
-console.log(teens[input[1]]);
+// alert(teens[input[1]]);
