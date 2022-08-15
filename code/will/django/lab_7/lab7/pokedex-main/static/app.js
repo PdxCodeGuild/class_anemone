@@ -17,17 +17,11 @@ Vue.component('pokemon-item', {
                 <p>{{ item.number }}</p>
                 <p><strong>{{ item.name }}</strong></p>
                 <img :src="item.image_front">
-                <p><em>-height: {{ item.height }}</em></p>
-                <p><em>-weight: {{ item.weight }}</em></p>
-                <p><em>-type:</em></p>
-                <ul>
-                    <li v-for="type in item.type_info">
-                        <p><em>{{ type.type }}</em></p>
-                    </li>
-                </ul>
-                <br>
+                <img :src="item.image_back">
+                <p>-height: {{ item.height }}</p>
+                <p>-weight: {{ item.weight }}</p>
                 <button @click="editMode=true">Edit</button>
-                <button @click="removePokemon(item)">Remove Pokemon</button>
+                
             </div>  
         </div>
     `,
@@ -49,7 +43,7 @@ const vm = new Vue({
         csrfToken: "",
         pokemon: [],
         types: [],
-        newPokemon: {
+        newpokemon: {
             "number": null,
             "name": "",
             "height": null,
@@ -72,32 +66,10 @@ const vm = new Vue({
                 console.log(error.response_data)
             })
         },
-       
-        createPokemon: function() {
-            axios({
-                method: 'post',
-                url: 'api/v1/',
-                headers: {
-                    'X-CSRFToken': this.csrfToken
-                },
-                data: this.newPokemon
-            }).then(response => {
-                this.loadPokemon()
-                this.newPokemon = {
-                    "number": null,
-                    "name": "",
-                    "height": null,
-                    "weight": null,
-                    "image_front": "",
-                    "image_back": "",
-                    "type": ""
-                }
-            })
-        },
         savePokemon: function(item) {
             axios({
                 method: 'patch',
-                url: `api/v1/${item.id}/`,
+                url: `api/v1/`,
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
@@ -106,21 +78,30 @@ const vm = new Vue({
                 this.loadPokemon()
             })
         },
-        removePokemon: function(item) {
+        NewPokemon: function() {
             axios({
-                method: 'delete',
-                url: `api/v1/${item.id}/`,
+                method: 'post',
+                url: 'api/v1/',
                 headers: {
-                    'X-CSRFToken': this.csrfToken
-                }
+                    'X-CSRFToken' : 'this.csrfToken'
+                },
+                data: this.newpokemon
             }).then(response => {
                 this.loadPokemon()
+                this.newpokemon ={
+                    "number": null,
+                    "namne": "",
+                    "height": null,
+                    "weight": null,
+                    "image_front":"",
+                    "image_back" : "",
+                    "type": null
+                }
             })
         }
     },
     created: function() {
         this.loadPokemon()
-        this.loadTypes()
     },
     mounted: function() {
         this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value

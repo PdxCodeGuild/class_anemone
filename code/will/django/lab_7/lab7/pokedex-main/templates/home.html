@@ -28,9 +28,10 @@
                     v-for="item in pokemon"
                     :key="item.id"
                     :item="item"
-                    @save="savePokemon(item)"
-                    @remove="removePokemon(item)"
-                ></pokemon-item>                
+                    @save="save(item)"
+                    @remove="remove(item)"
+                ></pokemon-item>            
+           
             </ul>
         </div> 
     </main>
