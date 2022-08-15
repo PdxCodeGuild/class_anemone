@@ -54,4 +54,11 @@ def update_item(request, pk):
         item.save()
     return HttpResponseRedirect(reverse('grocery_list:index'))
 
+def delete_item(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+
+
 
