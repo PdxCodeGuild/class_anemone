@@ -55,7 +55,7 @@ else if (hand >= 17 && hand < 21 ) {
     alert('Your hand is ' + hand + ' I would Stay')
 }
 else if (hand === 21) {
-    lert('Your hand is ' + hand + ' BLACK JACK BABY!!!!')
+    alert('Your hand is ' + hand + ' BLACK JACK BABY!!!!')
 }
 else {
     alert('Your hand is ' + hand + ' YOU BUSTED!')
