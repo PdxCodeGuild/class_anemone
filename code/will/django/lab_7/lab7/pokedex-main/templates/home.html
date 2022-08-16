@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    <header>
+        <div>
+            {% if user.is_authenticated %}
+            <h3>Welcome to this Pokemon page, {{ user.username }}!</h3>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        {% csrf_token %}
+        <div id="app">
+         
+            <ul v-if="Object.keys(pokemon).length">
+                <pokemon-item
+                    v-for="item in pokemon"
+                    :key="item.id"
+                    :item="item"
+                    @save="save(item)"
+                    @remove="remove(item)"
+                ></pokemon-item>            
+           
+            </ul>
+        </div> 
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{% static '/app.js' %}"></script>
+</body>
+</html>
