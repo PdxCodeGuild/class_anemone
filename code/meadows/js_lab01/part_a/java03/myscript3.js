@@ -1,16 +1,17 @@
 var card = prompt("Enter Credit Card Number: ")
+//CC number used -- 4556737586899855 ( python lab Lab 6)
 
 let myFunc = num => Number(num)
 
 var intArr = Array.from(String(card), myFunc)
-var intArr2 = [...intArr]
+// var intArr2 = [...intArr]
 
 let hold = intArr.pop()
 
-let Reverse = intArr2.reverse()
+let Reverse = intArr.reverse()
 
 function everyOther(multArray) {
-    for (var i = 1; i < multArray.length; i+=2) {
+    for (var i = 0; i < multArray.length; i+=2) {
         multArray[i] *= 2
     }
     return multArray
@@ -37,9 +38,9 @@ for(let i = 0; i < subNum.length; i++){
     sum += subNum[i]
 }
 
-let numSum = sum / intArr2.length
+lastNum = sum%10
 
-if ( Math.floor(numSum)===hold) {
+if ( lastNum===hold) {
     alert("Your Credit Card is Valid")
 }
 else {
