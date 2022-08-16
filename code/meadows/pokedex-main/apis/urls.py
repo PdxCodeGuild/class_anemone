@@ -1,9 +1,12 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
+from . import views
 
-from .views import PokemonAPIView, PokemonViewSet, TypeViewSet
+router = DefaultRouter()
+router.register('pokemon', views.PokemonViewSet, basename='pokemon')
+router.register('types', views.TypeViewSet, basename='types')
+router.register('users', views.UserViewSet, basename='users')
 
-urlpatterns = [
-    path('', PokemonAPIView.as_view()),
-    path('<int:pk>/', PokemonViewSet.as_view()),
-    path('type', TypeViewSet.as_view())
-]
+urlpatterns = router.urls + [
+    path('currentuser/', views.CurrentUserViewSet.as_view())
+] + router.urls

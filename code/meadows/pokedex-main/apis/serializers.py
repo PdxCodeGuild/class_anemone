@@ -1,19 +1,31 @@
 from rest_framework import serializers
-from pokemon.models import Pokemon, Type
+from pokemon import models
+from django.contrib.auth import get_user_model
 
 
-class ClassSerlializer(serializers.ModelSerializer):
+
+class NestedPokemonSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Type
-        fields = ('__all__')
-
-
-
-class PokemonSerlializer(serializers.ModelSerializer):
-    types = ClassSerlializer(many=True)
-    class Meta:
-        model = Pokemon
+        model = models.Pokemon
         fields = (
+            'id',
+            'name',
+        )
+
+class NestedTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Type
+        fields = (
+            'id',
+            'type',
+        )
+
+class PokemonSerializer(serializers.ModelSerializer):
+    type_info = NestedTypeSerializer(many=True, source='types')
+    class Meta:
+        model = models.Pokemon
+        fields = (
+            'id',
             'number',
             'name',
             'height',
@@ -21,6 +33,26 @@ class PokemonSerlializer(serializers.ModelSerializer):
             'image_front',
             'image_back',
             'caught_by',
-            'types',
-            )
+            'type_info',
+        )
 
+class TypeSerializer(serializers.ModelSerializer):
+    name_info = NestedPokemonSerializer(many=True, source='pokemon')
+    class Meta:
+        model = models.Type
+        fields = (
+            'type',
+            'name_info',
+            'pokemon',
+        )
+
+class UserSerializer(serializers.ModelSerializer):
+    caught_info = NestedPokemonSerializer(many=True, read_only=True, source="caught")
+    class Meta:
+        model = get_user_model()
+        fields = (
+            'id',
+            'username',
+            'caught',
+            "caught_info",
+        )
