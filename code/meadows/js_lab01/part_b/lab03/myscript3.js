@@ -14,10 +14,10 @@ CC.addEventListener('click', function(){
 
     let hold = intArr.pop()
 
-    let Reverse = intArr2.reverse()
-
+    let Reverse = intArr.reverse()
+    console.log(Reverse)
     function everyOther(multArray) {
-        for (var i = 1; i < multArray.length; i+=2) {
+        for (var i = 0; i < multArray.length; i+=2) {
             multArray[i] *= 2
         }
         return multArray
@@ -27,7 +27,7 @@ CC.addEventListener('click', function(){
     let dubReverse = []
 
     let Reversedub = dubReverse.concat(doubleReverse)
-
+    console.log(Reversedub)
     function SubNum(subArray) {
         for (var i = 0; i < subArray.length; i++) {
             if (subArray[i] >= 10){
@@ -38,15 +38,17 @@ CC.addEventListener('click', function(){
     }
 
     let subNum = SubNum(Reversedub)
+    console.log(subNum)
 
     let sum=0
     for(let i = 0; i < subNum.length; i++){
         sum += subNum[i]
     }
 
-    let numSum = sum / intArr2.length
+    lastNum = sum%10
+    console.log(lastNum)
 
-    if ( Math.floor(numSum)===hold) {
+    if ( lastNum===hold) {
         Decide = "Your Credit Card is Valid"
     }
     else {
