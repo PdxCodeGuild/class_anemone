@@ -11,17 +11,20 @@ Vue.component('pokemon-item', {
                 <input type="text" v-model="item.name">
                 <input type="text" v-model="item.height">
                 <input type="text" v-model="item.weight">
+                <input type="text" v-model="item.image_front">
+                <input type="text" v-model="item.image_back">
                 <button @click="savePokemon(item)">Save</button>
             </div>
             <div v-else>
                 <p>{{ item.number }}</p>
-                <p><strong>{{ item.name }}</strong></p>
+                <p>{{ item.name }}</p>
                 <img :src="item.image_front">
                 <img :src="item.image_back">
-                <p>-height: {{ item.height }}</p>
-                <p>-weight: {{ item.weight }}</p>
+                <p>height: {{ item.height }}</p>
+                <p>weight: {{ item.weight }}</p>
+                <br>
                 <button @click="editMode=true">Edit</button>
-                
+                <button @click="removePokemon(item)">Remove Pokemon</button>
             </div>  
         </div>
     `,
@@ -42,16 +45,27 @@ const vm = new Vue({
     data: {
         csrfToken: "",
         pokemon: [],
-        types: [],
-        newpokemon: {
-            "number": null,
+        newPokemon: {
+            "number": "",
             "name": "",
-            "height": null,
-            "weight": null,
+            "height": "",
+            "weight": "",
             "image_front": "",
             "image_back": "",
-            "type": ""
+            "caught_by":[],
         },
+        users:[],
+        currentUser:{},
+        currentUserID:'',
+        thisPokemon : {
+            "number": 166,
+            "name": "bulbasaur",
+            "height": 0.7,
+            "weight": 6.9,
+            "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+            "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+            "caught_by": [3]
+        }
     },
     methods: {
         loadPokemon: function() {
@@ -66,6 +80,35 @@ const vm = new Vue({
                 console.log(error.response_data)
             })
         },
+        createPokemon: function() {
+            axios({
+                method: 'post',
+                url: 'api/v1/',
+                headers: {
+                    'X-CSRFToken': this.csrfToken
+                },
+                data: {
+                    "number": this.newPokemon.number,
+                    "name": this.newPokemon.name,
+                    "height": this.newPokemon.height,
+                    "weight": this.newPokemon.weight,
+                    "image_front": this.newPokemon.image_front,
+                    "image_back": this.newPokemon.image_back,
+                    "caught_by": [this.currentUserID]
+                }
+            }).then(response => {
+                // this.loadPokemon()
+                this.newPokemon = {
+                    "number": "",
+                    "name": "",
+                    "height": "",
+                    "weight": "",
+                    "image_front": "",
+                    "image_back": "",
+                    "caught_by": "",
+                }
+            })
+        },
         savePokemon: function(item) {
             axios({
                 method: 'patch',
@@ -78,30 +121,37 @@ const vm = new Vue({
                 this.loadPokemon()
             })
         },
-        NewPokemon: function() {
+        removePokemon: function(item) {
             axios({
-                method: 'post',
-                url: 'api/v1/',
+                method: 'delete',
+                url: `api/v1/`,
                 headers: {
-                    'X-CSRFToken' : 'this.csrfToken'
-                },
-                data: this.newpokemon
+                    'X-CSRFToken': this.csrfToken
+                }
             }).then(response => {
                 this.loadPokemon()
-                this.newpokemon ={
-                    "number": null,
-                    "namne": "",
-                    "height": null,
-                    "weight": null,
-                    "image_front":"",
-                    "image_back" : "",
-                    "type": null
+            })
+        },
+        loadCurrentUser: function() {
+            axios({
+                method:'get',
+                url:'api/v1/current-user',
+                headers:{
+                    'X-CSRFToken': this.csrfToken
                 }
+            }).then(response=> {
+                this.currentUser = response.data
+                this.currentUserID = this.currentUser.id
+                console.log('The current user: ', this.currentUser)
+                // console.log(this.currentUser['id'])
+
+                console.log(this.currentUserID)
             })
         }
     },
     created: function() {
         this.loadPokemon()
+        this.loadCurrentUser()
     },
     mounted: function() {
         this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
