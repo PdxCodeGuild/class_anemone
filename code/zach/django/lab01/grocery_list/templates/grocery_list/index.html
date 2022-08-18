@@ -35,6 +35,12 @@
                 <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Update"> 
             </p>
         </form>
+        <form action="{% url 'grocery_list:delete' item.pk %}" method="POST">
+            {% csrf_token%}
+            <p>
+                <input type="submit" value='Delete'>
+            </p>
+        </form>
         {% endfor %}
         </ul>
     </p>
@@ -51,6 +57,12 @@
             {% csrf_token %}
             <p>
                 <input class="btn btn-secondary my-1 my-sm-0" type="submit" value="Update"> 
+            </p>
+        </form>
+        <form action="{% url 'grocery_list:delete' item.pk %}" method="POST">
+            {% csrf_token%}
+            <p>
+                <input type="submit" value='Delete'>
             </p>
         </form>
         {% endfor %}
