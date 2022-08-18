@@ -14,6 +14,7 @@ Vue.component('pokemon-item', {
                 <input type="text" v-model="item.image_front">
                 <input type="text" v-model="item.image_back">
                 <button @click="savePokemon(item)">Save</button>
+              
             </div>
             <div v-else>
                 <p>{{ item.number }}</p>
@@ -71,7 +72,7 @@ const vm = new Vue({
         loadPokemon: function() {
             axios({
                 method: 'get',
-                url: 'api/v1/'
+                url: 'api/v1/pokemon'
             }).then(response => {
                 this.pokemon = response.data
                 console.log(response.data)
@@ -83,7 +84,7 @@ const vm = new Vue({
         createPokemon: function() {
             axios({
                 method: 'post',
-                url: 'api/v1/',
+                url: 'api/v1/pokemon',
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
@@ -97,7 +98,7 @@ const vm = new Vue({
                     "caught_by": [this.currentUserID]
                 }
             }).then(response => {
-                // this.loadPokemon()
+                this.loadPokemon()
                 this.newPokemon = {
                     "number": "",
                     "name": "",
@@ -112,7 +113,7 @@ const vm = new Vue({
         savePokemon: function(item) {
             axios({
                 method: 'patch',
-                url: `api/v1/`,
+                url: `api/v1/pokemon/${item.id}/`,
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
@@ -124,7 +125,7 @@ const vm = new Vue({
         removePokemon: function(item) {
             axios({
                 method: 'delete',
-                url: `api/v1/`,
+                url: `/api/v1/pokemon/${item.id}/`,
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 }
