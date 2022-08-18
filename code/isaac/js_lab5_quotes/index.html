@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+    <title>Quotes</title>
+</head>
+<body>
+    <header>
+        <h1>Quotes API</h1>
+        <h3>Pick a quote of the day or find a quote you like.</h3>
+    </header>
+    <main>
+        <div id="app">
+            <div v-if="Object.keys(qotd).length">
+                <qotd-display></qotd-display>
+                <p class="qotd-show">{{ qotd.quote.body }}</p>
+                <p><a :href="qotd.quote.url">{{ qotd.quote.author }}</a></p>
+            </div>
+            
+            <h1>Find your quote</h1>
+            <label for="user-input"></label>
+            <input type="text" name="user-input" v-model="searchType" placeholder="Search Quote">
+            <select name="terms" id="terms" v-model="searchTag">
+                <option disabled value="">Please choose</option>
+                <option value="keyword" required>Keyword</option>
+                <option value="author">Author</option>
+                <option value="tag">Tag</option>
+            </select><br>
+            <button @click="loadQuotes">Search Quote!</button>
+            <ul v-if="Object.keys(listQuotes).length">
+                <li v-for="quote in listQuotes.quotes" :key="quote.id">
+                    <p>{{ quote.body }}</p>
+                    <p><a :href="quote.url">{{ quote.author }}</a></p>
+                </li>
+            </ul><br>
+            <button @click="backPage" v-show="listQuotes.page > 1">Back</button>
+            <button @click="nextPage" v-show="!listQuotes.last_page">Next</button>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="quotes.js"></script>
+</body>
+</html>
