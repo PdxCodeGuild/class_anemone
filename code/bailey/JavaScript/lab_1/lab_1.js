@@ -37,7 +37,7 @@ console.log(total)
 total = total % 10
 console.log(total)
 
-if (total == check_digit){
+if (total === check_digit){
     alert("True, Valid!")
 }else{
     alert("Card number not valid")
