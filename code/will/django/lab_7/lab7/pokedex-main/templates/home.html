@@ -22,16 +22,27 @@
     <main>
         {% csrf_token %}
         <div id="app">
-         
+            {% if user.is_authenticated %}
+            <div>
+                <input type="text" placeholder="Number" v-model="newPokemon.number">
+                <input type="text" placeholder="Name" v-model="newPokemon.name">
+                <input type="text" placeholder="Height" v-model="newPokemon.height">
+                <input type="text" placeholder="Weight" v-model="newPokemon.weight">
+                <input type="text" placeholder="Front Image" v-model="newPokemon.image_front">
+                <input type="text" placeholder="Back Image" v-model="newPokemon.image_back">
+                <button @click="createPokemon">Create Pokemon</button>
+             
+
+                {% endif %}
+            </div>
             <ul v-if="Object.keys(pokemon).length">
                 <pokemon-item
                     v-for="item in pokemon"
                     :key="item.id"
                     :item="item"
-                    @save="save(item)"
-                    @remove="remove(item)"
-                ></pokemon-item>            
-           
+                    @save="savePokemon(item)"
+                    @remove="removePokemon(item)"
+                ></pokemon-item>                
             </ul>
         </div> 
     </main>
