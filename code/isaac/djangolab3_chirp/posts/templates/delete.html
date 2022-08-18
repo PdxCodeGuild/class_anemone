@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2>Delete Chirp</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <p><b>{{ chirp.head }}</b> - {{ chirp.body }}</p>
+    <input type="submit" value="Delete">
+</form>
+<a href="{% url 'posts:posts' %}"><input type="reset"value="Cancel"></a>
+
+
+{% endblock content %}

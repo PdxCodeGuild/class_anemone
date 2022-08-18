@@ -1,0 +1,21 @@
+body, html {
+    background-color: rgb(69, 129, 212);
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+}
+
+.post-wall {
+    margin-inline: 4em;
+    padding-block: 10px;
+    background-color: rgb(12, 148, 178);
+    border-radius: 15px;
+    border: solid green;
+}
