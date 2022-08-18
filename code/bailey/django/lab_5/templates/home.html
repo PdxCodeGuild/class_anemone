@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.11.0/build/cssnormalize/cssnormalize-min.css">
+    <title>Pokemon</title>
+</head>
+<body>
+    <header>
+        <div>
+            {% if user.is_authenticated %}
+            <h3>Welcome to this Pokemon page, {{ user.username }}!</h3>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        {% csrf_token %}
+        <div id="app">
+            <div>
+            <button @click="loadPokemon">Show Pokemon</button>
+            <button @click="hidePokemon">Hide Pokemon</button>
+            <button @click="editPokemon">Edit Pokemon</button>
+            </div>
+            <br>
+            <div>
+                <input type="text" placeholder="Number" v-model="createdPokemon.number">
+                <input type="text" placeholder="Name" v-model="createdPokemon.name">
+                <input type="text" placeholder="Height" v-model="createdPokemon.height">
+                <input type="text" placeholder="Weight" v-model="createdPokemon.weight">
+                <input type="text" placeholder="Front Image (path/filename)" v-model="createdPokemon.image_front">
+                <input type="text" placeholder="Back Image (path/filename)" v-model="createdPokemon.image_back">
+                <button @click="createPokemon">Create Pokemon</button>
+            </div>
+            <span v-for="pokemon in pokemons" v-if="edit === false">
+                <h3> [[ pokemon.name]] </h3>
+                <h4> Height: [[ pokemon.height ]]</h4>
+                <h4> Weight: [[ pokemon.weight ]]</h4>
+                <img :src='[[ pokemon.image_front ]]'>
+                <img :src='[[ pokemon.image_back ]]'>
+                <em>
+                <h4>Types: </h4>
+                    <h4 v-for="types in pokemon.type_info"> [[ types.type ]]</h4>
+                </em>
+                <hr>
+            </span>
+            <br>
+            <span v-for="pokemon in pokemons" v-if="edit === true">
+                <h3> [[ pokemon.name]] </h3>
+                <h4> Height: [[ pokemon.height ]]</h4>
+                <h4> Weight: [[ pokemon.weight ]]</h4>
+                <img :src='[[ pokemon.image_front ]]'>
+                <img :src='[[ pokemon.image_back ]]'>
+                <em>
+                    <h4>Types: </h4>
+                    <h4 v-for="types in pokemon.type_info"> [[ types.type ]]</h4>
+                </em>
+                <input type="text" placeholder="Edit Number" v-model="pokemon.number">
+                <input type="text" placeholder="Edit Name" v-model="pokemon.name">
+                <input type="text" placeholder="Edit Height" v-model="pokemon.height">
+                <input type="text" placeholder="Edit Weight" v-model="pokemon.weight">
+                <input type="text" placeholder="Edit Front Image (path/filename)" v-model="pokemon.image_front">
+                <input type="text" placeholder="Edit Back Image (path/filename)" v-model="pokemon.image_back">
+                <button @click="savePokemon(pokemon)">Save</button>
+                <button @click="removePokemon(pokemon)">remove</button>  
+            </span>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{% static '/app.js' %}"></script>
+</body>
+</html>
