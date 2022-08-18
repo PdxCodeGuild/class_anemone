@@ -37,7 +37,7 @@ class ATM{
     }
 }
 
-let atm = new ATM(5)
+let atm = new ATM()
 let loop = true
 console.log(atm.check_balance())
 
