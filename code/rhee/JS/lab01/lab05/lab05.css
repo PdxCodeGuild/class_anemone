@@ -8,7 +8,7 @@ body {
 .line {
     font-size: 20px;
 }
-.search-input {
+.searchbtn {
     font-size: 20px;
 
 }
@@ -16,25 +16,37 @@ body {
     font-size: 20px;
     margin-left: 10px;
 }
-.quote {
-    font-size: 20px;
-    background-color: rgb(123, 123, 151);
-}
 .pagination {
     display: inline-block;
-  }
+    font-size: 40px;
+}
   
-  .pagination a {
+.pagination {
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
-  }
+}
   
   .pagination a.active {
     background-color: #4CAF50;
     color: white;
-  }
+}
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.author {
+    font-size: 20px;
+}
+.quote {
+    font-size: 20px;
+    font-size: 20px;
+    background-color: rgb(123, 123, 151);
+}
+.tags {
+    font-size: 20px;
+}
+.input-field {
+    height: 60px
+}
