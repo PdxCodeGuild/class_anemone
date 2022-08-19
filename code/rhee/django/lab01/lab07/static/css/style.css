@@ -1,0 +1,21 @@
+.pask {
+    border: 1px solid black;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.body {
+    background-color: bisque;
+}.poke-name {
+    font-weight: 900px;
+}
+.cardfront {
+    border: 1px solid black;
+}
+
+.cardback {
+    border: 1px solid black;
+}
+.imagecard {
+    display: flex;
+}
