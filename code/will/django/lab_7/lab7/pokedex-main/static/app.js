@@ -72,7 +72,7 @@ const vm = new Vue({
         loadPokemon: function() {
             axios({
                 method: 'get',
-                url: 'api/v1/pokemon'
+                url: 'api/v1/'
             }).then(response => {
                 this.pokemon = response.data
                 console.log(response.data)
@@ -84,7 +84,7 @@ const vm = new Vue({
         createPokemon: function() {
             axios({
                 method: 'post',
-                url: 'api/v1/pokemon',
+                url: 'api/v1/',
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
@@ -113,7 +113,19 @@ const vm = new Vue({
         savePokemon: function(item) {
             axios({
                 method: 'patch',
-                url: `api/v1/pokemon/${item.id}/`,
+                url: `api/v1/`,
+                headers: {
+                    'X-CSRFToken': this.csrfToken
+                },
+                data: item
+            }).then(response => {
+     
+            })
+        },
+        removePokemon: function(item) {
+            axios({
+                method: 'delete',
+                url: `/api/v1/`,
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
@@ -122,21 +134,10 @@ const vm = new Vue({
                 this.loadPokemon()
             })
         },
-        removePokemon: function(item) {
-            axios({
-                method: 'delete',
-                url: `/api/v1/pokemon/${item.id}/`,
-                headers: {
-                    'X-CSRFToken': this.csrfToken
-                }
-            }).then(response => {
-                this.loadPokemon()
-            })
-        },
         loadCurrentUser: function() {
             axios({
                 method:'get',
-                url:'api/v1/current-user',
+                url:'api/v1/current-user/',
                 headers:{
                     'X-CSRFToken': this.csrfToken
                 }
