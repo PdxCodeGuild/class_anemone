@@ -9,13 +9,12 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="container"> 
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/">link2</a>
-                <a class="nav-link" href="/">link3</a>
-                <a class="nav-link" href="/">link4</a>              
-            </div>
+        <h4 class="title">Blog Site</h4>
+        <hr>
+        <nav class="container">      
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/">Blog</a>
+            <a class="nav-link" href="/">Github</a>            
         </nav>
     </header>
     <main>
@@ -23,8 +22,11 @@
         <section>
             <ul>
             {%  for post in posts %}
+            <div class="post-card">
                 <h3 class="post-title">{{post["title"]}}</h3>
-                <li class="post-textarea">{{post["body"]}}<br>-{{post["author"]}}</li>
+                <hr>
+                <p class="post-textarea">{{post["body"]}}<br>-{{post["author"]}}</p>
+            </div>
             {% endfor%}
             </ul>
         </section>
