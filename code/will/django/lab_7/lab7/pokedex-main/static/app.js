@@ -72,7 +72,7 @@ const vm = new Vue({
         loadPokemon: function() {
             axios({
                 method: 'get',
-                url: 'api/v1/'
+                url: 'api/v1/base/'
             }).then(response => {
                 this.pokemon = response.data
                 console.log(response.data)
@@ -84,7 +84,7 @@ const vm = new Vue({
         createPokemon: function() {
             axios({
                 method: 'post',
-                url: 'api/v1/',
+                url: 'api/v1/base/',
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
@@ -125,11 +125,11 @@ const vm = new Vue({
         removePokemon: function(item) {
             axios({
                 method: 'delete',
-                url: `/api/v1/`,
+                url: `/api/v1/base/${item.id}`,
                 headers: {
                     'X-CSRFToken': this.csrfToken
                 },
-                data: item
+             
             }).then(response => {
                 this.loadPokemon()
             })

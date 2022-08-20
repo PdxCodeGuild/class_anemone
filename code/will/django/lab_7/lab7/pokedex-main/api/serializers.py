@@ -7,13 +7,15 @@ from django.contrib.auth import get_user_model
 class PokemonSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
+            'id',
             'number',
             'name',
             'height',
             'weight',
             'image_front',
             'image_back',
-            'caught_by'
+            'caught_by',
+
 
         )
 
