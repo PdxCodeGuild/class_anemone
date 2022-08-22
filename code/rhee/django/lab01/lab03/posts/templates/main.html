@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lab03 </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/static/styles.css' %}"/>
+
+</head>
+<body>
+    <header>
+        <div class='inputs-main'>
+
+            {% if user.is_authenticated %}
+                <p> Hello {{ user.username }}, <a href="{% url 'users:profile' user.username %}"> Your Profile </a></p>
+
+                <form action="{% url 'posts:home' %}">
+                    <button type="all posts"> All Posts </button>
+                </form>
+
+                <form action="{% url 'logout' %}">
+                    <button type="logout"> Logout </button>
+                </form>
+
+                <form action="{% url 'posts:create' %}">
+                    <button type="create"> Create New Post </button>
+                </form>
+
+            {% else %}
+
+                <form action="{% url 'login' %}">
+                    <button type="login"> Login </button>
+                </form>
+                <form action="{% url 'users:signup' %}">
+                    <button type="signup"> Sign up </button>
+                </form>
+
+            {% endif %}
+
+            {% block content %}
+        
+            {% endblock content %}
+
+        </div>
+    </header>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="detail">
+        <h2>{{ chirp.title }}</h2>
+        <p>{{ chirp.body|linebreaksbr }}</p>
+        <br>
+        <h4><em><a href="{% url 'users:profile' chirp.chirpname.username %}">{{ chirp.chirpname.username }}</a></em></h4>
+        <h4><em> CHIRPED on {{ chirp.created }}</em></h4>
+        <h4><em>Last CHIRP {{ chirp.updated }}</em></h4>
+    </div>
+
+    {% if user == chirp.chirpname %}
+        <p><a href="{% url 'chirp:delete' chirp.pk %}">+ Delete CHIRP</a></p>
+    {% endif %}
+
+{% endblock content %}

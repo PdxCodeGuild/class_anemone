@@ -1,0 +1,30 @@
+body, html {
+    background-color: rgb(221, 221, 99);
+    font-family: 'Barlow', sans-serif;
+    text-align: center;
+}
+
+.qotd-show {
+    background-color: rgb(241, 151, 82);
+    border-radius: 10px;
+    margin-inline: 3em;
+}
+
+button {
+    background-color: rgb(86, 245, 69);
+    color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+}
+
+input {
+    background-color: aqua;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+select {
+    background-color: aqua;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}

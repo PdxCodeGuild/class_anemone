@@ -152,7 +152,7 @@ header,main {
 
 
 @media (min-width: 1280px) {
-    .welcom {
+    .welcome {
         max-width: 1200px;
         margin-left: auto;
         margin-right:auto;

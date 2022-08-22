@@ -1,0 +1,126 @@
+
+<html lang="en">
+  {% load static %}
+  <head>
+     
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+      
+      <title>Dalton's List </title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %} ">
+  </head>
+  <body>
+      {{ response }}
+    
+
+  <div class="wrapper">
+    House Address {{ address }}
+    
+    <div>
+   Bathrooms {{ bathrooms }}
+    </div>
+    <div>
+   Bedrooms {{ bedrooms }}
+    </div>
+    <div>
+   Last Price: ${{ last_price }}
+    </div>
+    <div>
+   Lot Size: {{ lot_size }} SQFT
+    </div>
+    <div>
+   Zestimate: {{ zestimate }}
+    </div>
+    <div>
+   Rent Zestimate {{remt_zestimate}}
+    </div>
+    <div>
+    Zipcode {{ zipcode }}
+    </div>
+    <div>
+    Description: {{ description }}
+    </div>
+    <div>
+    Home Type : {{ home_type }}
+    </div>
+    <div>
+    Living Area: {{ living_area }}
+    </div>
+    <div>
+    Hoa Fees? : {{ hoa }}
+    </div>
+    <div>
+   Wind Direction:  {{ wdir }}
+    </div>
+    <div>
+   Temperarature:    {{ temp }}
+    </div>
+    <div>
+   Daily High:  {{ maxt }}
+    </div>
+    <div>
+   Daily Low: {{ mint }}
+    </div>
+    <div>
+   Visibility: {{ visiblity }}
+    </div>
+    <div>
+   Wind Speed:  {{ wspd }}
+    </div>
+    <div>
+   Solar Energy:  {{ solarenergy }}
+    </div>
+    <div>
+   Cloud Cover:  {{ cloudcover }}
+    </div>
+  </div>
+ 
+   
+
+
+
+    
+    {% for item, value in response.items %}
+   
+    {% comment %} <div>
+      Dew :    {{ dew }}
+    </div> {% endcomment %}
+    {% comment %} <div>
+      temp:   {{ temp }}
+    </div> {% endcomment %}
+    {% comment %} <div>
+      Max Temp: {{ temp_max }}
+    </div>
+    <div> 
+      Min Temp:     {{ temp_min }}
+    </div>
+    <div>
+      Chance of Rain:      {{ precip }}
+    </div>
+    <div>
+      Solar Energy : {{ solarenergy }}
+    </div>
+    <div>
+      Cloud Cover: {{ cloudcover }}
+    </div>
+    <div>
+      Cloud Cover : {{ cloudcover }}
+    </div>
+    <div>
+      Dew2 : {{ dew2 }} {% endcomment %}
+
+
+
+
+
+   {% endfor %}
+ 
+
+ 
+ 
+
+
+
+  </body>
+</html>

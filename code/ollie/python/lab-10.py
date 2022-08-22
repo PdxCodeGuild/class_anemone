@@ -52,7 +52,6 @@ def delete(contact):
     if proceed == 'yes':
         contact.remove(choice)
 
-
 while True:
     action = input("""
     ~ CONTACT SETTINGS ~

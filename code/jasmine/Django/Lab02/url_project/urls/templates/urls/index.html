@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Url Shortener</title>
+    </head>
+
+    <body>
+        <header>
+            <h1> Url Shortener</h1>
+        </header>
+        <div>
+            <h2> Enter Url </h2>
+            <form action="{% url 'urls:index' %}" method="POST">
+                {% csrf_token %}
+                <label for="long-url"></label>
+                <input type="text" name="long-url">
+                <input type="submit">
+            </form>
+            <h3>Url List</h3>
+            {% for item in url_list %}
+            <p>Long Url:</p>
+            <p>{{item.long_url}}</p>
+            <p>Short url:</p>
+            <p><a href="{% url 'urls:redirect' item.short_url%}" target='_blank'>{{item.short_url}}</a></p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

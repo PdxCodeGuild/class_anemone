@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ user_profile.username }}</h1>
+    <h6><em>SINCE EST: {{ user_profile.date_joined }}!</em></h6>
+
+    {% for chirps in user_profile.chirp.all %}
+        <div class="profile">
+            <h2><a href="{% url 'chirp:detail' chirps.pk %}">{{ chirps.title }}</a></h2>
+            <p>{{ chirps.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

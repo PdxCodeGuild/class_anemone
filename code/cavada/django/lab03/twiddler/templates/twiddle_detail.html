@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="twiddle">
+        <h1>{{ twiddle.twidd }}</h1>
+        <fieldset><legend><h2><a href="{% url 'users:profile' twiddle.twiddler.username %}"> {{ twiddle.twiddler.username }}</a></h2></legend>
+            
+            
+            <h4>{{ twiddle.twiddle|linebreaksbr }}</h4>
+        </fieldset>
+        <p style="text-align: right">Twiddled on {{ twiddle.created_date }}</p>
+            <p style="text-align: right">Last updated on {{ twiddle.updated_date }}</p>
+        
+    </div>
+
+    {% if user == twiddle.twiddler %}
+        <a href="{% url 'posts:edit' twiddle.pk %}">+ Revise Twiddle</a>
+        <a href="{% url 'posts:delete' twiddle.pk %}">+ Delete Twiddle</a>
+    {% endif %}
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <header>
+      <h1>Blog Of All Things</h1>
+        <nav>
+            <a href="Home">Home</a><br> |
+            <a href="About">About</a> |<br>
+            <a href="Post">Post</a> |<br>
+            <a href="Contact Us">Contact Us</a><br>
+          </nav>
+    </header>
+  </head>
+  <body>
+   
+
+    {% for post in posts %}
+        <h2>{{post.title}} </h2>
+        <h3>{{post.author}} </h3>
+        <h4>{{post.date}} </h4>
+        <p>{{post.body}} </p>
+
+    {% endfor %}
+  </body>
+</html>
+

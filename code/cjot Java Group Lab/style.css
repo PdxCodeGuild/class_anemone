@@ -1,0 +1,11 @@
+html {
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightsalmon;
+    box-sizing: border-box;
+}
+#todoitem, #completeditems {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100vw;
+}

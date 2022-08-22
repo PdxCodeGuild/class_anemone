@@ -1,0 +1,50 @@
+
+
+
+
+
+<h1> All Students </h1>
+
+
+
+First Name : {{ student.firstname }}
+Last Name :  {{ student.lastname }}
+
+
+
+
+
+<div>
+    <input type="text" placeholder="firstname" v-model="newstudent.firstname">
+    <input type="text" placeholder="title" v-model="newstudent.lastname">
+    <input type="text" placeholder="cohort" v-model="newstudent.cohort">
+    <input type="text" placeholder="favorite teacher" v-model="newstudent.favorite_teacher">
+    <input type="text" placeholder="favorite topic" v-model = "newstudent.favorite_topic"
+</div>
+
+<script src=""> </script>
+<script src=""> </script>
+
+
+
+<div id="app">
+  <p>{{ message }}</p> # Uh oh, this is the same template syntax as Django! We'll need to fix that...
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello world!',
+    },
+    methods: {
+      logMessage: function () {
+        console.log(this);
+      }
+    },
+    mounted: function () {
+      logMessage();
+    }
+  });
+</script>
+

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>Twiddling since {{ user_profile.date_joined }}</em></h5>
+
+    {% for twiddle in user_profile.twiddles.all %}
+        <div class="twiddle">
+            <h2><a href="{% url 'posts:detail' twiddle.pk %}">{{ twiddle.twidd }}</a></h2>
+            <p>{{ twiddle.twiddle|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

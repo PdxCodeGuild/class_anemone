@@ -1,0 +1,79 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+
+   
+
+</head>
+<body>
+  <h1>Items to Purchase:</h1>
+  <div class="grocery items">
+    {% for item in not_completed %} 
+        <li>
+           <h2>{{ item.grocery_description }}</h2><br>
+         Date Added:   {{ item.append_time }}<br>
+         Already purchased?:   {{ item.task_completed }}<br>
+         Date Purchased:  {{ item.date_completed }}<br>
+            <form action="{% url 'lab1:complete' item.pk %}" method="post"> 
+                    {% csrf_token %}
+                    <input type="submit" value="mark complete"></form>
+
+
+                    <form action="{% url 'lab1:delete' item.pk %}" method="post"> 
+                        {% csrf_token %}
+                        <input type="submit" value="delete"></form>
+
+            {% endfor %}
+<br>
+<br>
+<br>
+
+        <h1>Items Already Purchased:</h1>
+    {% for item in completed %} 
+         <li>
+            <h2>{{ item.grocery_description }}</h2><br>
+          Date Added:   {{ item.append_time }}<br>
+          Already purchased?:   {{ item.task_completed }}<br>
+          Date Purchased:  {{ item.date_completed }}<br>
+          <form action="{% url 'lab1:delete' item.pk %}" method="post"> 
+            {% csrf_token %}
+            <input type="submit" value="delete"></form>
+
+            <form action="{% url 'lab1:complete' item.pk %}" method="post"> 
+                {% csrf_token %}
+                <input type="submit" value="mark not_complete"></form>
+ 
+         </li>
+             
+        </li>
+            
+
+
+        {% endfor %}
+          
+        </div>
+
+  <form action ="{% url 'lab1:create' %}" method="POST">
+     <input type="text" name="grocery_item">
+     <input type="submit">
+     {% csrf_token %}
+     </form>
+
+
+
+   
+
+      
+     </form>
+
+    
+
+</body>
+</html>

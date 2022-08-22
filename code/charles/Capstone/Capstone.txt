@@ -1,0 +1,8 @@
+
+
+
+USER STORIES
+
+1. As a user/moderator I would like to be able to save data on a user by user basis to be able
+    shift through the contents as a moderator by user or only see content from the user as the user
+    or other content for a user from another different user.

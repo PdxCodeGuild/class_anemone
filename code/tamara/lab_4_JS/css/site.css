@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #1C1C24;
+    color: #f0dacd;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5em;
+    margin: 0em;
+    padding: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+#lists-div {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #42373d;
+}
+
+#incomplete-list {
+    display:flex;
+    flex-flow: column nowrap;
+    width: 50%;
+    padding: 1em;
+}
+
+#complete-list {
+    width:50%;
+    padding: 1em;
+}
+
+#entry {
+    display: flex;
+    flex-flow: row nowrap;
+}
