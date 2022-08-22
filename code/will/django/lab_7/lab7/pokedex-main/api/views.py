@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from pokemon import models
 from .serializers import PokemonSerializer, CustomUserSerializer
 
 
+class PokemonViewSet(viewsets.ModelViewSet):
+    queryset = models.Pokemon.objects.all()
+    serializer_class = PokemonSerializer
 
 class ListPokemon(generics.ListCreateAPIView):
     queryset = models.Pokemon.objects.all()
