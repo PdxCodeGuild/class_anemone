@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Deletion</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Click submit below to delete: "{{ twiddle.twidd }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+
+{% endblock content%}

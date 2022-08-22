@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'groceries/style.css'%}">
+<body>
+    <form action="{% url 'groceries:index' %}" method='POST'>
+        {% csrf_token%}
+        <input type='submit' value='Home Page'>
+    </form>
+    <form action="{% url 'groceries:statusupdate'%}" method="post">
+        <div class='newitem'>
+            {%csrf_token%}
+            {% if recent_item %}
+        <ul>
+            {% for gitem in recent_item %}
+            <li><input type="checkbox" name="check" id="{{forloop.counter}}" value="{{gitem.id}}"><label for="{{forloop.counter}}">{{gitem.item_text}}&nbsp;-&nbsp;{{gitem.item_num}}&nbsp;-&nbsp;{{gitem.cdate}}&nbsp;-&nbsp;{{gitem.comdate}}&nbsp;-&nbsp;{{gitem.cstatus}}</label></li>
+            {% endfor %}
+            
+        </ul>
+    {% endif %}
+    <input type='submit' value='Change Status'>
+    </div>
+    </form>
+</body>

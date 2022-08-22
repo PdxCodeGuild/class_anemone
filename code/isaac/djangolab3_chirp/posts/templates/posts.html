@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Chirps Shared!</h1>
+<div class="post-wall">
+    {% for chirp in chirp_list %}
+        <h4>{{ chirp.head }}</h4>
+        <p>{{ chirp.body }}</p>
+        <p>{{ chirp.date_created }} - {{ chirp.user }}</p>
+    {% endfor %}
+</div>
+
+{% endblock content %}

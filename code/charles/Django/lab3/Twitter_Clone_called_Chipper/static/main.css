@@ -1,0 +1,53 @@
+html {
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightsalmon;
+    box-sizing: border-box;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+
+.nav-right {
+    position: fixed;
+    width: 50%;
+    top: 0;
+    margin-left: 50%;
+    background-color: rgb(79, 79, 79);
+    display: flex;
+    
+    align-items: center;
+    justify-content:left;
+    
+}
+.nav-right p {
+    padding-right: 20px;
+}
+.nav-left {
+    position: fixed;
+    width: 50%;
+    top: 0;
+    margin-right:50%;
+    background-color: rgb(79, 79, 79);
+    display: flex;
+
+    
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.nav-left h1 {
+    padding-left: 20px;
+    margin-left: 0;
+
+}
+.posts-entry{
+    margin-top: 10%;
+    border-style: groove;
+    border-radius: 4px;
+    border-width: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width:fit-content
+}

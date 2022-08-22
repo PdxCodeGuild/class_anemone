@@ -1,0 +1,22 @@
+html {
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(121, 121, 121);
+    box-sizing:border-box;
+}
+
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+
+li {
+    margin-bottom: 2em
+}
+
+span {
+    font-size: 12px;
+}
+
+p h1 {
+    font-size:12px;
+}

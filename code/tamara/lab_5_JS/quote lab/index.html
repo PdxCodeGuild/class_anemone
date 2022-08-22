@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes!</title>
+</head>
+    <body>
+        <div id="quote-app">
+            <h1>Quotes</h1>
+
+            <user-search @search='loadUserQuotes'></user-search>
+            
+            <div id="user-quotes" v-if="Object.keys(userQuotes).length">
+                <h2>User Quotes</h2>
+                <div v-if="userQuotes.page !== 1 ">
+                    <button @click="backPage">Back</button>
+                </div>
+                <div v-if="userQuotes.last_page === false">
+                    <button @click="nextPage">Next</button>
+                </div>
+                <ul>
+                    <li v-for="quote in userQuotes.quotes" :key="quote.id">
+                        <p>{{ quote.body }}</p>
+                        <p>{{ quote.author }}</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id='random-quotes' v-else>
+                <h2>Random Quotes</h2>
+                <ul>
+                    <li v-for="quote in randomQuotes.quotes" :key="quote.id">
+                        <p>{{ quote.body }}</p>
+                        <p>{{ quote.author }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylehsheet" href="{% static 'static/main.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Pokedex</title>
+</head>
+<body>
+    <h1>Pokedex</h1>
+    {% csrf_token %}
+    <div id="app">
+        {% if user.is_authenticated %}
+            <h1>Welcome {{ user.username }}!</h1>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+            <h2 class="center"><u>Uncaught Pokemon</u></h2>
+                <div id="flex">
+                    <li v-for="item in releasePokemon" :key="item.id">
+                        <img :src="[[item.image_front]]">
+                        <h4>[[item.name]]</h4>
+                        <button @click="pokemonCaught(item)">Catch</button>
+                    </li>
+                </div>
+            <h2 class="center space"><u>Caught Pokemon</u></h2>
+                <div id="flex">
+                    <li v-for="item in catchPokemon" :key="item.id">
+                        <img :src="[[item.image_front]]">
+                        <h4>[[item.name]]</h4>
+                        <button @click="pokemonReleased(item)">Release</button>
+                    </li>
+                </div>
+        {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+    </div>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            delimiters: ['[[',']]'],
+            data: {
+                pokemon: [],
+                csrfToken: "",
+                users: [],
+                currentUser: {},
+                caught: [],
+                uncaught: [],
+            },
+            methods: {
+                loadPokemon: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/pokemon'
+                    }).then(reponse => this.pokemon = reponse.data)
+                        console.log(this.pokemon.id)
+                },
+                loadUsers: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/users',
+                    }).then((response) => {
+                        this.users = response.data
+                    })
+                },
+                loadCurrentUser: function() {
+                    axios({
+                        method: 'get',
+                        url: '/api/v1/currentuser/'
+                    }).then(response => this.currentUser = response.data)
+                },
+                pokemonCaught: function(pokemon) {
+                    this.currentUser['caught'].push(pokemon.id)
+                    axios({
+                        method: 'patch',
+                        url: '/api/v1/currentuser/',
+                        header: {
+                            'X-CSRFToken': this.csrfToken,
+                        },
+                        data: {
+                            'caught': this.currentUser['caught']
+                        }
+                    }).then(reponse => {this.loadCurrentUser()})
+                },
+                pokemonReleased: function(pokemon) {
+                    this.currentUser['caught'].splice(this.currentUser['caught'].indexOf(pokemon.id), 1)
+                    axios({
+                        method: 'patch',
+                        url: '/api/v1/currentuser/',
+                        header: {
+                            'X-CSRFToken': this.csrfToken,
+                        },
+                        data: {
+                            'caught': this.currentUser['caught'],
+                        }
+                    }).then(response => {this.loadCurrentUser()})
+                },
+            },
+            created: function() {
+                this.loadPokemon()
+                this.loadUsers()
+                this.loadCurrentUser()
+            },
+            computed: {
+                catchPokemon: function() {
+                    return this.pokemon.filter(pokemon => {
+                        return this.currentUser['caught'].includes(pokemon.id)
+                    })
+                },
+                releasePokemon: function() {
+                    return this.pokemon.filter(pokemon => {
+                        return !this.currentUser['caught'].includes(pokemon.id)
+                    })
+                }
+            },
+            mounted: function() {
+                this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+            }
+        })
+    </script>
+</body>
+</html>

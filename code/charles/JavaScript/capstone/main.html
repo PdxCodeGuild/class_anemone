@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <title>Find a Book or Author</title>
+</head>
+<body>
+
+    <h1>Find a Book or Author</h1>
+    <div id="main">
+        <div class='inputfield'>
+            <div class='input'>
+                <input type='number' v-model="limit" id='limit' placeholder='Limit return amount'><label for='limit'>Limit Return Amount</label>
+            </div>
+            <div class='input'>
+                <input type='text' v-model="qinput" id='qsearch' placeholder='General Query' @keyup.enter='qsearch'></input><button for='qsearch' @click="qsearch">Submit</button>
+            </div>
+            <div class='input'>
+                <input type='text' v-model="tinput" id='tsearch' placeholder='Query by Title' @keyup.enter='tsearch'></input><button for='tsearch' @click="tsearch">Submit</button>
+            </div>
+            <div class='input'>
+                <input type='text' v-model="ainput" id='asearch' placeholder='Query by Author' @keyup.enter='asearch'></input><button for='asearch' @click="asearch">Submit</button>
+            </div>
+        </div>
+        <div v-if="Object.keys(qout).length">
+            <ol>
+                <div class='return'>
+                    <li v-for="x in qout.docs" :key="x.key">
+                        <span v-if="x.title">Title: {{x.title}}<br></span>
+                        <span v-if="x.author_name">Author:{{x.author_name}}<br></span>
+                        <span v-if="x.ddc">Dewey Decial: {{x.ddc}}<br></span>
+                        <span v-if="x.first_publish_year">First Published: {{x.first_publish_year}}<br></span>
+                        <span v-if="x.language">Languages:<span v-for="l in x.language"> {{l}},</span><br></span>
+                        <span v-if="x.title"><a :href='`https://www.google.com/search?q=${x.title}`'>{{x.title}}</a></span>
+                    </li>
+                </div>
+            </ol>
+        </div>
+        <div v-if="Object.keys(tout).length">
+            <ol>
+                <div class='return'>
+                    <li v-for="x in tout.docs" :key="x.key">
+                        <span v-if="x.title">Title: {{x.title}}<br></span>
+                        <span v-if="x.author_name">Author:{{x.author_name}}<br></span>
+                        <span v-if="x.ddc">Dewey Decial: {{x.ddc}}<br></span>
+                        <span v-if="x.first_publish_year">First Published: {{x.first_publish_year}}<br></span>
+                        <span v-if="x.language">Languages:<span v-for="l in x.language"> {{l}},</span><br></span>
+                        <span v-if="x.title"><a :href='`https://www.google.com/search?q=${x.title}`'>{{x.title}}</a></span> 
+                    </li>
+                </div>
+            </ol>
+        </div>
+        <div v-if="Object.keys(aout).length">
+            <ol >
+                <div class='return'> 
+                    <li v-for="x in aout.docs" :key="x.key">
+                        <span v-if="x.title">Title: {{x.title}}<br></span>
+                        <span v-if="x.author_name">Author:<span v-for="l in x.author_name"> {{l}},<br></span>
+                        <span v-if="x.ddc">Dewey Decial: <span v-for="l in x.ddc">{{l}}<br></span></span>
+                        <span v-if="x.first_publish_year">First Published: {{x.first_publish_year}}<br></span>
+                        <span v-if="x.language">Languages:<span v-for="l in x.language"> {{l}},</span><br></span>
+                        <span v-if="x.title"><a :href='`https://www.google.com/search?q=${x.title}`'>{{x.title}}</a></span>
+                        <!-- <button @click='load'>  -->
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+    <body>
+        {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+        {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+
+        {% csrf_token %} 
+        <div id="app">
+            {% if user.is_authenticated %}
+            <div>
+                <h3>Create a New Pokemon!</h3>
+                <input type="text" placeholder="name" v-model="newPokemon.name">
+                <input type="number" placeholder="number" v-model="newPokemon.number">
+                <input type="number" placeholder="height" v-model="newPokemon.height">
+                <input type="number" placeholder="weight" v-model="newPokemon.weight">
+                <input type="text" placeholder="front image url" v-model="newPokemon.image_front">
+                <input type="text" placeholder="back image url" v-model="newPokemon.image_back">
+                <select v-model="newPokemon.caught_by" required multiple>
+                    <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
+                </select>
+                <button @click="createPokemon">Create</button>
+            </div>
+            {% endif %}
+            <ul>
+                <pokemon-item v-for="pokemon in pokemon_list" 
+                :key="pokemon.id" 
+                :pokemon='pokemon' 
+                @delete="deletePokemon(pokemon)" 
+                @edit="editPokemon(pokemon)">
+                </pokemon-item>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="{% static 'app.js' %}"></script>
+    </body>
+</html>

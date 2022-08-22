@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+        <h1> {{ witter_app.title }} </h1>\
+        <h2><a href ="#"></a> {{ witter_app.author.username }} </h2>
+
+        <p> {{ witter_app.body }} </p>
+    </div> 
+        {% if user == post.author %}
+            <p><a href="{% url 'posts:edit' post.pk %}">+ Edit Blog Post</a></p>
+            <p><a href="{% url 'posts:delete' post.pk %}">+ Delete Blog Post</a></p>
+        {% endif %}
+
+
+
+    {% endblock content %}

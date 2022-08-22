@@ -1,0 +1,67 @@
+---EDITING HTML USING JAVASCRIPT---
+
+DOM - Document Object Model - Manipulating your document with JAVASCRIPT
+
+
+function 	                            description
+document.querySelector(selector) 	    get an element that matches the given CSS selector
+document.querySelectorAll(selector) 	get all elements that match the given CSS selector
+document.getElementById(id) 	        get an element with the given id
+document.getElementsByClassName(class) 	get all elements with the given class
+document.getElementsByTagName(tag) 	    get all elements of the given tag
+document.getElementsByName(name) 	    et all elements with the given name
+
+The following code demonstrates how each of these are used:
+
+    index.html
+            <div id="mydiv" name="adiv" class="myclass"></div>
+            <div id="thisdiv" class="myclass"></div>
+            <div id="thatdiv" name="adiv"></div>
+
+            app.js        
+                let a = document.getElementById('mydiv');       (document is just a built in var for the entire web page.
+                let bs = document.getElementsByTagName('div');                                      don't name any vars 'document' or 'window')
+                console.log(bs.length); // 3                    (b's, c's, and e's are array(-like) objects so they have lengths 
+                let cs = document.getElementsByName('adiv');                                        that print in the console.)
+                console.log(cs.length); // 2                    (c's get elements by name, and only 2 have names)
+                let d = document.querySelector('#mydiv');
+                let es = document.querySelectorAll('.myclass'); (using the dot in front of myclass cuz it's a CSS class selector)
+                console.log(es.length); // 2
+
+---innerText & innerHTML---
+
+    - You can set the text between a open and close tag (<div>this</div>) using innerText and innerHTML. 
+        As you might guess, innerText is for text, innerHTML is for a string containing HTML.
+    - innerHTML is powerful but it doesn't include any references, it throws everything away and regenerates. 
+        Thus if you have a clickedon alert,it would be gone after editing with innerHTML.
+
+Asynchronous Code: code doesn't just run, code runs when something happens (events, clicks, etc.)
+
+---EVENTS---
+
+            function runMe(event) {
+                alert("Hello World!")
+                console.log(event)
+            }
+
+            btn.addEventListener('click', runMe) // NO paranthessis on runMe function makes it happen on click/every time.
+
+--------------
+
+        btn.addEventListener('click', function() { //the anonymous version of this function does the same, but does need the paranthesis
+            alert("Hello World!")
+        })
+
+
+---EVENT PROPAGATION---
+
+
+    event.stopPropagation() prevents parent elements from receiving the event
+    event.stopImmediatePropagation() prevents other listeners from receiving the event
+    event.preventDefault() prevents an event from triggering
+
+
+
+
+
+

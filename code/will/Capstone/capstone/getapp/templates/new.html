@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Time to Search {% endblock %}
+{% block content %}
+
+<h2> Time to start a new search! </h2> 
+
+<form action ={% url "getapp:intermediate" %} method='post'>
+    <table>
+        {{ form }}
+    </table>
+    {% csrf_token %} 
+    <button type="submit"> New Search </button> 
+</form>
+
+{% endblock %}

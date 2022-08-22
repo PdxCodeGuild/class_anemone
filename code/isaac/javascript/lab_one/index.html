@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <input type="number" id="distance"> What is the distance?<br>
+    <p>What is the unit of measurement being calculated?</p>
+    <select name="measurements" id="units"> 
+        <option value="feet">Feet</option>
+        <option value="miles">Miles</option>
+        <option value="kilometers">Kilometers</option>
+        <option value="meters">Meters</option>
+        <option value="inches">Inches</option>
+        <option value="yards">Yards</option>
+    </select><br>
+    <button type="submit" name="calculate" id="calculate">Calculate</button>
+
+    <div id="output-one"></div>
+
+    Please give a number for the distance: <input type="text" name="user-given-distance-one">
+    <select name="first-unit" id="first-unit">What is the first unit?
+        <option value="first-feet">Feet</option>
+        <option value="first-miles">Miles</option>
+        <option value="first-kilometers">Kilometers</option>
+        <option value="first-meters">Meters</option>
+        <option value="first-inches">Inches</option>
+        <option value="first-yards">Yards</option>
+    </select><br>
+    
+    Enter second number: <input type="text" name="user-given-distance-two">
+    <select name="first-unit" id="second-unit">
+        <option value="second-feet">Feet</option>
+        <option value="second-miles">Miles</option>
+        <option value="second-kilometers">Kilometers</option>
+        <option value="second-meters">Meters</option>
+        <option value="second-inches">Inches</option>
+        <option value="second-yards">Yards</option>
+    </select>
+
+
+
+    <script src="unit_convert_partB.js"></script>
+</body>
+</html>

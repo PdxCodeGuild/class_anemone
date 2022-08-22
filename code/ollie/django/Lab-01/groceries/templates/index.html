@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body>
+    <h1>Grocery List</h1>
+    <form action="{% url 'groceries:create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="item_text" maxlength="50"/>
+        <input type="submit" value="CREATE"/>
+    </form>
+    <h3>Complete Items</h3>
+    <ul>
+        {% for item in complete_item %}
+        <li>{{ item }}
+            <form action="{% url 'groceries:update' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="COMPLETE">
+            </form>
+            <form action="{% url 'groceries:delete' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="DELETE">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <h3>Incomplete Items</h3>
+    <ul>
+        {% for item in incomplete_item %}
+        <li>{{ item }}
+            <form action="{% url 'groceries:update' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="INCOMPLETE">
+            </form>
+            <form action="{% url 'groceries:delete' item.pk %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="DELETE">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

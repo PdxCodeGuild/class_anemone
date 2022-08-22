@@ -1,0 +1,15 @@
+.body-background {
+    background-color: black;
+}
+.main-body {
+    background-color: rgb(66, 114, 114);
+    text-align: center;
+    font-size: 30px;
+    width: 600px;
+    height: 500px;
+    margin-left: 600px;
+
+}
+.new-url {
+    color: tan;
+}

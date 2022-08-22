@@ -1,0 +1,265 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{% static 'main.css'%}">
+    <title>Pokedex</title>
+</head>
+    <body>
+        {%csrf_token%}
+        {% if user.is_authenticated %}
+            <h1>Welcome {{ user.username }}!</h1>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+        {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+        <div id="app">
+
+
+            <h1>Find your Pokemon<h1>
+                <p>Search by Pokemon Number<input type='int' v-model='number' id='search'></input><p>
+                <button for='search' for='typesearch' @click=search>Search</button>
+                <button @click=closepd>Close Pokedex</button>
+                {% if user.is_authenticated %}
+                    
+                        <new-Poke v-model=newpokemon
+                        :key='newpokemon.id'
+                        @add='addPoke'></new-Poke>
+                    
+                {% endif %}
+                
+
+            <ul>
+                <li v-if="Object.keys(spokemon).length">
+                    <button @click=clearsp>Clear Search</button>
+                    <span v-if='spokemon.number'><h1>Pokemon #[[spokemon.number]]</h1></span><span v-if='spokemon.name'><p>Name: [[spokemon.name]]</p></span>
+                    <span v-if='spokemon.height'><p>Height:&nbsp; [[spokemon.height]]</p></span>
+                    <span v-if='spokemon.weight'><p>Weight:&nbsp;[[spokemon.weight]]</p></span>
+                    <span v-if='spokemon.image_front'><img :src="[[spokemon.image_front]]"></img></span>
+                    <span v-if='spokemon.image_back'><img :src="[[spokemon.image_back]]"></img></span>
+                    <span v-if='spokemon.caught_by'><p>Caught by:&nbsp; [[spokemon.caught_by]]</p></span>
+                </li>
+            </ul>
+
+
+
+            <p v-if="Object.keys(pokemon).length">Pokedex Loaded</p>
+            <button v-else="Object.keys(pokemon).length" @click=loadpokemon>Load Pokedex</button>
+            <ol>
+                <user-edit
+                    v-for="poke in pokemon"
+                    :key="poke.id"
+                    :poke="poke"
+                    @remove="removePoke"
+                    @submit="submitPoke"
+                ></user-edit>
+            </ol>
+    
+        </div>
+    </body>     
+</html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    Vue.component('user-edit', {
+        data: function() {
+            return {
+                edit: false
+            }
+        },
+        props: ['poke'],
+        delimiters:['[[',']]'],
+        template: `
+            <li>
+                
+                <template v-if="edit">
+                    <label for='num'>Pokedex Number</label><input type="text" v-model="poke.number" id='num'><br>
+                    <label for='num'>Pokedex Name</label><input type="text" v-model="poke.name" id='num'><br>
+                    <label for='num'>Pokedex Height</label><input type="text" v-model="poke.height" id='num'><br>
+                    <label for='num'>Pokedex Weight</label><input type="text" v-model="poke.weight" id='num'><br>
+                    <label for='num'>Pokedex Image</label><input type="text" v-model="poke.image_front" id='num'><br>
+                    <label for='num'>Pokedex image_back</label><input type="text" v-model="poke.image_back" id='num'><br>
+                </template>
+
+                <template v-else>
+                    <span v-if='poke.number'><h1>Pokemon #[[poke.number]]</h1></span>
+                    <span v-if='poke.name'><p>Name: [[poke.name]]</p></span>
+                    <span v-if='poke.height'><p>Height:&nbsp; [[poke.height]]</p></span>
+                    <span v-if='poke.weight'><p>Weight:&nbsp;[[poke.weight]]</p></span>
+                    <span v-if='poke.image_front'>Front: <img :src="[[poke.image_front]]"></span>
+                    <span v-if='poke.image_back'>Back: <img :src="[[poke.image_back]]"></span>
+                    <span v-if='poke.caught_by'><p>Caught by:&nbsp; [[poke.caught_by]]</p></span>
+                </template>
+                {% if user.is_authenticated %}
+                <button @click="edit = !edit">[[edit ? "Done" : "Edit" ]]</button>
+                <button @click="submitPoke(poke)">Submit Changes</button>
+                <button @click="removePoke(poke)">Remove from Pokedex</button>
+                {%endif%}
+                
+            </li>
+        `,
+        methods: {
+            removePoke: function(poke) {
+                this.$emit('remove', poke)
+            },
+            submitPoke: function(poke) {
+                this.$emit('submit', poke)
+            }
+        }
+    })
+    Vue.component('new-poke',{
+        data: function() {
+            return {
+                cedit: false,
+                newpokemon: {
+                    "number": "",
+                    "name": "",
+                    "height": "",
+                    "weight": "",
+                    "image_front": "",
+                    "image_back": "",
+                    "caught_by": []
+                }
+            }
+           
+        },
+        delimiters:['[[',']]'],
+        template: `
+            <p>
+                <template v-if=cedit>
+                    <label for='num'>Pokedex Number</label><input type="text" v-model="newpokemon.number" id='num'><br>
+                    <label for='name'>Pokedex Name</label><input type="text" v-model="newpokemon.name" id='name'><br>
+                    <label for='Height'>Pokedex Height</label><input type="text" v-model="newpokemon.height" id='Height'><br>
+                    <label for='Weight'>Pokedex Weight</label><input type="text" v-model="newpokemon.weight" id='Weight'><br>
+                    <label for='Front'>Pokedex Image Front</label><input type="text" v-model="newpokemon.image_front" id='Front'><br>
+                    <label for='Back'>Pokedex Image Back</label><input type="text" v-model="newpokemon.image_back" id='Back'><br>
+                    <button @click=addPoke>Submit to Pokedex</button>
+                </template>
+                <button @click="cedit = !cedit">[[cedit ? "Close" : "Add New Pokemon" ]]</button>
+            </p>
+        `,
+        methods: {
+            addPoke: function(newpokemon) {
+                this.$emit('add', this.newpokemon)
+            }
+        }
+    })
+
+
+    const vm = new Vue ({
+                el:'#app',
+                delimiters:['[[',']]'],
+                data: {
+                    csrfToken: '',
+                    edit: false,
+                    number: 0,
+                    typesearch: '',
+                    pokemon: {},
+                    spokemon:{},
+                    user: [], 
+                    newpokemon:{
+                            "number": "",
+                            "name": "",
+                            "height": "",
+                            "weight": "",
+                            "image_front": "",
+                            "image_back": "",
+                            "caught_by": ""
+                    },
+                    error: '',
+                },
+                methods: {
+                    clear: function() {
+                        this.pokemon = {},
+                        this.newpokemon = {
+                            "number": "",
+                            "name": "",
+                            "height": "",
+                            "weight": "",
+                            "image_front": "",
+                            "image_back": "",
+                            "caught_by": ""
+                        }
+                    },
+                    closepd: function() {
+                        this.pokemon = {}
+                    },
+                    clearsp: function() {
+                        this.spokemon = {}
+                    },
+                    cedit: function() {
+                        this.edit = !this.edit
+                    },
+                    search: function() {
+                        this.number = parseInt(this.number)
+                        axios.get('api/v1/pokemon/'+ this.number)
+                        .then(response => this.spokemon = response.data)
+                    },
+                    loadpokemon: function() {
+                        axios({
+                            method: 'get',
+                            url: 'api/v1/pokemon/',
+                        }).then(response => this.pokemon = response.data)
+                    },
+                    submitPoke: function(poke) {
+                        axios({
+                            method: 'patch',
+                            url: 'api/v1/pokemon/' + poke.number + '/',
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                            data: {
+                                "number": poke.number,
+                                "name": poke.name,
+                                "height": poke.height,
+                                "weight": poke.weight,
+                                "image_front": poke.image_front,
+                                "image_back": poke.image_back,
+                                "caught_by": poke.caught_by
+                            }
+                        }).then(response => {this.loadpokemon()})
+                    },
+                    removePoke: function(poke) {
+                        axios({
+                            method: 'delete', 
+                            url: 'api/v1/pokemon/' + poke.number + '/',
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            }
+                        }).then(response => {this.loadpokemon()})
+                    },
+                    addPoke: function(newpokemon) {
+                        axios({
+                            method: 'post',
+                            url: 'api/v1/pokemon/',
+                            headers: {
+                                'X-CSRFToken': this.csrfToken
+                            },
+                            data: {
+                                "number": newpokemon.number,
+                                "name": newpokemon.name,
+                                "height": newpokemon.height,
+                                "weight": newpokemon.weight,
+                                "image_front": newpokemon.image_front,
+                                "image_back": newpokemon.image_back,
+                                "caught_by": newpokemon.caught_by
+                            }
+                        }).then(response => {this.loadpokemon()})
+                    }
+                },
+                created: function() {
+                    axios({
+                        method: 'get',
+                        url: 'api/v1/pokemon/',
+                    }).then(response => this.pokemon = response.data)
+                },
+                mounted: function() {
+                    this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+                }
+            })
+        </script>

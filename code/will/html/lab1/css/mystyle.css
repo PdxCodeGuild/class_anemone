@@ -1,52 +1,72 @@
 body {
-    background-color: rgb(3, 16, 133);
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: rgb(65, 77, 3);
-  }
-  p {
-    color: rgb(229, 233, 7);
-    font-family: Arial;
-  }
+  background-color: powderblue;
+}
+h1 {
+  color: blue;
+}
+p {
+  color: red;
+}
 
-  h1 {
-      font-size: 40px;
-  }
-  h2,h3,h4,h5,h6 {
-      font-size: 30px;
-      margin: left 100px;
-  }
-  html, body {
-    height: 100%;
+#lived li {
+text-align: center;
+
+}
+
+img {
+border-radius: 50%;
+}
+
+
+body {
+background-color: rgb(3, 16, 133);
+}
+h1, h2, h3, h4, h5, h6 {
+color: rgb(65, 77, 3);
+}
+p {
+color: rgb(229, 233, 7);
+font-family: Arial;
+}
+
+h1 {
+  font-size: 40px;
+}
+h2,h3,h4,h5,h6 {
+  font-size: 30px;
+  margin: left 100px;
+}
+html, body {
+height: 100%;
 }
 
 html {
-    display: table;
-    margin: 100px;
+display: table;
+margin: 100px;
 }
 
 .content {
-  max-width: 500px;
-  margin: auto;
+max-width: 500px;
+margin: auto;
 }
 
 body {
-   -webkit-border-radius: 50px;
-   -moz-border-radius: 50px;
-   border-radius: 50px;
-    border: none;
-   width: 500px;
-   height: 335px;
-    display: table-cell;
-    vertical-align: -webkit-baseline-middle;
-    background-image: url("https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_501,q_75,w_1441/v1/clients/batonrouge/New_State_Capitol_Hero_30b4a623-afa5-485e-8c59-2b5f6cd74e6e.jpg");
-    background-repeat: no-repeat;
-    background-color: #201e1e;
-    background-position: center;
-    
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+border: none;
+width: 500px;
+height: 335px;
+display: table-cell;
+vertical-align: -webkit-baseline-middle;
+background-image: url("https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_501,q_75,w_1441/v1/clients/batonrouge/New_State_Capitol_Hero_30b4a623-afa5-485e-8c59-2b5f6cd74e6e.jpg");
+background-repeat: no-repeat;
+background-color: #201e1e;
+background-position: center;
+
 }
 p#quote{
-  color:antiquewhite;
-  font-style: oblique;
+color:antiquewhite;
+font-style: oblique;
 }
 

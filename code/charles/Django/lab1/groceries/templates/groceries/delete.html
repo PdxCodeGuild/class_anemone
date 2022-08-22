@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'groceries/style.css'%}">
+<body>
+    <form action="{% url 'groceries:index' %}" method='POST'>
+        {% csrf_token%}
+        <input type='submit' value='Home Page'>
+    </form>
+    <h1>Select 1 Item and Repeat</h1>
+    <form action="{% url 'groceries:deleteitem'%}" method="post">
+            {% if recent_item %}
+        <ul>{%csrf_token%}
+            {% for gitem in recent_item %}
+            <li><input type="checkbox" name="check" id="{{forloop.counter}}" value="{{gitem.id}}"><label for="{{forloop.counter}}">{{gitem.item_text}}&nbsp;-&nbsp;{{gitem.item_num}}&nbsp;-&nbsp;{{gitem.cdate}}&nbsp;-&nbsp;{{gitem.comdate}}&nbsp;-&nbsp;{{gitem.status}}</label></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <input type='submit' value='DELETE'>
+    </form>
+</body>

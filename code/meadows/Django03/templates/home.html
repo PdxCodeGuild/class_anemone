@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for chirps in object_list %}
+        <div class="home">
+            <h2><a href="{% url 'chirp:detail' chirps.pk %}">{{ chirps.title }}</a></h2>
+            <p>{{ chirps.body|linebreaksbr }}</p>
+            <h4><em>CHIRPED BY:<a href="{% url 'users:profile' chirps.chirpname.username %}">
+                &nbsp; &nbsp;{{ chirps.chirpname.username }}</a></em></h4>
+            <br>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

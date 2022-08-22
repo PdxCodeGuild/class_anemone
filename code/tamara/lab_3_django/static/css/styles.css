@@ -1,0 +1,87 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: #e93354;
+}
+
+a:hover {
+    color: #3B9ABF;
+}
+
+body {
+    background-color: #1C1C24;
+    color: #f0dacd;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5em;
+    margin: 0em;
+    padding: 0em;
+    text-align: center;
+}
+
+header {
+    margin: 1em;
+    padding: 1em;
+}
+
+/* V this is not working and im not sure why??? */
+form {
+    background-color: #343442;
+    padding: 1em;
+    margin: 1em;
+}
+
+footer {
+    padding: 1em;
+    margin: 0em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-align: right;
+}
+
+.chirp-entry {
+    background-color: #343442;
+    padding:1em;
+    margin: 1em 0em;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+footer {
+    background-color: #731728;
+    margin: 0em;
+}
+
+footer h3 {
+    color:#f0dacd;
+}
+
+@media (min-width: 1000px) {
+    .side-main-container {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    .user-links {
+        width: 25%;
+    }
+    .home-link {
+        width: 100%
+    }
+
+    .chirps-container {
+        width: 65%;
+    }
+}

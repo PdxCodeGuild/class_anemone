@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+</head>
+<body>
+    <div id="quote">
+        <div v-if="Object.keys(quotd).length">
+            <h1>Quote of the day</h1>
+                <p>{{quotd.quote.body}}</p>
+                <p><a :href="quotd.quote.url">{{quotd.quote.author}}</a></p>
+            </div>
+        <button @click='loadquotd'>Your Daily Quote</button><hr>
+        
+        <select name='option' v-model='typesearch' id='typesearch' placeholder =''>
+            <option disable value="">Please Select</option>
+            <option value='author'>Author</option>
+            <option value='tags'>tags</option>
+            <option value='user'>user</option>
+            <option value='contains'>Contains</option>
+        </select>
+
+        <span v-if="typesearch === 'author'"><br>
+            <input type='text' v-model="input1" placeholder='first name' @keyup.enter='loadquota'><br>
+            <input type='text' v-model="input2" placeholder='last name' @keyup.enter='loadquota'><br>
+            <button @click='loadquota' >Search</button><hr>
+        </span>
+        <span v-else-if="typesearch === 'tags'"><br>
+            <input type='text' v-model="input" placeholder='tags' @keyup.enter='loadquots'><br>
+            <button @click='loadquott' >Search</button><hr>
+        </span>
+        <span v-else-if="typesearch === 'user'"><br>
+            <input type='text' v-model="input" placeholder='user' @keyup.enter='loadquots'><br>
+            <button @click='loadquotu' >Search</button><hr>
+        </span>
+        <span v-else-if="typesearch === 'contains'"><br>
+            <input type='text' v-model="input" placeholder='Contains this word' @keyup.enter='loadquotf'><br>
+            <button @click='loadquotf' >Search</button><hr>
+        </span>
+        <!-- <p v-if="error ! {}">{{error}}</p>     -->
+        
+        <ol v-if="Object.keys(quotes).length">
+            <updown 
+                
+                @nextq="nextq"
+                @previousq="previousq"
+            ></updown>
+            <p>Page {{quotes.page}}</p>
+            <li v-for="quote in quotes.quotes" :key="quote.id">  
+                <p>Quote by <a href="quote.url">{{quote.author}}</a></p>
+                <p>{{quote.body}}</p><hr>
+            </li>
+        </ol>
+
+                
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="quotes.js"></script>
+</body>
+</html>

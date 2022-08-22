@@ -1,0 +1,13 @@
+{% extends 'bottom.html' %}
+
+{% block content %}
+
+    {% for posts in object_list %}
+        <div class="posts-entry">
+            <h2><a href="{% url 'posts:detail' posts.pk %}">{{ posts.title }}</a></h2>
+            <h4><em><a href="{% url 'users:profile' posts.author.username %}">{{ posts.author.username }}</a></em></h4>
+            <p>{{ posts.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

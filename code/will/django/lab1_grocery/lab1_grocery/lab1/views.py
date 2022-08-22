@@ -47,4 +47,3 @@ def delete(request, pk):
     item.delete()
     
     return HttpResponseRedirect(reverse('lab1:index'))
-
