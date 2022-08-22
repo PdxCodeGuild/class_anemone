@@ -1,57 +1,116 @@
-let to_do_list = []
+var input = document.getElementById('input');
+var result = document.getElementById('result');
+var inputText = document.getElementById('inputText');
+var resultText = document.getElementById('resultText');
+var inputTextValue,resultTextValue;
 
-let user_input = document.getElementById("to_do_list");
+input.addEventListener("keyup",myResult);
+inputText.addEventListener("change", myResult);
+resultText.addEventListener("change", myResult);
 
-let add_button = document.getElementById("to_do_button");
+inputTextValue = inputText.value;
+resultTextValue = resultText.value;
 
-add_button.addEventListener('click', function())
-let ft = 0.3048
-let mi = 1609.34
-let m = 1
-let km = 1000
-let yd = 0.9144
-let inch = 0.0254
 
-let output
-let final_output
 
-distance = prompt("What is the distance?")
-input_unit = prompt("What are the input units?").toLowerCase()
-output_unit = prompt("What are the output units?").toLowerCase()
 
-console.log(distance)
-console.log(input_unit)
-console.log(output_unit)
 
-if(input_unit == 'ft' || input_unit == 'feet'){
-    output = distance * ft
-}else if (input_unit == 'mi' || input_unit == 'miles'){
-    output = distance * mi
-}else if (input_unit == 'km' || input_unit == 'kilometers'){
-    output = distance * km
-}else if (input_unit == 'm' || input_unit == 'meter'){
-    output = distance * m
-}else if (input_unit == 'yd' || input_unit == 'yard'){
-    output = distance * yd
-}else if (input_unit == 'in' || input_unit == 'inch'){
-    output = distance * inch
+function myResult(){
+
+    inputTextValue = inputText.value;
+    resultTextValue = resultText.value; 
+    
+    // logic table for meter conversion
+    if(inputTextValue === "meter" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * 0.001;
+    }else if(inputTextValue === "meter"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 1.09361;
+    }else if (inputTextValue === "meter" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 39.3701;
+    }else if(inputTextValue === "meter"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * 0.000621371;
+    }else if (inputTextValue === "meter" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 3.28084;
+    }
+
+    // logic table for kilometer conversion
+    if(inputTextValue === "kilometer" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * 1;
+    }else if(inputTextValue === "kilometer"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 109.361;
+    }else if (inputTextValue === "kilometer" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 3937.01;
+    }else if(inputTextValue === "kilometer"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * 0.0621371;
+    }else if (inputTextValue === "kilometer" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 328.084;
+
+    }
+
+
+    // logic table for yard conversion
+    if(inputTextValue === "yard" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * 0.0009144;
+    }else if(inputTextValue === "yard"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 1;
+    }else if (inputTextValue === "yard" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 36;
+    }else if(inputTextValue === "yard"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * 0.00568182;
+    }else if (inputTextValue === "yard" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 3;
+
+    }
+    // logic table for inches
+    if(inputTextValue === "inch" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * (1/39370);
+    }else if(inputTextValue === "inch"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 0.027778;
+    }else if (inputTextValue === "inch" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 1;
+    }else if(inputTextValue === "inch"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * (1/63360);
+    }else if (inputTextValue === "inch" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 0.0833333;
+
+    }
+    // logic table for miles
+    if(inputTextValue === "miles" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * 1.60934;
+    }else if(inputTextValue === "miles"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 1760;
+    }else if (inputTextValue === "miles" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 63360;
+    }else if(inputTextValue === "miles"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * 1;
+    }else if (inputTextValue === "miles" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 5280;
+
+    }
+    // logic table for feet
+    if(inputTextValue === "ft" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * 0.0003048;
+    }else if(inputTextValue === "ft"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 0.333333;
+    }else if (inputTextValue === "ft" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 12;
+    }else if(inputTextValue === "ft"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * 0.000189394;
+    }else if (inputTextValue === "ft" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 1;
+    }
+
+    if(inputTextValue === "yard" && resultTextValue === "kilometer"){
+        result.value = Number(input.value) * 1;
+    }else if(inputTextValue === "yard"  && resultTextValue === "yard"){
+        result.value = Number(input.value) * 109.361;
+    }else if (inputTextValue === "yard" && resultTextValue === "inch"){
+        result.value = Number(input.value) * 3937.01;
+    }else if(inputTextValue === "yard"  && resultTextValue === "mile"){
+         result.value = Number(input.value) * 0.0621371;
+    }else if (inputTextValue === "yard" && resultTextValue === "feet"){
+         result.value = Number(input.value) * 328.084;
+
+    }
+
 }
-
-if (input_unit == output_unit){
-    final_output = distance
-}else if(output_unit == 'ft' || output_unit == 'feet'){
-    final_output = output * 3.28084
-}else if(output_unit == 'mi' || output_unit == 'miles'){
-    final_output = output / mi
-}else if(output_unit == 'km' || output_unit == 'kilometers'){
-    final_output = output / km
-}else if(output_unit == 'yd' || output_unit == 'yard'){
-    final_output = output * 1.094
-}else if(output_unit == 'in' || output_unit == 'inch'){
-    final_output = output * 39.37
-}
-
-console.log(output)
-console.log(final_output)
-
-alert(distance + " " + input_unit + " is " + final_output + " " + output_unit)
