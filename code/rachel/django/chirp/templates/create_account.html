@@ -2,11 +2,14 @@
 
 {% block content %}
 
-<h1>Create Account</h1>
-<form action="" method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <button type="submit">Create Account</button>
-</form>
-
+<div class="create">
+    <h1>Create Account</h1>
+    <div class="create-form">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <div class="create-btn"><button type="submit">Create Account</button></div>
+        </form>
+    </div>
+</div>
 {% endblock content %}

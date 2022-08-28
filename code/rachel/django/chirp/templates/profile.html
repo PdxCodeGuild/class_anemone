@@ -2,12 +2,18 @@
 
 {% block content %}
 
-<h1>{{profile.username}}</h1>
-<p><em>Joined {{profile.date_joined}}</em></p>
+<div class="profile">
+    <div class="profile-head">
+        <h1>{{profile.username}}</h1>
+        <p><em>Joined {{profile.date_joined}}</em></p>
+    </div>
 
-{% for post in profile.posts.all %}
-    <h3>{{post.author}}</h3>
-    <p>{{post.body}}</p>
-{% endfor %}
+    <div class="profile-posts">
+        {% for post in profile.posts.all %}
+            <h3><a href="{% url 'posts:detail' post.pk %}">{{post.title}}</a></h3>
+            <p>{{post.body}}</p>
+        {% endfor %}
+    </div>  
+</div>
 
 {% endblock content %}

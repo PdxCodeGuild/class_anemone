@@ -2,11 +2,15 @@
 
 {% block content %}
 
-<h1>New Chirp</h1>
-<form action="" method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <button type="submit">Post</button>
-</form>
+<div class="new-post">
+    <h1>New Chirp</h1>
+    <div class="new-post-form">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <div class="new-post-btn"><button type="submit">Post</button></div>
+        </form>
+    </div>
+</div>
 
 {% endblock content %}

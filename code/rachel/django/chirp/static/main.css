@@ -1,42 +1,280 @@
-body{
+body {
+    background-color: rgb(243, 237, 237);
+    color: black;
+    font-family: 'Arimo', sans-serif;
     display: flex;
-    background-color: rgb(207, 206, 203);
-    color: rgb(4, 55, 71);
+    flex-direction: column;
 }
 
+button {
+    color: rgb(73, 107, 101);
+    font-family: 'Comfortaa', cursive;
+    margin: 10px;
+}
+
+/* BASE.HTML */
 header {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-evenly;
     text-align: center;
 }
 
-main{
-    font-family: 'Arsenal', sans-serif;
-    font-size: 1.5em;
-    padding-left: 15vw;
+header h1{
+    font-family: 'Comfortaa', cursive;
 }
 
-h1 a{
-    font-family: 'Old Standard TT', serif;
-    font-size: 3em;
-    color: rgb(8, 99, 130);
-    border: 5px solid whitesmoke;
-    border-radius: 25px;
-    padding: .1em;
-}
-
-p a{
-    font-family: 'Playfair Display', serif;
+header h1 a {
+    text-decoration: none;
+    color: rgb(73, 107, 101);
     font-size: 2em;
 }
 
-a:link {
-    text-decoration: none;
+header a {
+    color: black;
 }
 
-/* a:visited {
-    text-decoration: none;
-    color:rgb(8, 99, 130)
-} */
+header p {
+    margin: 10px;
+    font-size: 1.2em;
+}
 
-.linkformat {
-    text-decoration: none;
+header img {
+    height: 50px;
+    width: 50px;
+    padding-right: 10px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.login-pg {
+    font-size: 1.2em;
+    height: 10vh;
+}
+
+/* LOGIN.HTML */
+
+.login {
+    text-align: center;
+}
+
+.login h1 {
+    color: rgb(73, 107, 101);
+    font-family: 'Comfortaa', cursive;
+}
+
+.login-form {
+    background-color: white;
+    border: 1px solid rgb(73, 107, 101);
+    padding: 10px;
+    margin-inline: 20px;
+}
+
+/* CREATE_ACCOUNT.HTML */
+    .create h1{
+        text-align: center;
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+    .create-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 1px solid rgb(73, 107, 101);
+        padding: 10px;
+        margin: 15px;
+    }
+
+    .create-btn {
+        text-align: center;
+    }
+
+    /* HOME.HTML */
+
+    .post-container {
+        background-color: white;
+        border-radius: 5%;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .post-username a{
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+        text-decoration: none;
+    }
+
+    .post-title a{
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+    main {
+        margin-top: 15px;
+    }
+
+    /* POST_CREATE.HTML */
+
+    .new-post h1{
+        text-align: center;
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+    .new-post-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 1px solid rgb(73, 107, 101);
+        padding: 20px;
+    }
+
+    .new-post-btn {
+        text-align: center;
+    }
+
+    /* POST_DETAIL.HTML */
+
+    .post {
+        background-color: white;
+        border: 1px solid rgb(73, 107, 101);
+        border-radius: 5%;
+        padding: 10px;
+
+    }
+
+    .post-author a{
+        color: black;
+    }
+
+    .post h3 {
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+
+
+    .delete-btn a{
+        color: rgb(73, 107, 101);
+        text-decoration: none;
+        border: 1px solid rgb(203, 198, 198);
+        border-radius: 5%;
+        padding: 2px;
+    }
+
+    .delete-btn {
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    /* POST_DELETE.HTML */
+
+    .delete-post {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+    }
+
+    .delete-post h1 {
+        margin: 0;
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+    /* PROFILE.HTML */
+
+    .profile h1{
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+    .profile-head {
+        margin: 15px;
+    }
+
+    .profile-posts {
+        background-color: white;
+        border-radius: 5%;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .profile a {
+        color: rgb(73, 107, 101);
+        font-family: 'Comfortaa', cursive;
+    }
+
+
+
+@media (min-width: 1100px) {
+    
+    body {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    /* BASE.HTML */
+    
+    header {
+        text-align: left;
+        justify-content: center;
+    }
+
+    .login-pg {
+        width: 30vw;
+        height: 10vh;
+    }
+
+    .title {
+        flex-direction: row;
+    }
+
+    /* LOGIN.HTML */
+
+    .login h1 {
+        font-size: 2.2em;
+    }
+
+    .login-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50vw;
+        height: 10vw;
+        margin: auto;
+    }
+
+    /* CREATE_ACCOUNT.HTML */
+
+    .create-form {
+        width: 60vw;
+        margin: auto;
+    }
+
+    /* POST_CREATE.HTML */
+
+    .new-post {
+        width: 60vw;
+        height: 30vh;
+    }
+
+    .new-post-form {
+        text-align: center;
+    }
+
+    /* PROFILE.HTML */
+
+    .profile-posts {
+        width: 60vw;
+    }
 }

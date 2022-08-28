@@ -9,20 +9,25 @@
     <title>Chirp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arsenal&family=Old+Standard+TT:wght@400;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
     <header>
-        <h1><a class="linkformat" href="{% url 'posts:home' %}">Chirp</a></h1>
+        <div class="title">
+            <h1><a class="linkformat" href="{% url 'posts:home' %}">Chirp</a></h1>
+            <img src="https://cdn-icons-png.flaticon.com/512/3069/3069114.png">
+        </div>
         <div>
             {% if user.is_authenticated %}
-                <p><a href="{% url 'users:profile' user.username %}">{{user.username}}</a></p> 
+                <p class="hello">Hello, <a href="{% url 'users:profile' user.username %}">{{user.username}}!</a></p> 
                 <p><a href="{% url 'logout' %}">Logout</a></p>
                 <p><a href="{% url 'posts:create' %}">+ New Chirp</a></p>
             {% else %}
-                <p><a href="{% url 'login' %}">Login</a></p>
-                <p><a href="{% url 'users:create_account' %}">Create Account</a></p>
+                <div class="login-pg">
+                    <p><a href="{% url 'login' %}">Login</a></p>
+                    <p><a href="{% url 'users:create_account' %}">Create Account</a></p>
+                </div>
             {% endif %}  
         </div>
     </header>
